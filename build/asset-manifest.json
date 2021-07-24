@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2428bb44.chunk.css",
+    "main.js": "/static/js/main.1d951fa8.chunk.js",
+    "runtime-main.js": "/static/js/runtime-main.dda49a61.js",
+    "static/js/2.d6faf407.chunk.js": "/static/js/2.d6faf407.chunk.js",
+    "static/js/3.533327fa.chunk.js": "/static/js/3.533327fa.chunk.js",
+    "index.html": "/index.html",
+    "static/js/2.d6faf407.chunk.js.LICENSE.txt": "/static/js/2.d6faf407.chunk.js.LICENSE.txt",
+    "static/media/button.ef17e8d4.svg": "/static/media/button.ef17e8d4.svg",
+    "static/media/c.22ea43c1.svg": "/static/media/c.22ea43c1.svg",
+    "static/media/close.625ba8f0.svg": "/static/media/close.625ba8f0.svg",
+    "static/media/copy.e88a7cef.svg": "/static/media/copy.e88a7cef.svg",
+    "static/media/cpp.30cd71dc.svg": "/static/media/cpp.30cd71dc.svg",
+    "static/media/csharp.834de1bc.svg": "/static/media/csharp.834de1bc.svg",
+    "static/media/enterprise.dd226682.svg": "/static/media/enterprise.dd226682.svg",
+    "static/media/game.972f0636.svg": "/static/media/game.972f0636.svg",
+    "static/media/java.8cb1fd4a.svg": "/static/media/java.8cb1fd4a.svg",
+    "static/media/js.43e744a2.svg": "/static/media/js.43e744a2.svg",
+    "static/media/lamp.6dcda55d.svg": "/static/media/lamp.6dcda55d.svg",
+    "static/media/logo.6ce24c58.svg": "/static/media/logo.6ce24c58.svg",
+    "static/media/mobile.7ed1658e.svg": "/static/media/mobile.7ed1658e.svg",
+    "static/media/php.a2131666.svg": "/static/media/php.a2131666.svg",
+    "static/media/python.af4b6d45.svg": "/static/media/python.af4b6d45.svg",
+    "static/media/ruby.411dad54.svg": "/static/media/ruby.411dad54.svg",
+    "static/media/website.68595623.svg": "/static/media/website.68595623.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dda49a61.js",
+    "static/js/2.d6faf407.chunk.js",
+    "static/css/main.2428bb44.chunk.css",
+    "static/js/main.1d951fa8.chunk.js"
+  ]
+}
