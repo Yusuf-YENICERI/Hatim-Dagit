@@ -20,3 +20,11 @@ jobs:
           projectId: hatim-dagit
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
+          apiKey: '${{ secrets.FIREBASE_APIKEY }}'
+          authDomain: '${{ secrets.FIREBASE_AUTHDOMAIN }}'
+          databaseURL: '${{ secrets.FIREBASE_DATABASEURL }}'
+          projectId: '${{ secrets.FIREBASE_PROJECTID }}'
+          storageBucket: '${{ secrets.FIREBASE_STORAGEBUCKET }}'
+          messagingSenderId: '${{ secrets.FIREBASE_MESSAGINGSENDERID }}'
+          appId: '${{ secrets.FIREBASE_APPID }}'
+          measurementId: '${{ secrets.FIREBASE_MEASUREMENTID }}'
