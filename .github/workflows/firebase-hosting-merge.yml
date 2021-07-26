@@ -11,29 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: set env file
-        run: |
-            touch .env
-            echo 'apiKey=${{ secrets.FIREBASE_APIKEY }}' >> .env
-            echo 'authDomain=${{ secrets.FIREBASE_AUTHDOMAIN }}' >> .env
-            echo 'databaseURL=${{ secrets.FIREBASE_DATABASEURL }}' >> .env
-            echo 'projectId=${{ secrets.FIREBASE_PROJECTID }}' >> .env
-            echo 'storageBucket=${{ secrets.FIREBASE_STORAGEBUCKET }}' >> .env
-            echo 'messagingSenderId=${{ secrets.FIREBASE_MESSAGINGSENDERID }}' >> .env
-            echo 'appId=${{ secrets.FIREBASE_APPID }}' >> .env
-            echo 'measurementId=${{ secrets.FIREBASE_MEASUREMENTID }}' >> .env
-            cat .env
-      - name: install and build
-        run: yarn install && CI='' yarn build
+      - run: yarn install && CI='' yarn build
         env:
-          apiKey: '${{ secrets.FIREBASE_APIKEY }}'
-          authDomain: '${{ secrets.FIREBASE_AUTHDOMAIN }}'
-          databaseURL: '${{ secrets.FIREBASE_DATABASEURL }}'
-          projectId: '${{ secrets.FIREBASE_PROJECTID }}'
-          storageBucket: '${{ secrets.FIREBASE_STORAGEBUCKET }}'
-          messagingSenderId: '${{ secrets.FIREBASE_MESSAGINGSENDERID }}'
-          appId: '${{ secrets.FIREBASE_APPID }}'
-          measurementId: '${{ secrets.FIREBASE_MEASUREMENTID }}'
+          REACT_APP_apiKey: '${{ secrets.FIREBASE_APIKEY }}'
+          REACT_APP_authDomain: '${{ secrets.FIREBASE_AUTHDOMAIN }}'
+          REACT_APP_databaseURL: '${{ secrets.FIREBASE_DATABASEURL }}'
+          REACT_APP_projectId: '${{ secrets.FIREBASE_PROJECTID }}'
+          REACT_APP_storageBucket: '${{ secrets.FIREBASE_STORAGEBUCKET }}'
+          REACT_APP_messagingSenderId: '${{ secrets.FIREBASE_MESSAGINGSENDERID }}'
+          REACT_APP_appId: '${{ secrets.FIREBASE_APPID }}'
+          REACT_APP_measurementId: '${{ secrets.FIREBASE_MEASUREMENTID }}'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
