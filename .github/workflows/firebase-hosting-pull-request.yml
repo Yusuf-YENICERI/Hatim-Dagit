@@ -9,10 +9,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: yarn install && CI='' yarn build
+        env:
+          REACT_APP_apiKey: '${{ secrets.FIREBASE_APIKEY }}'
+          REACT_APP_authDomain: '${{ secrets.FIREBASE_AUTHDOMAIN }}'
+          REACT_APP_databaseURL: '${{ secrets.FIREBASE_DATABASEURL }}'
+          REACT_APP_projectId: '${{ secrets.FIREBASE_PROJECTID }}'
+          REACT_APP_storageBucket: '${{ secrets.FIREBASE_STORAGEBUCKET }}'
+          REACT_APP_messagingSenderId: '${{ secrets.FIREBASE_MESSAGINGSENDERID }}'
+          REACT_APP_appId: '${{ secrets.FIREBASE_APPID }}'
+          REACT_APP_measurementId: '${{ secrets.FIREBASE_MEASUREMENTID }}'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HATIM_DAGIT }}'
-          projectId: hatim-dagit
+          projectId: '${{ secrets.FIREBASE_PROJECTID }}'
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
