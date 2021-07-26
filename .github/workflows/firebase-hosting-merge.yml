@@ -11,7 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: yarn install && CI='' yarn build
+      
+      - name: set env file
+        run: |
+            touch .env
+            echo 'apiKey=${{ secrets.FIREBASE_APIKEY }}' >> .env
+            echo 'authDomain=${{ secrets.FIREBASE_AUTHDOMAIN }}' >> .env
+            echo 'databaseURL=${{ secrets.FIREBASE_DATABASEURL }}' >> .env
+            echo 'projectId=${{ secrets.FIREBASE_PROJECTID }}' >> .env
+            echo 'storageBucket=${{ secrets.FIREBASE_STORAGEBUCKET }}' >> .env
+            echo 'messagingSenderId=${{ secrets.FIREBASE_MESSAGINGSENDERID }}' >> .env
+            echo 'appId=${{ secrets.FIREBASE_APPID }}' >> .env
+            echo 'measurementId=${{ secrets.FIREBASE_MEASUREMENTID }}' >> .env
+      - name: install and build
+        run: yarn install && CI='' yarn build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
