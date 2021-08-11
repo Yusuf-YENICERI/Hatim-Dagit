@@ -115,13 +115,13 @@ export const Linker = styled.a`
 
 export const DialogBox = styled.div`
 visibility: ${({visibility}) => (visibility ? "visible" : "hidden")};
-height: 290px;
+height: ${({height}) => height};
 width: 250px;
 position: absolute; 
 background-color:#04d654;
 z-index:999;
 margin-left:39%;
-margin-top: 10%;
+margin-top: ${({top}) => top};
 box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);
 -webkit-box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);
 -moz-box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);
@@ -164,6 +164,10 @@ export const DialogIcon = styled.img`
 width: ${({iconSize}) => (iconSize)};
 align-self: ${({alignEnd}) => (alignEnd ? "flex-end" : "")};
 margin-right: 20px;
+`
+
+export const DialogInputBox = styled.input`
+
 `
 
 

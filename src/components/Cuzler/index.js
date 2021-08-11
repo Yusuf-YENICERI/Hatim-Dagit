@@ -139,7 +139,10 @@ const Constr = ({ toggle, firebase }) => {
                 </BackButtonIcon>
             </BackContainer> */}
             <QuestionInnerContainer>
-                <QuestionItem>
+                <QuestionItem fontSize={"1.6rem"}>
+                        {Language.baslik}
+                </QuestionItem>
+                <QuestionItem fontSize={"1.3rem"}>
                         {Language[1].soru}
                 </QuestionItem>
             </QuestionInnerContainer>

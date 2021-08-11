@@ -63,7 +63,13 @@ class Firebase{
     return Hatim.val();
   }
 
-  yeniHatim = async () => {
+  yeniHatim = async (baslik) => {
+
+    dataFormat.baslik = baslik;
+
+    console.log(dataFormat)
+    console.log(baslik)
+
     let hatimKey = await this.db.ref("hatim").push().key;
     await this.db.ref( "hatim/" + hatimKey ).set(dataFormat);
     

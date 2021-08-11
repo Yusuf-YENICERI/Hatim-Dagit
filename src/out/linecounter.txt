@@ -1,0 +1,60 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2021-07-28 16:34:05
+count workspace : /home/yusuf/Desktop/Hat/hatimGit/src
+total files : 41
+total code lines : 2973
+total comment lines : 206
+total blank lines : 566
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |            .js|           2947|            193|            565|     99|
+   |           .css|              6|             13|              1|   0.20|
+   |           .svg|             20|              0|              0|   0.67|
+   -------------------------------------------------------------------------
+App.css, code is 6, comment is 0, blank is 1.
+App.js, code is 16, comment is 0, blank is 3.
+App.test.js, code is 7, comment is 0, blank is 1.
+common.js, code is 6, comment is 0, blank is 4.
+components/Cuzler/index.js, code is 150, comment is 31, blank is 47.
+components/Cuzler/QuestionElements.js, code is 301, comment is 13, blank is 65.
+components/Firebase/context.js, code is 3, comment is 0, blank is 4.
+components/Firebase/firebase.js, code is 63, comment is 6, blank is 21.
+components/Firebase/index.js, code is 4, comment is 0, blank is 4.
+components/Footer/FooterElements.js, code is 109, comment is 4, blank is 24.
+components/Footer/index.js, code is 38, comment is 17, blank is 6.
+components/Navbar/index.js, code is 78, comment is 40, blank is 16.
+components/Navbar/NavbarElements.js, code is 121, comment is 7, blank is 22.
+components/Question/index.js, code is 95, comment is 28, blank is 29.
+components/Question/QuestionElements.js, code is 249, comment is 8, blank is 52.
+components/Sidebar/index.js, code is 34, comment is 20, blank is 12.
+components/Sidebar/SiderbarElements.js, code is 83, comment is 0, blank is 15.
+icons/button.svg, code is 1, comment is 0, blank is 0.
+icons/c.svg, code is 1, comment is 0, blank is 0.
+icons/close.svg, code is 1, comment is 0, blank is 0.
+icons/copy.svg, code is 1, comment is 0, blank is 0.
+icons/cpp.svg, code is 1, comment is 0, blank is 0.
+icons/csharp.svg, code is 1, comment is 0, blank is 0.
+icons/enterprise.svg, code is 1, comment is 0, blank is 0.
+icons/game.svg, code is 1, comment is 0, blank is 0.
+icons/java.svg, code is 1, comment is 0, blank is 0.
+icons/js.svg, code is 1, comment is 0, blank is 0.
+icons/lamp.svg, code is 4, comment is 0, blank is 0.
+icons/mobile.svg, code is 1, comment is 0, blank is 0.
+icons/php.svg, code is 1, comment is 0, blank is 0.
+icons/python.svg, code is 1, comment is 0, blank is 0.
+icons/ruby.svg, code is 1, comment is 0, blank is 0.
+icons/website.svg, code is 1, comment is 0, blank is 0.
+index.css, code is 0, comment is 13, blank is 0.
+index.js, code is 13, comment is 3, blank is 2.
+logo.svg, code is 1, comment is 0, blank is 0.
+pages/cuz.js, code is 20, comment is 0, blank is 7.
+pages/index.js, code is 19, comment is 0, blank is 7.
+reportWebVitals.js, code is 12, comment is 0, blank is 1.
+setupTests.js, code is 1, comment is 4, blank is 0.
+strings/index.js, code is 1525, comment is 12, blank is 223.
+===============================================================================

@@ -20,18 +20,22 @@ export const QuestionContainer = styled.div`
 `;
 
 export const QuestionInnerContainer = styled.div`
-    height: 90px;
+    height: 120px;
     background-color: #91ffbb;
+
+    @media screen and (max-width: 480px){
+        height: 100px;
+    }
 `
 
 export const QuestionItem = styled.div`
-    padding: 50px;
-    font-size: 2.2rem;
+    padding: 30px;
+    font-size: ${({fontSize})=>fontSize};
     text-align: center;
     color: #000000;
 
     @media screen and (max-width: 480px){
-        font-size:1.2rem;
+        font-size:${({fontSize})=>fontSize};
         padding-bottom: 0px;
     }
 `
@@ -101,6 +105,7 @@ export const ResponseItem = styled.div`
 -webkit-box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);
 -moz-box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);
 transition: 0.5s all ease-in;
+    cursor: pointer;
 
 
 @media screen and (max-width: 480px){
@@ -205,7 +210,7 @@ align-self: ${({alignEnd}) => (alignEnd ? "flex-end" : "")};
 `
 
 export const DialogInputBox = styled.input`
-type:text;
+
 `
 
 export const CopyContainer = styled.div`

@@ -603,7 +603,7 @@ const turkish = {
             {
                 src:'',
                 exist:false,
-                cevap:'Yeni Hatim Oluştur',
+                cevap:'Hızlı Hatim Oluştur',
                 route:1
 
             },
@@ -1755,6 +1755,7 @@ export const dataFormat = {
             },
         ]
     },
-    bitti: false
+    bitti: false,
+    baslik: ''
 
 }
