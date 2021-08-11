@@ -135,7 +135,8 @@ align-items:center;
 justify-content: space-between;
 
 @media screen and (max-width: 480px){
-    margin-left: 20%;
+    margin-left: 15%;
+    margin-top: 30%;
     }
 `
 

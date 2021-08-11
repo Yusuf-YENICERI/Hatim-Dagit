@@ -14,7 +14,7 @@ export const QuestionContainer = styled.div`
     background-color: #91ffbb;
 
     @media screen and (max-width: 480px){
-        height: 3900px;
+        height: 1200px;
     }
 
 `;
@@ -57,7 +57,7 @@ export const RespondContainer = styled.div`
     height: 300px;
 
     @media screen and (max-width: 480px){
-        height: 950px;
+        height: 600px;
     }
 `
 
@@ -77,22 +77,30 @@ export const RespondOuterContainer = styled.div`
 export const RespondInnerContainer = styled.div`
     padding: 50px;
     /* background-color: red; */
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-evenly; */
+    display: grid;
+        grid-template-columns: auto auto auto auto auto auto auto auto auto auto ;
+        grid-auto-flow: row;
+        grid-row-gap: 30px;
 
     @media screen and (max-width: 480px){
         font-size:1rem;
-        display: flex;
-    flex-direction: column;
+        display: grid;
+        grid-template-rows: auto auto auto auto auto auto auto auto auto auto ;
+        grid-auto-flow: column;
+    
+        /* display: flex;
+    flex-direction: column; */
     text-align:center;
     }
 `
 export const ResponseItem = styled.div`
     padding: 20px;
-    margin: 0 10px;
-    height: 70px;
+    margin: 10px;
+    height: 90px;
     border-radius: 10px;
     background-color: ${({bgColor}) => (bgColor ? "#04d654" : "#FFBF17")} ;
     /* #04d654; */
@@ -110,8 +118,8 @@ transition: 0.5s all ease-in;
 
 @media screen and (max-width: 480px){
         padding: 5px;
-        height: 90px;
-        margin: 10px 0px;
+        height: 70px;
+        margin: 0px 6px;
     }
 
 &:hover{
@@ -141,12 +149,12 @@ export const LoadingContainer = styled.div`
     visibility: ${({visibility})=>(visibility ? "visible" : "hidden")};
     color: #00569c;
     position: fixed;
-    margin-left: 28%;
+    margin-left: 35%;
     margin-top: 20%;
 
     @media screen and (max-width: 480px){
     margin-top: 40%;
-    margin-left: 28%;
+    margin-left: 18%;
 }
 `;
 
@@ -180,7 +188,7 @@ align-items:center;
 justify-content: space-evenly;
 
 @media screen and (max-width: 480px){
-        margin-left: 15%;
+        margin-left: 8%;
     }
 `
 
@@ -229,6 +237,14 @@ export const CopyContainer = styled.div`
     border-width: 1px; */
 transition: 0.5s all ease-in;
 padding: 8px;
+
+@media screen and (max-width: 960px){
+    bottom: 5%;
+    right: 12%;
+    position: fixed;
+    }
+
+
 `
 
 export const CopyItem = styled.p`

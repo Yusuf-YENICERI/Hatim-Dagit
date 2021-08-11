@@ -171,9 +171,6 @@ const Constr = ({ toggle, firebase }) => {
                             </ResponseItem>
                         ))
                     }
-                </RespondInnerContainer>
-
-                <RespondInnerContainer>
                     {
                         Language[2].cevaplar.map(({cevap, alindi, isim}) => (
                             
@@ -194,10 +191,7 @@ const Constr = ({ toggle, firebase }) => {
                             </ResponseItem>
                         ))
                     }
-                </RespondInnerContainer>
-
-                <RespondInnerContainer>
-                    {
+                     {
                         Language[3].cevaplar.map(({cevap, alindi, isim}) => (
                             
                             <ResponseItem bgColor={alindi} onClick={()=>{
@@ -218,6 +212,8 @@ const Constr = ({ toggle, firebase }) => {
                         ))
                     }
                 </RespondInnerContainer>
+
+               
 
                 </RespondOuterContainer>
             </RespondContainer>
