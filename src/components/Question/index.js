@@ -59,7 +59,7 @@ const Question = ({ toggle }) => {
     const [routes, setRoutes] = useState([]);
     const [hatimKey, setHatimKey] = useState("");
     const [hideDialogBox, setHideDialogBox] = useState(false);
-    const [askDialogBox, setAskDialogBox] = useState(true);
+    const [askDialogBox, setAskDialogBox] = useState(false);
     const [linkKopyala, setLinkKopyala] = useState("Linki Kopyala")
     const [yazilar, setYazilar] = useState({baslik:"Yeni Hatim Oluşturuluyor", link:"Link hazırlanıyor", cevap: "Lütfen bekleyiniz .."});
     const [hatimKonu, setHatimKonu] = useState("");
