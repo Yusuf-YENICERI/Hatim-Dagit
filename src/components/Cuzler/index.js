@@ -48,9 +48,16 @@ const Constr = ({ toggle, firebase }) => {
     const [hideRespond, setHideRespond] = useState(false);
     const [loadingVisibility, setLoadingVisibility] = useState(true);
     const [linkCopiedText, setLinkCopiedText] = useState("Linki Kopyala");
+    const [waitText, setWaitText] = useState("Lütfen Bekleyiniz ..");
 
     useEffect(async () => {
-        setLanguage(await firebase.hatimGetir());
+        let result = await firebase.hatimGetir();
+        if (result == "error")
+        {
+            setWaitText("Bir Hata Oluştu, Sayfayı Güncelleyin!")
+            return;
+        }
+        setLanguage(result);
         setHideRespond(true);
         setLoadingVisibility(false);
       }, []);
@@ -86,7 +93,7 @@ const Constr = ({ toggle, firebase }) => {
         <QuestionContainer >
 
         <LoadingContainer visibility={loadingVisibility}>
-            <LoadingItem >Lütfen Bekleyiniz ..</LoadingItem>
+    <LoadingItem >{waitText}</LoadingItem>
         </LoadingContainer>
 
         <CopyContainer onClick={()=>{

@@ -57,10 +57,14 @@ class Firebase{
    */
 
   hatimGetir = async () => {
-    let hatimKey = this.extractKey();
-    let Hatim = await this.db.ref( "hatim/" + hatimKey ).get();
-    console.log(Hatim.val());
-    return Hatim.val();
+    try {
+      let hatimKey = this.extractKey();
+      let Hatim = await this.db.ref( "hatim/" + hatimKey ).get();
+      console.log(Hatim.val());
+      return Hatim.val(); 
+    } catch (error) {
+      return "error";
+    }
   }
 
   yeniHatim = async (baslik) => {
