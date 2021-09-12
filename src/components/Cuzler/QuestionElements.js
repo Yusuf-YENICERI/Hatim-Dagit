@@ -230,7 +230,7 @@ export const CopyContainer = styled.div`
     position: fixed;
     bottom: 10%;
     right: 3%;
-    background-color: rgb(0, 186, 71, 0.5);
+    background-color: rgb(192, 252, 208, 0.5);
     border-radius: 20px;
     /* border: solid;
     border-color: black;
