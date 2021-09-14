@@ -51,15 +51,18 @@ const Constr = ({ toggle, firebase }) => {
     const [waitText, setWaitText] = useState("Lütfen Bekleyiniz ..");
 
     useEffect(async () => {
-        let result = await firebase.hatimGetir();
-        if (result == "error")
-        {
+        try {
+            let result = await firebase.hatimGetir();
+            while(result == "error"){
+                result = await firebase.hatimGetir();
+            }    
+            setLanguage(result);
+            setHideRespond(true);
+            setLoadingVisibility(false);
+        } catch (error) {
             setWaitText("Bir Hata Oluştu, Sayfayı Güncelleyin!")
             return;
         }
-        setLanguage(result);
-        setHideRespond(true);
-        setLoadingVisibility(false);
       }, []);
     // const [scrollNav, setScrollNav] = useState(false);
     // const [width, setWidth] = useState(window.innerWidth);
