@@ -149,12 +149,14 @@ export const LoadingContainer = styled.div`
     visibility: ${({visibility})=>(visibility ? "visible" : "hidden")};
     color: #00569c;
     position: fixed;
-    margin-left: 35%;
-    margin-top: 20%;
+    flex:1;
+    margin-top: 20%; 
 
     @media screen and (max-width: 480px){
-    margin-top: 40%;
-    margin-left: 18%;
+        left: 55%;
+        margin-top: 40%;
+        margin-left: -125px;
+        width: 250px;
 }
 `;
 
@@ -163,6 +165,7 @@ export const LoadingItem = styled.p`
 
     @media screen and (max-width: 480px){
         font-size: 1.6rem;
+        
     }
 `;
 
