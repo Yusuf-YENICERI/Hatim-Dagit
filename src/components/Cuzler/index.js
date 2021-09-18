@@ -58,8 +58,8 @@ const Constr = ({ toggle, firebase }) => {
                 result = await firebase.hatimGetir();
             }    
             setLanguage(result);
-            // setHideRespond(true);
-            // setLoadingVisibility(false);
+            setHideRespond(true);
+            setLoadingVisibility(false);
         } catch (error) {
             setWaitText(LanguageData["/cuz"].Before.Error)
             return;
