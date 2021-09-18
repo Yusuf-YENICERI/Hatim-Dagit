@@ -2,17 +2,12 @@
 
 
 import React from 'react'
-import {Turkish, English} from '../../strings/index';
-import detectLanguage from '../../common';
+import Language from '../../strings/index';
 import { FooterContainer, FooterWrapper, FooterLinksContainer, FooterLinkWrapper, FooterLinkItems, FooterLinkTitle, FooterLink,
 Business, BusinessWrap, BusinessLogo, WebsiteRights, BusinessIcons, BusinessIconLink } from "./FooterElements";
 import {Linker} from '../Question/QuestionElements';
 import { FaGithub } from "react-icons/fa";
-let Language;
-if (detectLanguage() == "en-US")
-    Language = English;
-else
-    Language = Turkish;
+
 
 const Footer = () => {
     return (
@@ -42,7 +37,7 @@ const Footer = () => {
                          {/* <WebsiteRights>
                              {Language.Footer.websiteRights} <Linker href="http://carlcheo.com/startcoding" target="_blank">http://carlcheo.com/startcoding</Linker>
                          </WebsiteRights> */}
-                         {Language.Footer.madeBy}
+                         {Language.Footer.aciz_kul}
                          <BusinessIcons>
                              <BusinessIconLink href="https://github.com/Yusuf-YENICERI/" target="_blank" aria-label="Github">
                                  <FaGithub></FaGithub>

@@ -8,7 +8,6 @@ import {FaBars} from 'react-icons/fa'
 import {QuestionContainer, QuestionInnerContainer, QuestionItem, RespondContainer, RespondInnerContainer, ResponseItem
 , ResponseLogo, ResponseText, BackButtonIcon, BackContainer, DialogBox, DialogText, DialogLink, DialogIcon, DialogContainer, DialogInputBox} from './QuestionElements';
 import Language from '../../strings/index';
-import detectLanguage from '../../common';
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../icons/button.svg';
 import Firebase, {FirebaseContext} from '../Firebase';
@@ -22,7 +21,7 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
 
                 <DialogContainer>
                 <DialogText fontSize={"20px"}>
-                    Hatim için bir başlık belirleyin:
+                {Language["/"].Button.Header.Text}
                 </DialogText>
 
                 {<div style={{height:'10px'}}></div>}
@@ -43,11 +42,11 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
                 let _hatimKey = await firebase.yeniHatim(hatimKonu);
                 setHatimKey(_hatimKey);
                 setYazilar({
-                    baslik:"Yeni Hatim Oluşturuldu!",
+                    baslik:Language["/"].Button.Final.After.Header,
                     link: "https://hatim-dagit.web.app/cuz/" + _hatimKey,
-                    cevap:"Devam Et"
+                    cevap:Language["/"].Button.Final.After.Button
                 })  
-            }}>Devam Et</NavBtnLink>
+            }}>{Language["/"].Button.Header.Button}</NavBtnLink>
 
             </DialogBox>
     );
@@ -60,8 +59,9 @@ const Question = ({ toggle }) => {
     const [hatimKey, setHatimKey] = useState("");
     const [hideDialogBox, setHideDialogBox] = useState(false);
     const [askDialogBox, setAskDialogBox] = useState(false);
-    const [linkKopyala, setLinkKopyala] = useState("Linki Kopyala")
-    const [yazilar, setYazilar] = useState({baslik:"Yeni Hatim Oluşturuluyor", link:"Link hazırlanıyor", cevap: "Lütfen bekleyiniz .."});
+    const [linkKopyala, setLinkKopyala] = useState(Language["/"].Button.Final.Before.Copy)
+    const [yazilar, setYazilar] = useState({baslik:Language["/"].Button.Final.Before.Header, link:Language["/"].Button.Final.Before.LinkReady,
+     cevap: Language["/"].Button.Final.Before.Button});
     const [hatimKonu, setHatimKonu] = useState("");
 
     // const [scrollNav, setScrollNav] = useState(false);
@@ -98,7 +98,7 @@ const Question = ({ toggle }) => {
 
             <DialogIcon src={close} iconSize={"30px"} alignEnd={true} onClick={
                 ()=>{
-                    setYazilar({baslik:"Yeni Hatim Oluşturuluyor", link:"Link hazırlanıyor", cevap: "Lütfen bekleyiniz .."});
+                    setYazilar({baslik:Language["/"].Button.Final.Before.Header, link:Language["/"].Button.Final.Before.LinkReady, cevap: Language["/"].Button.Final.Before.Button});
                     setHideDialogBox(!hideDialogBox);
                 }
             } />
@@ -109,7 +109,7 @@ const Question = ({ toggle }) => {
 
                 <DialogContainer>
                 <DialogText fontSize={"15px"}>
-                    Hatmi Dağıtmak için Linkiniz:
+                    {Language["/"].Button.Final.Before.Link}
                 </DialogText>
 
                 {<div style={{height:'10px'}}></div>}
@@ -128,7 +128,7 @@ const Question = ({ toggle }) => {
                 <DialogIcon src={copy} iconSize={"30px"} onClick={()=>{
                    var text = "https://hatim-dagit.web.app/cuz/" + hatimKey;
                    navigator.clipboard.writeText(text).then(function() {
-                        setLinkKopyala("Link Kopyalandı")
+                        setLinkKopyala(Language["/"].Button.Final.After.Copy)
                    }, function(err) {
                    
                 });
@@ -160,25 +160,20 @@ const Question = ({ toggle }) => {
             </BackContainer> */}
             <QuestionInnerContainer>
                 <QuestionItem>
-                        {Language[datas].soru}
+                {Language["/"].Question}
                 </QuestionItem>
             </QuestionInnerContainer>
 
             <RespondContainer>
                            <RespondInnerContainer>
-                                {
-                                    Language[datas].cevaplar.map(({src, exist, cevap, route}) => (
                                     <ResponseItem  onClick={ ()=>{
                                         setAskDialogBox(true)
                                         
                                     }}>
-                                        <ResponseLogo src={src} exist={exist}/>
                                         <ResponseText>
-                                            {cevap}
+                                        {Language["/"].Button.Main}
                                         </ResponseText>
                                     </ResponseItem>
-                                    ))
-                                }
                             </RespondInnerContainer>
             </RespondContainer>
 

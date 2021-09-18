@@ -11,8 +11,9 @@ DialogBox, DialogText, DialogLink, DialogIcon, DialogContainer, DialogInputBox, 
 LoadingContainer, LoadingItem,
 CopyContainer, CopyItem, CopyIcon
 } from './QuestionElements';
-import {dataFormat} from '../../strings/index';
-import detectLanguage from '../../common';
+import LanguageData from '../../strings';
+import {dataFormat} from '../../strings/dataFormat';
+
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../icons/button.svg';
 import copy from '../../icons/copy.svg';
@@ -41,14 +42,14 @@ const Constr = ({ toggle, firebase }) => {
     const [routes, setRoutes] = useState([]);
     const [hatimKey, setHatimKey] = useState("");
     const [hideDialogBox, setHideDialogBox] = useState(false);
-    const [linkKopyala, setLinkKopyala] = useState("Linki Kopyala")
+    const [linkKopyala, setLinkKopyala] = useState(LanguageData["/cuz"].After.Copy.Before)
     const [username, setUsername] = useState("");
     const [hatimNo, setHatimNo] = useState("");
     const [Language, setLanguage] = useState(dataFormat);
     const [hideRespond, setHideRespond] = useState(false);
     const [loadingVisibility, setLoadingVisibility] = useState(true);
-    const [linkCopiedText, setLinkCopiedText] = useState("Linki Kopyala");
-    const [waitText, setWaitText] = useState("Lütfen Bekleyiniz ..");
+    const [linkCopiedText, setLinkCopiedText] = useState(LanguageData["/cuz"].After.Copy.Before);
+    const [waitText, setWaitText] = useState(LanguageData["/cuz"].Before.Wait);
 
     useEffect(async () => {
         try {
@@ -60,7 +61,7 @@ const Constr = ({ toggle, firebase }) => {
             setHideRespond(true);
             setLoadingVisibility(false);
         } catch (error) {
-            setWaitText("Bir Hata Oluştu, Sayfayı Güncelleyin!")
+            setWaitText(LanguageData["/cuz"].Before.Error)
             return;
         }
       }, []);
@@ -102,7 +103,7 @@ const Constr = ({ toggle, firebase }) => {
         <CopyContainer onClick={()=>{
                    var text = window.location;
                    navigator.clipboard.writeText(text).then(function() {
-                        setLinkCopiedText("Link Kopyalandı")
+                        setLinkCopiedText(LanguageData["/cuz"].After.Copy.After)
                    }, function(err) {
                    
                 });
@@ -121,7 +122,7 @@ const Constr = ({ toggle, firebase }) => {
             } />
 
                 <DialogText fontSize={"20px"}>
-    {hatimNo}. Cüzü almak için isminizi girin:
+    {hatimNo}. {LanguageData["/cuz"].Button.Question}
                 </DialogText>
 
                 
@@ -136,7 +137,7 @@ const Constr = ({ toggle, firebase }) => {
                     await firebase.cuzAlindi(username, hatimNo);
                     setLanguage(await firebase.hatimGetir());
                 }}>
-                    Cüzü Al
+                    {LanguageData["/cuz"].Button.Take}
                 </NavBtnLink>
 
                 
@@ -153,7 +154,7 @@ const Constr = ({ toggle, firebase }) => {
                         {Language.baslik}
                 </QuestionItem>
                 <QuestionItem fontSize={"1.3rem"}>
-                        {Language[1].soru}
+                        {LanguageData["/cuz"].Before.Question}
                 </QuestionItem>
             </QuestionInnerContainer>
 

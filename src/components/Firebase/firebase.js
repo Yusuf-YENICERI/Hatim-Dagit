@@ -3,7 +3,7 @@
 import app from 'firebase/app';
 import 'firebase/database';
 
-import {dataFormat} from '../../strings';
+import {dataFormat} from '../../strings/dataFormat';
 require('dotenv').config()
 
 const config = {

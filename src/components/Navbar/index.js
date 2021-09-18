@@ -5,16 +5,13 @@
 
 import React, {useState, useEffect} from 'react'
 import {FaBars} from 'react-icons/fa'
-import {Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink, NavIcon} from './NavbarElements';
-import {Turkish, English} from '../../strings/index';
-import detectLanguage from '../../common';
+import {Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavLinksR, NavBtn, NavBtnLink, NavIcon} from './NavbarElements';
+import Language from '../../strings/index';
 import { FaGithub } from "react-icons/fa";
-
-let Language;
-if (detectLanguage() == "en-US")
-    Language = English;
-else
-    Language = Turkish;
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+import './navbar.css'
+import { setLanguage } from "../../common";
 
 const Navbar = ({ toggle, font }) => {
 
@@ -62,13 +59,39 @@ let isMobile = (width <= 768);
                 </MobileIcon>
                 <NavMenu>
                     <NavItem>
+                        <NavLinksR
+                        smooth={true}
+                        duration={500}
+                        spy={true}
+                        exact="true"
+                        offset={100}
+                        to={Language.Navbar.LinkHelpers[0]}>{Language.Navbar.Links[0]}</NavLinksR>
+                    </NavItem>
+                    <NavItem>
                         <NavLinks
                         smooth={true}
                         duration={500}
                         spy={true}
                         exact="true"
                         offset={100}
-                        to={Language.Navbar.LinkHelpers[0]}>{Language.Navbar.Links[0]}</NavLinks>
+                        to={Language.Navbar.LinkHelpers[1]}>{Language.Navbar.Links[1]}</NavLinks>
+                    </NavItem>
+                    <NavItem>
+                    <NavLinks
+                        smooth={true}
+                        duration={500}
+                        spy={true}
+                        exact="true"
+                        offset={100}
+                        to={Language.Navbar.LinkHelpers[2]}>         
+                            <Dropdown controlClassName='dropdowner' arrowClosed={<span></span>} arrowOpen={<span></span>} options={Language.Navbar.Languages} onChange={(option)=>{
+                            setLanguage(option.value)
+                            window.location.reload();
+
+                        }} value={""} placeholder={Language.Navbar.Links[2]} />
+                        
+                        </NavLinks>
+       
                     </NavItem>
                     <NavBtn>
                     <NavBtnLink

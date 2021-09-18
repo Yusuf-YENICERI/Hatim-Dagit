@@ -275,6 +275,303 @@
                     "filename": "strings/index.js"
                 }
             ]
+        },
+        {
+            "version": "0.2.7",
+            "counttime": "2021-09-14 20:03:14",
+            "filesum": 45,
+            "codesum": 1893,
+            "commentsum": 207,
+            "blanksum": 474,
+            "statistics": {
+                ".js": {
+                    "code": 1867,
+                    "comment": 194,
+                    "blank": 473
+                },
+                ".svg": {
+                    "code": 20,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".css": {
+                    "code": 6,
+                    "comment": 13,
+                    "blank": 1
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 1,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "App.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "App.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "App.test.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "common.js"
+                },
+                {
+                    "blank": 48,
+                    "code": 159,
+                    "comment": 31,
+                    "filename": "components/Cuzler/index.js"
+                },
+                {
+                    "blank": 71,
+                    "code": 310,
+                    "comment": 19,
+                    "filename": "components/Cuzler/QuestionElements.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "components/Firebase/context.js"
+                },
+                {
+                    "blank": 24,
+                    "code": 70,
+                    "comment": 6,
+                    "filename": "components/Firebase/firebase.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "components/Firebase/index.js"
+                },
+                {
+                    "blank": 24,
+                    "code": 109,
+                    "comment": 4,
+                    "filename": "components/Footer/FooterElements.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 32,
+                    "comment": 17,
+                    "filename": "components/Footer/index.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 81,
+                    "comment": 40,
+                    "filename": "components/Navbar/index.js"
+                },
+                {
+                    "blank": 23,
+                    "code": 134,
+                    "comment": 7,
+                    "filename": "components/Navbar/NavbarElements.js"
+                },
+                {
+                    "blank": 43,
+                    "code": 116,
+                    "comment": 28,
+                    "filename": "components/Question/index.js"
+                },
+                {
+                    "blank": 54,
+                    "code": 252,
+                    "comment": 8,
+                    "filename": "components/Question/QuestionElements.js"
+                },
+                {
+                    "blank": 11,
+                    "code": 34,
+                    "comment": 20,
+                    "filename": "components/Sidebar/index.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 98,
+                    "comment": 0,
+                    "filename": "components/Sidebar/SiderbarElements.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/button.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/c.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/close.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/copy.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/cpp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/csharp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/enterprise.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/game.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/java.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/js.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "icons/lamp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/mobile.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/php.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/python.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/ruby.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/website.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 13,
+                    "filename": "index.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 13,
+                    "comment": 3,
+                    "filename": "index.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "logo.svg"
+                },
+                {
+                    "blank": 7,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "pages/cuz.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "pages/index.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "reportWebVitals.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "setupTests.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "strings/Arabic.js"
+                },
+                {
+                    "blank": 40,
+                    "code": 170,
+                    "comment": 1,
+                    "filename": "strings/dataFormat.js"
+                },
+                {
+                    "blank": 22,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "strings/english.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 40,
+                    "comment": 6,
+                    "filename": "strings/index.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "strings/Turkish.js"
+                }
+            ]
         }
     ]
 }
