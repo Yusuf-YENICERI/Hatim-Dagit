@@ -61,6 +61,9 @@ const Constr = ({ toggle, firebase }) => {
             setLanguage(result);
             setHideRespond(true);
             setLoadingVisibility(false);
+            if(localStorage.getItem("cuz") == null){
+                localStorage.setItem("cuz", JSON.stringify([]));
+            }
         } catch (error) {
             setWaitText(LanguageData["/cuz"].Before.Error)
             return;
