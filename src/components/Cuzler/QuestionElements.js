@@ -150,8 +150,10 @@ export const LoadingContainer = styled.div`
     color: #00569c;
     position: fixed;
     flex:1;
-    margin-top: 20%; 
-
+    left: 60%;
+    margin-top: 20%;
+    margin-left: -350px;
+    width: 700px;
     @media screen and (max-width: 480px){
         left: 55%;
         margin-top: 40%;

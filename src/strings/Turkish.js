@@ -60,7 +60,8 @@ let Turkish = {
 
         Button:{
             Question: "Cüzü almak için isminizi girin:",
-            Take: "Cüzü Al"
+            Take: "Cüzü Al",
+            TakeCancel: "İptal Et"
         }
     }
 

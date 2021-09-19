@@ -13,7 +13,7 @@ CopyContainer, CopyItem, CopyIcon
 } from './QuestionElements';
 import LanguageData from '../../strings';
 import {dataFormat} from '../../strings/dataFormat';
-
+import { removeAll } from "../../common";
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../icons/button.svg';
 import copy from '../../icons/copy.svg';
@@ -50,7 +50,8 @@ const Constr = ({ toggle, firebase }) => {
     const [loadingVisibility, setLoadingVisibility] = useState(true);
     const [linkCopiedText, setLinkCopiedText] = useState(LanguageData["/cuz"].After.Copy.Before);
     const [waitText, setWaitText] = useState(LanguageData["/cuz"].Before.Wait);
-
+    const [takePart, setTakePart] = useState(LanguageData["/cuz"].Button.Take);
+    const [partIptal, setPartIptal] = useState(false);
     useEffect(async () => {
         try {
             let result = await firebase.hatimGetir();
@@ -97,47 +98,57 @@ const Constr = ({ toggle, firebase }) => {
         <QuestionContainer >
 
         <LoadingContainer visibility={loadingVisibility}>
-    <LoadingItem >{waitText}</LoadingItem>
+            <LoadingItem >{waitText}</LoadingItem>
         </LoadingContainer>
 
         <CopyContainer onClick={()=>{
                    var text = window.location;
                    navigator.clipboard.writeText(text).then(function() {
                         setLinkCopiedText(LanguageData["/cuz"].After.Copy.After)
-                   }, function(err) {
-                   
-                });
+                   }, function(err) {});
                 }}>
-            
             <CopyIcon src={copy} iconSize={"30px"} ></CopyIcon>
             <CopyItem>{linkCopiedText}</CopyItem>
         </CopyContainer>
 
         <DialogBox visibility={hideDialogBox}>
 
-        <DialogIcon src={close} iconSize={"20px"} alignEnd={true} onClick={
-                ()=>{
-                    setHideDialogBox(!hideDialogBox);
-                }
-            } />
+                <DialogIcon src={close} iconSize={"20px"} alignEnd={true} onClick={
+                        ()=>{
+                            setHideDialogBox(!hideDialogBox);
+                        }
+                    } />
 
                 <DialogText fontSize={"20px"}>
-    {hatimNo}. {LanguageData["/cuz"].Button.Question}
+                    {hatimNo}. {LanguageData["/cuz"].Button.Question}
                 </DialogText>
 
                 
-                <DialogInputBox onChange = {(event)=>{
+                <DialogInputBox value={username} onChange = {(event)=>{
                     setUsername(event.target.value);
                 }}>
                 </DialogInputBox>
 
                 <NavBtnLink onClick={async ()=>{
-                    // firebase
                     setHideDialogBox(!hideDialogBox);
+                    if(partIptal)
+                    {
+                        await firebase.cuzIptal(hatimNo);
+                        let localStorageCuzArr = JSON.parse(localStorage.getItem("cuz"));
+                        localStorageCuzArr =  removeAll(localStorageCuzArr, hatimNo);
+                        localStorage.setItem("cuz", JSON.stringify( localStorageCuzArr ));
+                        setLanguage(await firebase.hatimGetir());
+                        setTakePart(LanguageData["/cuz"].Button.Take)
+                        setPartIptal(false);
+                        return;
+                    }
                     await firebase.cuzAlindi(username, hatimNo);
+                    let localStorageCuzArr = JSON.parse(localStorage.getItem("cuz"));
+                    localStorageCuzArr.push(hatimNo);
+                    localStorage.setItem("cuz",JSON.stringify(localStorageCuzArr));
                     setLanguage(await firebase.hatimGetir());
                 }}>
-                    {LanguageData["/cuz"].Button.Take}
+                    {takePart}
                 </NavBtnLink>
 
                 
@@ -166,11 +177,24 @@ const Constr = ({ toggle, firebase }) => {
                         Language[1].cevaplar.map(({cevap, alindi, isim}) => (
                             
                             <ResponseItem bgColor={alindi} onClick={()=>{
-                                if (alindi) return;
+                                if (alindi) {
+                                    if(!JSON.parse(localStorage.getItem("cuz")).includes(cevap)){
+                                        return;
+                                    }else{
+                                        setTakePart(LanguageData["/cuz"].Button.TakeCancel)
+                                        setPartIptal(true);
+                                        //unnecessary, please fix it
+                                        setHatimNo(cevap);
+                                        setUsername(isim);
+                                        setHideDialogBox(true);
+                                        return;
+                                    }
+                                }
                                 
 
                                 setHatimNo(cevap);
                                 setHideDialogBox(true);
+                                setUsername('');
                             }}>
                                 <ResponseLogo />
                                 <ResponseText bgColor={alindi}>
@@ -186,11 +210,24 @@ const Constr = ({ toggle, firebase }) => {
                         Language[2].cevaplar.map(({cevap, alindi, isim}) => (
                             
                             <ResponseItem bgColor={alindi} onClick={()=>{
-                                if (alindi) return;
+                                if (alindi) {
+                                    if(!JSON.parse(localStorage.getItem("cuz")).includes(cevap)){
+                                        return;
+                                    }else{
+                                        setTakePart(LanguageData["/cuz"].Button.TakeCancel)
+                                        setPartIptal(true);
+                                        //unnecessary, please fix it
+                                        setHatimNo(cevap);
+                                        setUsername(isim);
+                                        setHideDialogBox(true);
+                                        return;
+                                    }
+                                }
                                 
 
                                 setHatimNo(cevap);
                                 setHideDialogBox(true);
+                                setUsername('');
                             }}>
                                 <ResponseLogo />
                                 <ResponseText bgColor={alindi}>
@@ -206,11 +243,24 @@ const Constr = ({ toggle, firebase }) => {
                         Language[3].cevaplar.map(({cevap, alindi, isim}) => (
                             
                             <ResponseItem bgColor={alindi} onClick={()=>{
-                                if (alindi) return;
+                                if (alindi) {
+                                    if(!JSON.parse(localStorage.getItem("cuz")).includes(cevap)){
+                                        return;
+                                    }else{
+                                        setTakePart(LanguageData["/cuz"].Button.TakeCancel)
+                                        setPartIptal(true);
+                                        //unnecessary, please fix it
+                                        setHatimNo(cevap);
+                                        setUsername(isim);
+                                        setHideDialogBox(true);
+                                        return;
+                                    }
+                                }
                                 
 
                                 setHatimNo(cevap);
                                 setHideDialogBox(true);
+                                setUsername('');
                             }}>
                                 <ResponseLogo />
                                 <ResponseText bgColor={alindi}>

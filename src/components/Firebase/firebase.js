@@ -91,6 +91,18 @@ class Firebase{
     });
   }
 
+
+  cuzIptal = async (no) => {
+    let hatimKey = this.extractKey();
+    let sira = this.hatimSiraBelirle(no);
+
+    await this.db.ref("hatim/" + hatimKey + "/" + sira + "/cevaplar/" + (no-((sira-1)*10+1))).set({
+                cevap: no,
+                isim: '',
+                alindi: false,
+    });
+  }
+
   cuzBitti = async (hatimKey) => {
     await this.db.ref("hatim/" + hatimKey + "/bitti").set(true);
   }
