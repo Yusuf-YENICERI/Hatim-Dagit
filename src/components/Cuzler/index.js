@@ -9,7 +9,8 @@ import {QuestionContainer, QuestionInnerContainer, QuestionItem, RespondContaine
 , ResponseLogo, ResponseText, BackButtonIcon, BackContainer, RespondOuterContainer,
 DialogBox, DialogText, DialogLink, DialogIcon, DialogContainer, DialogInputBox, NavBtnLink,
 LoadingContainer, LoadingItem,
-CopyContainer, CopyItem, CopyIcon
+CopyContainer, CopyItem, CopyIcon,
+ShareContainer, ShareItem, ShareIcon
 } from './QuestionElements';
 import LanguageData from '../../strings';
 import {dataFormat} from '../../strings/dataFormat';
@@ -17,12 +18,13 @@ import { removeAll } from "../../common";
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../icons/button.svg';
 import copy from '../../icons/copy.svg';
+import share from '../../icons/share.svg';
 import close from '../../icons/close.svg';
 import {FirebaseContext} from '../Firebase';
+import ShareBox from '../ShareBox';
 
 
-
-// let counter = 0;
+// let counter = 0;+0
 // let total = Language[18].cevaplar.length;
 
 
@@ -52,6 +54,12 @@ const Constr = ({ toggle, firebase }) => {
     const [waitText, setWaitText] = useState(LanguageData["/cuz"].Before.Wait);
     const [takePart, setTakePart] = useState(LanguageData["/cuz"].Button.Take);
     const [partIptal, setPartIptal] = useState(false);
+    const [hideShareBox, setHideShareBox] = useState(false);
+
+    const changeShareBoxVisibility = () => {
+        setHideShareBox(!hideShareBox)
+    }
+
     useEffect(async () => {
         try {
             let result = await firebase.hatimGetir();
@@ -103,6 +111,13 @@ const Constr = ({ toggle, firebase }) => {
         <LoadingContainer visibility={loadingVisibility}>
             <LoadingItem >{waitText}</LoadingItem>
         </LoadingContainer>
+
+        <ShareContainer onClick={()=>{
+                    changeShareBoxVisibility();
+                }}>
+            <ShareIcon src={share} iconSize={"30px"} ></ShareIcon>
+            <ShareItem>{LanguageData['/cuz'].After.Share}</ShareItem>
+        </ShareContainer>
 
         <CopyContainer onClick={()=>{
                    var text = window.location;
@@ -157,6 +172,8 @@ const Constr = ({ toggle, firebase }) => {
                 
 
             </DialogBox>
+
+            <ShareBox shareBoxVisibility={hideShareBox} changeShareBoxVisibility={changeShareBoxVisibility} />
 
         {/* <BackContainer>
                 <BackButtonIcon hide={datas == 1 ? false : true} src={backButton} onClick={()=>{setDatas(routes.pop()); console.log(routes); setRoutes(routes);}}>

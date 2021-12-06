@@ -55,6 +55,7 @@ let Turkish = {
                 Before: "Linki Kopyala",
                 After: "Link Kopyalandı"
             },
+            Share:'Hatmi Paylaş',
 
         },
 
@@ -62,7 +63,14 @@ let Turkish = {
             Question: "Cüzü almak için isminizi girin:",
             Take: "Cüzü Al",
             TakeCancel: "İptal Et"
+        },
+
+        ShareBox:{
+            Title: 'Paylaşmak için uygulama seçin:',
+            Sms: 'Sms ile Paylaş',
+            Whatsapp: 'Whatsapp ile Paylaş',
         }
+
     }
 
 

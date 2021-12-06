@@ -60,6 +60,7 @@ let english = {
                 Before: "Copy the Link",
                 After: "Link Copied"
             },
+            Share:'Share Khatm',
 
         },
 
@@ -67,6 +68,12 @@ let english = {
             Question: "part, enter your name to take it",
             Take: "Take the Part"
 
+        },
+
+        ShareBox:{
+            Title: 'Select an app to share:',
+            Sms: 'Share with Sms',
+            Whatsapp: 'Share with Whatsapp',
         }
     }
 

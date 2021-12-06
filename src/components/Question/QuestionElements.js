@@ -120,7 +120,8 @@ width: 250px;
 position: absolute; 
 background-color:#04d654;
 z-index:999;
-margin-left:39%;
+left: 50%;
+transform: translateX(-50%);
 margin-top: ${({top}) => top};
 box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);
 -webkit-box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);
@@ -135,7 +136,8 @@ align-items:center;
 justify-content: space-between;
 
 @media screen and (max-width: 480px){
-    margin-left: 15%;
+    left: 50%;
+    transform: translateX(-50%);
     margin-top: 30%;
     }
 `

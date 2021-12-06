@@ -12,6 +12,7 @@ import { Link as LinkS } from 'react-scroll';
 export const QuestionContainer = styled.div`
     height: 700px;
     background-color: #91ffbb;
+    position: relative;
 
     @media screen and (max-width: 480px){
         height: 1200px;
@@ -150,14 +151,13 @@ export const LoadingContainer = styled.div`
     color: #00569c;
     position: fixed;
     flex:1;
-    left: 60%;
+    left: 50%;
     margin-top: 20%;
-    margin-left: -350px;
-    width: 700px;
+    transform: translateX(-50%);
     @media screen and (max-width: 480px){
-        left: 55%;
         margin-top: 40%;
-        margin-left: -125px;
+        left: 50%;
+        transform: translateX(-50%);
         width: 250px;
 }
 `;
@@ -257,6 +257,42 @@ export const CopyItem = styled.p`
 `
 
 export const CopyIcon = styled.img`
+width: ${({iconSize}) => (iconSize)};
+align-self: ${({alignEnd}) => (alignEnd ? "flex-end" : "")};
+`
+
+export const ShareContainer = styled.div`
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:center;
+    width: 90px;
+    position: fixed;
+    bottom: 23%;
+    right: 3%;
+    background-color: rgb(192, 252, 208, 0.5);
+    border-radius: 20px;
+    /* border: solid;
+    border-color: black;
+    border-width: 1px; */
+transition: 0.5s all ease-in;
+padding: 8px;
+    display: none;
+
+@media screen and (max-width: 960px){
+    bottom: 15%;
+    right: 12%;
+    position: fixed;
+    display:flex;
+    }
+
+
+`
+
+export const ShareItem = styled.p`
+    font-size: 0.7rem;
+`
+
+export const ShareIcon = styled.img`
 width: ${({iconSize}) => (iconSize)};
 align-self: ${({alignEnd}) => (alignEnd ? "flex-end" : "")};
 `
