@@ -10,11 +10,11 @@ import { Link as LinkS } from 'react-scroll';
 
 
 export const QuestionContainer = styled.div`
-    height: 500px;
+    min-height: 500px;
     background-color: #91ffbb;
     
     @media screen and (max-width: 480px){
-        height: 500px;
+        min-height: 500px;
     }
     
 `;
@@ -49,14 +49,12 @@ export const BackButtonIcon=styled.img`
 
 export const RespondContainer = styled.div`
     background-color: #91ffbb;
-    height: 300px;
 
     @media screen and (max-width: 480px){
-        height: 500px;
     }
 `
 export const RespondInnerContainer = styled.div`
-    padding: 50px;
+    padding: ${({hatimExists}) => hatimExists ? "0px" : "50px"};
     /* background-color: red; */
     display: flex;
     flex-direction: row;
@@ -108,6 +106,31 @@ export const ResponseLogo = styled.img`
 export const ResponseText = styled.div`
 color:#000;
 `
+
+export const MevcutHatimTitle = styled.p`
+margin-top: 60px;
+text-align: center;
+font-size: 1.6rem;
+
+@media screen and (max-width: 480px){
+    font-size: 1rem;
+}
+`;
+
+export const MevcutHatimListe = styled.ul`
+text-align:center;
+margin-top: 10px;
+`;
+
+export const MevcutHatimListeEleman = styled.li`
+list-style-type: disc;
+line-height: 25px;
+`;
+
+
+export const MevcutHatimListeElemanLink = styled.a`
+color: green;
+`;
 
 export const Linker = styled.a`
     color: black;
@@ -174,143 +197,3 @@ export const DialogInputBox = styled.input`
 `
 
 
-
-export const Nav = styled.nav`
-    /* background-color: rgba(0,0,0, 0.7); */
-    background: ${({scrollNav}) => (scrollNav ? '#fff' : '#1167f2')};
-    height: 80px;
-    display:flex;
-    justify-content:center;
-    align-items: center;
-    font-size: 1rem;
-    position: sticky;
-    top: 0; 
-    z-index: 10;
-    font-family: 'Orbitron', sans-serif;
-    font-weight:400;
-    transition: 0.8s all ease; 
-    @media screen and (max-width: 960px){
-        transition: 0.8s all ease; 
-    }
-
-    /* @media screen and (max-width: 768px){
-        margin-top: 0;
-    } */
-`
-
-export const NavbarContainer = styled.div`
-    display:flex;
-    justify-content:space-between;
-    height: 80px;
-    z-index:  1;
-    width: 100%;
-    padding: 0 24px;
-    max-width: 1100px;
-`
-export const NavLogo = styled(LinkS)`
-    color: #fff;
-    justify-self: flex-start;
-    cursor: pointer;
-    font-size: 1.5rem;
-    display:flex;
-    align-items: center;
-    margin-left:24px;
-    font-weight: bold;
-    text-decoration: none;
-
-    @media screen and (max-width: 480px){
-        font-size:1.1rem; 
-
-    }
-`
-export const MobileIcon = styled.div`
-    display: none;
-
-
-    @media screen and (max-width: 768px){
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
-        font-size: 1.8rem;
-        color: white;
-        cursor:pointer;
-
-    }
-`
-
-export const NavMenu = styled.ul`
-    display: flex;
-    align-items: center;
-    list-style: none;
-    text-align: center;
-    margin-right: -22px;
-
-    @media screen and (max-width: 768px){
-        display: none;
-    }   
-`
-
-export const NavItem = styled.li`
-    height: 80px;
-`
-
-export const NavLinks = styled(LinkS)`
-    color: #fff;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 0 1rem;
-    height: 100%;
-    cursor: pointer;
-
-    &.active{
-        border-bottom: 3px solid #01bf71;
-    }
-`
-export const NavBtn = styled.nav`
-    display:flex;
-    align-items: center;
-
-
-    @media screen and (max-width: 768px){
-        display: none;
-    }
-`
-
-export const NavBtnLink = styled(LinkR)`
-    border-radius: 50px;
-    background: #adcdff;
-    white-space: nowrap;
-    padding: 10px 22px;
-    color: #010606;
-    font-size: 16px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
-
-
-    &:hover{
-        transition: all 0.2s ease-in-out;
-        background: #fff;
-        color: #010606;
-    }
-`
-
-export const NavIcon = styled.a`
-    color: #01bf71;
-    display:flex;
-    align-items: center;
-    margin: 0 -100px;
-    font-size: 40px;
-
-    @media screen and (max-width: 768px){
-        display: none;
-    }
-    &:hover{
-        transform: scale(1.02);
-    }
-`

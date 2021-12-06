@@ -38,7 +38,9 @@ let Arabic = {
                     Button: "استمر"
                 }
             }
-        }
+        },
+        MevcutHatimler:'ختم شيدت'
+
     },
 
     "/cuz":{

@@ -45,7 +45,9 @@ let english = {
                     Button: "Continue"
                 }
             }
-        }
+        },
+        MevcutHatimler:'Khatms Made'
+
     },
 
     "/cuz":{

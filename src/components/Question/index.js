@@ -6,7 +6,8 @@
 import React, {useState, useEffect} from 'react'
 import {FaBars} from 'react-icons/fa'
 import {QuestionContainer, QuestionInnerContainer, QuestionItem, RespondContainer, RespondInnerContainer, ResponseItem
-, ResponseLogo, ResponseText, BackButtonIcon, BackContainer, DialogBox, DialogText, DialogLink, DialogIcon, DialogContainer, DialogInputBox} from './QuestionElements';
+, ResponseLogo, ResponseText, BackButtonIcon, BackContainer, DialogBox, DialogText, DialogLink, DialogIcon, DialogContainer, DialogInputBox,
+MevcutHatimTitle, MevcutHatimListe, MevcutHatimListeEleman, MevcutHatimListeElemanLink} from './QuestionElements';
 import Language from '../../strings/index';
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../icons/button.svg';
@@ -52,7 +53,19 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
     );
 }
 
-const Question = ({ toggle }) => {
+const Constr = ({toggle}) => {
+    return <FirebaseContext.Consumer>
+                    {
+                        firebase => {
+
+                        return <Question toggle={toggle} firebase={firebase}></Question>
+
+                    }
+                }
+            </FirebaseContext.Consumer>
+}
+
+const Question = ({ firebase, toggle }) => {
 
     const [datas, setDatas] = useState(-1);
     const [routes, setRoutes] = useState([]);
@@ -63,6 +76,10 @@ const Question = ({ toggle }) => {
     const [yazilar, setYazilar] = useState({baslik:Language["/"].Button.Final.Before.Header, link:Language["/"].Button.Final.Before.LinkReady,
      cevap: Language["/"].Button.Final.Before.Button});
     const [hatimKonu, setHatimKonu] = useState("");
+    const [hideMevcutHatimler, setHideMevcutHatimler] = useState(false);
+    const [mevcutHatimler, setMevcutHatimler] = useState([]);
+    const [mevcutHatimlerBaslik, setMevcutHatimlerBaslik] = useState([]);
+
 
     // const [scrollNav, setScrollNav] = useState(false);
     // const [width, setWidth] = useState(window.innerWidth);
@@ -79,15 +96,25 @@ const Question = ({ toggle }) => {
     //     setWidth(window.innerWidth);
     // }
 
-    // useEffect(() => {
-    //     window.addEventListener('scroll', changeNav)
-    //     window.addEventListener('resize', handleWindowSizeChange);
-    //     console.log(isMobile)
+    useEffect(async () => {
+        // window.addEventListener('scroll', changeNav)
+        // window.addEventListener('resize', handleWindowSizeChange);
+        // console.log(isMobile)
 
-    //     return () => {
-    //         window.removeEventListener('resize', handleWindowSizeChange);
-    //     }
-    // }, []);
+        let localStorageCuzKeylerArr = JSON.parse(localStorage.getItem("CuzKeyler"));
+        if(localStorageCuzKeylerArr == null) return;
+        setHideMevcutHatimler(!hideMevcutHatimler);
+        setMevcutHatimler(localStorageCuzKeylerArr)
+
+        let localStorageCuzKeylerBaslikArr = JSON.parse(localStorage.getItem("CuzKeylerBaslik"));
+        if(localStorageCuzKeylerBaslikArr == null) return;
+        setMevcutHatimlerBaslik(localStorageCuzKeylerBaslikArr)
+
+
+        return () => {
+            // window.removeEventListener('resize', handleWindowSizeChange);
+        }
+    }, []);
 
 // let isMobile = (width <= 768);
 
@@ -141,18 +168,11 @@ const Question = ({ toggle }) => {
 
             </DialogBox>
             
-            <FirebaseContext.Consumer>
-                    {
-                        firebase => {
-
-                        return <AskDialog firebase={firebase} setHatimKey={setHatimKey} setYazilar={setYazilar}
+            <AskDialog firebase={firebase} setHatimKey={setHatimKey} setYazilar={setYazilar}
                                  propHideDialogBox={{hideDialogBox, setHideDialogBox}}
                                 askDialogBox={askDialogBox} setAskDialogBox={setAskDialogBox}
                                 hatimKonu={hatimKonu} setHatimKonu={setHatimKonu}/>
 
-                    }
-                }
-            </FirebaseContext.Consumer>
         {/* <BackContainer>
                 <BackButtonIcon hide={datas == 1 ? false : true} src={backButton} onClick={()=>{setDatas(routes.pop()); console.log(routes); setRoutes(routes);}}>
 
@@ -165,7 +185,7 @@ const Question = ({ toggle }) => {
             </QuestionInnerContainer>
 
             <RespondContainer>
-                           <RespondInnerContainer>
+                           <RespondInnerContainer hatimExists={hideMevcutHatimler}>
                                     <ResponseItem  onClick={ ()=>{
                                         setAskDialogBox(true)
                                         
@@ -177,10 +197,29 @@ const Question = ({ toggle }) => {
                             </RespondInnerContainer>
             </RespondContainer>
 
+            {
+            hideMevcutHatimler 
+                    ? 
+                    <>
+            <MevcutHatimTitle>{Language["/"].MevcutHatimler}</MevcutHatimTitle>
+
+            
+            <MevcutHatimListe>
+                    {  
+                    mevcutHatimler.map((item, index)=>{
+                        return <MevcutHatimListeEleman><MevcutHatimListeElemanLink href={"/cuz/" + item}>{mevcutHatimlerBaslik[index]}</MevcutHatimListeElemanLink></MevcutHatimListeEleman>
+                     })
+                 }
+            </MevcutHatimListe>
+                
+                    </>
+                    :
+                    <></>
+}
            
         </QuestionContainer>
         </>
     )
 };
 
-export default Question
+export default Constr

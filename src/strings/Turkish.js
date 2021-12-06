@@ -40,7 +40,8 @@ let Turkish = {
                     Button: "Devam Et"
                 }
             }
-        }
+        },
+        MevcutHatimler:'Oluşturulmuş Hatimler'
     },
 
     "/cuz":{

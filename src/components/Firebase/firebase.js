@@ -67,6 +67,11 @@ class Firebase{
     }
   }
 
+  hatimBasligiGetir = async (hatimKey) => {
+    let baslik = await this.db.ref( "hatim/" + hatimKey + "/baslik" ).get();
+    return baslik.val();
+  }
+
   yeniHatim = async (baslik) => {
 
     dataFormat.baslik = baslik;
@@ -76,6 +81,18 @@ class Firebase{
 
     let hatimKey = await this.db.ref("hatim").push().key;
     await this.db.ref( "hatim/" + hatimKey ).set(dataFormat);
+
+
+    let localStorageCuzKeylerArr = JSON.parse(localStorage.getItem("CuzKeyler"));
+    if(localStorageCuzKeylerArr == null)  localStorageCuzKeylerArr = [];
+    localStorageCuzKeylerArr.push(hatimKey);
+    localStorage.setItem("CuzKeyler", JSON.stringify(localStorageCuzKeylerArr))
+
+    let localStorageCuzKeylerArrBaslik = JSON.parse(localStorage.getItem("CuzKeylerBaslik"));
+    if(localStorageCuzKeylerArrBaslik == null)  localStorageCuzKeylerArrBaslik = [];
+    localStorageCuzKeylerArrBaslik.push(baslik);
+    localStorage.setItem("CuzKeylerBaslik", JSON.stringify(localStorageCuzKeylerArrBaslik))
+    
     
     return hatimKey;
   }
