@@ -62,8 +62,10 @@ let isMobile = (width <= 768);
                         navigator.serviceWorker.register('service-worker.js')
                           .then(function(reg){
                             console.log("Yes, it did.");
+                            alert('did work')
                         }).catch(function(err) {
                             console.log("No it didn't. This happened:", err)
+                            alert('did not work')
                         });
                       }
                 }}>

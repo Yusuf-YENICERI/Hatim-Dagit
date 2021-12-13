@@ -166,6 +166,11 @@ export const InstallContainer = styled.div`
     border: 1px solid white;
     border-radius: 20px;
     cursor: pointer;
+    user-select: none; 
+   -webkit-user-select: none; 
+   -khtml-user-select: none; 
+   -moz-user-select: none; 
+   -ms-user-select: none; 
 
     @media screen and (min-width: 480px){
         display: none;
