@@ -15,6 +15,27 @@ export const Home = () => {
         setIsOpen(!isOpen);
     }
 
+    let pwa_button = document.getElementById('pwabutton');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        let deferredPrompt = e;
+
+        pwa_button.addEventListener('click', (e) => {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if(choiceResult.outcome === 'accepted'){
+                    console.log('user accepted the a2hs prompt')
+                }else{
+                    console.log('user rejected the a2hs prompt')
+                }
+                deferredPrompt = null;
+            })
+        })
+
+       
+    })
+
     return (
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>

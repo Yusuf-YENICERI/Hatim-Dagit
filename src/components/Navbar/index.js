@@ -56,7 +56,7 @@ let isMobile = (width <= 768);
                     {Language.Navbar.Logo}
                 </NavLogo>
 
-                <InstallContainer onClick={()=>{
+                <InstallContainer id={"pwabutton"} onClick={()=>{
                     if ('serviceWorker' in navigator) {
                         console.log("Will the service worker register?");
                         navigator.serviceWorker.register('service-worker.js')
