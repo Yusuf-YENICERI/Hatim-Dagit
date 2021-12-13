@@ -9,6 +9,7 @@ let Turkish = {
         LinkHelpers: ["/", "hakkimda"],
         Buttons: ["Geribildirim Yap"],
         Languages: [{label: "Arapça", value: 'ar'}, {label: "İngilizce", value: 'en'}, {label: "Türkçe", value: 'tr'}],
+        Pwa: "Telefona İndir"
     },
 
     Footer: {

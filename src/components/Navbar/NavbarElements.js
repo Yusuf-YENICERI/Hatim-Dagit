@@ -34,10 +34,12 @@ export const Nav = styled.nav`
 export const NavbarContainer = styled.div`
     display:flex;
     justify-content:space-between;
+    align-items: center;
     height: 80px;
     z-index:  1;
     width: 100%;
-    padding: 0 24px;
+    padding: 0 5px;
+    padding-right: 20px;
     max-width: 1100px;
 `
 export const NavLogo = styled(LinkR)`
@@ -61,11 +63,7 @@ export const MobileIcon = styled.div`
 
 
     @media screen and (max-width: 768px){
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-100%, 60%);
+        display: inline-block;
         font-size: 1.8rem;
         color: white;
         cursor:pointer;
@@ -162,3 +160,19 @@ export const NavIcon = styled.a`
         transform: scale(1.02);
     }
 `
+
+export const InstallContainer = styled.div`
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+
+    @media screen and (min-width: 480px){
+        display: none;
+    }
+`;
+
+export const InstallText = styled.span`
+    font-size: 0.85rem;
+    color: white;
+`;

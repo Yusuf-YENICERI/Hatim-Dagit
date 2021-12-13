@@ -5,7 +5,7 @@
 
 import React, {useState, useEffect} from 'react'
 import {FaBars} from 'react-icons/fa'
-import {Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavLinksR, NavBtn, NavBtnLink, NavIcon} from './NavbarElements';
+import {Nav, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavLinksR, NavBtn, NavBtnLink, NavIcon, InstallContainer, InstallText} from './NavbarElements';
 import Language from '../../strings/index';
 import { FaGithub } from "react-icons/fa";
 import Dropdown from 'react-dropdown';
@@ -31,6 +31,7 @@ const Navbar = ({ toggle, font }) => {
     }
 
     useEffect(() => {
+
         window.addEventListener('scroll', changeNav)
         window.addEventListener('resize', handleWindowSizeChange);
         console.log(isMobile)
@@ -54,6 +55,21 @@ let isMobile = (width <= 768);
                 >
                     {Language.Navbar.Logo}
                 </NavLogo>
+
+                <InstallContainer onClick={()=>{
+                    if ('serviceWorker' in navigator) {
+                        console.log("Will the service worker register?");
+                        navigator.serviceWorker.register('service-worker.js')
+                          .then(function(reg){
+                            console.log("Yes, it did.");
+                        }).catch(function(err) {
+                            console.log("No it didn't. This happened:", err)
+                        });
+                      }
+                }}>
+                    <InstallText>{Language.Navbar.Pwa}</InstallText>
+                </InstallContainer>
+
                 <MobileIcon onClick={toggle}>
                     <FaBars />
                 </MobileIcon>

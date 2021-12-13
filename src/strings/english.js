@@ -13,7 +13,8 @@ let english = {
         Links: ["Make New Khatm", "About", "Change Language",],
         LinkHelpers: ["/", "hakkimda"],
         Buttons: ["Send Feedback"],
-        Languages: [{label: "Arabic", value: 'ar'}, {label: "English", value: 'en'}, {label: "Turkish", value: 'tr'}]
+        Languages: [{label: "Arabic", value: 'ar'}, {label: "English", value: 'en'}, {label: "Turkish", value: 'tr'}],
+        Pwa: "Download to Phone"
 
     },
 

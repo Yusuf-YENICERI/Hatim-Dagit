@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar'
 import Question from '../components/Question'
 import Footer from '../components/Footer';
 
+
 export const Home = () => {
 
     const [isOpen, setIsOpen] = useState(false);

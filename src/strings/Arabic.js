@@ -6,8 +6,8 @@ let Arabic = {
         Links: ["إنشاء ختم", "بشأن", "تغيير اللغة"],
         LinkHelpers: ["/", "hakkimda"],
         Buttons: ["أرسل تقييما"],
-        Languages: [{label: "عربي", value: 'ar'}, {label: "الانجليزية", value: 'en'}, {label: "اللغة التركية", value: 'tr'}]
-
+        Languages: [{label: "عربي", value: 'ar'}, {label: "الانجليزية", value: 'en'}, {label: "اللغة التركية", value: 'tr'}],
+        Pwa: 'تنزيله',
     },
 
     Footer: {
