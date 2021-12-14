@@ -10,6 +10,10 @@ let Arabic = {
         Pwa: 'تنزيله',
     },
 
+    Pwa: {
+        Alert: 'الرجاء استخدام متصفح Chrome لتنزيل هذا ، Safari لا يدعم هذه الميزة حتى الآن!'
+    },
+
     Footer: {
         aciz_kul:  "Yusuf Yeniçeri التي أدلى بها"
     },

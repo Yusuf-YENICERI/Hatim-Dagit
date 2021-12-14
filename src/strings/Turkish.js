@@ -12,6 +12,10 @@ let Turkish = {
         Pwa: "Telefona İndir"
     },
 
+    Pwa: {
+        Alert: 'Lütfen Chrome tarayıcısını kullanarak telefonunuza indirin. Safari bu özelliği desteklemiyor!'
+    },
+
     Footer: {
         aciz_kul: "Yusuf Yeniçeri tarafından yapılmıştır."
     },

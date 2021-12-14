@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Firebase, {FirebaseContext} from './components/Firebase';
+import { isSafari } from "./common";
+import Language from "./strings";
 
 ReactDOM.render(
   <FirebaseContext.Provider value={new Firebase()}>
@@ -35,6 +37,12 @@ window.addEventListener('beforeinstallprompt', (e) => {
   let deferredPrompt = e;
 
   pwa_button.addEventListener('click', (e) => {
+
+      if(!isSafari()){
+        alert(Language.Pwa.Alert);
+        return; 
+      }
+
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then((choiceResult) => {
           if(choiceResult.outcome === 'accepted'){

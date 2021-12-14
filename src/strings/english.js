@@ -18,6 +18,10 @@ let english = {
 
     },
 
+    Pwa: {
+        Alert: 'Please use Chrome browser to download this, Safari doesn\'t support that feature yet!'
+    },
+
     Footer: {
         aciz_kul: "Made by Yusuf YENİÇERİ"
     },

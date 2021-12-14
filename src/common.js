@@ -21,6 +21,14 @@ const removeAll = (arr, item) => {
     return arr;
   }
 
+const isSafari = () => {
+  let userAgentString = navigator.userAgent;
+  let chromeAgent = userAgentString.indexOf("Chrome") > -1;
+  let safariAgent = userAgentString.indexOf("Safari") > -1;
+  if ((chromeAgent) && (safariAgent)) safariAgent = false;
+  return safariAgent;
+}
+
 export default detectLanguage;
 
-export {setLanguage, removeAll}
+export {setLanguage, removeAll, isSafari}
