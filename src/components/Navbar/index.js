@@ -30,12 +30,16 @@ const Navbar = ({ toggle, font }) => {
         setWidth(window.innerWidth);
     }
 
+
+    
+
     useEffect(() => {
 
         window.addEventListener('scroll', changeNav)
         window.addEventListener('resize', handleWindowSizeChange);
         console.log(isMobile)
 
+        
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange);
         }
@@ -57,17 +61,6 @@ let isMobile = (width <= 768);
                 </NavLogo>
 
                 <InstallContainer id={"pwabutton"} onClick={()=>{
-                    if ('serviceWorker' in navigator) {
-                        console.log("Will the service worker register?");
-                        navigator.serviceWorker.register('service-worker.js')
-                          .then(function(reg){
-                            console.log("Yes, it did.");
-                            alert('did work')
-                        }).catch(function(err) {
-                            console.log("No it didn't. This happened:", err)
-                            alert('did not work')
-                        });
-                      }
                 }}>
                     <InstallText>{Language.Navbar.Pwa}</InstallText>
                 </InstallContainer>
