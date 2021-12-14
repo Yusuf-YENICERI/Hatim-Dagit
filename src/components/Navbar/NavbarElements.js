@@ -171,9 +171,10 @@ export const InstallContainer = styled.div`
    -khtml-user-select: none; 
    -moz-user-select: none; 
    -ms-user-select: none; 
+   display: none;
 
     @media screen and (min-width: 480px){
-        display: none;
+        
     }
 `;
 

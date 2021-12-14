@@ -19,6 +19,7 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
+let pwa_button = document.getElementById('pwabutton');
 
 if ('serviceWorker' in navigator) {
   console.log("Will the service worker register?");
@@ -26,15 +27,16 @@ if ('serviceWorker' in navigator) {
     .then(function(reg){
       console.log("Yes, it did.");
   }).catch(function(err) {
+
       console.log("No it didn't. This happened:", err)
   });
 }
 
-let pwa_button = document.getElementById('pwabutton');
 
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   let deferredPrompt = e;
+  pwa_button.style.display = 'inline';
 
   pwa_button.addEventListener('click', (e) => {
 
