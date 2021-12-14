@@ -1,9 +1,9 @@
 {
   "short_name": "Hatim Dağıt",
-  "name": "Kolayca Hatim Dağıt",
+  "name": "Hatim Dağıt",
   "icons": [
     {
-      "src": "logo192.png",
+      "src": "network.png",
       "sizes": "192x192",
       "type": "image/png"
     },
