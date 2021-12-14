@@ -38,7 +38,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
   pwa_button.addEventListener('click', (e) => {
 
-      if(!isSafari()){
+      if(isSafari()){
         alert(Language.Pwa.Alert);
         return; 
       }
