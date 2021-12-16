@@ -19,8 +19,7 @@ jobs:
         with:
           build: yarn build
           start: yarn start
-        env: 
-          CYPRESS_CI: false
+        env: CI=false
 
           
   build_and_deploy:
