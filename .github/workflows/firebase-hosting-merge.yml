@@ -6,15 +6,13 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - main
-env:
-  CI: ''
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - run: CI=''
+      - run: CI=false
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
