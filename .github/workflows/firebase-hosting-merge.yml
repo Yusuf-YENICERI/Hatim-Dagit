@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         env: 
-          CI: false
+          CI: ""
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
@@ -22,7 +22,7 @@ jobs:
           build: yarn build
           start: yarn start
         env: 
-          CI: false
+          CI: ""
 
           
   build_and_deploy:
