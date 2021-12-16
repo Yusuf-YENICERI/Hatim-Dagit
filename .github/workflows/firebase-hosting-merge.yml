@@ -22,10 +22,10 @@ jobs:
           
   build_and_deploy:
     runs-on: ubuntu-latest
+    needs: cypress-run
     steps:
       - uses: actions/checkout@v2
       - run: yarn install && CI='' yarn build
-        needs: cypress-run
         env:
           REACT_APP_apiKey: '${{ secrets.FIREBASE_APIKEY }}'
           REACT_APP_authDomain: '${{ secrets.FIREBASE_AUTHDOMAIN }}'
