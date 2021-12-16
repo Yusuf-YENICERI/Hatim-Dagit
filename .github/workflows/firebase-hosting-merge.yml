@@ -7,11 +7,26 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - main
 jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: CI='' yarn build
+          start: yarn start
+          
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: yarn install && CI='' yarn build
+        deploy:
+          needs: cypress-run
         env:
           REACT_APP_apiKey: '${{ secrets.FIREBASE_APIKEY }}'
           REACT_APP_authDomain: '${{ secrets.FIREBASE_AUTHDOMAIN }}'

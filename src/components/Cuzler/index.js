@@ -131,7 +131,7 @@ const Constr = ({ toggle, firebase }) => {
 
         <DialogBox visibility={hideDialogBox}>
 
-                <DialogIcon src={close} iconSize={"20px"} alignEnd={true} onClick={
+                <DialogIcon id={"closeTakePart"} src={close} iconSize={"20px"} alignEnd={true} onClick={
                         ()=>{
                             setHideDialogBox(!hideDialogBox);
                         }
@@ -147,7 +147,7 @@ const Constr = ({ toggle, firebase }) => {
                 }}>
                 </DialogInputBox>
 
-                <NavBtnLink onClick={async ()=>{
+                <NavBtnLink id={"takeButton"} onClick={async ()=>{
                     setHideDialogBox(!hideDialogBox);
                     if(partIptal)
                     {

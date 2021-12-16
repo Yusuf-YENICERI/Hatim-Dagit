@@ -73,8 +73,8 @@ let english = {
 
         Button:{
             Question: "part, enter your name to take it",
-            Take: "Take the Part"
-
+            Take: "Take the Part",
+            TakeCancel: "Release the Part"
         },
 
         ShareBox:{

@@ -1,0 +1,34 @@
+
+
+
+
+describe('user behaviour inshaALLAH', ()=>{
+    it('user should be able to make new Khatm', () => {
+        cy.visit('http://localhost:3000/')
+        //click on the button
+        cy.get("#newKhatm").click()
+        //type Khatm header
+        cy.findByRole('textbox').type('test')
+        //click Contiune
+        cy.findByRole('link', {  name: /continue/i}).click()
+        //click Continue again
+        cy.findByText(/new khatm is ready!/i, {timeout: 10000}).should('be.visible')
+        cy.findByRole('link', {  name: /continue/i}).click()
+        //click on some Part
+        let Part = 8
+        // cy.visit('http://localhost:3000/cuz/-Mr3hOiBGujMegW033tQ')
+        cy.get(`#root > div > div:nth-child(7) > div > div > div:nth-child(${Part})`).click()
+        //type the name
+        let username = "test kullanıcı"
+        cy.findByRole('textbox').type(username)
+        //click to Take it
+        cy.get('#takeButton').click()
+        //check the name of the Part
+        cy.get(`#root > div > div:nth-child(7) > div > div > div:nth-child(${Part}) > div:nth-child(3)`).should('have.text', username)
+        //click on the taken Part
+        cy.get(`#root > div > div:nth-child(7) > div > div > div:nth-child(${Part})`).click()
+        //click to release it
+        cy.get('#takeButton').click()
+
+    })
+})
