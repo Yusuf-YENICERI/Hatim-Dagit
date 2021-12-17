@@ -20,7 +20,14 @@ jobs:
         with:
           start: yarn start
         env:
-          CI: false
+          REACT_APP_apiKey: '${{ secrets.FIREBASE_APIKEY }}'
+          REACT_APP_authDomain: '${{ secrets.FIREBASE_AUTHDOMAIN }}'
+          REACT_APP_databaseURL: '${{ secrets.FIREBASE_DATABASEURL }}'
+          REACT_APP_projectId: '${{ secrets.FIREBASE_PROJECTID }}'
+          REACT_APP_storageBucket: '${{ secrets.FIREBASE_STORAGEBUCKET }}'
+          REACT_APP_messagingSenderId: '${{ secrets.FIREBASE_MESSAGINGSENDERID }}'
+          REACT_APP_appId: '${{ secrets.FIREBASE_APPID }}'
+          REACT_APP_measurementId: '${{ secrets.FIREBASE_MEASUREMENTID }}'
         
 
           
