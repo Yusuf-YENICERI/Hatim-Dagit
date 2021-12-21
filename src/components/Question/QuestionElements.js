@@ -194,11 +194,12 @@ text-align:center;
 overflow: hidden;
 margin-top: -4px;
 z-index: 0;
-height:  ${({mevcutHatimlerSayisi, mevcutHatimlerVisible}) => { 
+transform-origin: top;
+transform:  ${({mevcutHatimlerSayisi, mevcutHatimlerVisible}) => { 
     if (mevcutHatimlerVisible)
-        return (mevcutHatimlerSayisi * 30).toString() + "px";
+        return "scaleY(1)";  
     else
-        return "0";
+        return "scaleY(0)";
     }};
 transition: 1s ease;
 background-color: #33f57c;
@@ -214,7 +215,7 @@ line-height: 30px;
 display: grid;
 grid-template-areas: "text text text icon";
 text-align: left;
-padding-left: 50px
+padding-left: 50px;
 `;
 
 
