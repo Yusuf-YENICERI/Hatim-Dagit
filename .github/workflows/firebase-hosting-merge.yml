@@ -19,6 +19,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           start: yarn start
+          wait-on: 'http://localhost:3000'
         env:
           REACT_APP_apiKey: '${{ secrets.FIREBASE_APIKEY }}'
           REACT_APP_authDomain: '${{ secrets.FIREBASE_AUTHDOMAIN }}'
