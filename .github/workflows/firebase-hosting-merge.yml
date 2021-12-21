@@ -12,14 +12,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - run: CI=false
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          build: yarn build
           start: yarn start
-        env: CI=false
+        env:
+          REACT_APP_apiKey: '${{ secrets.FIREBASE_APIKEY }}'
+          REACT_APP_authDomain: '${{ secrets.FIREBASE_AUTHDOMAIN }}'
+          REACT_APP_databaseURL: '${{ secrets.FIREBASE_DATABASEURL }}'
+          REACT_APP_projectId: '${{ secrets.FIREBASE_PROJECTID }}'
+          REACT_APP_storageBucket: '${{ secrets.FIREBASE_STORAGEBUCKET }}'
+          REACT_APP_messagingSenderId: '${{ secrets.FIREBASE_MESSAGINGSENDERID }}'
+          REACT_APP_appId: '${{ secrets.FIREBASE_APPID }}'
+          REACT_APP_measurementId: '${{ secrets.FIREBASE_MEASUREMENTID }}'
+        
 
           
   build_and_deploy:
