@@ -21,6 +21,7 @@ const removeAll = (arr, item) => {
     return arr;
   }
 
+
 const isSafari = () => {
   let userAgentString = navigator.userAgent;
   let chromeAgent = userAgentString.indexOf("Chrome") > -1;

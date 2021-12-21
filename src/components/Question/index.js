@@ -7,7 +7,8 @@ import React, {useState, useEffect} from 'react'
 import {FaBars} from 'react-icons/fa'
 import {QuestionContainer, QuestionInnerContainer, QuestionItem, RespondContainer, RespondInnerContainer, ResponseItem
 , ResponseLogo, ResponseText, BackButtonIcon, BackContainer, DialogBox, DialogText, DialogLink, DialogIcon, DialogContainer, DialogInputBox,
-MevcutHatimTitle, MevcutHatimListe, MevcutHatimListeEleman, MevcutHatimListeElemanLink} from './QuestionElements';
+MevcutHatimTitle, MevcutHatimListeContainer, MevcutHatimListe, MevcutHatimListeEleman, MevcutHatimListeElemanLink,
+    MevcutHatimButtonContainer, MevcutHatimButtonInnerContainer, MevcutHatimButtonItem, MevcutHatimButtonLogo, MevcutHatimButtonText, CloseIcon} from './QuestionElements';
 import Language from '../../strings/index';
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../icons/button.svg';
@@ -16,11 +17,18 @@ import copy from '../../icons/copy.svg';
 import close from '../../icons/close.svg';
 import { NavBtnLink } from '../Navbar/NavbarElements';
 
-const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDialogBox, setAskDialogBox, hatimKonu, setHatimKonu }) => {
+const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDialogBox, setAskDialogBox, hatimKonu, setHatimKonu, changeAskDialogBox }) => {
     return (
-    <DialogBox visibility={askDialogBox} height={"200px"} top={"10%"}>
+    <DialogBox visibility={askDialogBox} height={"220px"} top={"10%"}>
 
                 <DialogContainer>
+
+                <DialogIcon src={close} iconSize={"30px"} alignEnd={true} onClick={
+                ()=>{
+                   changeAskDialogBox();
+                }
+            } />
+
                 <DialogText fontSize={"20px"}>
                 {Language["/"].Button.Header.Text}
                 </DialogText>
@@ -79,7 +87,11 @@ const Question = ({ firebase, toggle }) => {
     const [hideMevcutHatimler, setHideMevcutHatimler] = useState(false);
     const [mevcutHatimler, setMevcutHatimler] = useState([]);
     const [mevcutHatimlerBaslik, setMevcutHatimlerBaslik] = useState([]);
+    const [mevcutHatimlerVisible, setMevcutHatimlerVisible] = useState(false);
 
+    const changeAskDialogBox = () => {
+        setAskDialogBox(!askDialogBox)
+    }
 
     // const [scrollNav, setScrollNav] = useState(false);
     // const [width, setWidth] = useState(window.innerWidth);
@@ -102,12 +114,12 @@ const Question = ({ firebase, toggle }) => {
         // console.log(isMobile)
 
         let localStorageCuzKeylerArr = JSON.parse(localStorage.getItem("CuzKeyler"));
-        if(localStorageCuzKeylerArr == null) return;
+        if(localStorageCuzKeylerArr == null || localStorageCuzKeylerArr.length == 0) return;
         setHideMevcutHatimler(!hideMevcutHatimler);
         setMevcutHatimler(localStorageCuzKeylerArr)
 
         let localStorageCuzKeylerBaslikArr = JSON.parse(localStorage.getItem("CuzKeylerBaslik"));
-        if(localStorageCuzKeylerBaslikArr == null) return;
+        if(localStorageCuzKeylerBaslikArr == null || localStorageCuzKeylerBaslikArr.length == 0) return;
         setMevcutHatimlerBaslik(localStorageCuzKeylerBaslikArr)
 
 
@@ -171,7 +183,7 @@ const Question = ({ firebase, toggle }) => {
             <AskDialog firebase={firebase} setHatimKey={setHatimKey} setYazilar={setYazilar}
                                  propHideDialogBox={{hideDialogBox, setHideDialogBox}}
                                 askDialogBox={askDialogBox} setAskDialogBox={setAskDialogBox}
-                                hatimKonu={hatimKonu} setHatimKonu={setHatimKonu}/>
+                                hatimKonu={hatimKonu} setHatimKonu={setHatimKonu} changeAskDialogBox={changeAskDialogBox} />
 
         {/* <BackContainer>
                 <BackButtonIcon hide={datas == 1 ? false : true} src={backButton} onClick={()=>{setDatas(routes.pop()); console.log(routes); setRoutes(routes);}}>
@@ -197,20 +209,52 @@ const Question = ({ firebase, toggle }) => {
                             </RespondInnerContainer>
             </RespondContainer>
 
+            
+
             {
             hideMevcutHatimler 
                     ? 
                     <>
-            <MevcutHatimTitle>{Language["/"].MevcutHatimler}</MevcutHatimTitle>
+            <MevcutHatimButtonContainer>
+                           <MevcutHatimButtonInnerContainer hatimExists={hideMevcutHatimler}>
+                                    <MevcutHatimButtonItem id={"newKhatm"} onClick={ ()=>{
+                                        setMevcutHatimlerVisible(!mevcutHatimlerVisible);
+                                        
+                                    }}>
+                                        <MevcutHatimButtonText>
+                                        Oluşturulmuş Hatimler
+                                        </MevcutHatimButtonText>
+                                    </MevcutHatimButtonItem>
+
+                <MevcutHatimListe mevcutHatimlerVisible={mevcutHatimlerVisible} mevcutHatimlerSayisi={mevcutHatimler.length}>
+                        {  
+                        mevcutHatimler.map((item, index)=>{
+                            return <MevcutHatimListeEleman><MevcutHatimListeElemanLink href={"/cuz/" + item}>{mevcutHatimlerBaslik[index]}</MevcutHatimListeElemanLink><CloseIcon onClick={()=>{
+
+                                        let localStorageCuzKeylerArr = JSON.parse(localStorage.getItem("CuzKeyler"));
+                                        if(localStorageCuzKeylerArr == null) {
+                                            alert('Hata var!');
+                                            return;
+                                        }
+                                        localStorageCuzKeylerArr.splice(index, 1);
+                                        localStorage.setItem("CuzKeyler", JSON.stringify(localStorageCuzKeylerArr))
+
+                                        let localStorageCuzKeylerArrBaslik = JSON.parse(localStorage.getItem("CuzKeylerBaslik"));
+                                        localStorageCuzKeylerArrBaslik.splice(index, 1)
+                                        localStorage.setItem("CuzKeylerBaslik", JSON.stringify(localStorageCuzKeylerArrBaslik))
+                                        
+                                        setMevcutHatimler(localStorageCuzKeylerArr);
+                                        setMevcutHatimlerBaslik(localStorageCuzKeylerArrBaslik);
+                            }} /></MevcutHatimListeEleman>
+                        })
+                    }
+                </MevcutHatimListe>
+                            </MevcutHatimButtonInnerContainer>
+            </MevcutHatimButtonContainer>
+                
+            {/* <MevcutHatimTitle>{Language["/"].MevcutHatimler}</MevcutHatimTitle> */}
 
             
-            <MevcutHatimListe>
-                    {  
-                    mevcutHatimler.map((item, index)=>{
-                        return <MevcutHatimListeEleman><MevcutHatimListeElemanLink href={"/cuz/" + item}>{mevcutHatimlerBaslik[index]}</MevcutHatimListeElemanLink></MevcutHatimListeEleman>
-                     })
-                 }
-            </MevcutHatimListe>
                 
                     </>
                     :

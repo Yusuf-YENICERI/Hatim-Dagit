@@ -7,6 +7,7 @@
 import styled from 'styled-components';
 import { Link as LinkR } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
+import { Close } from "@styled-icons/ionicons-outline";
 
 
 export const QuestionContainer = styled.div`
@@ -107,6 +108,73 @@ export const ResponseText = styled.div`
 color:#000;
 `
 
+
+export const MevcutHatimButtonContainer = styled.div`
+    background-color: #91ffbb;
+    margin-top: 40px;
+    @media screen and (max-width: 480px){
+    }
+`
+export const MevcutHatimButtonInnerContainer = styled.div`
+    padding: ${({hatimExists}) => hatimExists ? "0px" : "30px"};
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @media screen and (max-width: 480px){
+        font-size:1rem; 
+        display: flex;
+        flex-direction: column;
+        text-align:center;
+    }
+`
+export const MevcutHatimButtonItem = styled(LinkR)`
+    padding: 20px;
+    margin: 0 10px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: #04d654;
+    display: flex;
+    flex-direction: column;
+    text-align:center;
+    justify-content: center;
+    width: 200px;
+    ${({mevcutHatimlerVisible}) => {
+        if(!mevcutHatimlerVisible){
+            return `box-shadow: -1px 24px 29px -8px rgba(0,0,0,1); 
+                -webkit-box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);
+                -moz-box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);`;
+        }else return `box-shadow: 0px;
+                        -webkit-box-shadow: 0px; 
+                        -moz-box-shadow: 0px;`;
+    }};
+transition: 0.5s all ease-in;
+
+
+@media screen and (max-width: 480px){
+        padding: 0px;
+        height: 90px;
+        margin: 0px 0px;
+    }
+/* 
+&:hover{
+    transform: scale(1.1);
+    transition: 0.5s all ease-in;
+} */
+`
+
+export const MevcutHatimButtonLogo = styled.img`
+    height: ${({exist}) => (exist ? '50px' : '0px')};
+    src: ${({isSrc}) => isSrc};
+    
+`
+
+export const MevcutHatimButtonText = styled.div`
+color:#000;
+`
+
 export const MevcutHatimTitle = styled.p`
 margin-top: 60px;
 text-align: center;
@@ -116,20 +184,52 @@ font-size: 1.6rem;
     font-size: 1rem;
 }
 `;
+export const MevcutHatimListeContainer = styled.div`
+width: 200px;
+`;
+
 
 export const MevcutHatimListe = styled.ul`
 text-align:center;
-margin-top: 10px;
+overflow: hidden;
+margin-top: -4px;
+z-index: 0;
+height:  ${({mevcutHatimlerSayisi, mevcutHatimlerVisible}) => { 
+    if (mevcutHatimlerVisible)
+        return (mevcutHatimlerSayisi * 30).toString() + "px";
+    else
+        return "0";
+    }};
+transition: 1s ease;
+background-color: #33f57c;
+width: 200px;
+border: ${({mevcutHatimlerVisible}) => mevcutHatimlerVisible ? "1px solid #33f57c" : "0"};
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
 `;
 
 export const MevcutHatimListeEleman = styled.li`
-list-style-type: disc;
-line-height: 25px;
+list-style-type: none;
+line-height: 30px;
+display: grid;
+grid-template-areas: "text text text icon";
+text-align: left;
+padding-left: 50px
 `;
 
 
 export const MevcutHatimListeElemanLink = styled.a`
 color: green;
+grid-area: text;
+width: 100px;
+`;
+
+export const CloseIcon = styled(Close)`
+    color: red;
+    grid-area: icon;
+    width: 20px;
+    align-self: center;
+    cursor: pointer;
 `;
 
 export const Linker = styled.a`
@@ -190,6 +290,7 @@ export const DialogIcon = styled.img`
 width: ${({iconSize}) => (iconSize)};
 align-self: ${({alignEnd}) => (alignEnd ? "flex-end" : "")};
 margin-right: 20px;
+margin-bottom: 10px;
 `
 
 export const DialogInputBox = styled.input`
