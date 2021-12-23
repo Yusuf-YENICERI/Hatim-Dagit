@@ -30,6 +30,10 @@ const isSafari = () => {
   return safariAgent;
 }
 
+const isStandalone = () => {
+  return ('standalone' in window.navigator) && window.navigator.standalone;
+}
+
 export default detectLanguage;
 
-export {setLanguage, removeAll, isSafari}
+export {setLanguage, removeAll, isSafari, isStandalone};

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Firebase, {FirebaseContext} from './components/Firebase';
-import { isSafari } from "./common";
+import { isSafari, isStandalone } from "./common";
 import Language from "./strings";
 
 ReactDOM.render(
@@ -32,7 +32,7 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-if(isSafari()){
+if(isSafari() && !isStandalone()){
   pwa_button.style.display = 'inline';
   pwa_button.addEventListener('click', (e) => {
     e.preventDefault();
