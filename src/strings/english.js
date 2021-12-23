@@ -19,7 +19,14 @@ let english = {
     },
 
     Pwa: {
-        Alert: 'Please use Chrome browser to download this, Safari doesn\'t support that feature yet!'
+        Alert: 'Please use Chrome browser to download this, Safari doesn\'t support that feature yet!',
+        Popup: [
+            'To download this application please click',
+            'the button available in your browser. Then choose the',
+            'Add to Home Screen',
+            'button from the menu open.',
+            'the application is going to be installed insha\'Allah.'
+        ]
     },
 
     Footer: {

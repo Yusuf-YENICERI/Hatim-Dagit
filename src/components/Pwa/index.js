@@ -6,6 +6,8 @@
 import React from 'react'
 import { PwaAppleShareIcon, PwaContainer, PwaIcon, PwaIconContainer, PwaTextContainer, PwaTextDefault, PwaTextStrong } from './PwaElements'
 import close from '../../icons/close.svg';
+import Language from '../../strings/index';
+
 
 const Pwa = () => {
     return (
@@ -18,15 +20,13 @@ const Pwa = () => {
                     }}/>
                 </PwaIconContainer>
                 <PwaTextContainer>
-                    <PwaTextDefault>Bu uygulamayı telefonunuza indirmek için önce
-                        tarayıcınızda bulunan
+                    <PwaTextDefault>{Language.Pwa.Popup[0]}
                     <PwaAppleShareIcon />
-                     ikonuna tıklayın.
-                    Daha sonra açılan menüden
-                    <PwaTextStrong>Ana Ekrana Ekle</PwaTextStrong>
-                    seçeneğini seçin.
+                    {Language.Pwa.Popup[1]}
+                    <PwaTextStrong>{Language.Pwa.Popup[2]}</PwaTextStrong>
+                    {Language.Pwa.Popup[3]}
                     {<br/>}
-                    Uygulama telefonunuza inecektir inşaAllah.
+                    {Language.Pwa.Popup[4]}
                     </PwaTextDefault>
                 </PwaTextContainer>
             </PwaContainer>

@@ -13,7 +13,14 @@ let Turkish = {
     },
 
     Pwa: {
-        Alert: 'Lütfen Chrome tarayıcısını kullanarak telefonunuza indirin. Safari bu özelliği desteklemiyor!'
+        Alert: 'Lütfen Chrome tarayıcısını kullanarak telefonunuza indirin. Safari bu özelliği desteklemiyor!',
+        Popup: [
+            'Bu uygulamayı telefonunuza indirmek için önce tarayıcınızda bulunan',
+            'ikonuna tıklayın. Daha sonra açılan menüden',
+            'Ana Ekrana Ekle',
+            'seçeneğini seçin.',
+            'Uygulama telefonunuza inecektir inşaAllah.'
+        ]
     },
 
     Footer: {
@@ -46,7 +53,7 @@ let Turkish = {
                 }
             }
         },
-        MevcutHatimler:'Oluşturulmuş Hatimler'
+        MevcutHatimler:'Oluşturulmuş Hatimler',
     },
 
     "/cuz":{
