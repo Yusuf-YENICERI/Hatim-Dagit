@@ -22,7 +22,7 @@ export const Home = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            <Pwa id={"pwa_component"} />
+            <Pwa  />
             <Question />
             <Footer/>
         </>

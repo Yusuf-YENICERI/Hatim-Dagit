@@ -20,7 +20,7 @@ export const Cuz = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            <Pwa id={"pwa_component"} />
+            <Pwa />
             <Cuzler />
             <Footer/>
         </>

@@ -10,7 +10,7 @@ import close from '../../icons/close.svg';
 const Pwa = () => {
     return (
         <>
-            <PwaContainer>
+            <PwaContainer id={"pwa_component"}>
                 <PwaIconContainer>
                     <PwaIcon src={close} onClick={()=>{
                         let pwa_component_extra = document.getElementById('pwa_component');
