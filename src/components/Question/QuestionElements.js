@@ -216,6 +216,7 @@ display: grid;
 grid-template-areas: "text text text icon";
 text-align: left;
 padding-left: 50px;
+border-bottom: 1px solid #04d654;
 `;
 
 
@@ -223,6 +224,7 @@ export const MevcutHatimListeElemanLink = styled.a`
 color: green;
 grid-area: text;
 width: 100px;
+text-decoration: none;
 `;
 
 export const CloseIcon = styled(Close)`
@@ -231,6 +233,7 @@ export const CloseIcon = styled(Close)`
     width: 20px;
     align-self: center;
     cursor: pointer;
+    border-left: 1px solid #04d654;
 `;
 
 export const Linker = styled.a`

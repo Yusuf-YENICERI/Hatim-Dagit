@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar'
 import Question from '../components/Question'
 import Footer from '../components/Footer';
 import Cuzler from '../components/Cuzler';
+import Pwa from '../components/Pwa';
 
 export const Cuz = () => {
 
@@ -19,6 +20,7 @@ export const Cuz = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
+            <Pwa id={"pwa_component"} />
             <Cuzler />
             <Footer/>
         </>

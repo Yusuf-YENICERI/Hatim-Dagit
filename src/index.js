@@ -32,6 +32,15 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+if(isSafari()){
+  pwa_button.style.display = 'inline';
+  pwa_button.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    let pwa_component = document.getElementById('pwa_component');
+    pwa_component.style.display = "flex";
+  })
+}
 
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
