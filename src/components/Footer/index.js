@@ -1,15 +1,30 @@
 //                                          BİSMİLLAHİRRAHMANİRRAHİM
 
 
-import React from 'react'
+import React, {useEffect, useContext, useState} from 'react'
 import Language from '../../strings/index';
 import { FooterContainer, FooterWrapper, FooterLinksContainer, FooterLinkWrapper, FooterLinkItems, FooterLinkTitle, FooterLink,
-Business, BusinessWrap, BusinessLogo, WebsiteRights, BusinessIcons, BusinessIconLink } from "./FooterElements";
+Business, BusinessWrap, BusinessLogo, WebsiteRights, BusinessIcons, BusinessIconLink, BusinessVisit } from "./FooterElements";
 import {Linker} from '../Question/QuestionElements';
 import { FaGithub } from "react-icons/fa";
+import {FirebaseContext} from '../Firebase';
+
 
 
 const Footer = () => {
+    const db = useContext(FirebaseContext);
+    const [ziyaretSayisi, setZiyaretSayisi] = useState(0)
+
+    useEffect( () => {
+
+        const fetchData =  async () => {
+            await db.ziyaretSayisiArtir();
+            setZiyaretSayisi(await db.ziyaretSayisiGetir())
+        }
+        fetchData();
+
+    }, [])
+
     return (
         <>
          <FooterContainer id="hakkimda">
@@ -43,6 +58,9 @@ const Footer = () => {
                                  <FaGithub></FaGithub>
                              </BusinessIconLink>
                          </BusinessIcons>
+
+                         
+                         <BusinessVisit>{Language.Footer.ziyaret[0]} {ziyaretSayisi} {Language.Footer.ziyaret[1]}</BusinessVisit>
                      </BusinessWrap>
                  </Business>
              </FooterWrapper>

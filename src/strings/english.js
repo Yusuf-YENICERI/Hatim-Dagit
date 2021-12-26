@@ -30,7 +30,8 @@ let english = {
     },
 
     Footer: {
-        aciz_kul: "Made by Yusuf YENİÇERİ"
+        aciz_kul: "Made by Yusuf YENİÇERİ",
+        ziyaret: ["This site has been visited ", " times"]
     },
 
     "/" : {

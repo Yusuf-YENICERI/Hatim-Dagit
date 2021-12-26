@@ -123,6 +123,15 @@ class Firebase{
   cuzBitti = async (hatimKey) => {
     await this.db.ref("hatim/" + hatimKey + "/bitti").set(true);
   }
+
+  ziyaretSayisiGetir = async () => {
+    let ziyaretSayisi = await this.db.ref( "ziyaretSayisi" ).get();
+    return ziyaretSayisi.val();
+  }
+
+  ziyaretSayisiArtir = async () => {
+    await this.db.ref("ziyaretSayisi").set(Number(await this.ziyaretSayisiGetir()) + 1);
+  }
 }
 
 export default Firebase;

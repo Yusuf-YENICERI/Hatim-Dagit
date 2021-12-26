@@ -135,3 +135,8 @@ export const BusinessIconLink = styled.a`
     color:#fff;
     font-size: 24px;
 `
+
+export const BusinessVisit = styled.p`
+    margin-top: 12px;
+    font-size: 0.8rem;
+`;

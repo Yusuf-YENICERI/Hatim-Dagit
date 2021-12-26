@@ -24,7 +24,8 @@ let Turkish = {
     },
 
     Footer: {
-        aciz_kul: "Yusuf Yeniçeri tarafından yapılmıştır."
+        aciz_kul: "Yusuf Yeniçeri tarafından yapılmıştır.",
+        ziyaret: ["Bu site ", " defa ziyaret edildi"]
     },
     
 

@@ -22,7 +22,8 @@ let Arabic = {
     },
 
     Footer: {
-        aciz_kul:  "Yusuf Yeniçeri التي أدلى بها"
+        aciz_kul:  "Yusuf Yeniçeri التي أدلى بها",
+        ziyaret: ["تمت زيارة هذا الموقع "," مرات."]
     },
 
     "/" : {
