@@ -31,7 +31,9 @@ let Arabic = {
         Button: {
             Main: "إنشاء ختم جديد",
             Header: {
-                Text: "تحديد عنوان ختم:",
+                Text: "إنشاء ختم",
+                InputSpan: ["عنوان", "تاريخ إنهاء خاتم"],
+                Input: ["الرجاء إدخال عنوان"],
                 Button: "استمر"
             },
             Final: {

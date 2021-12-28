@@ -8,7 +8,7 @@ import {FaBars} from 'react-icons/fa'
 import {QuestionContainer, QuestionInnerContainer, QuestionItem, RespondContainer, RespondInnerContainer, ResponseItem
 , ResponseLogo, ResponseText, BackButtonIcon, BackContainer, DialogBox, DialogText, DialogLink, DialogIcon, DialogContainer, DialogInputBox,
 MevcutHatimTitle, MevcutHatimListeContainer, MevcutHatimListe, MevcutHatimListeEleman, MevcutHatimListeElemanLink,
-    MevcutHatimButtonContainer, MevcutHatimButtonInnerContainer, MevcutHatimButtonItem, MevcutHatimButtonLogo, MevcutHatimButtonText, CloseIcon} from './QuestionElements';
+    MevcutHatimButtonContainer, MevcutHatimButtonInnerContainer, MevcutHatimButtonItem, MevcutHatimButtonLogo, MevcutHatimButtonText, CloseIcon, DialogTextSpan} from './QuestionElements';
 import Language from '../../strings/index';
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../icons/button.svg';
@@ -17,9 +17,9 @@ import copy from '../../icons/copy.svg';
 import close from '../../icons/close.svg';
 import { NavBtnLink } from '../Navbar/NavbarElements';
 
-const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDialogBox, setAskDialogBox, hatimKonu, setHatimKonu, changeAskDialogBox }) => {
+const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDialogBox, setAskDialogBox, hatimKonu, setHatimKonu, hatimBitisTarihi, setHatimBitisTarihi, changeAskDialogBox }) => {
     return (
-    <DialogBox visibility={askDialogBox} height={"220px"} top={"10%"}>
+    <DialogBox visibility={askDialogBox} height={"300px"} top={"10%"}>
 
                 <DialogContainer>
 
@@ -33,12 +33,25 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
                 {Language["/"].Button.Header.Text}
                 </DialogText>
 
-                {<div style={{height:'10px'}}></div>}
+                <div style={{height:'30px'}}></div>
+                
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <DialogTextSpan>{Language["/"].Button.Header.InputSpan[0]}</DialogTextSpan>
+                    <DialogInputBox placeholder={Language["/"].Button.Header.Input[0]} onChange = {(event)=>{
+                        setHatimKonu(event.target.value);
+                        
+                    }}/>
+                </div>
 
-                <DialogInputBox onChange = {(event)=>{
-                    setHatimKonu(event.target.value);
-                    
-                }}/>
+                <div style={{height:'10px'}}></div>
+
+
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <DialogTextSpan>{Language["/"].Button.Header.InputSpan[1]}</DialogTextSpan>
+                    <DialogInputBox type="date"  onChange = {(event)=>{
+                        setHatimBitisTarihi(event.target.value);
+                    }}/>
+                </div>
 
                 {<div style={{height:'10px'}}></div>}
 
@@ -48,7 +61,7 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
             <NavBtnLink onClick={async ()=>{
                 setAskDialogBox(false);
                 propHideDialogBox.setHideDialogBox(true);
-                let _hatimKey = await firebase.yeniHatim(hatimKonu);
+                let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi);
                 setHatimKey(_hatimKey);
                 setYazilar({
                     baslik:Language["/"].Button.Final.After.Header,
@@ -84,6 +97,7 @@ const Question = ({ firebase, toggle }) => {
     const [yazilar, setYazilar] = useState({baslik:Language["/"].Button.Final.Before.Header, link:Language["/"].Button.Final.Before.LinkReady,
      cevap: Language["/"].Button.Final.Before.Button});
     const [hatimKonu, setHatimKonu] = useState("");
+    const [hatimBitisTarihi, setHatimBitisTarihi] = useState("");
     const [hideMevcutHatimler, setHideMevcutHatimler] = useState(false);
     const [mevcutHatimler, setMevcutHatimler] = useState([]);
     const [mevcutHatimlerBaslik, setMevcutHatimlerBaslik] = useState([]);
@@ -183,7 +197,8 @@ const Question = ({ firebase, toggle }) => {
             <AskDialog firebase={firebase} setHatimKey={setHatimKey} setYazilar={setYazilar}
                                  propHideDialogBox={{hideDialogBox, setHideDialogBox}}
                                 askDialogBox={askDialogBox} setAskDialogBox={setAskDialogBox}
-                                hatimKonu={hatimKonu} setHatimKonu={setHatimKonu} changeAskDialogBox={changeAskDialogBox} />
+                                hatimKonu={hatimKonu} setHatimKonu={setHatimKonu} changeAskDialogBox={changeAskDialogBox}
+                                hatimBitisTarihi={hatimBitisTarihi} setHatimBitisTarihi={setHatimBitisTarihi} />
 
         {/* <BackContainer>
                 <BackButtonIcon hide={datas == 1 ? false : true} src={backButton} onClick={()=>{setDatas(routes.pop()); console.log(routes); setRoutes(routes);}}>

@@ -184,6 +184,12 @@ const Constr = ({ toggle, firebase }) => {
                 <QuestionItem fontSize={"1.6rem"}>
                         {Language.baslik}
                 </QuestionItem>
+
+
+              { Language.bitisTarihi.length > 0 &&  <QuestionItem fontSize={"1.1rem"}>
+                       {LanguageData["/cuz"].KhatmFinishDate[0]}  {Language.bitisTarihi.split("-").reverse().join("/")} {LanguageData["/cuz"].KhatmFinishDate[1]}
+                </QuestionItem>
+                }
                 <QuestionItem fontSize={"1.3rem"}>
                         {LanguageData["/cuz"].Before.Question}
                 </QuestionItem>

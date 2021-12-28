@@ -206,6 +206,7 @@ export const dataFormat = {
         ]
     },
     bitti: false,
-    baslik: ''
+    baslik: '',
+    bitisTarihi: "",
 
 }

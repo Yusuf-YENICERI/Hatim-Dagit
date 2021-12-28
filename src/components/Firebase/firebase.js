@@ -72,9 +72,9 @@ class Firebase{
     return baslik.val();
   }
 
-  yeniHatim = async (baslik) => {
-
+  yeniHatim = async (baslik, bitisTarihi) => {
     dataFormat.baslik = baslik;
+    dataFormat.bitisTarihi = bitisTarihi;
 
     console.log(dataFormat)
     console.log(baslik)

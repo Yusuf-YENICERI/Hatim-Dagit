@@ -39,7 +39,9 @@ let english = {
         Button: {
             Main: "New Khatm",
             Header: {
-                Text: "Enter a Title For Khatm:",
+                Text: "Make New Khatm",
+                InputSpan: ["Title", "Khatm Finish Date"],
+                Input: ["Please enter a Khatm title"],
                 Button: "Continue"
             },
             Final: {

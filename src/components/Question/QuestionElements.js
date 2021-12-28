@@ -282,6 +282,13 @@ font-size: ${({fontSize}) => (fontSize)};
 margin-top: 5px;
 `
 
+export const DialogTextSpan = styled.span`
+color:#000;
+opacity: 0.8;
+font-size: 0.8rem;
+margin: 3px;
+`
+
 export const DialogLink = styled.div`
 color:#000;
 text-align:center;
@@ -298,7 +305,7 @@ margin-bottom: 10px;
 `
 
 export const DialogInputBox = styled.input`
-
+    width: 200px;
 `
 
 

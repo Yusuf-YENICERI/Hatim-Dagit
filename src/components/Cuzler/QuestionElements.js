@@ -21,11 +21,11 @@ export const QuestionContainer = styled.div`
 `;
 
 export const QuestionInnerContainer = styled.div`
-    height: 120px;
+    height: 200px;
     background-color: #91ffbb;
 
     @media screen and (max-width: 480px){
-        height: 100px;
+        height: 150px;
     }
 `
 

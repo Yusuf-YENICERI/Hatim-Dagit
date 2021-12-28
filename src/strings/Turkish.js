@@ -34,7 +34,9 @@ let Turkish = {
         Button: {
             Main: "Hızlı Hatim Oluştur",
             Header: {
-                Text: "Hatim için bir başlık belirleyin:",
+                Text: "Yeni Hatim Oluştur",
+                InputSpan: ["Başlık", "Hatim Duası Tarihi"],
+                Input: ["Lütfen Hatim başlığı yazın .."],
                 Button: "Devam Et"
             },
             Final: {
@@ -58,6 +60,9 @@ let Turkish = {
     },
 
     "/cuz":{
+
+        KhatmFinishDate: ["Bu Hatmin Duası","tarihinde yapılacak."],
+
         Before: {
             Question: "İstediğiniz cüze tıklayın ..",
             Wait: "Lütfen Bekleyiniz ..",
