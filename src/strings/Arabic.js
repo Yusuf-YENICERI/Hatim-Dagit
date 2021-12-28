@@ -58,6 +58,7 @@ let Arabic = {
     },
 
     "/cuz":{
+        KhatmFinishDate: [".","صلاة هذا الختم ستقام في"],
         Before: {
             Question: "انقر فوق الجزء المطلوب ..",
             Wait: "ارجوك انتظر!",
