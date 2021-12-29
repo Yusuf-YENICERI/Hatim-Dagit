@@ -25,9 +25,9 @@ reportWebVitals();
 /***
  * temporary
  */
-if(navigator.userAgent.indexOf("ASUS_T00J")){
-  localStorage.setItem("user","test")
-}
+// if(navigator.userAgent.indexOf("ASUS_T00J")){
+//   localStorage.setItem("user","test")
+// }
 /**
  * temporary end
  */
