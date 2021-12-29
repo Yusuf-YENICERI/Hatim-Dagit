@@ -15,7 +15,7 @@ export const QuestionContainer = styled.div`
     position: relative;
 
     @media screen and (max-width: 480px){
-        height: 1200px;
+        height: 1300px;
     }
 
 `;

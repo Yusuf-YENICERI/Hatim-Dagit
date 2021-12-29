@@ -18,7 +18,6 @@ const Footer = () => {
     useEffect( () => {
 
         const fetchData =  async () => {
-            await db.ziyaretSayisiArtir();
             setZiyaretSayisi(await db.ziyaretSayisiGetir())
         }
         fetchData();

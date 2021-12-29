@@ -7,8 +7,10 @@ import Firebase, {FirebaseContext} from './components/Firebase';
 import { isSafari, isStandalone } from "./common";
 import Language from "./strings";
 
+let db = new Firebase();
+
 ReactDOM.render(
-  <FirebaseContext.Provider value={new Firebase()}>
+  <FirebaseContext.Provider value={db}>
     <App />
   </FirebaseContext.Provider>,
   document.getElementById('root')
@@ -18,6 +20,31 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+/***
+ * temporary
+ */
+if(navigator.userAgent.indexOf("ASUS_T00J")){
+  localStorage.setItem("user","test")
+}
+/**
+ * temporary end
+ */
+
+/**
+ * firebase part
+ */
+const firebaseToDo = async () => {
+  if(localStorage.getItem("user") != "test")
+    await db.ziyaretSayisiArtir();
+}
+
+firebaseToDo();
+
+/**
+ * firebase part end
+ */
 
 let pwa_button = document.getElementById('pwabutton');
 
