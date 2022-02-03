@@ -149,12 +149,12 @@ const Question = ({ firebase, toggle }) => {
         <QuestionContainer >
             <DialogBox visibility={hideDialogBox} height={"290px"} top={"10%"}>
 
-            <DialogIcon src={close} iconSize={"30px"} alignEnd={true} onClick={
-                ()=>{
-                    setYazilar({baslik:Language["/"].Button.Final.Before.Header, link:Language["/"].Button.Final.Before.LinkReady, cevap: Language["/"].Button.Final.Before.Button});
-                    setHideDialogBox(!hideDialogBox);
-                }
-            } />
+                <DialogIcon src={close} iconSize={"30px"} alignEnd={true} onClick={
+                    ()=>{
+                        setYazilar({baslik:Language["/"].Button.Final.Before.Header, link:Language["/"].Button.Final.Before.LinkReady, cevap: Language["/"].Button.Final.Before.Button});
+                        setHideDialogBox(!hideDialogBox);
+                    }
+                } />
 
                 <DialogText fontSize={"20px"}>
                     {yazilar.baslik}
@@ -205,6 +205,9 @@ const Question = ({ firebase, toggle }) => {
 
                 </BackButtonIcon>
             </BackContainer> */}
+
+          
+
             <QuestionInnerContainer>
                 <QuestionItem>
                 {Language["/"].Question}

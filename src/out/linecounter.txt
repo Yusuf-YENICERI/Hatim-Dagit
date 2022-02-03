@@ -122,3 +122,79 @@ strings/english.js, code is 54, comment is 0, blank is 22.
 strings/index.js, code is 40, comment is 6, blank is 14.
 strings/Turkish.js, code is 54, comment is 0, blank is 17.
 ===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-01-24 16:19:11
+count workspace : /home/yusuf/Desktop/Hat/hatimGit/src
+total files : 57
+total code lines : 2839
+total comment lines : 257
+total blank lines : 731
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |            .js|           2794|            244|            721|     98|
+   |           .css|             22|             13|             10|   0.77|
+   |           .svg|             23|              0|              0|   0.81|
+   -------------------------------------------------------------------------
+App.css, code is 9, comment is 0, blank is 2.
+App.js, code is 16, comment is 0, blank is 3.
+App.test.js, code is 7, comment is 0, blank is 1.
+common.js, code is 35, comment is 0, blank is 10.
+components/Cuzler/index.js, code is 397, comment is 57, blank is 92.
+components/Cuzler/QuestionElements.js, code is 408, comment is 22, blank is 91.
+components/DialogBox/DialogBoxElements.js, code is 49, comment is 0, blank is 16.
+components/DialogBox/index.js, code is 27, comment is 1, blank is 16.
+components/Firebase/context.js, code is 3, comment is 0, blank is 4.
+components/Firebase/firebase.js, code is 98, comment is 7, blank is 33.
+components/Firebase/index.js, code is 4, comment is 0, blank is 4.
+components/Footer/FooterElements.js, code is 113, comment is 4, blank is 25.
+components/Footer/index.js, code is 42, comment is 17, blank is 14.
+components/Navbar/index.js, code is 103, comment is 40, blank is 25.
+components/Navbar/navbar.css, code is 6, comment is 0, blank is 4.
+components/Navbar/NavbarElements.js, code is 150, comment is 7, blank is 27.
+components/Navbar/service-worker.js, code is 2, comment is 1, blank is 2.
+components/Pwa/index.js, code is 29, comment is 1, blank is 7.
+components/Pwa/PwaElements.js, code is 59, comment is 1, blank is 15.
+components/Question/index.js, code is 196, comment is 24, blank is 68.
+components/Question/QuestionElements.js, code is 251, comment is 10, blank is 50.
+components/ShareBox/index.js, code is 40, comment is 0, blank is 20.
+components/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+components/Sidebar/index.js, code is 48, comment is 20, blank is 12.
+components/Sidebar/sidebar.css, code is 7, comment is 0, blank is 4.
+components/Sidebar/SiderbarElements.js, code is 98, comment is 0, blank is 17.
+icons/button.svg, code is 1, comment is 0, blank is 0.
+icons/c.svg, code is 1, comment is 0, blank is 0.
+icons/close.svg, code is 1, comment is 0, blank is 0.
+icons/copy.svg, code is 1, comment is 0, blank is 0.
+icons/cpp.svg, code is 1, comment is 0, blank is 0.
+icons/csharp.svg, code is 1, comment is 0, blank is 0.
+icons/enterprise.svg, code is 1, comment is 0, blank is 0.
+icons/game.svg, code is 1, comment is 0, blank is 0.
+icons/java.svg, code is 1, comment is 0, blank is 0.
+icons/js.svg, code is 1, comment is 0, blank is 0.
+icons/lamp.svg, code is 4, comment is 0, blank is 0.
+icons/mobile.svg, code is 1, comment is 0, blank is 0.
+icons/php.svg, code is 1, comment is 0, blank is 0.
+icons/python.svg, code is 1, comment is 0, blank is 0.
+icons/ruby.svg, code is 1, comment is 0, blank is 0.
+icons/share.svg, code is 1, comment is 0, blank is 0.
+icons/sms.svg, code is 1, comment is 0, blank is 0.
+icons/website.svg, code is 1, comment is 0, blank is 0.
+icons/whatsapp.svg, code is 1, comment is 0, blank is 0.
+index.css, code is 0, comment is 13, blank is 0.
+index.js, code is 59, comment is 18, blank is 19.
+logo.svg, code is 1, comment is 0, blank is 0.
+pages/cuz.js, code is 22, comment is 0, blank is 7.
+pages/index.js, code is 21, comment is 0, blank is 10.
+reportWebVitals.js, code is 12, comment is 0, blank is 1.
+setupTests.js, code is 1, comment is 4, blank is 0.
+strings/Arabic.js, code is 76, comment is 0, blank is 14.
+strings/dataFormat.js, code is 171, comment is 1, blank is 40.
+strings/english.js, code is 77, comment is 0, blank is 27.
+strings/index.js, code is 40, comment is 6, blank is 13.
+strings/Turkish.js, code is 77, comment is 0, blank is 23.
+===============================================================================

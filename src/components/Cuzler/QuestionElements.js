@@ -7,25 +7,46 @@
 import styled from 'styled-components';
 import { Link as LinkR } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
+import { Add, ChevronDown, ChevronUp } from "@styled-icons/ionicons-outline";
 
 
 export const QuestionContainer = styled.div`
-    height: 700px;
     background-color: #91ffbb;
     position: relative;
+    min-height: ${({minHeight}) => minHeight};
 
     @media screen and (max-width: 480px){
-        height: 1300px;
     }
 
 `;
 
+const displayDestroyer = (attribute, milliseconds) => {
+    let promise = new Promise((resolve, reject) => {
+        setTimeout(()=>{
+            resolve(attribute);
+        }, milliseconds);
+    });
+    return promise;
+}
+
+export const HatimContainer = styled.div`
+    transform-origin: top;
+    transform: ${({visibility}) => !visibility ? "scaleY(0)" : "scaleY(1)"};
+    height: ${({visibility}) => {
+        if(!visibility){            
+            return "0";
+        }else{
+            return "100%";
+        }
+    }};
+    transition: height 0ms 1s ease, transform 1s 0ms ease;
+    overflow: hidden;
+`;
+
 export const QuestionInnerContainer = styled.div`
-    height: 200px;
     background-color: #91ffbb;
 
     @media screen and (max-width: 480px){
-        height: 150px;
     }
 `
 
@@ -33,6 +54,7 @@ export const QuestionItem = styled.div`
     padding: 30px;
     font-size: ${({fontSize})=>fontSize};
     text-align: center;
+    position: relative;
     color: #000000;
 
     @media screen and (max-width: 480px){
@@ -55,10 +77,8 @@ export const BackButtonIcon=styled.img`
 export const RespondContainer = styled.div`
     visibility: ${({visibility}) => (visibility ? "visible" : "hidden")};
     background-color: #91ffbb;
-    height: 300px;
 
     @media screen and (max-width: 480px){
-        height: 600px;
     }
 `
 
@@ -242,6 +262,7 @@ export const CopyContainer = styled.div`
     border-width: 1px; */
 transition: 0.5s all ease-in;
 padding: 8px;
+z-index: 10;
 
 @media screen and (max-width: 960px){
     bottom: 5%;
@@ -277,9 +298,10 @@ export const ShareContainer = styled.div`
 transition: 0.5s all ease-in;
 padding: 8px;
     display: none;
+    z-index:10;
 
 @media screen and (max-width: 960px){
-    bottom: 15%;
+    bottom: 17%;
     right: 12%;
     position: fixed;
     display:flex;
@@ -439,3 +461,65 @@ export const NavIcon = styled.a`
         transform: scale(1.02);
     }
 `
+
+export const YeniHatimWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+`;
+
+export const YeniHatimContainer = styled.div`
+`;
+
+export const YeniHatimButton = styled.button`
+    margin: 10px;
+    border: 4px solid #00ba47;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+
+    @media screen and (max-width: 480px){
+        margin: 40px;
+    }
+`;
+
+export const YeniHatimText = styled.span`
+    color: #00ba47;
+    margin-left: 10px;
+    
+    ::before{
+       content : '';
+       position: absolute;
+       left: 40px;
+       width: 1px;
+       height: 30px;
+       background-color: #00ba47;
+    }
+
+`;
+
+export const YeniHatimIcon = styled(Add)`
+    width: 30px;
+    color: #00ba47;
+
+    
+`;
+
+export const HideHatimIcon = styled(ChevronUp)`
+    width: 50px;
+    color: black;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+`;
+
+export const ShowHatimIcon = styled(ChevronDown)`
+    width: 50px;
+    color: black;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+`;

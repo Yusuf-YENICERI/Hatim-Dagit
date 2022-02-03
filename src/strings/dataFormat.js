@@ -101,7 +101,7 @@ export const dataFormat = {
             },
             {
                 cevap:'15',
-                kisi:'Ahmet Cakir',
+                kisi:'',
                 isim:'',
                 alindi: false,
 
@@ -206,7 +206,8 @@ export const dataFormat = {
         ]
     },
     bitti: false,
-    baslik: '',
+    baslik: 'testing data fromat',
     bitisTarihi: "",
+    
 
 }

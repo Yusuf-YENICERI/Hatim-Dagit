@@ -21,6 +21,12 @@ const removeAll = (arr, item) => {
     return arr;
   }
 
+const objectToArray = (obj) => {
+  return Object.keys(obj).map((key) => {
+    return obj[key]
+  });
+}
+
 
 const isSafari = () => {
   let userAgentString = navigator.userAgent;
@@ -34,6 +40,12 @@ const isStandalone = () => {
   return ('standalone' in window.navigator) && window.navigator.standalone;
 }
 
+const extractKey = () => {
+  let link = window.location.toString();
+  let index = link.indexOf("/cuz")
+  return link.substr(index+4, link.length);
+}
+
 export default detectLanguage;
 
-export {setLanguage, removeAll, isSafari, isStandalone};
+export {setLanguage, removeAll, objectToArray, isSafari, isStandalone, extractKey};

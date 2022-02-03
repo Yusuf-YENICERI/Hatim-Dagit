@@ -7,7 +7,7 @@
 import styled from 'styled-components';
 import { Link as LinkR } from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
-import { Close } from "@styled-icons/ionicons-outline";
+import { Close, Add } from "@styled-icons/ionicons-outline";
 
 
 export const QuestionContainer = styled.div`

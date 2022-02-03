@@ -60,8 +60,16 @@ class Firebase{
     try {
       let hatimKey = this.extractKey();
       let Hatim = await this.db.ref( "hatim/" + hatimKey ).get();
-      console.log(Hatim.val());
-      return Hatim.val(); 
+      // console.log(Hatim.val());
+      let data = Hatim.val();
+      
+      if(data.baslik != null){
+        data = [data];
+      }
+
+      console.log(data);
+      
+      return data;
     } catch (error) {
       return "error";
     }
@@ -80,8 +88,11 @@ class Firebase{
     console.log(baslik)
 
     let hatimKey = await this.db.ref("hatim").push().key;
-    await this.db.ref( "hatim/" + hatimKey ).set(dataFormat);
+    let hatimAltKey = await this.db.ref(`hatim/${hatimKey}`).push().key;
+    await this.db.ref( `hatim/${hatimKey}/${hatimAltKey}` ).set(dataFormat);
 
+    console.log(`hatimKey: ${hatimKey}`)
+    console.log(`hatimAltKey: ${hatimAltKey}`)
 
     let localStorageCuzKeylerArr = JSON.parse(localStorage.getItem("CuzKeyler"));
     if(localStorageCuzKeylerArr == null)  localStorageCuzKeylerArr = [];
