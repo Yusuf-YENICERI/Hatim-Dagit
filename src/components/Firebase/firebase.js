@@ -80,39 +80,47 @@ class Firebase{
     return baslik.val();
   }
 
-  yeniHatim = async (baslik, bitisTarihi) => {
+  yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false) => {
     dataFormat.baslik = baslik;
     dataFormat.bitisTarihi = bitisTarihi;
 
     console.log(dataFormat)
     console.log(baslik)
 
-    let hatimKey = await this.db.ref("hatim").push().key;
+    let hatimKey;
+    if(!mevcutHatim){
+      hatimKey = await this.db.ref("hatim").push().key;
+    }else{
+      hatimKey = this.extractKey();
+      hatimKey = hatimKey.replace("/", "");
+    }
     let hatimAltKey = await this.db.ref(`hatim/${hatimKey}`).push().key;
     await this.db.ref( `hatim/${hatimKey}/${hatimAltKey}` ).set(dataFormat);
 
     console.log(`hatimKey: ${hatimKey}`)
     console.log(`hatimAltKey: ${hatimAltKey}`)
 
-    let localStorageCuzKeylerArr = JSON.parse(localStorage.getItem("CuzKeyler"));
-    if(localStorageCuzKeylerArr == null)  localStorageCuzKeylerArr = [];
-    localStorageCuzKeylerArr.push(hatimKey);
-    localStorage.setItem("CuzKeyler", JSON.stringify(localStorageCuzKeylerArr))
+    if(!mevcutHatim){
+      let localStorageCuzKeylerArr = JSON.parse(localStorage.getItem("CuzKeyler"));
+      if(localStorageCuzKeylerArr == null)  localStorageCuzKeylerArr = [];
+      localStorageCuzKeylerArr.push(hatimKey);
+      localStorage.setItem("CuzKeyler", JSON.stringify(localStorageCuzKeylerArr))
 
-    let localStorageCuzKeylerArrBaslik = JSON.parse(localStorage.getItem("CuzKeylerBaslik"));
-    if(localStorageCuzKeylerArrBaslik == null)  localStorageCuzKeylerArrBaslik = [];
-    localStorageCuzKeylerArrBaslik.push(baslik);
-    localStorage.setItem("CuzKeylerBaslik", JSON.stringify(localStorageCuzKeylerArrBaslik))
+      let localStorageCuzKeylerArrBaslik = JSON.parse(localStorage.getItem("CuzKeylerBaslik"));
+      if(localStorageCuzKeylerArrBaslik == null)  localStorageCuzKeylerArrBaslik = [];
+      localStorageCuzKeylerArrBaslik.push(baslik);
+      localStorage.setItem("CuzKeylerBaslik", JSON.stringify(localStorageCuzKeylerArrBaslik))
+    }
     
     
     return hatimKey;
   }
 
-  cuzAlindi = async (isim, no) => {
+  cuzAlindi = async (isim, no, subKey) => {
     let hatimKey = this.extractKey();
     let sira = this.hatimSiraBelirle(no);
 
-    await this.db.ref("hatim/" + hatimKey + "/" + sira + "/cevaplar/" + (no-((sira-1)*10+1))).set({
+    await this.db.ref("hatim/" + hatimKey + "/" + subKey + "/" + sira + "/cevaplar/" + (no-((sira-1)*10+1))).set({
                 cevap: no,
                 isim: isim,
                 alindi: true,
@@ -120,11 +128,11 @@ class Firebase{
   }
 
 
-  cuzIptal = async (no) => {
+  cuzIptal = async (no, subKey) => {
     let hatimKey = this.extractKey();
     let sira = this.hatimSiraBelirle(no);
 
-    await this.db.ref("hatim/" + hatimKey + "/" + sira + "/cevaplar/" + (no-((sira-1)*10+1))).set({
+    await this.db.ref("hatim/" + hatimKey + "/" + subKey + "/" + sira + "/cevaplar/" + (no-((sira-1)*10+1))).set({
                 cevap: no,
                 isim: '',
                 alindi: false,

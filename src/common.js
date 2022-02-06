@@ -9,7 +9,8 @@ const detectLanguage = () => {
 
 const setLanguage = (lang) => localStorage.setItem("language", lang)
 
-const removeAll = (arr, item) => {
+const removeAll = (obj, item, subKey) => {
+    let arr = obj[subKey];
     let i = 0;
     while (i < arr.length) {
       if (arr[i] === item) {
@@ -18,12 +19,14 @@ const removeAll = (arr, item) => {
         ++i;
       }
     }
-    return arr;
+    obj[subKey] = arr;
+    return obj;
   }
 
 const objectToArray = (obj) => {
   return Object.keys(obj).map((key) => {
-    return obj[key]
+    obj[key].subKey = key;
+    return obj[key];
   });
 }
 

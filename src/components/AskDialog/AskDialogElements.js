@@ -21,7 +21,7 @@ export const DialogBox = styled.div`
     transition: 0.5s all ease-in;
     border-radius: 10px;
     padding: 10px;
-
+    margin-top: 80px;
     display:flex;
     flex-direction: column;
     align-items:center;
@@ -30,7 +30,8 @@ export const DialogBox = styled.div`
     @media screen and (max-width: 480px){
         left: 50%;
         transform: translateX(-50%);
-        margin-top: 30%;
+        margin-top: 80px;
+        top: ${({top}) => top};    
         }
 `
 

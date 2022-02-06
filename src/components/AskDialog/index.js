@@ -9,7 +9,7 @@ import { NavBtnLink } from '../Navbar/NavbarElements';
 import close from '../../icons/close.svg';
 
 
-const AskDialog = ({ top, firebase, setHatimKey, setYazilar, propHideDialogBox, askDialogBox, setAskDialogBox, hatimKonu, setHatimKonu, hatimBitisTarihi, setHatimBitisTarihi, changeAskDialogBox }) => {
+const AskDialog = ({ buttonText, top, buttonCallback, firebase, setHatimKey, setYazilar, propHideDialogBox, askDialogBox, setAskDialogBox, hatimKonu, setHatimKonu, hatimBitisTarihi, setHatimBitisTarihi, changeAskDialogBox }) => {
     
     const [topValue, setTopValue] = useState(top);
     
@@ -59,15 +59,8 @@ const AskDialog = ({ top, firebase, setHatimKey, setYazilar, propHideDialogBox, 
 
             <NavBtnLink onClick={async ()=>{
                 setAskDialogBox(false);
-                propHideDialogBox.setHideDialogBox(true);
-                let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi);
-                setHatimKey(_hatimKey);
-                setYazilar({
-                    baslik:Language["/"].Button.Final.After.Header,
-                    link: "https://hatim-dagit.web.app/cuz/" + _hatimKey,
-                    cevap:Language["/"].Button.Final.After.Button
-                })  
-            }}>{Language["/"].Button.Header.Button}</NavBtnLink>
+                await buttonCallback();
+            }}>{buttonText}</NavBtnLink>
 
             </DialogBox>
     );

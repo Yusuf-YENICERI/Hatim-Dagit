@@ -62,6 +62,7 @@ const Constr = ({ toggle, firebase }) => {
     const [hideShareBox, setHideShareBox] = useState(false);
     const [hatimlerVisibilities, setHatimlerVisibilities] = useState([]);
     const [askDialogBox, setAskDialogBox] = useState(false);
+    const [activeHatimSubKey, setActiveHatimSubKey] = useState(false);
     
     {/** AskDialog */}
     const [yazilar, setYazilar] = useState({baslik:LanguageData["/"].Button.Final.Before.Header, link:LanguageData["/"].Button.Final.Before.LinkReady,
@@ -81,14 +82,29 @@ const Constr = ({ toggle, firebase }) => {
         setHideShareBox(!hideShareBox)
     }
 
-    useEffect(async () => {
+    const initialRun = async () => {
         try {
             let result = await firebase.hatimGetir();
             while(result == "error"){
                 result = await firebase.hatimGetir();
             } 
             console.log(result);
-            setAllLanguage(objectToArray(result));
+
+            let allHatimler = objectToArray(result);
+            let currentIndex = 0;
+            for (let i = 0; i < allHatimler.length; i++) {
+                
+                let totalCevap = allHatimler[i][1].cevaplar.filter((cevap)=>cevap.alindi).length + 
+                allHatimler[i][2].cevaplar.filter((cevap)=>cevap.alindi).length + 
+                allHatimler[i][3].cevaplar.filter((cevap)=>cevap.alindi).length;
+                
+                if(totalCevap != 30){
+                    currentIndex = i;
+                    break;
+                }
+            }
+
+            setAllLanguage(allHatimler);
             setHideRespond(true);
             setLoadingVisibility(false);
             setHatimlerVisibilities((()=>{
@@ -96,7 +112,46 @@ const Constr = ({ toggle, firebase }) => {
                 for (let i = 0; i < objectToArray(result).length; i++) {
                     newArr[i] = false;
                 }
-                newArr[0] = true;
+                newArr[currentIndex] = true;
+                return newArr;
+            })());
+            if(localStorage.getItem("cuz") == null){
+                localStorage.setItem("cuz", JSON.stringify({}));
+            }
+
+            // let hatimContainers = document.getElementsByClassName("hatimContainer");
+            // let index = 0;
+            // for (const element of hatimContainers) {
+            //     element.addEventListener("transitionend", () => {
+            //         if(!hatimlerVisibilities[index])
+            //             element.style.display = "inline-block";
+            //         else
+            //             element.style.display = "none";
+            //     }, false);
+            //     index++;
+            // }
+        } catch (error) {
+            setWaitText(LanguageData["/cuz"].Before.Error)
+            return;
+        }
+    }
+
+    const afterRun = async () => {
+        try {
+            let result = await firebase.hatimGetir();
+            while(result == "error"){
+                result = await firebase.hatimGetir();
+            } 
+            console.log(result);
+            setAllLanguage(objectToArray(await firebase.hatimGetir()));
+            setHideRespond(true);
+            setLoadingVisibility(false);
+            setHatimlerVisibilities((()=>{
+                let newArr = [];
+                for (let i = 0; i < objectToArray(result).length; i++) {
+                    newArr[i] = false;
+                }
+                newArr[newArr.length-1] = true;
                 return newArr;
             })());
             if(localStorage.getItem("cuz") == null){
@@ -118,6 +173,10 @@ const Constr = ({ toggle, firebase }) => {
             setWaitText(LanguageData["/cuz"].Before.Error)
             return;
         }
+    }
+
+    useEffect(async () => {
+        await initialRun();
       }, []);
     // const [scrollNav, setScrollNav] = useState(false);
     // const [width, setWidth] = useState(window.innerWidth);
@@ -193,20 +252,22 @@ const Constr = ({ toggle, firebase }) => {
                     setHideDialogBox(!hideDialogBox);
                     if(partIptal)
                     {
-                        await firebase.cuzIptal(hatimNo);
-                        let localStorageCuzArr = JSON.parse(localStorage.getItem("cuz"));
-                        localStorageCuzArr =  removeAll(localStorageCuzArr, hatimNo);
-                        localStorage.setItem("cuz", JSON.stringify( localStorageCuzArr ));
-                        setAllLanguage(Array.prototype.slice.call((await firebase.hatimGetir())));
+                        await firebase.cuzIptal(hatimNo, activeHatimSubKey);
+                        let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                        localStorageCuzObj =  removeAll(localStorageCuzObj, hatimNo, activeHatimSubKey);
+                        localStorage.setItem("cuz", JSON.stringify( localStorageCuzObj ));
+                        setAllLanguage(objectToArray(await firebase.hatimGetir()));
                         setTakePart(LanguageData["/cuz"].Button.Take)
                         setPartIptal(false);
                         return;
                     }
-                    await firebase.cuzAlindi(username, hatimNo);
-                    let localStorageCuzArr = JSON.parse(localStorage.getItem("cuz"));
-                    localStorageCuzArr.push(hatimNo);
-                    localStorage.setItem("cuz",JSON.stringify(localStorageCuzArr));
-                    setAllLanguage(Array.prototype.slice.call((await firebase.hatimGetir())));
+                    await firebase.cuzAlindi(username, hatimNo, activeHatimSubKey);
+                    let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                    if(localStorageCuzObj[activeHatimSubKey] == null)
+                        localStorageCuzObj[activeHatimSubKey] = [];
+                    localStorageCuzObj[activeHatimSubKey].push(hatimNo);
+                    localStorage.setItem("cuz",JSON.stringify(localStorageCuzObj));
+                    setAllLanguage(objectToArray(await firebase.hatimGetir()));
                 }}>
                     {takePart}
                 </NavBtnLink>
@@ -217,189 +278,27 @@ const Constr = ({ toggle, firebase }) => {
 
             <ShareBox shareBoxVisibility={hideShareBox} changeShareBoxVisibility={changeShareBoxVisibility} />
 
-            <AskDialog top={"0px"} firebase={firebase} setHatimKey={setHatimKey} setYazilar={setYazilar}
+            <AskDialog          buttonCallback={async ()=>{
+                                    let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, true);
+
+                                    let temp = [];
+                                    for (let i = 0; i < hatimlerVisibilities.length; i++) {
+                                        temp[i] = false;
+                                    }
+                                    setHatimlerVisibilities(temp);
+                                    await afterRun();
+                                }}
+                                buttonText={LanguageData["/"].Button.Header.Button} top={"3px"} 
+                                firebase={firebase} setHatimKey={setHatimKey} setYazilar={setYazilar}
                                  propHideDialogBox={{hideNewHatimBox, setHideNewHatimBox}}
                                 askDialogBox={askDialogBox} setAskDialogBox={setAskDialogBox}
                                 hatimKonu={hatimKonu} setHatimKonu={setHatimKonu} changeAskDialogBox={changeAskDialogBox}
                                 hatimBitisTarihi={hatimBitisTarihi} setHatimBitisTarihi={setHatimBitisTarihi} />
 
-        {/* <BackContainer>
-                <BackButtonIcon hide={datas == 1 ? false : true} src={backButton} onClick={()=>{setDatas(routes.pop()); console.log(routes); setRoutes(routes);}}>
-
-                </BackButtonIcon>
-            </BackContainer> */}
 
                 {/* Hatimler ikonu ve yazısı */}
 
-                {/* { 
-                
-                
-                !loadingVisibility &&
-
-                 <QuestionItem fontSize={"1.6rem"}>
-                        {Language.baslik} 
-                    {
-                        hatimlerVisibilities[0] 
-                            ?
-                        <HideHatimIcon onClick={()=>{
-                            setHatimlerVisibilities(prevState=>{
-                            let _newState = [...prevState];
-                            _newState[0] = !hatimlerVisibilities[0];
-                            return _newState;
-                            });
-                            // setTimeout(()=>{
-                            //     if(document.querySelector("#questionContainer").clientHeight < window.innerHeight){
-                            //         document.querySelector("#questionContainer").style.height = (window.innerHeight-80).toString() + "px";
-                            //     }
-                            // },1100);
-                    }} />
-                            :
-                        <ShowHatimIcon onClick={()=>setHatimlerVisibilities(prevState=>{
-                            let _newState = [...prevState];
-                            _newState[0] = !hatimlerVisibilities[0];
-                            return _newState;
-                        })} />
-                    }
-                </QuestionItem>} */}
-
-
-                {/* Hatmin kendisi */}
-
-            {/* <HatimContainer className="hatimContainer" visibility={hatimlerVisibilities[0]}>
-
-            <QuestionInnerContainer>
-               
-               
-
-
-              { Language.bitisTarihi != null && Language.bitisTarihi.length > 0 &&  <QuestionItem fontSize={"1.1rem"}>
-                       {LanguageData["/cuz"].KhatmFinishDate[0]}  {Language.bitisTarihi.split("-").reverse().join("/")} {LanguageData["/cuz"].KhatmFinishDate[1]}
-                </QuestionItem>
-                }
-                <QuestionItem fontSize={"1.3rem"}>
-                        {LanguageData["/cuz"].Before.Question}
-                </QuestionItem>
-            </QuestionInnerContainer>
-
-           
-            <RespondContainer visibility={hideRespond}>
-               <RespondOuterContainer>
-               <RespondInnerContainer>
-                    {
-                        Language[1].cevaplar.map(({cevap, alindi, isim}) => (
-                            
-                            <ResponseItem bgColor={alindi} onClick={()=>{
-                                if (alindi) {
-                                    if(!JSON.parse(localStorage.getItem("cuz")).includes(cevap)){
-                                        return;
-                                    }else{
-                                        setTakePart(LanguageData["/cuz"].Button.TakeCancel)
-                                        setPartIptal(true);
-                                        //unnecessary, please fix it
-                                        setHatimNo(cevap);
-                                        setUsername(isim);
-                                        setHideDialogBox(true);
-                                        return;
-                                    }
-                                }
-                                
-
-                                setHatimNo(cevap);
-                                setHideDialogBox(true);
-                                setUsername('');
-                            }}>
-                                <ResponseLogo />
-                                <ResponseText bgColor={alindi}>
-                                    {cevap}
-                                </ResponseText>
-                                <ResponseText color={"#FFBF17"} bgColor={alindi}>
-                                    {isim}
-                                </ResponseText>
-                            </ResponseItem>
-                        ))
-                    }
-                    {
-                        Language[2].cevaplar.map(({cevap, alindi, isim}) => (
-                            
-                            <ResponseItem bgColor={alindi} onClick={()=>{
-                                if (alindi) {
-                                    if(!JSON.parse(localStorage.getItem("cuz")).includes(cevap)){
-                                        return;
-                                    }else{
-                                        setTakePart(LanguageData["/cuz"].Button.TakeCancel)
-                                        setPartIptal(true);
-                                        //unnecessary, please fix it
-                                        setHatimNo(cevap);
-                                        setUsername(isim);
-                                        setHideDialogBox(true);
-                                        return;
-                                    }
-                                }
-                                
-
-                                setHatimNo(cevap);
-                                setHideDialogBox(true);
-                                setUsername('');
-                            }}>
-                                <ResponseLogo />
-                                <ResponseText bgColor={alindi}>
-                                    {cevap}
-                                </ResponseText>
-                                <ResponseText color={"#FFBF17"} bgColor={alindi}>
-                                    {isim}
-                                </ResponseText>
-                            </ResponseItem>
-                        ))
-                    }
-                     {
-                        Language[3].cevaplar.map(({cevap, alindi, isim}) => (
-                            
-                            <ResponseItem bgColor={alindi} onClick={()=>{
-                                if (alindi) {
-                                    if(!JSON.parse(localStorage.getItem("cuz")).includes(cevap)){
-                                        return;
-                                    }else{
-                                        setTakePart(LanguageData["/cuz"].Button.TakeCancel)
-                                        setPartIptal(true);
-                                        //unnecessary, please fix it
-                                        setHatimNo(cevap);
-                                        setUsername(isim);
-                                        setHideDialogBox(true);
-                                        return;
-                                    }
-                                }
-                                
-
-                                setHatimNo(cevap);
-                                setHideDialogBox(true);
-                                setUsername('');
-                            }}>
-                                <ResponseLogo />
-                                <ResponseText bgColor={alindi}>
-                                    {cevap}
-                                </ResponseText>
-                                <ResponseText color={"#FFBF17"} bgColor={alindi}>
-                                    {isim}
-                                </ResponseText>
-                            </ResponseItem>
-                        ))
-                    }
-                </RespondInnerContainer>
-
-               
-
-                </RespondOuterContainer>
-
-                
-            </RespondContainer>
-
-            </HatimContainer> */}
-
-
-
-                {/* Hatimler ikonu ve yazısı */}
-
-                 { !loadingVisibility && allLanguage.map( (Language) => {
+                 { !loadingVisibility && allLanguage.map( (Language, index) => {
 
                         console.log(`message from: `);
                         console.log(Language);
@@ -410,12 +309,12 @@ const Constr = ({ toggle, firebase }) => {
                     <QuestionItem fontSize={"1.6rem"}>
                             {Language.baslik} 
                         {
-                            hatimlerVisibilities[0] 
+                            hatimlerVisibilities[index] 
                                 ?
                             <HideHatimIcon onClick={()=>{
                                 setHatimlerVisibilities(prevState=>{
                                 let _newState = [...prevState];
-                                _newState[0] = !hatimlerVisibilities[0];
+                                _newState[index] = !hatimlerVisibilities[index];
                                 return _newState;
                                 });
                                 // setTimeout(()=>{
@@ -427,7 +326,7 @@ const Constr = ({ toggle, firebase }) => {
                                 :
                             <ShowHatimIcon onClick={()=>setHatimlerVisibilities(prevState=>{
                                 let _newState = [...prevState];
-                                _newState[0] = !hatimlerVisibilities[0];
+                                _newState[index] = !hatimlerVisibilities[index];
                                 return _newState;
                             })} />
                         }
@@ -436,7 +335,7 @@ const Constr = ({ toggle, firebase }) => {
     
                     {/* Hatmin kendisi */}
     
-                <HatimContainer className="hatimContainer" visibility={hatimlerVisibilities[0]}>
+                <HatimContainer className="hatimContainer" visibility={hatimlerVisibilities[index]}>
     
                 <QuestionInnerContainer>
                     
@@ -460,8 +359,12 @@ const Constr = ({ toggle, firebase }) => {
                             Language[1].cevaplar.map(({cevap, alindi, isim}) => (
                                 
                                 <ResponseItem bgColor={alindi} onClick={()=>{
+
                                     if (alindi) {
-                                        if(!JSON.parse(localStorage.getItem("cuz")).includes(cevap)){
+                                        setActiveHatimSubKey(Language.subKey);
+
+                                        let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                                        if(!localStorageCuzObj[Language.subKey].includes(cevap)){
                                             return;
                                         }else{
                                             setTakePart(LanguageData["/cuz"].Button.TakeCancel)
@@ -476,6 +379,7 @@ const Constr = ({ toggle, firebase }) => {
                                     
     
                                     setHatimNo(cevap);
+                                    setActiveHatimSubKey(Language.subKey);
                                     setHideDialogBox(true);
                                     setUsername('');
                                 }}>
@@ -494,7 +398,11 @@ const Constr = ({ toggle, firebase }) => {
                                 
                                 <ResponseItem bgColor={alindi} onClick={()=>{
                                     if (alindi) {
-                                        if(!JSON.parse(localStorage.getItem("cuz")).includes(cevap)){
+                                        setActiveHatimSubKey(Language.subKey);
+
+                                    
+                                        let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                                        if(!localStorageCuzObj[Language.subKey].includes(cevap)){
                                             return;
                                         }else{
                                             setTakePart(LanguageData["/cuz"].Button.TakeCancel)
@@ -509,6 +417,7 @@ const Constr = ({ toggle, firebase }) => {
                                     
     
                                     setHatimNo(cevap);
+                                    setActiveHatimSubKey(Language.subKey);
                                     setHideDialogBox(true);
                                     setUsername('');
                                 }}>
@@ -525,9 +434,14 @@ const Constr = ({ toggle, firebase }) => {
                         {
                             Language[3].cevaplar.map(({cevap, alindi, isim}) => (
                                 
+                                
                                 <ResponseItem bgColor={alindi} onClick={()=>{
+
                                     if (alindi) {
-                                        if(!JSON.parse(localStorage.getItem("cuz")).includes(cevap)){
+                                        setActiveHatimSubKey(Language.subKey);
+
+                                        let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                                        if(!localStorageCuzObj[Language.subKey].includes(cevap)){
                                             return;
                                         }else{
                                             setTakePart(LanguageData["/cuz"].Button.TakeCancel)
@@ -542,6 +456,7 @@ const Constr = ({ toggle, firebase }) => {
                                     
     
                                     setHatimNo(cevap);
+                                    setActiveHatimSubKey(Language.subKey);
                                     setHideDialogBox(true);
                                     setUsername('');
                                 }}>
