@@ -31,6 +31,7 @@ const displayDestroyer = (attribute, milliseconds) => {
 
 export const HatimContainer = styled.div`
     transform-origin: top;
+    margin-top: 20px;
     transform: ${({visibility}) => !visibility ? "scaleY(0)" : "scaleY(1)"};
     height: ${({visibility}) => {
         if(!visibility){            
@@ -56,6 +57,7 @@ export const QuestionItem = styled.div`
     text-align: center;
     position: relative;
     color: #000000;
+    
 
     @media screen and (max-width: 480px){
         font-size:${({fontSize})=>fontSize};
@@ -507,19 +509,37 @@ export const YeniHatimIcon = styled(Add)`
     
 `;
 
-export const HideHatimIcon = styled(ChevronUp)`
-    width: 50px;
+export const HatimHeaderContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
+export const HatimIconContainer = styled.div`
     color: black;
     position: absolute;
     right: 20px;
     top: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 5px;
+    z-index: 9;
+    box-shadow: 0px 6px 11px 0px rgba(0,0,0,0.51);
+-webkit-box-shadow: 0px 6px 11px 0px rgba(0,0,0,0.51);
+-moz-box-shadow: 0px 6px 11px 0px rgba(0,0,0,0.51);
+
+`;
+
+export const HatimIconText = styled.div`
+    position: relative;
+    font-size: 0.8rem;
+    margin-top: -15px;
+`;
+
+export const HideHatimIcon = styled(ChevronUp)`
+    width: 30px;
 `;
 
 export const ShowHatimIcon = styled(ChevronDown)`
-    width: 50px;
-    color: black;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+    width: 30px;
 
 `;

@@ -12,7 +12,7 @@ LoadingContainer, LoadingItem,
 CopyContainer, CopyItem, CopyIcon,
 ShareContainer, ShareItem, ShareIcon,
 YeniHatimWrapper, YeniHatimContainer, YeniHatimButton, YeniHatimIcon, YeniHatimText,
-HideHatimIcon, ShowHatimIcon, HatimContainer
+HideHatimIcon, ShowHatimIcon, HatimContainer, HatimIconContainer, HatimIconText
 } from './QuestionElements';
 import AskDialog from "../AskDialog";
 import LanguageData from '../../strings';
@@ -311,24 +311,32 @@ const Constr = ({ toggle, firebase }) => {
                         {
                             hatimlerVisibilities[index] 
                                 ?
-                            <HideHatimIcon onClick={()=>{
-                                setHatimlerVisibilities(prevState=>{
-                                let _newState = [...prevState];
-                                _newState[index] = !hatimlerVisibilities[index];
-                                return _newState;
-                                });
-                                // setTimeout(()=>{
-                                //     if(document.querySelector("#questionContainer").clientHeight < window.innerHeight){
-                                //         document.querySelector("#questionContainer").style.height = (window.innerHeight-80).toString() + "px";
-                                //     }
-                                // },1100);
-                        }} />
+                            <>
+                            <HatimIconContainer>
+                                <HideHatimIcon onClick={()=>{
+                                    setHatimlerVisibilities(prevState=>{
+                                    let _newState = [...prevState];
+                                    _newState[index] = !hatimlerVisibilities[index];
+                                    return _newState;
+                                    });
+                                    // setTimeout(()=>{
+                                    //     if(document.querySelector("#questionContainer").clientHeight < window.innerHeight){
+                                    //         document.querySelector("#questionContainer").style.height = (window.innerHeight-80).toString() + "px";
+                                    //     }
+                                    // },1100);
+                                    }} />
+                            </HatimIconContainer>
+                            </>
                                 :
-                            <ShowHatimIcon onClick={()=>setHatimlerVisibilities(prevState=>{
-                                let _newState = [...prevState];
-                                _newState[index] = !hatimlerVisibilities[index];
-                                return _newState;
-                            })} />
+                            <>
+                            <HatimIconContainer>
+                                <ShowHatimIcon onClick={()=>setHatimlerVisibilities(prevState=>{
+                                    let _newState = [...prevState];
+                                    _newState[index] = !hatimlerVisibilities[index];
+                                    return _newState;
+                                })} />
+                            </HatimIconContainer>
+                            </>
                         }
                     </QuestionItem>
     
