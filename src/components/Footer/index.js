@@ -4,7 +4,7 @@
 import React, {useEffect, useContext, useState} from 'react'
 import Language from '../../strings/index';
 import { FooterContainer, FooterWrapper, FooterLinksContainer, FooterLinkWrapper, FooterLinkItems, FooterLinkTitle, FooterLink,
-Business, BusinessWrap, BusinessLogo, WebsiteRights, BusinessIcons, BusinessIconLink, BusinessVisit } from "./FooterElements";
+Business, BusinessWrap, BusinessLogo, WebsiteRights, BusinessIcons, BusinessIconLink, BusinessVisit, BusinessMainPage } from "./FooterElements";
 import {Linker} from '../Question/QuestionElements';
 import { FaGithub } from "react-icons/fa";
 import {FirebaseContext} from '../Firebase';
@@ -28,6 +28,7 @@ const Footer = () => {
         <>
          <FooterContainer id="hakkimda">
              <FooterWrapper>
+                        
                  {/* <FooterLinksContainer>
                      <FooterLinkWrapper>
                          <FooterLinkItems>
@@ -43,8 +44,15 @@ const Footer = () => {
                          </FooterLinkItems>
                      </FooterLinkWrapper>
                  </FooterLinksContainer> */}
+
+                 
+
                  <Business>
+                 
                      <BusinessWrap>
+                     <BusinessMainPage to="/">
+                            Anasayfaya Git
+                        </BusinessMainPage>
                          <BusinessLogo to="starting">
                              {Language.Navbar.Logo}
                          </BusinessLogo>

@@ -62,6 +62,7 @@ let Turkish = {
     "/cuz":{
 
         KhatmFinishDate: ["Bu Hatmin Duası","tarihinde yapılacak."],
+        NewSubKhatm: "Bu sayfaya Yeni Hatim ekle",
 
         Before: {
             Question: "İstediğiniz cüze tıklayın ..",

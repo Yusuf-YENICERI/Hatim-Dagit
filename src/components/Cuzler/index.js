@@ -25,7 +25,7 @@ import share from '../../icons/share.svg';
 import close from '../../icons/close.svg';
 import {FirebaseContext} from '../Firebase';
 import ShareBox from '../ShareBox';
-import { extractKey } from "../../common";
+import { extractKey, initializeLocalStorage } from "../../common";
 import { Language } from '@styled-icons/ionicons-outline';
 
 
@@ -155,7 +155,7 @@ const Constr = ({ toggle, firebase }) => {
                 return newArr;
             })());
             if(localStorage.getItem("cuz") == null){
-                localStorage.setItem("cuz", JSON.stringify([]));
+                localStorage.setItem("cuz", JSON.stringify({}));
             }
 
             // let hatimContainers = document.getElementsByClassName("hatimContainer");
@@ -253,7 +253,9 @@ const Constr = ({ toggle, firebase }) => {
                     if(partIptal)
                     {
                         await firebase.cuzIptal(hatimNo, activeHatimSubKey);
+                        if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
                         let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                        localStorageCuzObj[activeHatimSubKey] = localStorageCuzObj[activeHatimSubKey] || [];
                         localStorageCuzObj =  removeAll(localStorageCuzObj, hatimNo, activeHatimSubKey);
                         localStorage.setItem("cuz", JSON.stringify( localStorageCuzObj ));
                         setAllLanguage(objectToArray(await firebase.hatimGetir()));
@@ -262,11 +264,14 @@ const Constr = ({ toggle, firebase }) => {
                         return;
                     }
                     await firebase.cuzAlindi(username, hatimNo, activeHatimSubKey);
+                    
+                    if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
                     let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
                     if(localStorageCuzObj[activeHatimSubKey] == null)
                         localStorageCuzObj[activeHatimSubKey] = [];
                     localStorageCuzObj[activeHatimSubKey].push(hatimNo);
                     localStorage.setItem("cuz",JSON.stringify(localStorageCuzObj));
+
                     setAllLanguage(objectToArray(await firebase.hatimGetir()));
                 }}>
                     {takePart}
@@ -309,34 +314,32 @@ const Constr = ({ toggle, firebase }) => {
                     <QuestionItem fontSize={"1.6rem"}>
                             {Language.baslik} 
                         {
-                            hatimlerVisibilities[index] 
-                                ?
-                            <>
-                            <HatimIconContainer>
-                                <HideHatimIcon onClick={()=>{
-                                    setHatimlerVisibilities(prevState=>{
-                                    let _newState = [...prevState];
-                                    _newState[index] = !hatimlerVisibilities[index];
-                                    return _newState;
-                                    });
-                                    // setTimeout(()=>{
-                                    //     if(document.querySelector("#questionContainer").clientHeight < window.innerHeight){
-                                    //         document.querySelector("#questionContainer").style.height = (window.innerHeight-80).toString() + "px";
-                                    //     }
-                                    // },1100);
-                                    }} />
-                            </HatimIconContainer>
-                            </>
-                                :
-                            <>
-                            <HatimIconContainer>
-                                <ShowHatimIcon onClick={()=>setHatimlerVisibilities(prevState=>{
-                                    let _newState = [...prevState];
-                                    _newState[index] = !hatimlerVisibilities[index];
-                                    return _newState;
-                                })} />
-                            </HatimIconContainer>
-                            </>
+                            hatimlerVisibilities.length > 1 ?
+                                (hatimlerVisibilities[index] 
+                                    ?
+                                <>
+                                    <HatimIconContainer>
+                                        <HideHatimIcon onClick={()=>{
+                                                setHatimlerVisibilities(prevState=>{
+                                                let _newState = [...prevState];
+                                                _newState[index] = !hatimlerVisibilities[index];
+                                                return _newState;
+                                                });
+                                            }} />
+                                    </HatimIconContainer>
+                                </>
+                                    :
+                                <>
+                                    <HatimIconContainer>
+                                        <ShowHatimIcon onClick={()=>setHatimlerVisibilities(prevState=>{
+                                            let _newState = [...prevState];
+                                            _newState[index] = !hatimlerVisibilities[index];
+                                            return _newState;
+                                        })} />
+                                    </HatimIconContainer>
+                                </>)
+                            :
+                                <></>
                         }
                     </QuestionItem>
     
@@ -370,8 +373,11 @@ const Constr = ({ toggle, firebase }) => {
 
                                     if (alindi) {
                                         setActiveHatimSubKey(Language.subKey);
-
+                                        
+                                        if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
                                         let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                                        if(localStorageCuzObj[Language.subKey] == null)
+                                            localStorageCuzObj[Language.subKey] = [];
                                         if(!localStorageCuzObj[Language.subKey].includes(cevap)){
                                             return;
                                         }else{
@@ -494,13 +500,13 @@ const Constr = ({ toggle, firebase }) => {
 
               
 
-           { !loadingVisibility && <YeniHatimWrapper>
+           {  (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
                 <YeniHatimContainer>
-                    <YeniHatimButton onClick={()=>{
+                    <YeniHatimButton id="NewSubKhatm" onClick={()=>{
                         changeAskDialogBox();
                     }}>
                         <YeniHatimIcon />
-                        <YeniHatimText>Bu sayfaya Yeni Hatim ekle</YeniHatimText>
+                        <YeniHatimText>{LanguageData["/cuz"].NewSubKhatm}</YeniHatimText>
                     </YeniHatimButton>
                 </YeniHatimContainer>
             </YeniHatimWrapper>}

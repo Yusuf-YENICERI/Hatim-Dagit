@@ -68,6 +68,8 @@ let english = {
     "/cuz":{
 
         KhatmFinishDate: ["The Prayer of this Khatm is going to be made at","."],
+        NewSubKhatm: "Add New Khatm to this page",
+
         Before: {
             Question: "Click the Part You Want ..",
             Wait: "Please wait ..",

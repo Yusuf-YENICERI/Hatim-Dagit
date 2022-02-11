@@ -140,3 +140,10 @@ export const BusinessVisit = styled.p`
     margin-top: 12px;
     font-size: 0.8rem;
 `;
+
+export const BusinessMainPage = styled(LinkR)`
+    font-size: 0.8rem;
+    color: white;
+    margin-top: -70px;
+    margin-bottom: 50px;
+`;

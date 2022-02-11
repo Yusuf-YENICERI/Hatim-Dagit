@@ -46,9 +46,18 @@ const isStandalone = () => {
 const extractKey = () => {
   let link = window.location.toString();
   let index = link.indexOf("/cuz")
-  return link.substr(index+4, link.length);
+  return link.substr(index+5, link.length);
+}
+
+
+const initializeLocalStorage = (type) => {
+  switch(type){
+    case "cuz":
+        localStorage.setItem("cuz", JSON.stringify({}));
+    break;
+  }
 }
 
 export default detectLanguage;
 
-export {setLanguage, removeAll, objectToArray, isSafari, isStandalone, extractKey};
+export {setLanguage, removeAll, objectToArray, isSafari, isStandalone, extractKey, initializeLocalStorage};
