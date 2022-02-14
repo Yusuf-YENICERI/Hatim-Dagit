@@ -23,6 +23,19 @@ const removeAll = (obj, item, subKey) => {
     return obj;
   }
 
+
+  const removeAll_v1 = (arr, item) => {
+    let i = 0;
+    while (i < arr.length) {
+      if (arr[i] === item) {
+        arr.splice(i, 1);
+      } else {
+        ++i;
+      }
+    }
+    return arr;
+  }
+
 const objectToArray = (obj) => {
   return Object.keys(obj).map((key) => {
     obj[key].subKey = key;
@@ -53,11 +66,15 @@ const extractKey = () => {
 const initializeLocalStorage = (type) => {
   switch(type){
     case "cuz":
-        localStorage.setItem("cuz", JSON.stringify({}));
-    break;
+        localStorage.setItem("cuz", JSON.stringify({}));        
+        break;
+    case "cuz_v1":
+      localStorage.setItem("cuz_v1", JSON.stringify(JSON.parse(localStorage.getItem("cuz")) || []) );
+      initializeLocalStorage("cuz");
+      break;
   }
 }
 
 export default detectLanguage;
 
-export {setLanguage, removeAll, objectToArray, isSafari, isStandalone, extractKey, initializeLocalStorage};
+export {setLanguage, removeAll, removeAll_v1, objectToArray, isSafari, isStandalone, extractKey, initializeLocalStorage};

@@ -1,9 +1,11 @@
-
+//                                    BİSMİLLAHİRRAHMANİRRAHİM
 
 import app from 'firebase/app';
 import 'firebase/database';
+import Api_v1 from './api/v1';
+import Api_v2 from './api/v2';
 
-import {dataFormat} from '../../strings/dataFormat';
+
 require('dotenv').config()
 
 const config = {
@@ -23,6 +25,7 @@ class Firebase{
     app.initializeApp(config);
 
     this.db = app.database();
+    this.api = new Api_v2(this.db);
   }
 
 
@@ -65,13 +68,17 @@ class Firebase{
       
       if(data.baslik != null){
         data = [data];
+        this.api = new Api_v1(this.db);
       }
 
-      console.log(data);
       
       return data;
+
     } catch (error) {
+      
+      console.log(`firebase.js: ${error}`);
       return "error";
+
     }
   }
 
@@ -81,75 +88,28 @@ class Firebase{
   }
 
   yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false) => {
-    dataFormat.baslik = baslik;
-    dataFormat.bitisTarihi = bitisTarihi;
-
-    console.log(dataFormat)
-    console.log(baslik)
-
-    let hatimKey;
-    if(!mevcutHatim){
-      hatimKey = await this.db.ref("hatim").push().key;
-    }else{
-      hatimKey = this.extractKey();
-      hatimKey = hatimKey.replace("/", "");
-    }
-    let hatimAltKey = await this.db.ref(`hatim/${hatimKey}`).push().key;
-    await this.db.ref( `hatim/${hatimKey}/${hatimAltKey}` ).set(dataFormat);
-
-    console.log(`hatimKey: ${hatimKey}`)
-    console.log(`hatimAltKey: ${hatimAltKey}`)
-
-    if(!mevcutHatim){
-      let localStorageCuzKeylerArr = JSON.parse(localStorage.getItem("CuzKeyler"));
-      if(localStorageCuzKeylerArr == null)  localStorageCuzKeylerArr = [];
-      localStorageCuzKeylerArr.push(hatimKey);
-      localStorage.setItem("CuzKeyler", JSON.stringify(localStorageCuzKeylerArr))
-
-      let localStorageCuzKeylerArrBaslik = JSON.parse(localStorage.getItem("CuzKeylerBaslik"));
-      if(localStorageCuzKeylerArrBaslik == null)  localStorageCuzKeylerArrBaslik = [];
-      localStorageCuzKeylerArrBaslik.push(baslik);
-      localStorage.setItem("CuzKeylerBaslik", JSON.stringify(localStorageCuzKeylerArrBaslik))
-    }
-    
-    
-    return hatimKey;
+    return (await this.api.yeniHatim(baslik, bitisTarihi, mevcutHatim));
   }
 
   cuzAlindi = async (isim, no, subKey) => {
-    let hatimKey = this.extractKey();
-    let sira = this.hatimSiraBelirle(no);
-
-    await this.db.ref("hatim/" + hatimKey + "/" + subKey + "/" + sira + "/cevaplar/" + (no-((sira-1)*10+1))).set({
-                cevap: no,
-                isim: isim,
-                alindi: true,
-    });
+    await this.api.cuzAlindi(isim, no, subKey);
   }
 
 
   cuzIptal = async (no, subKey) => {
-    let hatimKey = this.extractKey();
-    let sira = this.hatimSiraBelirle(no);
-
-    await this.db.ref("hatim/" + hatimKey + "/" + subKey + "/" + sira + "/cevaplar/" + (no-((sira-1)*10+1))).set({
-                cevap: no,
-                isim: '',
-                alindi: false,
-    });
+    await this.api.cuzIptal(no, subKey);
   }
 
   cuzBitti = async (hatimKey) => {
-    await this.db.ref("hatim/" + hatimKey + "/bitti").set(true);
+    await this.api.cuzBitti(hatimKey);
   }
 
   ziyaretSayisiGetir = async () => {
-    let ziyaretSayisi = await this.db.ref( "ziyaretSayisi" ).get();
-    return ziyaretSayisi.val();
+    return (await this.api.ziyaretSayisiGetir());
   }
 
   ziyaretSayisiArtir = async () => {
-    await this.db.ref("ziyaretSayisi").set(Number(await this.ziyaretSayisiGetir()) + 1);
+    await this.api.ziyaretSayisiArtir();
   }
 }
 
