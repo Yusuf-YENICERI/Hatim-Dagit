@@ -119,6 +119,16 @@ export const RespondInnerContainer = styled.div`
     flex-direction: column; */
     text-align:center;
     }
+
+    @media screen and (max-width: 768px) and (min-width: 480px){
+        grid-template-columns: auto auto auto auto ;
+        grid-auto-flow: row;
+    }
+
+    @media screen and (max-width: 1240px) and (min-width: 768px){
+        grid-template-columns: auto auto auto auto auto auto ;
+        grid-auto-flow: row;
+    }
 `
 export const ResponseItem = styled.div`
     padding: 20px;
