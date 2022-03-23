@@ -33,6 +33,7 @@ let Turkish = {
         Question: "Butona Tıklayarak Yeni Bir Hatim Oluştur!",
         Button: {
             Main: "Hızlı Hatim Oluştur",
+            Ramazan: "Ramazan Dönerli Hatim Oluştur",
             Header: {
                 Text: "Yeni Hatim Oluştur",
                 InputSpan: ["Başlık", "Hatim Duası Tarihi"],
@@ -91,6 +92,35 @@ let Turkish = {
             Whatsapp: 'Whatsapp ile Paylaş',
         }
 
+    },
+
+    "/ramazan":{
+        Before: {
+            Question: "Başlamak istediğiniz cüzü seçin ..",
+            Wait: "Lütfen Bekleyiniz ..",
+            Error: "Bir Hata Oluştu, Sayfayı Güncelleyin!"
+        },
+
+        After: {
+            Copy: {
+                Before: "Linki Kopyala",
+                After: "Link Kopyalandı"
+            },
+            Share:'Hatmi Paylaş',
+
+        },
+
+        Button:{
+            Question: "Cüzü almak için isminizi girin:",
+            Take: "Cüzü Al",
+            TakeCancel: "İptal Et"
+        },
+
+        ShareBox:{
+            Title: 'Paylaşmak için uygulama seçin:',
+            Sms: 'Sms ile Paylaş',
+            Whatsapp: 'Whatsapp ile Paylaş',
+        }
     }
 
 

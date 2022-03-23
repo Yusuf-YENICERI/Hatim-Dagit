@@ -17,7 +17,8 @@ import copy from '../../icons/copy.svg';
 import close from '../../icons/close.svg';
 import { NavBtnLink } from '../Navbar/NavbarElements';
 
-const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDialogBox, setAskDialogBox, hatimKonu, setHatimKonu, hatimBitisTarihi, setHatimBitisTarihi, changeAskDialogBox }) => {
+const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDialogBox, setAskDialogBox, hatimKonu, setHatimKonu, hatimBitisTarihi, setHatimBitisTarihi, changeAskDialogBox,
+                    isRamazan }) => {
     return (
     <DialogBox visibility={askDialogBox} height={"300px"} top={"10%"}>
 
@@ -61,11 +62,12 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
             <NavBtnLink onClick={async ()=>{
                 setAskDialogBox(false);
                 propHideDialogBox.setHideDialogBox(true);
-                let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi);
+                let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, isRamazan);
                 setHatimKey(_hatimKey);
+                const route = isRamazan ? "ramazan" : "cuz";
                 setYazilar({
                     baslik:Language["/"].Button.Final.After.Header,
-                    link: "https://hatim-dagit.web.app/cuz/" + _hatimKey,
+                    link: `https://hatim-dagit.web.app/${route}/` + _hatimKey,
                     cevap:Language["/"].Button.Final.After.Button
                 })  
             }}>{Language["/"].Button.Header.Button}</NavBtnLink>
@@ -102,6 +104,7 @@ const Question = ({ firebase, toggle }) => {
     const [mevcutHatimler, setMevcutHatimler] = useState([]);
     const [mevcutHatimlerBaslik, setMevcutHatimlerBaslik] = useState([]);
     const [mevcutHatimlerVisible, setMevcutHatimlerVisible] = useState(false);
+    const [ramazan, setRamazan] = useState(false)
 
     const changeAskDialogBox = () => {
         setAskDialogBox(!askDialogBox)
@@ -179,7 +182,8 @@ const Question = ({ firebase, toggle }) => {
 
 
                 <DialogIcon src={copy} iconSize={"30px"} onClick={()=>{
-                   var text = "https://hatim-dagit.web.app/cuz/" + hatimKey;
+                   const route = ramazan ? "ramazan" : "cuz"
+                   var text = `https://hatim-dagit.web.app/${route}/` + hatimKey;
                    navigator.clipboard.writeText(text).then(function() {
                         setLinkKopyala(Language["/"].Button.Final.After.Copy)
                    }, function(err) {
@@ -190,7 +194,7 @@ const Question = ({ firebase, toggle }) => {
                 </DialogIcon>
                 </DialogContainer>
 
-            <NavBtnLink to={"/cuz/" + hatimKey}>{yazilar.cevap}</NavBtnLink>
+            <NavBtnLink to={(ramazan ? "/ramazan/" : "/cuz/") + hatimKey}>{yazilar.cevap}</NavBtnLink>
 
             </DialogBox>
             
@@ -198,7 +202,8 @@ const Question = ({ firebase, toggle }) => {
                                  propHideDialogBox={{hideDialogBox, setHideDialogBox}}
                                 askDialogBox={askDialogBox} setAskDialogBox={setAskDialogBox}
                                 hatimKonu={hatimKonu} setHatimKonu={setHatimKonu} changeAskDialogBox={changeAskDialogBox}
-                                hatimBitisTarihi={hatimBitisTarihi} setHatimBitisTarihi={setHatimBitisTarihi} />
+                                hatimBitisTarihi={hatimBitisTarihi} setHatimBitisTarihi={setHatimBitisTarihi} 
+                                isRamazan={ramazan}/>
 
         {/* <BackContainer>
                 <BackButtonIcon hide={datas == 1 ? false : true} src={backButton} onClick={()=>{setDatas(routes.pop()); console.log(routes); setRoutes(routes);}}>
@@ -217,11 +222,26 @@ const Question = ({ firebase, toggle }) => {
             <RespondContainer>
                            <RespondInnerContainer hatimExists={hideMevcutHatimler}>
                                     <ResponseItem id={"newKhatm"} onClick={ ()=>{
+                                        setRamazan(false);
                                         setAskDialogBox(true)
                                         
                                     }}>
                                         <ResponseText>
                                         {Language["/"].Button.Main}
+                                        </ResponseText>
+                                    </ResponseItem>
+                            </RespondInnerContainer>
+            </RespondContainer>
+
+            <RespondContainer style={{marginTop: '20px'}}>
+                           <RespondInnerContainer hatimExists={hideMevcutHatimler}>
+                                    <ResponseItem id={"newKhatm"} onClick={ ()=>{
+                                        setRamazan(true);
+                                        setAskDialogBox(true)
+                                        
+                                    }}>
+                                        <ResponseText>
+                                        {Language["/"].Button.Ramazan}
                                         </ResponseText>
                                     </ResponseItem>
                             </RespondInnerContainer>
@@ -233,7 +253,7 @@ const Question = ({ firebase, toggle }) => {
             hideMevcutHatimler 
                     ? 
                     <>
-            <MevcutHatimButtonContainer>
+            <MevcutHatimButtonContainer style={{marginTop: '60px'}}>
                            <MevcutHatimButtonInnerContainer hatimExists={hideMevcutHatimler}>
                                     <MevcutHatimButtonItem id={"newKhatm"} onClick={ ()=>{
                                         setMevcutHatimlerVisible(!mevcutHatimlerVisible);
