@@ -33,17 +33,17 @@ import { Language } from '@styled-icons/ionicons-outline';
 // let total = Language[18].cevaplar.length;
 
 
-const Question = () => {
+const Question = ({toggleCizelge, cizelgeId, toggleCizelgeId}) => {
     return <FirebaseContext.Consumer>
         {
             frbs => {
-                return <Constr  firebase={frbs}/>
+                return <Constr  firebase={frbs} toggleCizelge={toggleCizelge} cizelgeId={cizelgeId} toggleCizelgeId={toggleCizelgeId}/>
             }
         }
     </FirebaseContext.Consumer>
 }
 
-const Constr = ({ toggle, firebase }) => {
+const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId }) => {
 
     const [datas, setDatas] = useState(18);
     const [routes, setRoutes] = useState([]);
@@ -458,7 +458,10 @@ const Constr = ({ toggle, firebase }) => {
                                     </ResponseText>
                                 </ResponseItem>
 
-                                <ResponseTable>
+                                <ResponseTable bgColor={alindi} onClick={()=>{
+                                    toggleCizelgeId(Number(cevap))
+                                    toggleCizelge();
+                                }}>
                                     Çizelgeyi görüntüle
                                 </ResponseTable>
                                 </div>
@@ -514,7 +517,10 @@ const Constr = ({ toggle, firebase }) => {
                                     </ResponseText>
                                 </ResponseItem>
 
-                                <ResponseTable>
+                                <ResponseTable bgColor={alindi} onClick={()=>{
+                                    toggleCizelgeId(Number(cevap))
+                                    toggleCizelge();
+                                }}>
                                     Çizelgeyi görüntüle
                                 </ResponseTable>
 
@@ -572,7 +578,10 @@ const Constr = ({ toggle, firebase }) => {
                                     </ResponseText>
                                 </ResponseItem>
 
-                                <ResponseTable>
+                                <ResponseTable bgColor={alindi} onClick={()=>{
+                                    toggleCizelgeId(Number(cevap))
+                                    toggleCizelge();
+                                }}>
                                     Çizelgeyi görüntüle
                                 </ResponseTable>
 
@@ -595,7 +604,7 @@ const Constr = ({ toggle, firebase }) => {
 
               
 
-           {  (currentApi==2) && (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
+           {/* {  (currentApi==2) && (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
                 <YeniHatimContainer>
                     <YeniHatimButton id="NewSubKhatm" onClick={()=>{
                         changeAskDialogBox();
@@ -604,7 +613,7 @@ const Constr = ({ toggle, firebase }) => {
                         <YeniHatimText>{LanguageData["/cuz"].NewSubKhatm}</YeniHatimText>
                     </YeniHatimButton>
                 </YeniHatimContainer>
-            </YeniHatimWrapper>}
+            </YeniHatimWrapper>} */}
            
         </QuestionContainer>
         </>

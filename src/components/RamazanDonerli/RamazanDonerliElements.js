@@ -168,6 +168,7 @@ export const ResponseTable = styled.div`
     border-radius: 10px;
     font-size: 0.8rem;
     text-align: center;
+    background-color: ${({bgColor}) => (bgColor ? "#04d654" : "#FFBF17")} ;
 
     @media screen and (max-width: 480px){
         margin: 15px 5px;

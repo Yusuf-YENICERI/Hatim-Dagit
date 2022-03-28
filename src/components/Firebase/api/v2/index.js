@@ -39,7 +39,9 @@ class Api_v2{
     extractKey = () => {
       let link = window.location.toString();
       let index = link.indexOf("/cuz")
-      return link.substr(index+4, link.length);
+      if(index != -1) return link.substr(index+4, link.length);
+      index = link.indexOf("/ramazan")
+      return link.substr(index+8, link.length);
     }
   
     /**

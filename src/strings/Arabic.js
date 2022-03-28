@@ -30,6 +30,7 @@ let Arabic = {
         Question: "إنشاء ختم جديد بالنقر فوق الزر!",
         Button: {
             Main: "إنشاء ختم جديد",
+            Ramazan: "جعل تناوب رمضان الخطمي",
             Header: {
                 Text: "إنشاء ختم",
                 InputSpan: ["عنوان", "تاريخ إنهاء خاتم"],
@@ -58,6 +59,37 @@ let Arabic = {
     },
 
     "/cuz":{
+        KhatmFinishDate: [".","صلاة هذا الختم ستقام في"],
+        NewSubKhatm: ".أضف ختم إلى هذه الصفحة",
+
+        Before: {
+            Question: "انقر فوق الجزء المطلوب ..",
+            Wait: "ارجوك انتظر!",
+            Error: "حدث خطأ ، تحديث الصفحة!"
+        },
+
+        After: {
+            Copy: {
+                Before: "انسخ الرابط",
+                After: "تم نسخ الرابط!"
+            },
+            Share:'شارك ختم',
+
+
+        },
+
+        Button:{
+            Question: "أدخل اسمك للحصول على الجزء:",
+            Take: "احصل على الجزء"
+        },
+        ShareBox:{
+            Title: 'حدد تطبيقًا لمشاركته:',
+            Sms: 'شارك مع الرسائل القصيرة',
+            Whatsapp: 'Whatsapp شارك مع',
+        }
+    },
+
+    "/ramazan":{
         KhatmFinishDate: [".","صلاة هذا الختم ستقام في"],
         NewSubKhatm: ".أضف ختم إلى هذه الصفحة",
 

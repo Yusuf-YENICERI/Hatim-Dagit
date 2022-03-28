@@ -38,6 +38,7 @@ let english = {
         Question: "Click on Button to Make New Khatm",
         Button: {
             Main: "New Khatm",
+            Ramazan: "Make New Ramazan Khatm (Cycled)",
             Header: {
                 Text: "Make New Khatm",
                 InputSpan: ["Title", "Khatm Finish Date"],
@@ -66,6 +67,39 @@ let english = {
     },
 
     "/cuz":{
+
+        KhatmFinishDate: ["The Prayer of this Khatm is going to be made at","."],
+        NewSubKhatm: "Add New Khatm to this page",
+
+        Before: {
+            Question: "Click the Part You Want ..",
+            Wait: "Please wait ..",
+            Error: "An error occured, please refresh the page!"
+        },
+
+        After: {
+            Copy: {
+                Before: "Copy the Link",
+                After: "Link Copied"
+            },
+            Share:'Share Khatm',
+
+        },
+
+        Button:{
+            Question: "part, enter your name to take it",
+            Take: "Take the Part",
+            TakeCancel: "Release the Part"
+        },
+
+        ShareBox:{
+            Title: 'Select an app to share:',
+            Sms: 'Share with Sms',
+            Whatsapp: 'Share with Whatsapp',
+        }
+    },
+
+    "/ramazan":{
 
         KhatmFinishDate: ["The Prayer of this Khatm is going to be made at","."],
         NewSubKhatm: "Add New Khatm to this page",

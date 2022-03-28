@@ -8,7 +8,7 @@ import {FaBars} from 'react-icons/fa'
 import {QuestionContainer, QuestionInnerContainer, QuestionItem, RespondContainer, RespondInnerContainer, ResponseItem
 , ResponseLogo, ResponseText, BackButtonIcon, BackContainer, DialogBox, DialogText, DialogLink, DialogIcon, DialogContainer, DialogInputBox,
 MevcutHatimTitle, MevcutHatimListeContainer, MevcutHatimListe, MevcutHatimListeEleman, MevcutHatimListeElemanLink,
-    MevcutHatimButtonContainer, MevcutHatimButtonInnerContainer, MevcutHatimButtonItem, MevcutHatimButtonLogo, MevcutHatimButtonText, CloseIcon, DialogTextSpan} from './QuestionElements';
+    MevcutHatimButtonContainer, MevcutHatimButtonInnerContainer, MevcutHatimButtonItem, MevcutHatimButtonLogo, MevcutHatimButtonText, CloseIcon, DialogTextSpan, NewFeatureTag} from './QuestionElements';
 import Language from '../../strings/index';
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../icons/button.svg';
@@ -235,11 +235,14 @@ const Question = ({ firebase, toggle }) => {
 
             <RespondContainer style={{marginTop: '20px'}}>
                            <RespondInnerContainer hatimExists={hideMevcutHatimler}>
-                                    <ResponseItem id={"newKhatm"} onClick={ ()=>{
+                           
+
+                                    <ResponseItem id={"newDonerliRamazanKhatm"} onClick={ ()=>{
                                         setRamazan(true);
                                         setAskDialogBox(true)
                                         
                                     }}>
+                                         <NewFeatureTag>Yeni</NewFeatureTag>
                                         <ResponseText>
                                         {Language["/"].Button.Ramazan}
                                         </ResponseText>

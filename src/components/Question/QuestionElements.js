@@ -70,6 +70,8 @@ export const RespondInnerContainer = styled.div`
     }
 `
 export const ResponseItem = styled(LinkR)`
+    overflow: hidden;
+    position: relative;
     padding: 20px;
     margin: 0 10px;
     height: 100px;
@@ -309,3 +311,16 @@ export const DialogInputBox = styled.input`
 `
 
 
+export const NewFeatureTag = styled.div`
+    background-color: #FFBF17;
+    width: 50px;
+    color: black;
+    position: absolute;
+    transform: rotateZ(30deg);
+    top: 0;
+    right: 0;
+    font-size: 0.7rem;
+    margin-right: -10px;
+
+    
+`;

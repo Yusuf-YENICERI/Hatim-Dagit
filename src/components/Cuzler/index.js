@@ -93,8 +93,12 @@ const Constr = ({ toggle, firebase }) => {
 
             let allHatimler;
             let _currentApi = 2;
-            if(!Array.isArray(result))
+            if(!Array.isArray(result)){
                 allHatimler = objectToArray(result);
+                if(allHatimler[0].isRamazan){
+                    window.location = `/ramazan/${extractKey()}`
+                }
+            }
             else{
                 allHatimler = result;
                 allHatimler[0].subKey = extractKey();
