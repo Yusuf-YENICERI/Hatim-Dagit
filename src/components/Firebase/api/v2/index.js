@@ -72,7 +72,7 @@ class Api_v2{
       return baslik.val();
     }
   
-    yeniHatim = async (baslik, bitisTarihi, isRamazan, mevcutHatim = false) => {
+    yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false, isRamazan = false) => {
       dataFormat.baslik = baslik;
       dataFormat.bitisTarihi = bitisTarihi;
       dataFormat.isRamazan = isRamazan;

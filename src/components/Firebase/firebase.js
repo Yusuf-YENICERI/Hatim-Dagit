@@ -90,8 +90,8 @@ class Firebase{
     return baslik.val();
   }
 
-  yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false) => {
-    return (await this.api.yeniHatim(baslik, bitisTarihi, mevcutHatim));
+  yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false, isRamazan = false) => {
+    return (await this.api.yeniHatim(baslik, bitisTarihi, mevcutHatim, isRamazan));
   }
 
   cuzAlindi = async (isim, no, subKey) => {

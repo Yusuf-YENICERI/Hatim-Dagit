@@ -62,7 +62,7 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
             <NavBtnLink onClick={async ()=>{
                 setAskDialogBox(false);
                 propHideDialogBox.setHideDialogBox(true);
-                let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, isRamazan);
+                let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, false, isRamazan);
                 setHatimKey(_hatimKey);
                 const route = isRamazan ? "ramazan" : "cuz";
                 setYazilar({
