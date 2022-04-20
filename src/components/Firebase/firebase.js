@@ -95,7 +95,7 @@ class Firebase{
   }
 
   cuzAlindi = async (isim, no, subKey) => {
-    await this.api.cuzAlindi(isim, no, subKey);
+    return await this.api.cuzAlindi(isim, no, subKey);
   }
 
 

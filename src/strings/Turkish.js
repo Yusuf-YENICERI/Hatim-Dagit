@@ -90,6 +90,12 @@ let Turkish = {
             Title: 'Paylaşmak için uygulama seçin:',
             Sms: 'Sms ile Paylaş',
             Whatsapp: 'Whatsapp ile Paylaş',
+        },
+
+
+        AlertDialog:{
+            Title: "Cüz çoktan alınmış. Lütfen başka bir cüzü almayı deneyin!",
+            Button: "Tamam"
         }
 
     },

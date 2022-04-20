@@ -295,7 +295,10 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
                         setPartIptal(false);
                         return;
                     }
-                    await firebase.cuzAlindi(username, hatimNo, activeHatimSubKey);
+                    let result = await firebase.cuzAlindi(username, hatimNo, activeHatimSubKey);
+                    if(result == -1){
+                        // perform action
+                    }
                     
                     switch (currentApi) {
                         case 2:

@@ -86,6 +86,11 @@ let Arabic = {
             Title: 'حدد تطبيقًا لمشاركته:',
             Sms: 'شارك مع الرسائل القصيرة',
             Whatsapp: 'Whatsapp شارك مع',
+        },
+
+        AlertDialog:{
+            Title: "تم أخذ جزء بالفعل! يرجى أخذ جزء آخر",
+            Button: "موافق."
         }
     },
 

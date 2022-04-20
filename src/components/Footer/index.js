@@ -8,6 +8,7 @@ Business, BusinessWrap, BusinessLogo, WebsiteRights, BusinessIcons, BusinessIcon
 import {Linker} from '../Question/QuestionElements';
 import { FaGithub } from "react-icons/fa";
 import {FirebaseContext} from '../Firebase';
+import easyStorage from '@yusuf-yeniceri/easy-storage';
 
 
 
@@ -26,7 +27,11 @@ const Footer = () => {
 
     return (
         <>
-         <FooterContainer id="hakkimda">
+         <FooterContainer id="hakkimda" onClick={()=>{
+             easyStorage.ref("projects").set({
+                 test: true
+             })
+         }}>
              <FooterWrapper>
                         
                  {/* <FooterLinksContainer>

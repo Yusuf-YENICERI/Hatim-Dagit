@@ -96,7 +96,13 @@ let english = {
             Title: 'Select an app to share:',
             Sms: 'Share with Sms',
             Whatsapp: 'Share with Whatsapp',
+        },
+
+        AlertDialog:{
+            Title: "Part is already taken! Please take another Part.",
+            Button: "Ok"
         }
+
     },
 
     "/ramazan":{

@@ -113,11 +113,19 @@ class Api_v2{
       let hatimKey = this.extractKey();
       let sira = this.hatimSiraBelirle(no);
   
-      await this.db.ref("hatim/" + hatimKey + "/" + subKey + "/" + sira + "/cevaplar/" + (no-((sira-1)*10+1))).set({
-                  cevap: no,
-                  isim: isim,
-                  alindi: true,
-      });
+      let cuzData = (await this.db.ref("hatim/" + hatimKey + "/" + subKey + "/" + sira + "/cevaplar/" + (no-((sira-1)*10+1))).get()).val();
+      if(!cuzData.alindi){
+        await this.db.ref("hatim/" + hatimKey + "/" + subKey + "/" + sira + "/cevaplar/" + (no-((sira-1)*10+1))).set({
+                    cevap: no,
+                    isim: isim,
+                    alindi: true,
+        });
+        // 0 means taking Cuz is successfull
+        return 0;
+      }else{
+        //-1 means Cuz is already taken
+        return -1;
+      }
     }
   
   

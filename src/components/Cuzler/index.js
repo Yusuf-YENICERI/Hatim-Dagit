@@ -27,6 +27,7 @@ import {FirebaseContext} from '../Firebase';
 import ShareBox from '../ShareBox';
 import { extractKey, initializeLocalStorage } from "../../common";
 import { Language } from '@styled-icons/ionicons-outline';
+import AlertDialog from '../AlertDialog';
 
 
 // let counter = 0;+0
@@ -82,6 +83,13 @@ const Constr = ({ toggle, firebase }) => {
     const changeShareBoxVisibility = () => {
         setHideShareBox(!hideShareBox)
     }
+
+    /** AlertDialog */
+    const [alertVisible, setAlertVisible] = useState(false)
+    const toggleAlertVisibility = () => {
+        setAlertVisible(!alertVisible)
+    }
+    /** AlertDialog End */
 
     const initialRun = async () => {
         try {
@@ -233,6 +241,10 @@ const Constr = ({ toggle, firebase }) => {
         <>
         <QuestionContainer id="questionContainer" minHeight={(window.innerHeight-80).toString() + "px"} hatimlerVisibility={hatimlerVisibilities[0]} >
 
+        <AlertDialog text={LanguageData["/cuz"].AlertDialog.Title} textButton={LanguageData["/cuz"].AlertDialog.Button}
+         alertVisible={alertVisible} toggleAlertVisibility={toggleAlertVisibility}>
+        </AlertDialog>
+
         <LoadingContainer visibility={loadingVisibility}>
             <LoadingItem >{waitText}</LoadingItem>
         </LoadingContainer>
@@ -299,7 +311,10 @@ const Constr = ({ toggle, firebase }) => {
                         setPartIptal(false);
                         return;
                     }
-                    await firebase.cuzAlindi(username, hatimNo, activeHatimSubKey);
+                    let result = await firebase.cuzAlindi(username, hatimNo, activeHatimSubKey);
+                    if(result == -1){
+                        toggleAlertVisibility();
+                    }
                     
                     switch (currentApi) {
                         case 2:
