@@ -31,7 +31,9 @@ let english = {
 
     Footer: {
         aciz_kul: "Made by Yusuf YENİÇERİ",
-        ziyaret: ["This site has been visited ", " times"]
+        ziyaret: ["This site has been visited ", " times"],
+        version: "Current version is "
+
     },
 
     "/" : {

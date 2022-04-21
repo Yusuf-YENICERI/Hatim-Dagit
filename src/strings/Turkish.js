@@ -25,7 +25,8 @@ let Turkish = {
 
     Footer: {
         aciz_kul: "Yusuf Yeniçeri tarafından yapılmıştır.",
-        ziyaret: ["Bu site ", " defa ziyaret edildi"]
+        ziyaret: ["Bu site ", " defa ziyaret edildi"],
+        version: "Mevcut versiyon "
     },
     
 
@@ -36,8 +37,8 @@ let Turkish = {
             Ramazan: "Ramazan Dönerli Hatim Oluştur",
             Header: {
                 Text: "Yeni Hatim Oluştur",
-                InputSpan: ["Başlık", "Hatim Duası Tarihi"],
-                Input: ["Lütfen Hatim başlığı yazın .."],
+                InputSpan: ["Başlık", "Açıklama", "Hatim Duası Tarihi"],
+                Input: ["Lütfen Hatim başlığı yazın ..", "Lütfen Hatim için açıklama yazın .."],
                 Button: "Devam Et"
             },
             Final: {
@@ -62,7 +63,7 @@ let Turkish = {
 
     "/cuz":{
 
-        KhatmFinishDate: ["Bu Hatmin Duası","tarihinde yapılacak."],
+        KhatmFinishDate: ["Hatim Duasının Yapılacağı Tarih: ",""],
         NewSubKhatm: "Bu sayfaya Yeni Hatim ekle",
 
         Before: {

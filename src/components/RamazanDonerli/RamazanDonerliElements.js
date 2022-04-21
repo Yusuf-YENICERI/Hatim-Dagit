@@ -572,3 +572,32 @@ export const ShowHatimIcon = styled(ChevronDown)`
     width: 30px;
 
 `;
+
+
+
+export const CuzlerDescription = styled.div`
+    font-size: 1.2rem;
+    text-align: center;
+    margin-right: 40px;
+    margin-left: 40px;
+`;
+
+
+export const CuzlerFinishDate = styled.div`
+    margin-top: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
+
+    font-size: ${({fontSize})=>fontSize};
+    text-align: center;
+    position: relative;
+    color: #000000;
+    opacity: 0.6;
+    
+
+    @media screen and (max-width: 480px){
+        font-size:${({fontSize})=>fontSize};
+        padding-bottom: 0px;
+        margin-bottom: 30px;
+    }
+`

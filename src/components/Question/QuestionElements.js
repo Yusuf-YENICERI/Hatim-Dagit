@@ -245,7 +245,7 @@ export const Linker = styled.a`
 export const DialogBox = styled.div`
 visibility: ${({visibility}) => (visibility ? "visible" : "hidden")};
 height: ${({height}) => height};
-width: 250px;
+width: 300px;
 position: absolute; 
 background-color:#04d654;
 z-index:999;
@@ -267,7 +267,7 @@ justify-content: space-between;
 @media screen and (max-width: 480px){
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 30%;
+    margin-top: 15%;
     }
 `
 
@@ -302,12 +302,20 @@ border-radius: 3px;
 export const DialogIcon = styled.img`
 width: ${({iconSize}) => (iconSize)};
 align-self: ${({alignEnd}) => (alignEnd ? "flex-end" : "")};
-margin-right: 20px;
+margin-right: 0px;
 margin-bottom: 10px;
 `
 
 export const DialogInputBox = styled.input`
-    width: 200px;
+    width: 250px;
+    font-size: 0.8rem;
+`
+
+export const DialogTextArea = styled.textarea`
+    width: 250px;
+    font-size: 0.8rem;
+    padding-left: 6px;
+    padding-top: 8px;
 `
 
 

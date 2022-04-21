@@ -12,7 +12,7 @@ LoadingContainer, LoadingItem,
 CopyContainer, CopyItem, CopyIcon,
 ShareContainer, ShareItem, ShareIcon,
 YeniHatimWrapper, YeniHatimContainer, YeniHatimButton, YeniHatimIcon, YeniHatimText,
-HideHatimIcon, ShowHatimIcon, HatimContainer, HatimIconContainer, HatimIconText
+HideHatimIcon, ShowHatimIcon, HatimContainer, HatimIconContainer, HatimIconText, CuzlerDescription, CuzlerFinishDate
 } from './QuestionElements';
 import AskDialog from "../AskDialog";
 import LanguageData from '../../strings';
@@ -414,13 +414,16 @@ const Constr = ({ toggle, firebase }) => {
                 <QuestionInnerContainer>
                     
                     
+                { Language.description != null && Language.description.length > 0 && <CuzlerDescription>
+                    {Language.description.split('\n').map(str => <p>{str}</p>)}
+                    </CuzlerDescription>
+                }
     
-    
-                    { Language.bitisTarihi != null && Language.bitisTarihi.length > 0 &&  <QuestionItem fontSize={"1.1rem"}>
+                    { Language.bitisTarihi != null && Language.bitisTarihi.length > 0 &&  <CuzlerFinishDate fontSize={"1rem"}>
                             {LanguageData["/cuz"].KhatmFinishDate[0]}  {Language.bitisTarihi.split("-").reverse().join("/")} {LanguageData["/cuz"].KhatmFinishDate[1]}
-                    </QuestionItem>
+                    </CuzlerFinishDate>
                     }
-                    <QuestionItem fontSize={"1.3rem"}>
+                    <QuestionItem fontSize={"1.1rem"}>
                             {LanguageData["/cuz"].Before.Question}
                     </QuestionItem>
                 </QuestionInnerContainer>

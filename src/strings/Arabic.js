@@ -1,6 +1,9 @@
 
 
 let Arabic = {
+
+    rtl: true,
+
     Navbar: {
         Logo: "ختم توزيع",
         Links: ["إنشاء ختم", "بشأن", "تغيير اللغة"],
@@ -23,7 +26,9 @@ let Arabic = {
 
     Footer: {
         aciz_kul:  "Yusuf Yeniçeri التي أدلى بها",
-        ziyaret: ["تمت زيارة هذا الموقع "," مرات."]
+        ziyaret: ["تمت زيارة هذا الموقع "," مرات."],
+        version: " الإصدار الحالي هو"
+
     },
 
     "/" : {
@@ -90,7 +95,8 @@ let Arabic = {
 
         AlertDialog:{
             Title: "تم أخذ جزء بالفعل! يرجى أخذ جزء آخر",
-            Button: "موافق."
+            Button: "موافق.",
+
         }
     },
 

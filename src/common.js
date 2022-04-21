@@ -77,6 +77,8 @@ const initializeLocalStorage = (type) => {
   }
 }
 
+const version = "1.1.1";
+
 export default detectLanguage;
 
-export {setLanguage, removeAll, removeAll_v1, objectToArray, isSafari, isStandalone, extractKey, initializeLocalStorage};
+export {setLanguage, removeAll, removeAll_v1, objectToArray, isSafari, isStandalone, extractKey, initializeLocalStorage, version};

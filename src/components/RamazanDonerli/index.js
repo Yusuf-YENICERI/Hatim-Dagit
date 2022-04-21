@@ -12,7 +12,8 @@ LoadingContainer, LoadingItem,
 CopyContainer, CopyItem, CopyIcon,
 ShareContainer, ShareItem, ShareIcon,
 YeniHatimWrapper, YeniHatimContainer, YeniHatimButton, YeniHatimIcon, YeniHatimText,
-HideHatimIcon, ShowHatimIcon, HatimContainer, HatimIconContainer, HatimIconText, ResponseTable
+HideHatimIcon, ShowHatimIcon, HatimContainer, HatimIconContainer, HatimIconText, ResponseTable,
+CuzlerDescription
 } from './RamazanDonerliElements';
 import AskDialog from "../AskDialog";
 import LanguageData from '../../strings';
@@ -397,7 +398,10 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
     
                 <QuestionInnerContainer>
                     
-                    
+                { Language.description != null && Language.description.length > 0 && <CuzlerDescription>
+                        {Language.description.split('\n').map(str => <p>{str}</p>)}
+                    </CuzlerDescription>
+                }
     
     
                     {/* { Language.bitisTarihi != null && Language.bitisTarihi.length > 0 &&  <QuestionItem fontSize={"1.1rem"}>

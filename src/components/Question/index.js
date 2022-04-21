@@ -8,7 +8,7 @@ import {FaBars} from 'react-icons/fa'
 import {QuestionContainer, QuestionInnerContainer, QuestionItem, RespondContainer, RespondInnerContainer, ResponseItem
 , ResponseLogo, ResponseText, BackButtonIcon, BackContainer, DialogBox, DialogText, DialogLink, DialogIcon, DialogContainer, DialogInputBox,
 MevcutHatimTitle, MevcutHatimListeContainer, MevcutHatimListe, MevcutHatimListeEleman, MevcutHatimListeElemanLink,
-    MevcutHatimButtonContainer, MevcutHatimButtonInnerContainer, MevcutHatimButtonItem, MevcutHatimButtonLogo, MevcutHatimButtonText, CloseIcon, DialogTextSpan, NewFeatureTag} from './QuestionElements';
+    MevcutHatimButtonContainer, MevcutHatimButtonInnerContainer, MevcutHatimButtonItem, MevcutHatimButtonLogo, MevcutHatimButtonText, CloseIcon, DialogTextSpan, NewFeatureTag, DialogTextArea} from './QuestionElements';
 import Language from '../../strings/index';
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../icons/button.svg';
@@ -18,9 +18,9 @@ import close from '../../icons/close.svg';
 import { NavBtnLink } from '../Navbar/NavbarElements';
 
 const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDialogBox, setAskDialogBox, hatimKonu, setHatimKonu, hatimBitisTarihi, setHatimBitisTarihi, changeAskDialogBox,
-                    isRamazan }) => {
+                    isRamazan, setHatimDescription, hatimDescription }) => {
     return (
-    <DialogBox visibility={askDialogBox} height={"300px"} top={"10%"}>
+    <DialogBox visibility={askDialogBox} height={"380px"} top={"10%"}>
 
                 <DialogContainer>
 
@@ -46,9 +46,19 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
 
                 <div style={{height:'10px'}}></div>
 
-
                 <div style={{display: 'flex', flexDirection: 'column'}}>
                     <DialogTextSpan>{Language["/"].Button.Header.InputSpan[1]}</DialogTextSpan>
+                    <DialogTextArea rows="2" type="" placeholder={Language["/"].Button.Header.Input[1]} onChange = {(event)=>{
+                        setHatimDescription(event.target.value);
+                        
+                    }}/>
+                </div>
+
+                <div style={{height:'10px'}}></div>
+
+
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <DialogTextSpan>{Language["/"].Button.Header.InputSpan[2]}</DialogTextSpan>
                     <DialogInputBox type="date"  onChange = {(event)=>{
                         setHatimBitisTarihi(event.target.value);
                     }}/>
@@ -62,7 +72,7 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
             <NavBtnLink onClick={async ()=>{
                 setAskDialogBox(false);
                 propHideDialogBox.setHideDialogBox(true);
-                let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, false, isRamazan);
+                let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, false, isRamazan, hatimDescription);
                 setHatimKey(_hatimKey);
                 const route = isRamazan ? "ramazan" : "cuz";
                 setYazilar({
@@ -105,6 +115,7 @@ const Question = ({ firebase, toggle }) => {
     const [mevcutHatimlerBaslik, setMevcutHatimlerBaslik] = useState([]);
     const [mevcutHatimlerVisible, setMevcutHatimlerVisible] = useState(false);
     const [ramazan, setRamazan] = useState(false)
+    const [hatimDescription, setHatimDescription] = useState("")
 
     const changeAskDialogBox = () => {
         setAskDialogBox(!askDialogBox)
@@ -203,7 +214,7 @@ const Question = ({ firebase, toggle }) => {
                                 askDialogBox={askDialogBox} setAskDialogBox={setAskDialogBox}
                                 hatimKonu={hatimKonu} setHatimKonu={setHatimKonu} changeAskDialogBox={changeAskDialogBox}
                                 hatimBitisTarihi={hatimBitisTarihi} setHatimBitisTarihi={setHatimBitisTarihi} 
-                                isRamazan={ramazan}/>
+                                isRamazan={ramazan} setHatimDescription={setHatimDescription} hatimDescription={hatimDescription}/>
 
         {/* <BackContainer>
                 <BackButtonIcon hide={datas == 1 ? false : true} src={backButton} onClick={()=>{setDatas(routes.pop()); console.log(routes); setRoutes(routes);}}>

@@ -141,6 +141,11 @@ export const BusinessVisit = styled.p`
     font-size: 0.8rem;
 `;
 
+export const BusinessVersion = styled.p`
+    margin-top: 12px;
+    font-size: 0.8rem;
+`;
+
 export const BusinessMainPage = styled(LinkR)`
     font-size: 0.8rem;
     color: white;

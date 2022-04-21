@@ -4,10 +4,13 @@ import {Home} from './pages';
 import {Cuz} from './pages/cuz';
 import {Ramazan} from './pages/ramazan';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Message from './components/Message';
 
 
 function App() {
   return (
+    <>
+    <Message />
     <BrowserRouter>
       <Switch>
         <Route path="/" component={Home} exact />
@@ -15,6 +18,7 @@ function App() {
         <Route path="/ramazan" component={Ramazan} />
       </Switch>
     </BrowserRouter>
+    </>
   );
 }
 

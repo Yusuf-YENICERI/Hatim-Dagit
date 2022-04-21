@@ -9,6 +9,7 @@ import {Linker} from '../Question/QuestionElements';
 import { FaGithub } from "react-icons/fa";
 import {FirebaseContext} from '../Firebase';
 import easyStorage from '@yusuf-yeniceri/easy-storage';
+import {version} from '../../common'
 
 
 
@@ -73,6 +74,9 @@ const Footer = () => {
 
                          
                          <BusinessVisit>{Language.Footer.ziyaret[0]} {ziyaretSayisi} {Language.Footer.ziyaret[1]}</BusinessVisit>
+                         {Language.rtl ? <BusinessVisit>{version} {Language.Footer.version}  </BusinessVisit>
+                                       : <BusinessVisit>{Language.Footer.version} {version} </BusinessVisit> 
+                        }
                      </BusinessWrap>
                  </Business>
              </FooterWrapper>
