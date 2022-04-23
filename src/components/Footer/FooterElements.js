@@ -113,6 +113,7 @@ export const BusinessLogo = styled(LinkS)`
     align-items: center;
     margin-bottom: 16px;
     font-weight: bold;
+    margin-top: 50px;
 
     @media screen and (max-width: 380px){
         font-size: 1rem;
@@ -150,5 +151,16 @@ export const BusinessMainPage = styled(LinkR)`
     font-size: 0.8rem;
     color: white;
     margin-top: -70px;
-    margin-bottom: 50px;
+`;
+
+export const BusinessFeedback = styled.div`
+
+@media screen and (min-width:480px){
+    display: none;
+}
+
+    font-size: 0.8rem;
+    color: white;
+    margin-top: 20px;
+    text-decoration: underline;
 `;

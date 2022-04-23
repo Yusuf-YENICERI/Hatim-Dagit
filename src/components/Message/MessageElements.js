@@ -26,9 +26,9 @@ export const MessageContainer = styled.div`
 background-color: transparent;
 border: 1px solid transparent;
 border-radius: 15px;
-height: 100%;
+max-height: 500px;
 width: 100%;
-background-color: white;
+background-color: #e3fff1;
 
 `;
 
@@ -40,10 +40,11 @@ padding: 20px;
 `;
 
 export const MessageMain = styled.div`
-
+margin-top: 40px;
 `
 
 export const MessageButton = styled.button`
+    margin-top: 10px;
     border: 1px solid black;
     border-radius: 20px;
     padding: 10px;

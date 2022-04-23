@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import Firebase, {FirebaseContext} from './components/Firebase';
 import { isSafari, isStandalone } from "./common";
 import Language from "./strings";
+import localDb from '@yusuf-yeniceri/easy-storage';
 
 let db = new Firebase();
 
@@ -45,6 +46,8 @@ firebaseToDo();
 /**
  * firebase part end
  */
+
+
 
 let pwa_button = document.getElementById('pwabutton');
 
@@ -94,3 +97,15 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
  
 })
+
+/**
+ * message part
+ */
+
+if(localDb.ref("message").get().read){
+  document.getElementById('message').style.zIndex = -1;
+}
+
+/**
+ * message part end
+ */

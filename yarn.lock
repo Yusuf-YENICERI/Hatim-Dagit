@@ -2867,10 +2867,10 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-"@yusuf-yeniceri/easy-storage@^1.0.21":
-  version "1.0.21"
-  resolved "https://registry.yarnpkg.com/@yusuf-yeniceri/easy-storage/-/easy-storage-1.0.21.tgz#c893efefd5c19b9bde33fca37a473cbedf0f4023"
-  integrity sha512-bWiQWGZEiFNI/JxBLwYGdTrqnRx5ymQlqoUtTZY3CYctazdpcjMuWTcp+tNsoQ847wFtSCn4VlEZAt6vvACUFQ==
+"@yusuf-yeniceri/easy-storage@^1.0.23":
+  version "1.0.23"
+  resolved "https://registry.yarnpkg.com/@yusuf-yeniceri/easy-storage/-/easy-storage-1.0.23.tgz#25b6906fdb3a9da4fb35390a607eb1d7fbabad04"
+  integrity sha512-xOZ6hoM3HPAMJLOv4PVfeQWM+WGfywTOYVUWhRHuCE7WsbXgpTaE+xvS+niTnEQjawo/6P0yT50FkvPILKhogw==
 
 abab@^2.0.3:
   version "2.0.5"

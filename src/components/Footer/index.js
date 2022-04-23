@@ -4,11 +4,10 @@
 import React, {useEffect, useContext, useState} from 'react'
 import Language from '../../strings/index';
 import { FooterContainer, FooterWrapper, FooterLinksContainer, FooterLinkWrapper, FooterLinkItems, FooterLinkTitle, FooterLink,
-Business, BusinessWrap, BusinessLogo, WebsiteRights, BusinessIcons, BusinessIconLink, BusinessVisit, BusinessMainPage } from "./FooterElements";
+Business, BusinessWrap, BusinessLogo, WebsiteRights, BusinessIcons, BusinessIconLink, BusinessVisit, BusinessMainPage, BusinessFeedback } from "./FooterElements";
 import {Linker} from '../Question/QuestionElements';
 import { FaGithub } from "react-icons/fa";
 import {FirebaseContext} from '../Firebase';
-import easyStorage from '@yusuf-yeniceri/easy-storage';
 import {version} from '../../common'
 
 
@@ -29,9 +28,9 @@ const Footer = () => {
     return (
         <>
          <FooterContainer id="hakkimda" onClick={()=>{
-             easyStorage.ref("projects").set({
-                 test: true
-             })
+            //  easyStorage.ref("projects").set({
+            //      test: true
+            //  })
          }}>
              <FooterWrapper>
                         
@@ -59,6 +58,10 @@ const Footer = () => {
                      <BusinessMainPage to="/">
                             Anasayfaya Git
                         </BusinessMainPage>
+                        <BusinessFeedback onClick={()=>window.location.href = "mailto:hep.beraber.okuyalim@gmail.com"}>
+                            Geribildirim Yap
+                        </BusinessFeedback>
+
                          <BusinessLogo to="starting">
                              {Language.Navbar.Logo}
                          </BusinessLogo>
