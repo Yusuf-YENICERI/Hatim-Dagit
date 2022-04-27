@@ -1,0 +1,167 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-04-24 23:09:14
+count workspace : /home/yusuf/Desktop/Hat/hatimGit
+total files : 140
+total code lines : 25941
+total comment lines : 853
+total blank lines : 6398
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |               |             11|              0|              0|  0.042|
+   |          .json|            150|              0|              7|   0.58|
+   |            .js|           4950|            612|           1392|     19|
+   |           .css|             24|             13|             10|  0.093|
+   |           .svg|             48|              0|              0|   0.19|
+   |          .html|             37|             25|              5|   0.14|
+   |           .txt|              6|            128|             11|  0.023|
+   |            .md|              6|              3|              7|  0.023|
+   |           .yml|            161|              5|             17|   0.62|
+   |          .lock|          10396|             35|           2535|     40|
+   |           .log|          10152|             32|           2414|     39|
+   -------------------------------------------------------------------------
+.env, code is 8, comment is 0, blank is 0.
+.github/workflows/codeql-analysis.yml, code is 61, comment is 2, blank is 10.
+.github/workflows/firebase-hosting-merge.yml, code is 53, comment is 1, blank is 5.
+.github/workflows/firebase-hosting-pull-request.yml, code is 26, comment is 1, blank is 1.
+.github/workflowsfirebase-hosting-merge.yml, code is 21, comment is 1, blank is 1.
+.gitignore, code is 3, comment is 0, blank is 0.
+build/asset-manifest.json, code is 38, comment is 0, blank is 1.
+build/book.svg, code is 1, comment is 0, blank is 0.
+build/index.html, code is 1, comment is 0, blank is 0.
+build/logo192.png, it is a binary file.
+build/logo512.png, it is a binary file.
+build/manifest.json, code is 20, comment is 0, blank is 2.
+build/nothing.ico, it is a binary file.
+build/robots.txt, code is 3, comment is 1, blank is 0.
+build/service-worker.js, code is 2, comment is 1, blank is 2.
+build/static/css/2.cf13eec6.chunk.css, code is 1, comment is 0, blank is 0.
+build/static/css/main.cb128d4a.chunk.css, code is 1, comment is 0, blank is 0.
+build/static/js/2.4a3d9b82.chunk.js, code is 1, comment is 2, blank is 0.
+build/static/js/2.4a3d9b82.chunk.js.LICENSE.txt, code is 0, comment is 126, blank is 11.
+build/static/js/3.ec7a208e.chunk.js, code is 1, comment is 0, blank is 0.
+build/static/js/main.7f4581f8.chunk.js, code is 1, comment is 0, blank is 0.
+build/static/js/runtime-main.845d5516.js, code is 1, comment is 0, blank is 0.
+build/static/media/button.ef17e8d4.svg, code is 1, comment is 0, blank is 0.
+build/static/media/c.22ea43c1.svg, code is 1, comment is 0, blank is 0.
+build/static/media/close.625ba8f0.svg, code is 1, comment is 0, blank is 0.
+build/static/media/copy.e88a7cef.svg, code is 1, comment is 0, blank is 0.
+build/static/media/cpp.30cd71dc.svg, code is 1, comment is 0, blank is 0.
+build/static/media/csharp.834de1bc.svg, code is 1, comment is 0, blank is 0.
+build/static/media/enterprise.dd226682.svg, code is 1, comment is 0, blank is 0.
+build/static/media/game.972f0636.svg, code is 1, comment is 0, blank is 0.
+build/static/media/java.8cb1fd4a.svg, code is 1, comment is 0, blank is 0.
+build/static/media/js.43e744a2.svg, code is 1, comment is 0, blank is 0.
+build/static/media/lamp.6dcda55d.svg, code is 4, comment is 0, blank is 0.
+build/static/media/logo.6ce24c58.svg, code is 1, comment is 0, blank is 0.
+build/static/media/mobile.7ed1658e.svg, code is 1, comment is 0, blank is 0.
+build/static/media/php.a2131666.svg, code is 1, comment is 0, blank is 0.
+build/static/media/python.af4b6d45.svg, code is 1, comment is 0, blank is 0.
+build/static/media/ruby.411dad54.svg, code is 1, comment is 0, blank is 0.
+build/static/media/share.2e198c97.svg, code is 1, comment is 0, blank is 0.
+build/static/media/sms.634ffd48.svg, code is 1, comment is 0, blank is 0.
+build/static/media/website.68595623.svg, code is 1, comment is 0, blank is 0.
+build/static/media/whatsapp.4a5048df.svg, code is 1, comment is 0, blank is 0.
+cypress.json, code is 1, comment is 0, blank is 0.
+cypress/fixtures/example.json, code is 5, comment is 0, blank is 0.
+cypress/integration/CUZ_add_Khatm_to_default_page.js, code is 51, comment is 26, blank is 28.
+cypress/integration/CUZ_old_version_test.js, code is 13, comment is 6, blank is 10.
+cypress/integration/CUZ_user_behaviour.js, code is 51, comment is 33, blank is 26.
+cypress/integration/RAMAZAN_add_Khatm_to_default_page.js, code is 51, comment is 26, blank is 32.
+cypress/integration/RAMAZAN_user_behaviour.js, code is 51, comment is 32, blank is 25.
+cypress/plugins/index.js, code is 2, comment is 18, blank is 2.
+cypress/support/commands.js, code is 1, comment is 1, blank is 2.
+cypress/support/index.js, code is 1, comment is 17, blank is 2.
+firebase.json, code is 15, comment is 0, blank is 1.
+package.json, code is 51, comment is 0, blank is 3.
+public/book.svg, code is 1, comment is 0, blank is 0.
+public/index.html, code is 36, comment is 25, blank is 5.
+public/logo192.png, it is a binary file.
+public/logo512.png, it is a binary file.
+public/manifest.json, code is 20, comment is 0, blank is 0.
+public/network-ipad-retina.png, it is a binary file.
+public/network-ipad.png, it is a binary file.
+public/network-iphone-retina.png, it is a binary file.
+public/network.png, it is a binary file.
+public/nothing.ico, it is a binary file.
+public/robots.txt, code is 3, comment is 1, blank is 0.
+public/service-worker.js, code is 2, comment is 1, blank is 2.
+README.md, code is 6, comment is 3, blank is 7.
+src/App.css, code is 9, comment is 0, blank is 2.
+src/App.js, code is 22, comment is 0, blank is 3.
+src/App.test.js, code is 7, comment is 0, blank is 1.
+src/common.js, code is 68, comment is 0, blank is 16.
+src/components/AlertDialog/AlertDialogComponents.js, code is 35, comment is 0, blank is 13.
+src/components/AlertDialog/index.js, code is 17, comment is 0, blank is 8.
+src/components/AskDialog/AskDialogElements.js, code is 62, comment is 0, blank is 14.
+src/components/AskDialog/index.js, code is 43, comment is 0, blank is 26.
+src/components/Cuzler/index.js, code is 461, comment is 73, blank is 102.
+src/components/Cuzler/QuestionElements.js, code is 455, comment is 22, blank is 105.
+src/components/CuzlerHatimCard/index.js, code is 53, comment is 0, blank is 15.
+src/components/DialogBox/DialogBoxElements.js, code is 0, comment is 49, blank is 16.
+src/components/DialogBox/index.js, code is 0, comment is 28, blank is 16.
+src/components/Firebase/api/v1/index.js, code is 100, comment is 7, blank is 39.
+src/components/Firebase/api/v2/index.js, code is 110, comment is 9, blank is 39.
+src/components/Firebase/context.js, code is 3, comment is 0, blank is 4.
+src/components/Firebase/firebase.js, code is 81, comment is 8, blank is 31.
+src/components/Firebase/index.js, code is 4, comment is 0, blank is 4.
+src/components/Footer/FooterElements.js, code is 132, comment is 4, blank is 30.
+src/components/Footer/index.js, code is 53, comment is 20, blank is 20.
+src/components/Message/index.js, code is 74, comment is 0, blank is 21.
+src/components/Message/MessageElements.js, code is 34, comment is 0, blank is 21.
+src/components/Navbar/index.js, code is 103, comment is 40, blank is 25.
+src/components/Navbar/navbar.css, code is 6, comment is 0, blank is 4.
+src/components/Navbar/NavbarElements.js, code is 150, comment is 7, blank is 27.
+src/components/Navbar/service-worker.js, code is 2, comment is 1, blank is 2.
+src/components/Pwa/index.js, code is 29, comment is 1, blank is 7.
+src/components/Pwa/PwaElements.js, code is 59, comment is 1, blank is 15.
+src/components/Question/index.js, code is 223, comment is 26, blank is 75.
+src/components/Question/QuestionElements.js, code is 271, comment is 10, blank is 53.
+src/components/RamazanDonerli/index.js, code is 473, comment is 54, blank is 104.
+src/components/RamazanDonerli/RamazanDonerliElements.js, code is 471, comment is 22, blank is 110.
+src/components/RingProgress/index.js, code is 42, comment is 9, blank is 10.
+src/components/ShareBox/index.js, code is 40, comment is 0, blank is 20.
+src/components/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+src/components/Sidebar/index.js, code is 48, comment is 20, blank is 12.
+src/components/Sidebar/sidebar.css, code is 7, comment is 0, blank is 4.
+src/components/Sidebar/SiderbarElements.js, code is 98, comment is 0, blank is 17.
+src/components/Table/index.js, code is 108, comment is 0, blank is 22.
+src/icons/button.svg, code is 1, comment is 0, blank is 0.
+src/icons/c.svg, code is 1, comment is 0, blank is 0.
+src/icons/close.svg, code is 1, comment is 0, blank is 0.
+src/icons/copy.svg, code is 1, comment is 0, blank is 0.
+src/icons/cpp.svg, code is 1, comment is 0, blank is 0.
+src/icons/csharp.svg, code is 1, comment is 0, blank is 0.
+src/icons/enterprise.svg, code is 1, comment is 0, blank is 0.
+src/icons/game.svg, code is 1, comment is 0, blank is 0.
+src/icons/java.svg, code is 1, comment is 0, blank is 0.
+src/icons/js.svg, code is 1, comment is 0, blank is 0.
+src/icons/lamp.svg, code is 4, comment is 0, blank is 0.
+src/icons/mobile.svg, code is 1, comment is 0, blank is 0.
+src/icons/php.svg, code is 1, comment is 0, blank is 0.
+src/icons/python.svg, code is 1, comment is 0, blank is 0.
+src/icons/ruby.svg, code is 1, comment is 0, blank is 0.
+src/icons/share.svg, code is 1, comment is 0, blank is 0.
+src/icons/sms.svg, code is 1, comment is 0, blank is 0.
+src/icons/website.svg, code is 1, comment is 0, blank is 0.
+src/icons/whatsapp.svg, code is 1, comment is 0, blank is 0.
+src/index.css, code is 0, comment is 13, blank is 0.
+src/index.js, code is 63, comment is 24, blank is 24.
+src/logo.svg, code is 1, comment is 0, blank is 0.
+src/pages/cuz.js, code is 22, comment is 0, blank is 7.
+src/pages/index.js, code is 21, comment is 0, blank is 10.
+src/pages/ramazan.js, code is 68, comment is 0, blank is 14.
+src/reportWebVitals.js, code is 12, comment is 0, blank is 1.
+src/setupTests.js, code is 1, comment is 4, blank is 0.
+src/strings/Arabic.js, code is 109, comment is 0, blank is 26.
+src/strings/dataFormat.js, code is 173, comment is 1, blank is 40.
+src/strings/english.js, code is 110, comment is 0, blank is 38.
+src/strings/index.js, code is 40, comment is 6, blank is 13.
+src/strings/Turkish.js, code is 108, comment is 0, blank is 30.
+yarn-error.log, code is 10152, comment is 32, blank is 2414.
+yarn.lock, code is 10396, comment is 35, blank is 2535.
+===============================================================================

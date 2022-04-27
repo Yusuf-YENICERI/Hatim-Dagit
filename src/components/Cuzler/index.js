@@ -28,6 +28,9 @@ import ShareBox from '../ShareBox';
 import { extractKey, initializeLocalStorage } from "../../common";
 import { Language } from '@styled-icons/ionicons-outline';
 import AlertDialog from '../AlertDialog';
+import StatsRing from '../RingProgress';
+import CuzlerHatimCard from '../CuzlerHatimCard';
+import YesNoDialog from "../YesNoDialog";
 
 
 // let counter = 0;+0
@@ -72,6 +75,7 @@ const Constr = ({ toggle, firebase }) => {
     const [hideNewHatimBox, setHideNewHatimBox] = useState(false);
     const [hatimKonu, setHatimKonu] = useState("");
     const [hatimBitisTarihi, setHatimBitisTarihi] = useState("");
+    const [totalPartsTaken, setTotalPartsTaken] = useState(0);
 
     const changeAskDialogBox = () => {
         setAskDialogBox(!askDialogBox)
@@ -90,6 +94,27 @@ const Constr = ({ toggle, firebase }) => {
         setAlertVisible(!alertVisible)
     }
     /** AlertDialog End */
+
+    /** YesNoDialog */
+
+    const [yesNoVisible, setYesNoVisible] = useState(false)
+
+    const yesHandler = async () => {        
+        let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, true);
+
+        let temp = [];
+        for (let i = 0; i < hatimlerVisibilities.length; i++) {
+            temp[i] = false;
+        }
+        setHatimlerVisibilities(temp);
+        await afterRun();
+        setYesNoVisible(false);
+    }
+
+    const noHandler = () => setYesNoVisible(false);
+
+    /** YesNoDialog End */
+
 
     const initialRun = async () => {
         try {
@@ -123,6 +148,7 @@ const Constr = ({ toggle, firebase }) => {
                 
                 if(totalCevap != 30){
                     currentIndex = i;
+                    setTotalPartsTaken(totalCevap)
                     break;
                 }
             }
@@ -240,6 +266,8 @@ const Constr = ({ toggle, firebase }) => {
     return (
         <>
         <QuestionContainer id="questionContainer" minHeight={(window.innerHeight-80).toString() + "px"} hatimlerVisibility={hatimlerVisibilities[0]} >
+
+        <YesNoDialog visible={yesNoVisible} yesHandler={yesHandler} noHandler={noHandler} />
 
         <AlertDialog text={LanguageData["/cuz"].AlertDialog.Title} textButton={LanguageData["/cuz"].AlertDialog.Button}
          alertVisible={alertVisible} toggleAlertVisibility={toggleAlertVisibility}>
@@ -373,9 +401,17 @@ const Constr = ({ toggle, firebase }) => {
 
                 
                 return <>
-                
-                    <QuestionItem fontSize={"1.6rem"}>
-                            {Language.baslik} 
+            
+    
+                { (index==0) && <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+                    <CuzlerHatimCard header={Language.baslik} description={Language.description} 
+                                    progress={totalPartsTaken/30*100} leftCuzs={30-totalPartsTaken} duaLeftDays={Language.bitisTarihi.split("-").reverse().join("/")}
+                    ></CuzlerHatimCard>
+                </div>}
+
+
+                { (hatimlerVisibilities.length > 1) && <QuestionItem fontSize={"1.6rem"}>
+                            {index+1}. hatim
                         {
                             hatimlerVisibilities.length > 1 ?
                                 (hatimlerVisibilities[index] 
@@ -404,14 +440,13 @@ const Constr = ({ toggle, firebase }) => {
                             :
                                 <></>
                         }
-                    </QuestionItem>
-    
-    
+                    </QuestionItem>}
+
                     {/* Hatmin kendisi */}
     
                 <HatimContainer className="hatimContainer" visibility={hatimlerVisibilities[index]}>
     
-                <QuestionInnerContainer>
+                {/* <QuestionInnerContainer>
                     
                     
                 { Language.description != null && Language.description.length > 0 && <CuzlerDescription>
@@ -423,11 +458,16 @@ const Constr = ({ toggle, firebase }) => {
                             {LanguageData["/cuz"].KhatmFinishDate[0]}  {Language.bitisTarihi.split("-").reverse().join("/")} {LanguageData["/cuz"].KhatmFinishDate[1]}
                     </CuzlerFinishDate>
                     }
+
+                    <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
+                        <StatsRing data={[{label: 'Kalan cüz sayısı', stats: totalPartsTaken.toString(), progress: totalPartsTaken/30*100, color: 'green', icon: 'up'}]}></StatsRing>
+                    </div>
+
                     <QuestionItem fontSize={"1.1rem"}>
                             {LanguageData["/cuz"].Before.Question}
                     </QuestionItem>
-                </QuestionInnerContainer>
-    
+                </QuestionInnerContainer> */}
+           
                 
                 <RespondContainer visibility={hideRespond}>
                     <RespondOuterContainer>
@@ -604,7 +644,7 @@ const Constr = ({ toggle, firebase }) => {
            {  (currentApi==2) && (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
                 <YeniHatimContainer>
                     <YeniHatimButton id="NewSubKhatm" onClick={()=>{
-                        changeAskDialogBox();
+                        setYesNoVisible(true);
                     }}>
                         <YeniHatimIcon />
                         <YeniHatimText>{LanguageData["/cuz"].NewSubKhatm}</YeniHatimText>

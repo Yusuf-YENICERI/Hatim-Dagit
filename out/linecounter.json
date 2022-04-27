@@ -1,0 +1,924 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "/home/yusuf/Desktop/Hat/hatimGit",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2022-04-24 23:09:14",
+            "filesum": 140,
+            "codesum": 25941,
+            "commentsum": 853,
+            "blanksum": 6398,
+            "statistics": {
+                "": {
+                    "code": 11,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".json": {
+                    "code": 150,
+                    "comment": 0,
+                    "blank": 7
+                },
+                ".js": {
+                    "code": 4950,
+                    "comment": 612,
+                    "blank": 1392
+                },
+                ".css": {
+                    "code": 24,
+                    "comment": 13,
+                    "blank": 10
+                },
+                ".svg": {
+                    "code": 48,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".html": {
+                    "code": 37,
+                    "comment": 25,
+                    "blank": 5
+                },
+                ".txt": {
+                    "code": 6,
+                    "comment": 128,
+                    "blank": 11
+                },
+                ".md": {
+                    "code": 6,
+                    "comment": 3,
+                    "blank": 7
+                },
+                ".yml": {
+                    "code": 161,
+                    "comment": 5,
+                    "blank": 17
+                },
+                ".lock": {
+                    "code": 10396,
+                    "comment": 35,
+                    "blank": 2535
+                },
+                ".log": {
+                    "code": 10152,
+                    "comment": 32,
+                    "blank": 2414
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": ".env"
+                },
+                {
+                    "blank": 10,
+                    "code": 61,
+                    "comment": 2,
+                    "filename": ".github/workflows/codeql-analysis.yml"
+                },
+                {
+                    "blank": 5,
+                    "code": 53,
+                    "comment": 1,
+                    "filename": ".github/workflows/firebase-hosting-merge.yml"
+                },
+                {
+                    "blank": 1,
+                    "code": 26,
+                    "comment": 1,
+                    "filename": ".github/workflows/firebase-hosting-pull-request.yml"
+                },
+                {
+                    "blank": 1,
+                    "code": 21,
+                    "comment": 1,
+                    "filename": ".github/workflowsfirebase-hosting-merge.yml"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 1,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "build/asset-manifest.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/book.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/index.html"
+                },
+                {
+                    "filename": "build/logo192.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "build/logo512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 2,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "build/manifest.json"
+                },
+                {
+                    "filename": "build/nothing.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "build/robots.txt"
+                },
+                {
+                    "blank": 2,
+                    "code": 2,
+                    "comment": 1,
+                    "filename": "build/service-worker.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/css/2.cf13eec6.chunk.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/css/main.cb128d4a.chunk.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 2,
+                    "filename": "build/static/js/2.4a3d9b82.chunk.js"
+                },
+                {
+                    "blank": 11,
+                    "code": 0,
+                    "comment": 126,
+                    "filename": "build/static/js/2.4a3d9b82.chunk.js.LICENSE.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/js/3.ec7a208e.chunk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/js/main.7f4581f8.chunk.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/js/runtime-main.845d5516.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/button.ef17e8d4.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/c.22ea43c1.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/close.625ba8f0.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/copy.e88a7cef.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/cpp.30cd71dc.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/csharp.834de1bc.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/enterprise.dd226682.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/game.972f0636.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/java.8cb1fd4a.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/js.43e744a2.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "build/static/media/lamp.6dcda55d.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/logo.6ce24c58.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/mobile.7ed1658e.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/php.a2131666.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/python.af4b6d45.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/ruby.411dad54.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/share.2e198c97.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/sms.634ffd48.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/website.68595623.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "build/static/media/whatsapp.4a5048df.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "cypress.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "cypress/fixtures/example.json"
+                },
+                {
+                    "blank": 28,
+                    "code": 51,
+                    "comment": 26,
+                    "filename": "cypress/integration/CUZ_add_Khatm_to_default_page.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 13,
+                    "comment": 6,
+                    "filename": "cypress/integration/CUZ_old_version_test.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 51,
+                    "comment": 33,
+                    "filename": "cypress/integration/CUZ_user_behaviour.js"
+                },
+                {
+                    "blank": 32,
+                    "code": 51,
+                    "comment": 26,
+                    "filename": "cypress/integration/RAMAZAN_add_Khatm_to_default_page.js"
+                },
+                {
+                    "blank": 25,
+                    "code": 51,
+                    "comment": 32,
+                    "filename": "cypress/integration/RAMAZAN_user_behaviour.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 2,
+                    "comment": 18,
+                    "filename": "cypress/plugins/index.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "cypress/support/commands.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 1,
+                    "comment": 17,
+                    "filename": "cypress/support/index.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "firebase.json"
+                },
+                {
+                    "blank": 3,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "public/book.svg"
+                },
+                {
+                    "blank": 5,
+                    "code": 36,
+                    "comment": 25,
+                    "filename": "public/index.html"
+                },
+                {
+                    "filename": "public/logo192.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public/logo512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "public/manifest.json"
+                },
+                {
+                    "filename": "public/network-ipad-retina.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public/network-ipad.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public/network-iphone-retina.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public/network.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public/nothing.ico",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 1,
+                    "filename": "public/robots.txt"
+                },
+                {
+                    "blank": 2,
+                    "code": 2,
+                    "comment": 1,
+                    "filename": "public/service-worker.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 6,
+                    "comment": 3,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src/App.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src/App.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src/App.test.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 68,
+                    "comment": 0,
+                    "filename": "src/common.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "src/components/AlertDialog/AlertDialogComponents.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src/components/AlertDialog/index.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "src/components/AskDialog/AskDialogElements.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "src/components/AskDialog/index.js"
+                },
+                {
+                    "blank": 102,
+                    "code": 461,
+                    "comment": 73,
+                    "filename": "src/components/Cuzler/index.js"
+                },
+                {
+                    "blank": 105,
+                    "code": 455,
+                    "comment": 22,
+                    "filename": "src/components/Cuzler/QuestionElements.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 53,
+                    "comment": 0,
+                    "filename": "src/components/CuzlerHatimCard/index.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 0,
+                    "comment": 49,
+                    "filename": "src/components/DialogBox/DialogBoxElements.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 0,
+                    "comment": 28,
+                    "filename": "src/components/DialogBox/index.js"
+                },
+                {
+                    "blank": 39,
+                    "code": 100,
+                    "comment": 7,
+                    "filename": "src/components/Firebase/api/v1/index.js"
+                },
+                {
+                    "blank": 39,
+                    "code": 110,
+                    "comment": 9,
+                    "filename": "src/components/Firebase/api/v2/index.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "src/components/Firebase/context.js"
+                },
+                {
+                    "blank": 31,
+                    "code": 81,
+                    "comment": 8,
+                    "filename": "src/components/Firebase/firebase.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src/components/Firebase/index.js"
+                },
+                {
+                    "blank": 30,
+                    "code": 132,
+                    "comment": 4,
+                    "filename": "src/components/Footer/FooterElements.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 53,
+                    "comment": 20,
+                    "filename": "src/components/Footer/index.js"
+                },
+                {
+                    "blank": 21,
+                    "code": 74,
+                    "comment": 0,
+                    "filename": "src/components/Message/index.js"
+                },
+                {
+                    "blank": 21,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "src/components/Message/MessageElements.js"
+                },
+                {
+                    "blank": 25,
+                    "code": 103,
+                    "comment": 40,
+                    "filename": "src/components/Navbar/index.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "src/components/Navbar/navbar.css"
+                },
+                {
+                    "blank": 27,
+                    "code": 150,
+                    "comment": 7,
+                    "filename": "src/components/Navbar/NavbarElements.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 2,
+                    "comment": 1,
+                    "filename": "src/components/Navbar/service-worker.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 29,
+                    "comment": 1,
+                    "filename": "src/components/Pwa/index.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 59,
+                    "comment": 1,
+                    "filename": "src/components/Pwa/PwaElements.js"
+                },
+                {
+                    "blank": 75,
+                    "code": 223,
+                    "comment": 26,
+                    "filename": "src/components/Question/index.js"
+                },
+                {
+                    "blank": 53,
+                    "code": 271,
+                    "comment": 10,
+                    "filename": "src/components/Question/QuestionElements.js"
+                },
+                {
+                    "blank": 104,
+                    "code": 473,
+                    "comment": 54,
+                    "filename": "src/components/RamazanDonerli/index.js"
+                },
+                {
+                    "blank": 110,
+                    "code": 471,
+                    "comment": 22,
+                    "filename": "src/components/RamazanDonerli/RamazanDonerliElements.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 42,
+                    "comment": 9,
+                    "filename": "src/components/RingProgress/index.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "src/components/ShareBox/index.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 63,
+                    "comment": 3,
+                    "filename": "src/components/ShareBox/ShareBoxElements.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 48,
+                    "comment": 20,
+                    "filename": "src/components/Sidebar/index.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "src/components/Sidebar/sidebar.css"
+                },
+                {
+                    "blank": 17,
+                    "code": 98,
+                    "comment": 0,
+                    "filename": "src/components/Sidebar/SiderbarElements.js"
+                },
+                {
+                    "blank": 22,
+                    "code": 108,
+                    "comment": 0,
+                    "filename": "src/components/Table/index.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/button.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/c.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/close.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/copy.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/cpp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/csharp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/enterprise.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/game.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/java.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/js.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src/icons/lamp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/mobile.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/php.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/python.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/ruby.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/share.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/sms.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/website.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/icons/whatsapp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 13,
+                    "filename": "src/index.css"
+                },
+                {
+                    "blank": 24,
+                    "code": 63,
+                    "comment": 24,
+                    "filename": "src/index.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "src/logo.svg"
+                },
+                {
+                    "blank": 7,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "src/pages/cuz.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "src/pages/index.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 68,
+                    "comment": 0,
+                    "filename": "src/pages/ramazan.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "src/reportWebVitals.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "src/setupTests.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 109,
+                    "comment": 0,
+                    "filename": "src/strings/Arabic.js"
+                },
+                {
+                    "blank": 40,
+                    "code": 173,
+                    "comment": 1,
+                    "filename": "src/strings/dataFormat.js"
+                },
+                {
+                    "blank": 38,
+                    "code": 110,
+                    "comment": 0,
+                    "filename": "src/strings/english.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 40,
+                    "comment": 6,
+                    "filename": "src/strings/index.js"
+                },
+                {
+                    "blank": 30,
+                    "code": 108,
+                    "comment": 0,
+                    "filename": "src/strings/Turkish.js"
+                },
+                {
+                    "blank": 2414,
+                    "code": 10152,
+                    "comment": 32,
+                    "filename": "yarn-error.log"
+                },
+                {
+                    "blank": 2535,
+                    "code": 10396,
+                    "comment": 35,
+                    "filename": "yarn.lock"
+                }
+            ]
+        }
+    ]
+}

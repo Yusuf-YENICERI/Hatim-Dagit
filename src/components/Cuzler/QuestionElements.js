@@ -31,7 +31,7 @@ const displayDestroyer = (attribute, milliseconds) => {
 
 export const HatimContainer = styled.div`
     transform-origin: top;
-    margin-top: 20px;
+    margin-top: 0px;
     transform: ${({visibility}) => !visibility ? "scaleY(0)" : "scaleY(1)"};
     height: ${({visibility}) => {
         if(!visibility){            
@@ -546,7 +546,7 @@ export const HatimHeaderContainer = styled.div`
 export const HatimIconContainer = styled.div`
     color: black;
     position: absolute;
-    right: 20px;
+    right: 50px;
     top: 20px;
     border: 2px solid black;
     border-radius: 20px;
