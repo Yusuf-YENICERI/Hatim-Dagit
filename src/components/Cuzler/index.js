@@ -148,11 +148,11 @@ const Constr = ({ toggle, firebase }) => {
                 
                 if(totalCevap != 30){
                     currentIndex = i;
-                    setTotalPartsTaken(totalCevap)
                     break;
                 }
             }
 
+            setTotalPartsTaken(firebase.countNumberOfCuzs(allHatimler))
             setAllLanguage(allHatimler);
             setHideRespond(true);
             setLoadingVisibility(false);
@@ -333,8 +333,10 @@ const Constr = ({ toggle, firebase }) => {
                             default:
                                 break;
                         }
-                        
-                        setAllLanguage(objectToArray(await firebase.hatimGetir()));
+
+                        let tempAllLanguages = objectToArray(await firebase.hatimGetir());
+                        setAllLanguage(tempAllLanguages);
+                        setTotalPartsTaken(firebase.countNumberOfCuzs(tempAllLanguages))
                         setTakePart(LanguageData["/cuz"].Button.Take)
                         setPartIptal(false);
                         return;
@@ -342,23 +344,27 @@ const Constr = ({ toggle, firebase }) => {
                     let result = await firebase.cuzAlindi(username, hatimNo, activeHatimSubKey);
                     if(result == -1){
                         toggleAlertVisibility();
-                    }
-                    
-                    switch (currentApi) {
-                        case 2:
-                            if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
-                            let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
-                            if(localStorageCuzObj[activeHatimSubKey] == null)
-                                localStorageCuzObj[activeHatimSubKey] = [];
-                            localStorageCuzObj[activeHatimSubKey].push(hatimNo);
-                            localStorage.setItem("cuz",JSON.stringify(localStorageCuzObj));
-                            break;
-                        case 1:
-                            let localStorageCuzArr = JSON.parse(localStorage.getItem("cuz_v1"));
-                            localStorageCuzArr.push(hatimNo);
-                            localStorage.setItem("cuz_v1",JSON.stringify(localStorageCuzArr));
-                        default:
-                            break;
+                    }else{
+                        switch (currentApi) {
+                            case 2:
+                                if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
+                                let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                                if(localStorageCuzObj[activeHatimSubKey] == null)
+                                    localStorageCuzObj[activeHatimSubKey] = [];
+                                localStorageCuzObj[activeHatimSubKey].push(hatimNo);
+                                localStorage.setItem("cuz",JSON.stringify(localStorageCuzObj));
+                                break;
+                            case 1:
+                                let localStorageCuzArr = JSON.parse(localStorage.getItem("cuz_v1"));
+                                localStorageCuzArr.push(hatimNo);
+                                localStorage.setItem("cuz_v1",JSON.stringify(localStorageCuzArr));
+                            default:
+                                break;
+                        }
+                        let tempAllLanguages = objectToArray(await firebase.hatimGetir());
+                        setAllLanguage(tempAllLanguages);
+                        setTotalPartsTaken(firebase.countNumberOfCuzs(tempAllLanguages))
+                        return;
                     }
 
                    
@@ -405,7 +411,7 @@ const Constr = ({ toggle, firebase }) => {
     
                 { (index==0) && <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                     <CuzlerHatimCard header={Language.baslik} description={Language.description} 
-                                    progress={totalPartsTaken/30*100} leftCuzs={30-totalPartsTaken} duaLeftDays={Language.bitisTarihi.split("-").reverse().join("/")}
+                                    progress={totalPartsTaken/30*100} leftCuzs={allLanguage.length*30-totalPartsTaken} duaLeftDays={Language.bitisTarihi.split("-").reverse().join("/")}
                     ></CuzlerHatimCard>
                 </div>}
 

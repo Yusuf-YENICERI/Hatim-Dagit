@@ -30,8 +30,38 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+const BadgeSpecifier = ({otherCaseDuaLeftDays, _duaLeftDays}) => {
+  switch (otherCaseDuaLeftDays) {
+    case 0:
+      return <Badge size="sm" color="green" variant="filled" >Duaya {_duaLeftDays} gün kaldı</Badge>
+    case 1:
+      return <Badge size="sm" color="green" variant="filled" >Duası yapıldı</Badge> 
+    case 2:
+      return <Badge size="sm" color="green" variant="filled" >Duası bugün yapılacak!</Badge>
+    default:
+      return <Badge size="sm" color="green" variant="filled" >Duaya {_duaLeftDays} gün kaldı</Badge>
+      break;
+  }
+}
+
 export default function StatsCard({header, description, progress, leftCuzs, duaLeftDays}) {
   const { classes } = useStyles();
+
+  let otherCaseDuaLeftDays = 0; // 3 state, 0,1,2, 0 means be made
+
+  let arrLeftDays = duaLeftDays.replaceAll("/","-").split("-").reverse();
+  duaLeftDays = new Date(arrLeftDays[0], parseInt(arrLeftDays[1])-1, arrLeftDays[2])
+  let _currentDate = new Date();
+
+  let _duaLeftDays;
+  if(duaLeftDays > _currentDate){
+    _duaLeftDays = Math.round((duaLeftDays-(_currentDate))/(1000*60*60*24)) + 1;
+  }
+  else if((Math.round((duaLeftDays-(_currentDate))/(1000*60*60*24)) + 1) <= -1){
+       otherCaseDuaLeftDays = 1; // already made
+  }else{
+  otherCaseDuaLeftDays = 2; // today
+  }
 
   return (
     <Paper m="11%" my="0" radius="md" withBorder className={classes.card} mt={ICON_SIZE / 1.5}>
@@ -61,7 +91,7 @@ export default function StatsCard({header, description, progress, leftCuzs, duaL
 
       <Group position="apart" mt="md">
         <Badge size="sm" color="green" variant="filled" >{leftCuzs} cüz kaldı</Badge>
-        <Badge size="sm" color="green" variant="filled" >{duaLeftDays} gün kaldı</Badge>
+        <BadgeSpecifier otherCaseDuaLeftDays={otherCaseDuaLeftDays} _duaLeftDays={_duaLeftDays} />
       </Group>
     </Paper>
   );

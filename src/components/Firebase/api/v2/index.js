@@ -4,6 +4,7 @@
 
 
 import {dataFormat} from '../../../../strings/dataFormat';
+import { countNumberOfCuzs } from "../../helpers";
 
 
 
@@ -12,6 +13,7 @@ class Api_v2{
     constructor(_db){
   
         this.db = _db;
+        this.countNumberOfCuzs = countNumberOfCuzs;
     
     }
   

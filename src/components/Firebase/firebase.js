@@ -114,6 +114,10 @@ class Firebase{
   ziyaretSayisiArtir = async () => {
     await this.api.ziyaretSayisiArtir();
   }
+
+  countNumberOfCuzs = (allHatimler) => {
+    return this.api.countNumberOfCuzs(allHatimler);
+  }
 }
 
 export default Firebase;

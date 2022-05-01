@@ -5,6 +5,7 @@
   "dependencies": {
     "@mantine/core": "^4.0.7",
     "@mantine/hooks": "^4.0.7",
+    "@reduxjs/toolkit": "^1.8.1",
     "@styled-icons/ionicons-outline": "10.34.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -16,6 +17,7 @@
     "react-dom": "^17.0.2",
     "react-dropdown": "^1.9.2",
     "react-icons": "^4.2.0",
+    "react-redux": "^8.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-scroll": "^1.8.2",
