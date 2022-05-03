@@ -4,6 +4,7 @@
 
 
 import React, {useState, useEffect} from 'react'
+import { useSelector, useDispatch } from "react-redux";
 import {FaBars} from 'react-icons/fa'
 import {QuestionContainer, QuestionInnerContainer, QuestionItem, RespondContainer, RespondInnerContainer, ResponseItem
 , ResponseLogo, ResponseText, BackButtonIcon, BackContainer, RespondOuterContainer,
@@ -31,6 +32,8 @@ import AlertDialog from '../AlertDialog';
 import StatsRing from '../RingProgress';
 import CuzlerHatimCard from '../CuzlerHatimCard';
 import YesNoDialog from "../YesNoDialog";
+import { useNotification, notificationActions } from '../../features/notification';
+import { showNotification } from '@mantine/notifications';
 
 
 // let counter = 0;+0
@@ -114,6 +117,13 @@ const Constr = ({ toggle, firebase }) => {
     const noHandler = () => setYesNoVisible(false);
 
     /** YesNoDialog End */
+
+    /** redux */
+
+    const dispatch = useDispatch();
+    const {barVisible, text, icon} = useNotification();
+
+    /** redux end */
 
 
     const initialRun = async () => {
@@ -512,7 +522,7 @@ const Constr = ({ toggle, firebase }) => {
                                         return;
                                     }
                                     
-    
+                                    setTakePart(LanguageData["/cuz"].Button.Take);
                                     setHatimNo(cevap);
                                     setActiveHatimSubKey(Language.subKey);
                                     setHideDialogBox(true);
@@ -563,7 +573,8 @@ const Constr = ({ toggle, firebase }) => {
                                     
                                     }
                                     
-    
+                                    
+                                    setTakePart(LanguageData["/cuz"].Button.Take);
                                     setHatimNo(cevap);
                                     setActiveHatimSubKey(Language.subKey);
                                     setHideDialogBox(true);
@@ -615,7 +626,8 @@ const Constr = ({ toggle, firebase }) => {
 
                                     }
                                     
-    
+
+                                    setTakePart(LanguageData["/cuz"].Button.Take);
                                     setHatimNo(cevap);
                                     setActiveHatimSubKey(Language.subKey);
                                     setHideDialogBox(true);

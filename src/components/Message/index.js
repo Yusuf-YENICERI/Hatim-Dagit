@@ -10,8 +10,18 @@ import {Container, MessageButton, MessageLayout, MessageMain, MessageContainer} 
 import { Timeline, Text, ScrollArea, Title, MantineProvider, Divider, Card } from '@mantine/core';
 import { GitBranch, GitPullRequest, GitCommit, MessageDots, ArrowBigRight, ArrowBigLeft } from 'tabler-icons-react';
 import db from '@yusuf-yeniceri/easy-storage';
+import { showNotification } from '@mantine/notifications';
+import { useState, useRef, useEffect } from 'react';
 
 const Message = () => {
+
+
+    const [endOfScroll, setEndOfScroll] = useState(false)
+    const [scrollPosition, onScrollPositionChange] = useState({ x: 0, y: 0 });
+    const scrollAreaRef = useRef()
+
+    
+
   return (
     <MantineProvider
     theme={{
@@ -22,7 +32,13 @@ const Message = () => {
         <MessageContainer>
             <MessageLayout>
             <Card shadow="xl" >
-            <ScrollArea style={{height: '380px',  borderRadius: '10px', padding: '20px'}} type="always">
+            <ScrollArea onScrollPositionChange={({x, y})=>{
+                if((scrollAreaRef.current.scrollHeight - scrollAreaRef.current.scrollTop) !== scrollAreaRef.current.clientHeight){
+                    setEndOfScroll(false);
+                }else{
+                    setEndOfScroll(true);
+                }
+            }} viewportRef={scrollAreaRef} style={{height: '380px',  borderRadius: '10px', padding: '20px'}} type="always" >
             <Text sx={(theme)=>({
                 fontSize: '1.8em',
                 textAlign: 'center',
@@ -79,10 +95,19 @@ const Message = () => {
                 </ScrollArea>
                 </Card>
                 <MessageButton onClick={()=>{
-                    db.ref("message").set({
-                        read:true
-                    })
-                    document.getElementById('message').style.zIndex=-1;
+                    if(!endOfScroll){
+                        showNotification({
+                            title: 'Uyarı',
+                            message: 'Lütfen ekranı aşağı kaydırın!',
+                            color: 'red',
+                            id: 'scroll-down'
+                        })
+                    }else{
+                        db.ref("message").set({
+                            read:true
+                        })
+                        document.getElementById('message').style.zIndex=-1;
+                    }
                 }}>Tamam</MessageButton>
 
             </MessageLayout>

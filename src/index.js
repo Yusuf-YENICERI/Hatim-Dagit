@@ -7,12 +7,19 @@ import Firebase, {FirebaseContext} from './components/Firebase';
 import { isSafari, isStandalone } from "./common";
 import Language from "./strings";
 import localDb from '@yusuf-yeniceri/easy-storage';
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+import { NotificationsProvider } from '@mantine/notifications';
 
 let db = new Firebase();
 
 ReactDOM.render(
   <FirebaseContext.Provider value={db}>
-    <App />
+    <Provider store={store}>
+      <NotificationsProvider position="top-right">
+        <App />
+      </NotificationsProvider>
+    </Provider>
   </FirebaseContext.Provider>,
   document.getElementById('root')
 );
