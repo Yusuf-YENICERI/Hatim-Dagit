@@ -156,7 +156,8 @@ export default function StatsCard({header, description, progress, leftCuzs, duaL
         <Book size={34} />
       </ThemeIcon>
 
-      <Button className={classes.editButton} variant="outline" color="blue" leftIcon={<Pencil width="15px"></Pencil>} 
+      {
+            tokenExists != 0 && <Button className={classes.editButton} variant="outline" color="blue" leftIcon={<Pencil width="15px"></Pencil>} 
               radius="xl" size="xs" styles={{
                 label: {marginLeft: '-7px'},
                 root: {marginLeft: '-20px', padding: '4px', fontSize: '0.7rem'},
@@ -169,6 +170,7 @@ export default function StatsCard({header, description, progress, leftCuzs, duaL
                 dispatch(editModalCuzlerActions.toggleVisibility())
               }}
               > {Language["/cuz"].CuzlerHatimCard.changeHatim}</Button>
+      }
 
       <Text align="center" weight={700} className={classes.title}>
         {header.split('\n').map(str => <p>{str}</p>)}

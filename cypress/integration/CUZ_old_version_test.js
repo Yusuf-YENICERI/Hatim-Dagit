@@ -15,7 +15,7 @@ describe('old version test', ()=>{
          //click on some Part
         cy.get(`#questionContainer > div:nth-child(9) > div > div > div > div:nth-child(${Part})`).click()
         //type the name
-        cy.findByRole('textbox').type(username)
+        cy.get('#questionContainer > div:nth-child(6) > input').type(username)
         //click to Take it
         cy.get('#takeButton').click()
         //check the name of the Part
