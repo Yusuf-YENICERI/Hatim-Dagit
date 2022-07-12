@@ -178,7 +178,7 @@ export default function StatsCard({header, description, progress, leftCuzs, duaL
       <Text sx={theme => ({
           color: theme.colors.dark[3],
       })} align="center" size="sm" mt="10px">
-        {description.split('\n').map(str => <p>{str}</p>)}
+        { description != null && description.split('\n').map(str => <p>{str}</p>)}
       </Text>
 
       <Group position="apart" mt="xl">
