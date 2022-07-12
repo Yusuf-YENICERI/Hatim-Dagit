@@ -98,6 +98,10 @@ class Firebase{
     return await this.api.cuzAlindi(isim, no, subKey);
   }
 
+  cuzIsimDegistir = async (isim, no, subKey) => {
+    return await this.api.cuzIsimDegistir(isim, no, subKey);
+  }
+
 
   cuzIptal = async (no, subKey) => {
     await this.api.cuzIptal(no, subKey);
@@ -117,6 +121,14 @@ class Firebase{
 
   countNumberOfCuzs = (allHatimler) => {
     return this.api.countNumberOfCuzs(allHatimler);
+  }
+
+  hatimDegistir = async (baslik, bitisTarihi, description, subKey) => {
+    return (await this.api.hatimDegistir(baslik, bitisTarihi, description, subKey));
+  }
+
+  deleteHatim = async () => {
+    return (await this.api.deleteHatim());
   }
 }
 

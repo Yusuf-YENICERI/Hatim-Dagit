@@ -14,10 +14,10 @@ export const QuestionContainer = styled.div`
     background-color: #91ffbb;
     position: relative;
     min-height: ${({minHeight}) => minHeight};
+    padding-bottom: 40px;
 
     @media screen and (max-width: 480px){
     }
-
 `;
 
 const displayDestroyer = (attribute, milliseconds) => {

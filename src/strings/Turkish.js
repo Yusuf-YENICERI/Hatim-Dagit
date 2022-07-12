@@ -26,7 +26,9 @@ let Turkish = {
     Footer: {
         aciz_kul: "Yusuf Yeniçeri tarafından yapılmıştır.",
         ziyaret: ["Bu site ", " defa ziyaret edildi"],
-        version: "Mevcut versiyon "
+        version: "Mevcut versiyon ",
+        GoToMainPage: "Anasayfaya Git",
+        Feedback: "Geribildirim Yap"
     },
     
 
@@ -58,7 +60,7 @@ let Turkish = {
                 }
             }
         },
-        MevcutHatimler:'Oluşturulmuş Hatimler',
+        ExistingKhatms:'Oluşturulmuş Hatimler',
     },
 
     "/cuz":{
@@ -69,7 +71,8 @@ let Turkish = {
         Before: {
             Question: "İstediğiniz cüze tıklayın ..",
             Wait: "Lütfen Bekleyiniz ..",
-            Error: "Bir Hata Oluştu, Sayfayı Güncelleyin!"
+            Error: "Bir Hata Oluştu, Sayfayı Güncelleyin!",
+            Deleted: "Bu Hatim oluşturan kişi tarafından silinmiş!"
         },
 
         After: {
@@ -97,6 +100,47 @@ let Turkish = {
         AlertDialog:{
             Title: "Cüz çoktan alınmış. Lütfen başka bir cüzü almayı deneyin!",
             Button: "Tamam"
+        },
+
+
+        CuzlerHatimCard: {
+            deleteHatim: "Hatmi Sil",
+            changeHatim: "Değiştir",
+            takenParts: "Alınan cüzler",
+            leftParts: " cüz kaldı",
+            dua: ["Duaya", "gün kaldı", "Duası yapıldı", "Duası bugün yapılacak", "Duaya", "gün kaldı"],
+            Modal:{
+                Title:'Hatim bilgilerinde değişiklik yap',
+                Header:'Hatim başlığı',
+                Description:'Hatim açıklaması',
+                Date:'Hatim duası tarihi',
+                Button:'Tamam'
+            },
+
+            Notification:{
+                Title: 'Bilgiler güncelleniyor',
+                Description: 'Bilgileri güncellenene kadar lütfen bekleyin.'
+            },
+
+            PartModal:{
+                Title: 'Cüz bilgilerinde değişiklik yap',
+                Name: 'Cüzü alan kişinin ismi',
+                ChangeNameButton: 'İsmini Değiştir',
+                CancelPart: 'Cüzü İptal Et',
+            }
+        },
+
+
+        AddKhatmAlert:{
+            Question: 'Yeni Hatim oluşturmak istediğinize emin misiniz?',
+            YesButton:'Evet',
+            NoButton:'Hayır'
+        },
+
+        DeleteKhatmAlert:{
+            Question: 'Bu Hatmi silmek istediğinize emin misiniz?',
+            YesButton: 'Evet',
+            NoButton: 'Hayır'
         }
 
     },

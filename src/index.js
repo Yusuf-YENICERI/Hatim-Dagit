@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Firebase, {FirebaseContext} from './components/Firebase';
+import {FirebaseContext, db} from './components/Firebase';
 import { isSafari, isStandalone } from "./common";
+import detectLanguage from './common';
 import Language from "./strings";
 import localDb from '@yusuf-yeniceri/easy-storage';
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import { NotificationsProvider } from '@mantine/notifications';
 
-let db = new Firebase();
 
 ReactDOM.render(
   <FirebaseContext.Provider value={db}>
@@ -109,9 +109,9 @@ window.addEventListener('beforeinstallprompt', (e) => {
  * message part
  */
 
-if(localDb.ref("message").get().read){
-  document.getElementById('message').style.zIndex = -1;
-}
+// if(localDb.ref("message").get().read || ( ! detectLanguage().includes("tr")) ){
+//   document.getElementById('message').style.zIndex = -1;
+// }
 
 /**
  * message part end

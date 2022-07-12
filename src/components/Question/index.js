@@ -274,7 +274,7 @@ const Question = ({ firebase, toggle }) => {
                                         
                                     }}>
                                         <MevcutHatimButtonText>
-                                        Oluşturulmuş Hatimler
+                                        {Language["/"].ExistingKhatms}
                                         </MevcutHatimButtonText>
                                     </MevcutHatimButtonItem>
 

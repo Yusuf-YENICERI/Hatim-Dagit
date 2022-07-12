@@ -31,14 +31,14 @@ const Message = () => {
     <Container id="message">
         <MessageContainer>
             <MessageLayout>
-            <Card shadow="xl" >
             <ScrollArea onScrollPositionChange={({x, y})=>{
-                if((scrollAreaRef.current.scrollHeight - scrollAreaRef.current.scrollTop) !== scrollAreaRef.current.clientHeight){
+                console.log(`${(scrollAreaRef.current.scrollHeight - scrollAreaRef.current.scrollTop)} > ${(scrollAreaRef.current.clientHeight)}`)
+                if((scrollAreaRef.current.scrollHeight - scrollAreaRef.current.scrollTop) > (scrollAreaRef.current.clientHeight*3)){
                     setEndOfScroll(false);
                 }else{
                     setEndOfScroll(true);
                 }
-            }} viewportRef={scrollAreaRef} style={{height: '380px',  borderRadius: '10px', padding: '20px'}} type="always" >
+            }} viewportRef={scrollAreaRef} style={{height: '380px',  borderRadius: '10px'}} type="always" >
             <Text sx={(theme)=>({
                 fontSize: '1.8em',
                 textAlign: 'center',
@@ -93,12 +93,11 @@ const Message = () => {
                 })}>Okuduğunuz için, <br></br> Allah razı olsun.</Text>
 
                 </ScrollArea>
-                </Card>
                 <MessageButton onClick={()=>{
                     if(!endOfScroll){
                         showNotification({
                             title: 'Uyarı',
-                            message: 'Lütfen ekranı aşağı kaydırın!',
+                            message: 'Lütfen ekranı yukarı kaydırarak, yapılan tüm bilgilendirmeyi okuyun! Bilgilendirmeyi okumadan bu ekranı geçemezsiniz.',
                             color: 'red',
                             id: 'scroll-down'
                         })

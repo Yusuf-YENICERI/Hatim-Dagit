@@ -56,10 +56,10 @@ const Footer = () => {
                  
                      <BusinessWrap>
                      <BusinessMainPage to="/">
-                            Anasayfaya Git
+                            {Language.Footer.GoToMainPage}
                         </BusinessMainPage>
                         <BusinessFeedback onClick={()=>window.location.href = "mailto:hep.beraber.okuyalim@gmail.com"}>
-                            Geribildirim Yap
+                        {Language.Footer.Feedback}
                         </BusinessFeedback>
 
                          <BusinessLogo to="starting">

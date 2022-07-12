@@ -353,8 +353,8 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
 
                  { !loadingVisibility && allLanguage.map( (Language, index) => {
 
-                        console.log(`message from: `);
-                        console.log(Language);
+                        // console.log(`message from: `);
+                        // console.log(Language);
 
                 
                 return <>

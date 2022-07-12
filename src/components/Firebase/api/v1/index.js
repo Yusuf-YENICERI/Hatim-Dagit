@@ -75,8 +75,8 @@ class Api_v1{
       dataFormat.baslik = baslik;
       dataFormat.bitisTarihi = bitisTarihi;
   
-      console.log(dataFormat)
-      console.log(baslik)
+      // console.log(dataFormat)
+      // console.log(baslik)
   
       let hatimKey;
       if(!mevcutHatim){
@@ -88,8 +88,8 @@ class Api_v1{
       let hatimAltKey = await this.db.ref(`hatim/${hatimKey}`).push().key;
       await this.db.ref( `hatim/${hatimKey}/${hatimAltKey}` ).set(dataFormat);
   
-      console.log(`hatimKey: ${hatimKey}`)
-      console.log(`hatimAltKey: ${hatimAltKey}`)
+      // console.log(`hatimKey: ${hatimKey}`)
+      // console.log(`hatimAltKey: ${hatimAltKey}`)
   
       if(!mevcutHatim){
         let localStorageCuzKeylerArr = JSON.parse(localStorage.getItem("CuzKeyler"));

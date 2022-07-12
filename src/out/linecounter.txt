@@ -568,3 +568,616 @@ strings/english.js, code is 110, comment is 0, blank is 38.
 strings/index.js, code is 40, comment is 6, blank is 13.
 strings/Turkish.js, code is 108, comment is 0, blank is 30.
 ===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-05-03 18:45:21
+count workspace : /home/yusuf/Desktop/Hat/hatimGit/src
+total files : 77
+total code lines : 4966
+total comment lines : 469
+total blank lines : 1372
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |           .css|             22|             13|             10|   0.44|
+   |            .js|           4921|            456|           1362|     99|
+   |           .svg|             23|              0|              0|   0.46|
+   -------------------------------------------------------------------------
+App.css, code is 9, comment is 0, blank is 2.
+App.js, code is 22, comment is 0, blank is 3.
+App.test.js, code is 7, comment is 0, blank is 1.
+common.js, code is 68, comment is 0, blank is 16.
+components/AlertDialog/AlertDialogComponents.js, code is 35, comment is 0, blank is 13.
+components/AlertDialog/index.js, code is 17, comment is 0, blank is 8.
+components/AskDialog/AskDialogElements.js, code is 62, comment is 0, blank is 14.
+components/AskDialog/index.js, code is 43, comment is 0, blank is 26.
+components/Cuzler/index.js, code is 490, comment is 77, blank is 112.
+components/Cuzler/QuestionElements.js, code is 455, comment is 22, blank is 105.
+components/CuzlerHatimCard/index.js, code is 79, comment is 3, blank is 19.
+components/DialogBox/DialogBoxElements.js, code is 0, comment is 49, blank is 16.
+components/DialogBox/index.js, code is 0, comment is 28, blank is 16.
+components/Firebase/api/v1/index.js, code is 102, comment is 7, blank is 38.
+components/Firebase/api/v2/index.js, code is 112, comment is 9, blank is 45.
+components/Firebase/context.js, code is 3, comment is 0, blank is 4.
+components/Firebase/firebase.js, code is 84, comment is 8, blank is 32.
+components/Firebase/helpers/index.js, code is 9, comment is 0, blank is 10.
+components/Firebase/index.js, code is 4, comment is 0, blank is 4.
+components/Footer/FooterElements.js, code is 132, comment is 4, blank is 30.
+components/Footer/index.js, code is 53, comment is 20, blank is 20.
+components/Message/index.js, code is 94, comment is 0, blank is 26.
+components/Message/MessageElements.js, code is 34, comment is 0, blank is 21.
+components/Navbar/index.js, code is 103, comment is 40, blank is 25.
+components/Navbar/navbar.css, code is 6, comment is 0, blank is 4.
+components/Navbar/NavbarElements.js, code is 150, comment is 7, blank is 27.
+components/Navbar/service-worker.js, code is 2, comment is 1, blank is 2.
+components/Pwa/index.js, code is 29, comment is 1, blank is 7.
+components/Pwa/PwaElements.js, code is 59, comment is 1, blank is 15.
+components/Question/index.js, code is 223, comment is 26, blank is 75.
+components/Question/QuestionElements.js, code is 271, comment is 10, blank is 53.
+components/RamazanDonerli/index.js, code is 473, comment is 54, blank is 104.
+components/RamazanDonerli/RamazanDonerliElements.js, code is 471, comment is 22, blank is 110.
+components/RingProgress/index.js, code is 42, comment is 9, blank is 10.
+components/ShareBox/index.js, code is 40, comment is 0, blank is 20.
+components/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+components/Sidebar/index.js, code is 48, comment is 20, blank is 12.
+components/Sidebar/sidebar.css, code is 7, comment is 0, blank is 4.
+components/Sidebar/SiderbarElements.js, code is 98, comment is 0, blank is 17.
+components/Table/index.js, code is 108, comment is 0, blank is 22.
+components/YesNoDialog/index.js, code is 27, comment is 0, blank is 20.
+components/YesNoDialog/YesNoDialogElements.js, code is 36, comment is 0, blank is 19.
+features/notification/index.js, code is 8, comment is 0, blank is 8.
+features/notification/notificationSlice.js, code is 24, comment is 0, blank is 12.
+icons/button.svg, code is 1, comment is 0, blank is 0.
+icons/c.svg, code is 1, comment is 0, blank is 0.
+icons/close.svg, code is 1, comment is 0, blank is 0.
+icons/copy.svg, code is 1, comment is 0, blank is 0.
+icons/cpp.svg, code is 1, comment is 0, blank is 0.
+icons/csharp.svg, code is 1, comment is 0, blank is 0.
+icons/enterprise.svg, code is 1, comment is 0, blank is 0.
+icons/game.svg, code is 1, comment is 0, blank is 0.
+icons/java.svg, code is 1, comment is 0, blank is 0.
+icons/js.svg, code is 1, comment is 0, blank is 0.
+icons/lamp.svg, code is 4, comment is 0, blank is 0.
+icons/mobile.svg, code is 1, comment is 0, blank is 0.
+icons/php.svg, code is 1, comment is 0, blank is 0.
+icons/python.svg, code is 1, comment is 0, blank is 0.
+icons/ruby.svg, code is 1, comment is 0, blank is 0.
+icons/share.svg, code is 1, comment is 0, blank is 0.
+icons/sms.svg, code is 1, comment is 0, blank is 0.
+icons/website.svg, code is 1, comment is 0, blank is 0.
+icons/whatsapp.svg, code is 1, comment is 0, blank is 0.
+index.css, code is 0, comment is 13, blank is 0.
+index.js, code is 70, comment is 24, blank is 24.
+logo.svg, code is 1, comment is 0, blank is 0.
+pages/cuz.js, code is 22, comment is 0, blank is 7.
+pages/index.js, code is 21, comment is 0, blank is 10.
+pages/ramazan.js, code is 68, comment is 0, blank is 14.
+redux/store.js, code is 7, comment is 0, blank is 7.
+reportWebVitals.js, code is 12, comment is 0, blank is 1.
+setupTests.js, code is 1, comment is 4, blank is 0.
+strings/Arabic.js, code is 109, comment is 0, blank is 26.
+strings/dataFormat.js, code is 173, comment is 1, blank is 40.
+strings/english.js, code is 110, comment is 0, blank is 38.
+strings/index.js, code is 40, comment is 6, blank is 13.
+strings/Turkish.js, code is 108, comment is 0, blank is 30.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-05-03 21:23:51
+count workspace : /home/yusuf/Desktop/Hat/hatimGit/src
+total files : 80
+total code lines : 5138
+total comment lines : 470
+total blank lines : 1420
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |           .css|             22|             13|             10|   0.43|
+   |            .js|           5093|            457|           1410|     99|
+   |           .svg|             23|              0|              0|   0.45|
+   -------------------------------------------------------------------------
+App.css, code is 9, comment is 0, blank is 2.
+App.js, code is 22, comment is 0, blank is 3.
+App.test.js, code is 7, comment is 0, blank is 1.
+common.js, code is 68, comment is 0, blank is 16.
+components/AlertDialog/AlertDialogComponents.js, code is 35, comment is 0, blank is 13.
+components/AlertDialog/index.js, code is 17, comment is 0, blank is 8.
+components/AskDialog/AskDialogElements.js, code is 62, comment is 0, blank is 14.
+components/AskDialog/index.js, code is 43, comment is 0, blank is 26.
+components/Cuzler/index.js, code is 506, comment is 77, blank is 114.
+components/Cuzler/QuestionElements.js, code is 455, comment is 22, blank is 105.
+components/CuzlerHatimCard/index.js, code is 101, comment is 3, blank is 21.
+components/DialogBox/DialogBoxElements.js, code is 0, comment is 49, blank is 16.
+components/DialogBox/index.js, code is 0, comment is 28, blank is 16.
+components/EditModalContent/index.js, code is 64, comment is 1, blank is 16.
+components/Firebase/api/v1/index.js, code is 102, comment is 7, blank is 38.
+components/Firebase/api/v2/index.js, code is 120, comment is 9, blank is 47.
+components/Firebase/context.js, code is 3, comment is 0, blank is 4.
+components/Firebase/firebase.js, code is 87, comment is 8, blank is 33.
+components/Firebase/helpers/index.js, code is 9, comment is 0, blank is 10.
+components/Firebase/index.js, code is 5, comment is 0, blank is 6.
+components/Footer/FooterElements.js, code is 132, comment is 4, blank is 30.
+components/Footer/index.js, code is 53, comment is 20, blank is 20.
+components/Message/index.js, code is 94, comment is 0, blank is 26.
+components/Message/MessageElements.js, code is 34, comment is 0, blank is 21.
+components/Navbar/index.js, code is 103, comment is 40, blank is 25.
+components/Navbar/navbar.css, code is 6, comment is 0, blank is 4.
+components/Navbar/NavbarElements.js, code is 150, comment is 7, blank is 27.
+components/Navbar/service-worker.js, code is 2, comment is 1, blank is 2.
+components/Pwa/index.js, code is 29, comment is 1, blank is 7.
+components/Pwa/PwaElements.js, code is 59, comment is 1, blank is 15.
+components/Question/index.js, code is 223, comment is 26, blank is 75.
+components/Question/QuestionElements.js, code is 271, comment is 10, blank is 53.
+components/RamazanDonerli/index.js, code is 473, comment is 54, blank is 104.
+components/RamazanDonerli/RamazanDonerliElements.js, code is 471, comment is 22, blank is 110.
+components/RingProgress/index.js, code is 42, comment is 9, blank is 10.
+components/ShareBox/index.js, code is 40, comment is 0, blank is 20.
+components/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+components/Sidebar/index.js, code is 48, comment is 20, blank is 12.
+components/Sidebar/sidebar.css, code is 7, comment is 0, blank is 4.
+components/Sidebar/SiderbarElements.js, code is 98, comment is 0, blank is 17.
+components/Table/index.js, code is 108, comment is 0, blank is 22.
+components/YesNoDialog/index.js, code is 27, comment is 0, blank is 20.
+components/YesNoDialog/YesNoDialogElements.js, code is 36, comment is 0, blank is 19.
+features/editCuzlerModal/editCuzlerModalSlice.js, code is 48, comment is 0, blank is 16.
+features/editCuzlerModal/index.js, code is 9, comment is 0, blank is 7.
+features/notification/index.js, code is 8, comment is 0, blank is 8.
+features/notification/notificationSlice.js, code is 24, comment is 0, blank is 12.
+icons/button.svg, code is 1, comment is 0, blank is 0.
+icons/c.svg, code is 1, comment is 0, blank is 0.
+icons/close.svg, code is 1, comment is 0, blank is 0.
+icons/copy.svg, code is 1, comment is 0, blank is 0.
+icons/cpp.svg, code is 1, comment is 0, blank is 0.
+icons/csharp.svg, code is 1, comment is 0, blank is 0.
+icons/enterprise.svg, code is 1, comment is 0, blank is 0.
+icons/game.svg, code is 1, comment is 0, blank is 0.
+icons/java.svg, code is 1, comment is 0, blank is 0.
+icons/js.svg, code is 1, comment is 0, blank is 0.
+icons/lamp.svg, code is 4, comment is 0, blank is 0.
+icons/mobile.svg, code is 1, comment is 0, blank is 0.
+icons/php.svg, code is 1, comment is 0, blank is 0.
+icons/python.svg, code is 1, comment is 0, blank is 0.
+icons/ruby.svg, code is 1, comment is 0, blank is 0.
+icons/share.svg, code is 1, comment is 0, blank is 0.
+icons/sms.svg, code is 1, comment is 0, blank is 0.
+icons/website.svg, code is 1, comment is 0, blank is 0.
+icons/whatsapp.svg, code is 1, comment is 0, blank is 0.
+index.css, code is 0, comment is 13, blank is 0.
+index.js, code is 69, comment is 24, blank is 24.
+logo.svg, code is 1, comment is 0, blank is 0.
+pages/cuz.js, code is 22, comment is 0, blank is 7.
+pages/index.js, code is 21, comment is 0, blank is 10.
+pages/ramazan.js, code is 68, comment is 0, blank is 14.
+redux/store.js, code is 9, comment is 0, blank is 7.
+reportWebVitals.js, code is 12, comment is 0, blank is 1.
+setupTests.js, code is 1, comment is 4, blank is 0.
+strings/Arabic.js, code is 109, comment is 0, blank is 26.
+strings/dataFormat.js, code is 173, comment is 1, blank is 40.
+strings/english.js, code is 110, comment is 0, blank is 38.
+strings/index.js, code is 40, comment is 6, blank is 13.
+strings/Turkish.js, code is 108, comment is 0, blank is 30.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-05-05 21:48:14
+count workspace : /home/yusuf/Desktop/Hat/hatimGit/src
+total files : 84
+total code lines : 5277
+total comment lines : 456
+total blank lines : 1468
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |            .js|           5232|            443|           1458|     99|
+   |           .css|             22|             13|             10|   0.42|
+   |           .svg|             23|              0|              0|   0.44|
+   -------------------------------------------------------------------------
+App.css, code is 9, comment is 0, blank is 2.
+App.js, code is 22, comment is 0, blank is 3.
+App.test.js, code is 7, comment is 0, blank is 1.
+common.js, code is 68, comment is 0, blank is 16.
+components/AlertDialog/AlertDialogComponents.js, code is 35, comment is 0, blank is 13.
+components/AlertDialog/index.js, code is 17, comment is 0, blank is 8.
+components/AskDialog/AskDialogElements.js, code is 62, comment is 0, blank is 14.
+components/AskDialog/index.js, code is 43, comment is 0, blank is 26.
+components/Cuzler/index.js, code is 517, comment is 56, blank is 112.
+components/Cuzler/QuestionElements.js, code is 455, comment is 22, blank is 105.
+components/CuzlerHatimCard/index.js, code is 129, comment is 6, blank is 28.
+components/DialogBox/DialogBoxElements.js, code is 0, comment is 49, blank is 16.
+components/DialogBox/index.js, code is 0, comment is 28, blank is 16.
+components/EditModalContent/index.js, code is 67, comment is 1, blank is 16.
+components/Firebase/api/v1/index.js, code is 102, comment is 7, blank is 38.
+components/Firebase/api/v2/index.js, code is 129, comment is 9, blank is 48.
+components/Firebase/context.js, code is 3, comment is 0, blank is 4.
+components/Firebase/firebase.js, code is 90, comment is 8, blank is 34.
+components/Firebase/helpers/index.js, code is 9, comment is 0, blank is 10.
+components/Firebase/index.js, code is 5, comment is 0, blank is 6.
+components/Footer/FooterElements.js, code is 132, comment is 4, blank is 30.
+components/Footer/index.js, code is 53, comment is 20, blank is 20.
+components/Message/index.js, code is 95, comment is 0, blank is 26.
+components/Message/MessageElements.js, code is 34, comment is 0, blank is 21.
+components/Navbar/index.js, code is 103, comment is 40, blank is 25.
+components/Navbar/navbar.css, code is 6, comment is 0, blank is 4.
+components/Navbar/NavbarElements.js, code is 150, comment is 7, blank is 27.
+components/Navbar/service-worker.js, code is 2, comment is 1, blank is 2.
+components/Pwa/index.js, code is 29, comment is 1, blank is 7.
+components/Pwa/PwaElements.js, code is 59, comment is 1, blank is 15.
+components/Question/index.js, code is 223, comment is 26, blank is 75.
+components/Question/QuestionElements.js, code is 271, comment is 10, blank is 53.
+components/RamazanDonerli/index.js, code is 473, comment is 54, blank is 104.
+components/RamazanDonerli/RamazanDonerliElements.js, code is 471, comment is 22, blank is 110.
+components/RingProgress/index.js, code is 42, comment is 9, blank is 10.
+components/ShareBox/index.js, code is 40, comment is 0, blank is 20.
+components/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+components/Sidebar/index.js, code is 48, comment is 20, blank is 12.
+components/Sidebar/sidebar.css, code is 7, comment is 0, blank is 4.
+components/Sidebar/SiderbarElements.js, code is 98, comment is 0, blank is 17.
+components/Table/index.js, code is 108, comment is 0, blank is 22.
+components/YesNoDialog/index.js, code is 29, comment is 0, blank is 20.
+components/YesNoDialog/YesNoDialogElements.js, code is 36, comment is 0, blank is 19.
+features/cuzlerFunctionTrigger/cuzlerFunctionTriggerSlice.js, code is 24, comment is 0, blank is 13.
+features/cuzlerFunctionTrigger/index.js, code is 8, comment is 0, blank is 7.
+features/editCuzlerModal/editCuzlerModalSlice.js, code is 50, comment is 4, blank is 17.
+features/editCuzlerModal/index.js, code is 9, comment is 0, blank is 7.
+features/notification/index.js, code is 7, comment is 0, blank is 8.
+features/notification/notificationSlice.js, code is 24, comment is 0, blank is 12.
+features/yesNoDialogAlert/index.js, code is 8, comment is 0, blank is 7.
+features/yesNoDialogAlert/yesNoDialogAlertSlice.js, code is 37, comment is 0, blank is 13.
+icons/button.svg, code is 1, comment is 0, blank is 0.
+icons/c.svg, code is 1, comment is 0, blank is 0.
+icons/close.svg, code is 1, comment is 0, blank is 0.
+icons/copy.svg, code is 1, comment is 0, blank is 0.
+icons/cpp.svg, code is 1, comment is 0, blank is 0.
+icons/csharp.svg, code is 1, comment is 0, blank is 0.
+icons/enterprise.svg, code is 1, comment is 0, blank is 0.
+icons/game.svg, code is 1, comment is 0, blank is 0.
+icons/java.svg, code is 1, comment is 0, blank is 0.
+icons/js.svg, code is 1, comment is 0, blank is 0.
+icons/lamp.svg, code is 4, comment is 0, blank is 0.
+icons/mobile.svg, code is 1, comment is 0, blank is 0.
+icons/php.svg, code is 1, comment is 0, blank is 0.
+icons/python.svg, code is 1, comment is 0, blank is 0.
+icons/ruby.svg, code is 1, comment is 0, blank is 0.
+icons/share.svg, code is 1, comment is 0, blank is 0.
+icons/sms.svg, code is 1, comment is 0, blank is 0.
+icons/website.svg, code is 1, comment is 0, blank is 0.
+icons/whatsapp.svg, code is 1, comment is 0, blank is 0.
+index.css, code is 0, comment is 13, blank is 0.
+index.js, code is 69, comment is 24, blank is 24.
+logo.svg, code is 1, comment is 0, blank is 0.
+pages/cuz.js, code is 22, comment is 0, blank is 7.
+pages/index.js, code is 21, comment is 0, blank is 10.
+pages/ramazan.js, code is 68, comment is 0, blank is 14.
+redux/store.js, code is 13, comment is 0, blank is 7.
+reportWebVitals.js, code is 12, comment is 0, blank is 1.
+setupTests.js, code is 1, comment is 4, blank is 0.
+strings/Arabic.js, code is 109, comment is 0, blank is 26.
+strings/dataFormat.js, code is 173, comment is 1, blank is 40.
+strings/english.js, code is 110, comment is 0, blank is 38.
+strings/index.js, code is 40, comment is 6, blank is 13.
+strings/Turkish.js, code is 108, comment is 0, blank is 30.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-05-07 10:38:57
+count workspace : /home/yusuf/Desktop/Hat/hatimGit/src
+total files : 84
+total code lines : 5310
+total comment lines : 458
+total blank lines : 1484
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |            .js|           5265|            445|           1474|     99|
+   |           .css|             22|             13|             10|   0.41|
+   |           .svg|             23|              0|              0|   0.43|
+   -------------------------------------------------------------------------
+App.css, code is 9, comment is 0, blank is 2.
+App.js, code is 22, comment is 0, blank is 3.
+App.test.js, code is 7, comment is 0, blank is 1.
+common.js, code is 68, comment is 0, blank is 16.
+components/AlertDialog/AlertDialogComponents.js, code is 35, comment is 0, blank is 13.
+components/AlertDialog/index.js, code is 17, comment is 0, blank is 8.
+components/AskDialog/AskDialogElements.js, code is 62, comment is 0, blank is 14.
+components/AskDialog/index.js, code is 43, comment is 0, blank is 26.
+components/Cuzler/index.js, code is 525, comment is 56, blank is 119.
+components/Cuzler/QuestionElements.js, code is 455, comment is 22, blank is 105.
+components/CuzlerHatimCard/index.js, code is 145, comment is 6, blank is 34.
+components/DialogBox/DialogBoxElements.js, code is 0, comment is 49, blank is 16.
+components/DialogBox/index.js, code is 0, comment is 28, blank is 16.
+components/EditModalContent/index.js, code is 67, comment is 1, blank is 16.
+components/Firebase/api/v1/index.js, code is 102, comment is 7, blank is 38.
+components/Firebase/api/v2/index.js, code is 140, comment is 11, blank is 50.
+components/Firebase/context.js, code is 3, comment is 0, blank is 4.
+components/Firebase/firebase.js, code is 90, comment is 8, blank is 34.
+components/Firebase/helpers/index.js, code is 9, comment is 0, blank is 10.
+components/Firebase/index.js, code is 5, comment is 0, blank is 6.
+components/Footer/FooterElements.js, code is 132, comment is 4, blank is 30.
+components/Footer/index.js, code is 53, comment is 20, blank is 20.
+components/Message/index.js, code is 95, comment is 0, blank is 26.
+components/Message/MessageElements.js, code is 34, comment is 0, blank is 21.
+components/Navbar/index.js, code is 103, comment is 40, blank is 25.
+components/Navbar/navbar.css, code is 6, comment is 0, blank is 4.
+components/Navbar/NavbarElements.js, code is 150, comment is 7, blank is 27.
+components/Navbar/service-worker.js, code is 2, comment is 1, blank is 2.
+components/Pwa/index.js, code is 29, comment is 1, blank is 7.
+components/Pwa/PwaElements.js, code is 59, comment is 1, blank is 15.
+components/Question/index.js, code is 223, comment is 26, blank is 75.
+components/Question/QuestionElements.js, code is 271, comment is 10, blank is 53.
+components/RamazanDonerli/index.js, code is 473, comment is 54, blank is 104.
+components/RamazanDonerli/RamazanDonerliElements.js, code is 471, comment is 22, blank is 110.
+components/RingProgress/index.js, code is 42, comment is 9, blank is 10.
+components/ShareBox/index.js, code is 40, comment is 0, blank is 20.
+components/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+components/Sidebar/index.js, code is 48, comment is 20, blank is 12.
+components/Sidebar/sidebar.css, code is 7, comment is 0, blank is 4.
+components/Sidebar/SiderbarElements.js, code is 98, comment is 0, blank is 17.
+components/Table/index.js, code is 108, comment is 0, blank is 22.
+components/YesNoDialog/index.js, code is 29, comment is 0, blank is 20.
+components/YesNoDialog/YesNoDialogElements.js, code is 36, comment is 0, blank is 19.
+features/cuzlerFunctionTrigger/cuzlerFunctionTriggerSlice.js, code is 24, comment is 0, blank is 13.
+features/cuzlerFunctionTrigger/index.js, code is 8, comment is 0, blank is 7.
+features/editCuzlerModal/editCuzlerModalSlice.js, code is 50, comment is 4, blank is 17.
+features/editCuzlerModal/index.js, code is 9, comment is 0, blank is 7.
+features/notification/index.js, code is 7, comment is 0, blank is 8.
+features/notification/notificationSlice.js, code is 24, comment is 0, blank is 12.
+features/yesNoDialogAlert/index.js, code is 8, comment is 0, blank is 7.
+features/yesNoDialogAlert/yesNoDialogAlertSlice.js, code is 35, comment is 0, blank is 14.
+icons/button.svg, code is 1, comment is 0, blank is 0.
+icons/c.svg, code is 1, comment is 0, blank is 0.
+icons/close.svg, code is 1, comment is 0, blank is 0.
+icons/copy.svg, code is 1, comment is 0, blank is 0.
+icons/cpp.svg, code is 1, comment is 0, blank is 0.
+icons/csharp.svg, code is 1, comment is 0, blank is 0.
+icons/enterprise.svg, code is 1, comment is 0, blank is 0.
+icons/game.svg, code is 1, comment is 0, blank is 0.
+icons/java.svg, code is 1, comment is 0, blank is 0.
+icons/js.svg, code is 1, comment is 0, blank is 0.
+icons/lamp.svg, code is 4, comment is 0, blank is 0.
+icons/mobile.svg, code is 1, comment is 0, blank is 0.
+icons/php.svg, code is 1, comment is 0, blank is 0.
+icons/python.svg, code is 1, comment is 0, blank is 0.
+icons/ruby.svg, code is 1, comment is 0, blank is 0.
+icons/share.svg, code is 1, comment is 0, blank is 0.
+icons/sms.svg, code is 1, comment is 0, blank is 0.
+icons/website.svg, code is 1, comment is 0, blank is 0.
+icons/whatsapp.svg, code is 1, comment is 0, blank is 0.
+index.css, code is 0, comment is 13, blank is 0.
+index.js, code is 69, comment is 24, blank is 24.
+logo.svg, code is 1, comment is 0, blank is 0.
+pages/cuz.js, code is 22, comment is 0, blank is 7.
+pages/index.js, code is 21, comment is 0, blank is 10.
+pages/ramazan.js, code is 68, comment is 0, blank is 14.
+redux/store.js, code is 13, comment is 0, blank is 7.
+reportWebVitals.js, code is 12, comment is 0, blank is 1.
+setupTests.js, code is 1, comment is 4, blank is 0.
+strings/Arabic.js, code is 109, comment is 0, blank is 26.
+strings/dataFormat.js, code is 173, comment is 1, blank is 40.
+strings/english.js, code is 110, comment is 0, blank is 38.
+strings/index.js, code is 40, comment is 6, blank is 13.
+strings/Turkish.js, code is 108, comment is 0, blank is 30.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-05-26 16:33:55
+count workspace : /home/yusuf/Desktop/Hat/hatimGit/src
+total files : 87
+total code lines : 5492
+total comment lines : 459
+total blank lines : 1531
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |           .css|             22|             13|             10|   0.40|
+   |            .js|           5447|            446|           1521|     99|
+   |           .svg|             23|              0|              0|   0.42|
+   -------------------------------------------------------------------------
+App.css, code is 9, comment is 0, blank is 2.
+App.js, code is 22, comment is 0, blank is 3.
+App.test.js, code is 7, comment is 0, blank is 1.
+common.js, code is 68, comment is 0, blank is 16.
+components/AlertDialog/AlertDialogComponents.js, code is 35, comment is 0, blank is 13.
+components/AlertDialog/index.js, code is 17, comment is 0, blank is 8.
+components/AskDialog/AskDialogElements.js, code is 62, comment is 0, blank is 14.
+components/AskDialog/index.js, code is 43, comment is 0, blank is 26.
+components/Cuzler/index.js, code is 574, comment is 56, blank is 119.
+components/Cuzler/QuestionElements.js, code is 455, comment is 22, blank is 105.
+components/CuzlerHatimCard/index.js, code is 145, comment is 6, blank is 34.
+components/CuzModal/index.js, code is 59, comment is 1, blank is 20.
+components/DialogBox/DialogBoxElements.js, code is 0, comment is 49, blank is 16.
+components/DialogBox/index.js, code is 0, comment is 28, blank is 16.
+components/EditModalContent/index.js, code is 67, comment is 1, blank is 16.
+components/Firebase/api/v1/index.js, code is 102, comment is 7, blank is 38.
+components/Firebase/api/v2/index.js, code is 140, comment is 11, blank is 50.
+components/Firebase/context.js, code is 3, comment is 0, blank is 4.
+components/Firebase/firebase.js, code is 90, comment is 8, blank is 34.
+components/Firebase/helpers/index.js, code is 9, comment is 0, blank is 10.
+components/Firebase/index.js, code is 5, comment is 0, blank is 6.
+components/Footer/FooterElements.js, code is 132, comment is 4, blank is 30.
+components/Footer/index.js, code is 53, comment is 20, blank is 20.
+components/Message/index.js, code is 95, comment is 0, blank is 26.
+components/Message/MessageElements.js, code is 34, comment is 0, blank is 21.
+components/Navbar/index.js, code is 103, comment is 40, blank is 25.
+components/Navbar/navbar.css, code is 6, comment is 0, blank is 4.
+components/Navbar/NavbarElements.js, code is 150, comment is 7, blank is 27.
+components/Navbar/service-worker.js, code is 2, comment is 1, blank is 2.
+components/Pwa/index.js, code is 29, comment is 1, blank is 7.
+components/Pwa/PwaElements.js, code is 59, comment is 1, blank is 15.
+components/Question/index.js, code is 223, comment is 26, blank is 75.
+components/Question/QuestionElements.js, code is 271, comment is 10, blank is 53.
+components/RamazanDonerli/index.js, code is 473, comment is 54, blank is 104.
+components/RamazanDonerli/RamazanDonerliElements.js, code is 471, comment is 22, blank is 110.
+components/RingProgress/index.js, code is 42, comment is 9, blank is 10.
+components/ShareBox/index.js, code is 40, comment is 0, blank is 20.
+components/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+components/Sidebar/index.js, code is 48, comment is 20, blank is 12.
+components/Sidebar/sidebar.css, code is 7, comment is 0, blank is 4.
+components/Sidebar/SiderbarElements.js, code is 98, comment is 0, blank is 17.
+components/Table/index.js, code is 108, comment is 0, blank is 22.
+components/YesNoDialog/index.js, code is 29, comment is 0, blank is 20.
+components/YesNoDialog/YesNoDialogElements.js, code is 36, comment is 0, blank is 19.
+features/cuzlerFunctionTrigger/cuzlerFunctionTriggerSlice.js, code is 24, comment is 0, blank is 13.
+features/cuzlerFunctionTrigger/index.js, code is 8, comment is 0, blank is 7.
+features/cuzModal/cuzModalSlice.js, code is 63, comment is 0, blank is 20.
+features/cuzModal/index.js, code is 9, comment is 0, blank is 7.
+features/editCuzlerModal/editCuzlerModalSlice.js, code is 50, comment is 4, blank is 17.
+features/editCuzlerModal/index.js, code is 9, comment is 0, blank is 7.
+features/notification/index.js, code is 7, comment is 0, blank is 8.
+features/notification/notificationSlice.js, code is 24, comment is 0, blank is 12.
+features/yesNoDialogAlert/index.js, code is 8, comment is 0, blank is 7.
+features/yesNoDialogAlert/yesNoDialogAlertSlice.js, code is 35, comment is 0, blank is 14.
+icons/button.svg, code is 1, comment is 0, blank is 0.
+icons/c.svg, code is 1, comment is 0, blank is 0.
+icons/close.svg, code is 1, comment is 0, blank is 0.
+icons/copy.svg, code is 1, comment is 0, blank is 0.
+icons/cpp.svg, code is 1, comment is 0, blank is 0.
+icons/csharp.svg, code is 1, comment is 0, blank is 0.
+icons/enterprise.svg, code is 1, comment is 0, blank is 0.
+icons/game.svg, code is 1, comment is 0, blank is 0.
+icons/java.svg, code is 1, comment is 0, blank is 0.
+icons/js.svg, code is 1, comment is 0, blank is 0.
+icons/lamp.svg, code is 4, comment is 0, blank is 0.
+icons/mobile.svg, code is 1, comment is 0, blank is 0.
+icons/php.svg, code is 1, comment is 0, blank is 0.
+icons/python.svg, code is 1, comment is 0, blank is 0.
+icons/ruby.svg, code is 1, comment is 0, blank is 0.
+icons/share.svg, code is 1, comment is 0, blank is 0.
+icons/sms.svg, code is 1, comment is 0, blank is 0.
+icons/website.svg, code is 1, comment is 0, blank is 0.
+icons/whatsapp.svg, code is 1, comment is 0, blank is 0.
+index.css, code is 0, comment is 13, blank is 0.
+index.js, code is 69, comment is 24, blank is 24.
+logo.svg, code is 1, comment is 0, blank is 0.
+pages/cuz.js, code is 22, comment is 0, blank is 7.
+pages/index.js, code is 21, comment is 0, blank is 10.
+pages/ramazan.js, code is 68, comment is 0, blank is 14.
+redux/store.js, code is 15, comment is 0, blank is 7.
+reportWebVitals.js, code is 12, comment is 0, blank is 1.
+setupTests.js, code is 1, comment is 4, blank is 0.
+strings/Arabic.js, code is 109, comment is 0, blank is 26.
+strings/dataFormat.js, code is 173, comment is 1, blank is 40.
+strings/english.js, code is 110, comment is 0, blank is 38.
+strings/index.js, code is 40, comment is 6, blank is 13.
+strings/Turkish.js, code is 108, comment is 0, blank is 30.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-06-20 17:34:14
+count workspace : /home/yusuf/Desktop/Hat/hatimGit/src
+total files : 87
+total code lines : 5514
+total comment lines : 453
+total blank lines : 1545
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |           .css|             22|             13|             10|   0.40|
+   |            .js|           5469|            440|           1535|     99|
+   |           .svg|             23|              0|              0|   0.42|
+   -------------------------------------------------------------------------
+App.css, code is 9, comment is 0, blank is 2.
+App.js, code is 22, comment is 0, blank is 3.
+App.test.js, code is 7, comment is 0, blank is 1.
+common.js, code is 68, comment is 0, blank is 16.
+components/AlertDialog/AlertDialogComponents.js, code is 35, comment is 0, blank is 13.
+components/AlertDialog/index.js, code is 17, comment is 0, blank is 8.
+components/AskDialog/AskDialogElements.js, code is 62, comment is 0, blank is 14.
+components/AskDialog/index.js, code is 43, comment is 0, blank is 26.
+components/Cuzler/index.js, code is 579, comment is 48, blank is 125.
+components/Cuzler/QuestionElements.js, code is 455, comment is 22, blank is 105.
+components/CuzlerHatimCard/index.js, code is 145, comment is 6, blank is 34.
+components/CuzModal/index.js, code is 59, comment is 1, blank is 20.
+components/DialogBox/DialogBoxElements.js, code is 0, comment is 49, blank is 16.
+components/DialogBox/index.js, code is 0, comment is 28, blank is 16.
+components/EditModalContent/index.js, code is 67, comment is 1, blank is 16.
+components/Firebase/api/v1/index.js, code is 102, comment is 7, blank is 38.
+components/Firebase/api/v2/index.js, code is 151, comment is 13, blank is 57.
+components/Firebase/context.js, code is 3, comment is 0, blank is 4.
+components/Firebase/firebase.js, code is 93, comment is 8, blank is 35.
+components/Firebase/helpers/index.js, code is 9, comment is 0, blank is 10.
+components/Firebase/index.js, code is 5, comment is 0, blank is 6.
+components/Footer/FooterElements.js, code is 132, comment is 4, blank is 30.
+components/Footer/index.js, code is 53, comment is 20, blank is 20.
+components/Message/index.js, code is 95, comment is 0, blank is 26.
+components/Message/MessageElements.js, code is 34, comment is 0, blank is 21.
+components/Navbar/index.js, code is 103, comment is 40, blank is 25.
+components/Navbar/navbar.css, code is 6, comment is 0, blank is 4.
+components/Navbar/NavbarElements.js, code is 150, comment is 7, blank is 27.
+components/Navbar/service-worker.js, code is 2, comment is 1, blank is 2.
+components/Pwa/index.js, code is 29, comment is 1, blank is 7.
+components/Pwa/PwaElements.js, code is 59, comment is 1, blank is 15.
+components/Question/index.js, code is 223, comment is 26, blank is 75.
+components/Question/QuestionElements.js, code is 271, comment is 10, blank is 53.
+components/RamazanDonerli/index.js, code is 473, comment is 54, blank is 104.
+components/RamazanDonerli/RamazanDonerliElements.js, code is 471, comment is 22, blank is 110.
+components/RingProgress/index.js, code is 42, comment is 9, blank is 10.
+components/ShareBox/index.js, code is 40, comment is 0, blank is 20.
+components/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+components/Sidebar/index.js, code is 48, comment is 20, blank is 12.
+components/Sidebar/sidebar.css, code is 7, comment is 0, blank is 4.
+components/Sidebar/SiderbarElements.js, code is 98, comment is 0, blank is 17.
+components/Table/index.js, code is 108, comment is 0, blank is 22.
+components/YesNoDialog/index.js, code is 29, comment is 0, blank is 20.
+components/YesNoDialog/YesNoDialogElements.js, code is 36, comment is 0, blank is 19.
+features/cuzlerFunctionTrigger/cuzlerFunctionTriggerSlice.js, code is 24, comment is 0, blank is 13.
+features/cuzlerFunctionTrigger/index.js, code is 8, comment is 0, blank is 7.
+features/cuzModal/cuzModalSlice.js, code is 63, comment is 0, blank is 20.
+features/cuzModal/index.js, code is 9, comment is 0, blank is 7.
+features/editCuzlerModal/editCuzlerModalSlice.js, code is 50, comment is 4, blank is 17.
+features/editCuzlerModal/index.js, code is 9, comment is 0, blank is 7.
+features/notification/index.js, code is 7, comment is 0, blank is 8.
+features/notification/notificationSlice.js, code is 24, comment is 0, blank is 12.
+features/yesNoDialogAlert/index.js, code is 8, comment is 0, blank is 7.
+features/yesNoDialogAlert/yesNoDialogAlertSlice.js, code is 35, comment is 0, blank is 14.
+icons/button.svg, code is 1, comment is 0, blank is 0.
+icons/c.svg, code is 1, comment is 0, blank is 0.
+icons/close.svg, code is 1, comment is 0, blank is 0.
+icons/copy.svg, code is 1, comment is 0, blank is 0.
+icons/cpp.svg, code is 1, comment is 0, blank is 0.
+icons/csharp.svg, code is 1, comment is 0, blank is 0.
+icons/enterprise.svg, code is 1, comment is 0, blank is 0.
+icons/game.svg, code is 1, comment is 0, blank is 0.
+icons/java.svg, code is 1, comment is 0, blank is 0.
+icons/js.svg, code is 1, comment is 0, blank is 0.
+icons/lamp.svg, code is 4, comment is 0, blank is 0.
+icons/mobile.svg, code is 1, comment is 0, blank is 0.
+icons/php.svg, code is 1, comment is 0, blank is 0.
+icons/python.svg, code is 1, comment is 0, blank is 0.
+icons/ruby.svg, code is 1, comment is 0, blank is 0.
+icons/share.svg, code is 1, comment is 0, blank is 0.
+icons/sms.svg, code is 1, comment is 0, blank is 0.
+icons/website.svg, code is 1, comment is 0, blank is 0.
+icons/whatsapp.svg, code is 1, comment is 0, blank is 0.
+index.css, code is 0, comment is 13, blank is 0.
+index.js, code is 69, comment is 24, blank is 24.
+logo.svg, code is 1, comment is 0, blank is 0.
+pages/cuz.js, code is 22, comment is 0, blank is 7.
+pages/index.js, code is 21, comment is 0, blank is 10.
+pages/ramazan.js, code is 68, comment is 0, blank is 14.
+redux/store.js, code is 15, comment is 0, blank is 7.
+reportWebVitals.js, code is 12, comment is 0, blank is 1.
+setupTests.js, code is 1, comment is 4, blank is 0.
+strings/Arabic.js, code is 110, comment is 0, blank is 26.
+strings/dataFormat.js, code is 173, comment is 1, blank is 40.
+strings/english.js, code is 111, comment is 0, blank is 38.
+strings/index.js, code is 40, comment is 6, blank is 13.
+strings/Turkish.js, code is 109, comment is 0, blank is 30.
+===============================================================================

@@ -5,6 +5,8 @@
 
 import {dataFormat} from '../../../../strings/dataFormat';
 import { countNumberOfCuzs } from "../../helpers";
+import { generateHash } from "random-hash";
+import LocDb from "@yusuf-yeniceri/easy-storage";
 
 
 
@@ -79,16 +81,19 @@ class Api_v2{
       dataFormat.bitisTarihi = bitisTarihi;
       dataFormat.isRamazan = isRamazan;
       dataFormat.description = description;
+    
+      // console.log(dataFormat)
+      // console.log(baslik)
   
-      console.log(dataFormat)
-      console.log(baslik)
-  
-      let hatimKey;
+      let hatimKey, adminToken;
       if(!mevcutHatim){
         hatimKey = await this.db.ref("hatim").push().key;
+        adminToken = generateHash({length: 16});
+        await this.db.ref(`hatim/${hatimKey}/adminToken`).set(adminToken)
       }else{
         hatimKey = this.extractKey();
         hatimKey = hatimKey.replace("/", "");
+       
       }
       let hatimAltKey = await this.db.ref(`hatim/${hatimKey}`).push().key;
       await this.db.ref( `hatim/${hatimKey}/${hatimAltKey}` ).set(dataFormat);
@@ -106,10 +111,28 @@ class Api_v2{
         if(localStorageCuzKeylerArrBaslik == null)  localStorageCuzKeylerArrBaslik = [];
         localStorageCuzKeylerArrBaslik.push(baslik);
         localStorage.setItem("CuzKeylerBaslik", JSON.stringify(localStorageCuzKeylerArrBaslik))
+
+        LocDb.ref("Hatim/adminToken").modify((aD)=>{
+          if(!Array.isArray(aD)) aD = []
+          let obj = {}
+          obj[hatimKey] = adminToken
+          aD.push(obj)
+          return aD;
+        })
       }
       
       
       return hatimKey;
+    }
+
+
+    hatimDegistir = async (baslik, bitisTarihi, description, subKey) => {
+      try {
+        await this.db.ref(`hatim/${this.extractKey()}/${subKey}`).update({baslik: baslik, bitisTarihi: bitisTarihi, description: description});
+        return 0;        
+      } catch (error) {
+        return -1;
+      }
     }
   
     cuzAlindi = async (isim, no, subKey) => {
@@ -125,6 +148,24 @@ class Api_v2{
           isim: isim,
           alindi: true,
         });
+         // 0 means taking Cuz is successfull
+        return 0;
+      } catch (error) {
+        //-1 means Cuz is already taken
+        return -1;
+      }
+      
+       
+        
+      
+    }
+
+    cuzIsimDegistir = async (isim, no, subKey) => {
+      let hatimKey = this.extractKey();
+      let sira = this.hatimSiraBelirle(no);
+      
+      try {
+        await this.db.ref("hatim/" + hatimKey + "/" + subKey + "/" + sira + "/cevaplar/" + (no-((sira-1)*10+1)) + "/isim").set(isim);
          // 0 means taking Cuz is successfull
         return 0;
       } catch (error) {
@@ -160,6 +201,21 @@ class Api_v2{
   
     ziyaretSayisiArtir = async () => {
       await this.db.ref("ziyaretSayisi").set(Number(await this.ziyaretSayisiGetir()) + 1);
+    }
+
+    deleteHatim = async () => {
+      try {
+        let aD = LocDb.ref("Hatim/adminToken").get();
+        let filtered = aD.filter(x=>Object.keys(x)[0].toString() == this.extractKey().replace("/","").toString());
+
+        await this.db.ref(`hatim/${this.extractKey()}/delete`).set({adminToken: filtered[0][Object.keys(filtered[0])]});
+        await this.db.ref(`hatim/${this.extractKey()}`).set({adminToken: filtered[0][Object.keys(filtered[0])]});
+
+        return 0;  
+      } catch (error) {
+        console.error(error)
+        return -1;
+      }
     }
   }
 

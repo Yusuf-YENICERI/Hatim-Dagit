@@ -34,6 +34,14 @@ import CuzlerHatimCard from '../CuzlerHatimCard';
 import YesNoDialog from "../YesNoDialog";
 import { useNotification, notificationActions } from '../../features/notification';
 import { showNotification } from '@mantine/notifications';
+import { editModalCuzlerActions, useEditCuzlerModal } from '../../features/editCuzlerModal';
+import { Text, Modal } from '@mantine/core';
+import EditModalContent from "../EditModalContent";
+import { cuzlerFunctionTriggerActions, useCuzlerFunctionTrigger } from '../../features/cuzlerFunctionTrigger';
+import { yesNoDialogAlertActions } from '../../features/yesNoDialogAlert';
+import CuzModal from "../CuzModal";
+import LocDb from "@yusuf-yeniceri/easy-storage";
+import { cuzModalActions, useCuzModal } from '../../features/cuzModal';
 
 
 // let counter = 0;+0
@@ -71,7 +79,17 @@ const Constr = ({ toggle, firebase }) => {
     const [askDialogBox, setAskDialogBox] = useState(false);
     const [activeHatimSubKey, setActiveHatimSubKey] = useState(false);
     const [currentApi, setCurrentApi] = useState(2);
-    
+    const [initialRunDone, setInitialRunDone] = useState(false);
+
+        /** redux */
+
+    const dispatch = useDispatch();
+    const {barVisible, text, icon} = useNotification();
+    const editCuzlerModal = useEditCuzlerModal();
+    const cuzModal = useCuzModal();
+
+    /** redux end */
+
     {/** AskDialog */}
     const [yazilar, setYazilar] = useState({baslik:LanguageData["/"].Button.Final.Before.Header, link:LanguageData["/"].Button.Final.Before.LinkReady,
      cevap: LanguageData["/"].Button.Final.Before.Button});
@@ -100,30 +118,50 @@ const Constr = ({ toggle, firebase }) => {
 
     /** YesNoDialog */
 
-    const [yesNoVisible, setYesNoVisible] = useState(false)
 
-    const yesHandler = async () => {        
+    const yesHandler = async () => {
         let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, true);
+        dispatch(yesNoDialogAlertActions.toggleVisibility())
 
-        let temp = [];
-        for (let i = 0; i < hatimlerVisibilities.length; i++) {
-            temp[i] = false;
-        }
-        setHatimlerVisibilities(temp);
-        await afterRun();
-        setYesNoVisible(false);
+        // setHatimlerVisibilities((async ()=>{
+
+                    // let newArr = [...hatimlerVisibilities];
+                    // let arrLength = newArr.length + 1;
+                    // for (let i = 0; i < arrLength; i++) {
+                    //     newArr[i] = false;
+                    // }
+                    // newArr[newArr.length-1] = true;
+                    // return newArr;
+        //         })(), async ()=>{
+        //             await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, true)
+        //             dispatch(yesNoDialogAlertActions.toggleVisibility())
+        //         });
+
+        // if(hatimlerVisibilities.length > 0) temp[0] = true;
+
+
+        // setHatimlerVisibilities(temp);
+        // await initialRun();
     }
 
-    const noHandler = () => setYesNoVisible(false);
+    const noHandler = () =>  dispatch(yesNoDialogAlertActions.toggleVisibility())
+    ;
+
+    const [yesHandlerState, setYesHandlerState] = useState(()=> yesHandler)
+    const [noHandlerState, setNoHandlerState] = useState(()=>noHandler)
+
+    const toggleYesHandlerState = (payload) => {
+        setYesHandlerState(()=>payload)
+    }
+
+    const toggleNoHandlerState = (payload) => {
+        setNoHandlerState(()=>payload)
+    }
+
 
     /** YesNoDialog End */
 
-    /** redux */
 
-    const dispatch = useDispatch();
-    const {barVisible, text, icon} = useNotification();
-
-    /** redux end */
 
 
     const initialRun = async () => {
@@ -132,7 +170,6 @@ const Constr = ({ toggle, firebase }) => {
             while(result == "error"){
                 result = await firebase.hatimGetir();
             } 
-            console.log(result);
 
             let allHatimler;
             let _currentApi = 2;
@@ -151,17 +188,16 @@ const Constr = ({ toggle, firebase }) => {
 
             let currentIndex = 0;
             for (let i = 0; i < allHatimler.length; i++) {
-                
-                let totalCevap = allHatimler[i][1].cevaplar.filter((cevap)=>cevap.alindi).length + 
-                allHatimler[i][2].cevaplar.filter((cevap)=>cevap.alindi).length + 
+
+                let totalCevap = allHatimler[i][1].cevaplar.filter((cevap)=>cevap.alindi).length +
+                allHatimler[i][2].cevaplar.filter((cevap)=>cevap.alindi).length +
                 allHatimler[i][3].cevaplar.filter((cevap)=>cevap.alindi).length;
-                
+
                 if(totalCevap != 30){
                     currentIndex = i;
                     break;
                 }
             }
-
             setTotalPartsTaken(firebase.countNumberOfCuzs(allHatimler))
             setAllLanguage(allHatimler);
             setHideRespond(true);
@@ -174,9 +210,9 @@ const Constr = ({ toggle, firebase }) => {
                 newArr[currentIndex] = true;
                 return newArr;
             })());
-            
+
             let cuzStorage = JSON.parse(localStorage.getItem("cuz"));
-            
+
             if(cuzStorage == null){
                 switch (_currentApi) {
                     case 2:
@@ -189,17 +225,6 @@ const Constr = ({ toggle, firebase }) => {
             };
             if(Array.isArray(cuzStorage)) initializeLocalStorage("cuz_v1");
 
-            // let hatimContainers = document.getElementsByClassName("hatimContainer");
-            // let index = 0;
-            // for (const element of hatimContainers) {
-            //     element.addEventListener("transitionend", () => {
-            //         if(!hatimlerVisibilities[index])
-            //             element.style.display = "inline-block";
-            //         else
-            //             element.style.display = "none";
-            //     }, false);
-            //     index++;
-            // }
         } catch (error) {
             console.log(`Cuzler\\index.js: ${error}`);
             setWaitText(LanguageData["/cuz"].Before.Error)
@@ -209,75 +234,97 @@ const Constr = ({ toggle, firebase }) => {
 
     const afterRun = async () => {
         try {
-            let result = await firebase.hatimGetir();
-            while(result == "error"){
-                result = await firebase.hatimGetir();
-            } 
-            console.log(result);
-            setAllLanguage(objectToArray(await firebase.hatimGetir()));
-            setHideRespond(true);
-            setLoadingVisibility(false);
-            setHatimlerVisibilities((()=>{
-                let newArr = [];
-                for (let i = 0; i < objectToArray(result).length; i++) {
-                    newArr[i] = false;
-                }
-                newArr[newArr.length-1] = true;
-                return newArr;
-            })());
+            let firebaseListener = firebase.db.ref(`hatim/${firebase.extractKey()}`).on('value', snapshot => {
 
-            // let hatimContainers = document.getElementsByClassName("hatimContainer");
-            // let index = 0;
-            // for (const element of hatimContainers) {
-            //     element.addEventListener("transitionend", () => {
-            //         if(!hatimlerVisibilities[index])
-            //             element.style.display = "inline-block";
-            //         else
-            //             element.style.display = "none";
-            //     }, false);
-            //     index++;
-            // }
+
+                let data = snapshot.val();
+
+                if(data.delete != undefined){
+                    setLoadingVisibility(true)
+                    setWaitText(LanguageData["/cuz"].Before.Deleted)
+                    return;
+                }
+
+                if(data.baslik != null){
+                    data = [data];
+                }
+
+                let result = data;
+                
+                setAllLanguage(objectToArray(result));
+                setHideRespond(true);
+                setLoadingVisibility(false);
+                
+                // let hatimContainers = document.getElementsByClassName("hatimContainer");
+                // let index = 0;
+                // for (const element of hatimContainers) {
+                //     element.addEventListener("transitionend", () => {
+                //         if(!hatimlerVisibilities[index])
+                //             element.style.display = "inline-block";
+                //         else
+                //             element.style.display = "none";
+                //     }, false);
+                //     index++;
+                // }
+
+            });
+
         } catch (error) {
             setWaitText(LanguageData["/cuz"].Before.Error)
             return;
         }
     }
 
+    const cuzlerFunctionTrigger = useCuzlerFunctionTrigger();
+    let firebaseListener = null;
+
     useEffect(async () => {
-        await initialRun();
-      }, []);
-    // const [scrollNav, setScrollNav] = useState(false);
-    // const [width, setWidth] = useState(window.innerWidth);
-
-    // const changeNav = () => {
-    //     if(window.scrollY >= 80){
-    //         setScrollNav(true);
-    //     }else{
-    //         setScrollNav(false);
-    //     }
-    // }
-
-    // const handleWindowSizeChange = () => {
-    //     setWidth(window.innerWidth);
-    // }
-
-    // useEffect(() => {
-    //     window.addEventListener('scroll', changeNav)
-    //     window.addEventListener('resize', handleWindowSizeChange);
-    //     console.log(isMobile)
-
-    //     return () => {
-    //         window.removeEventListener('resize', handleWindowSizeChange);
-    //     }
-    // }, []);
-
-// let isMobile = (width <= 768);
+        if(!initialRunDone){
+            await initialRun();
+            setInitialRunDone(true);
+        }
+        firebaseListener = await afterRun();
+        if(cuzlerFunctionTrigger.visible){
+            // await afterRun();
+            dispatch(cuzlerFunctionTriggerActions.toggleVisibility())
+        }
+      }, [cuzlerFunctionTrigger.visible]);
 
     return (
         <>
         <QuestionContainer id="questionContainer" minHeight={(window.innerHeight-80).toString() + "px"} hatimlerVisibility={hatimlerVisibilities[0]} >
 
-        <YesNoDialog visible={yesNoVisible} yesHandler={yesHandler} noHandler={noHandler} />
+        <Modal
+        styles={{
+            root: {height: '100%'},
+            inner: {height: '100%'},
+            body: {height: '100%'},
+
+        }}
+        opened={editCuzlerModal.visible}
+        onClose={() => dispatch(editModalCuzlerActions.toggleVisibility())}
+        title={LanguageData["/cuz"].CuzlerHatimCard.Modal.Title}
+        >
+            <EditModalContent subKey={allLanguage[0].subKey}></EditModalContent>
+        </Modal>
+
+        <Modal
+        styles={{
+            root: {height: '100%'},
+            inner: {height: '100%'},
+            body: {height: '100%'},
+
+        }}
+        opened={cuzModal.visible}
+        onClose={() => dispatch(cuzModalActions.toggleVisibility())}
+        title={LanguageData["/cuz"].CuzlerHatimCard.PartModal.Title}
+        >
+            <CuzModal />
+        </Modal>
+
+        <YesNoDialog yesHandler={yesHandlerState} noHandler={noHandlerState} hatimlerVisibilities={hatimlerVisibilities} toggleHatimlerVisibilities={(newState)=>{
+            setHatimlerVisibilities(newState)
+        }} />
 
         <AlertDialog text={LanguageData["/cuz"].AlertDialog.Title} textButton={LanguageData["/cuz"].AlertDialog.Button}
          alertVisible={alertVisible} toggleAlertVisibility={toggleAlertVisibility}>
@@ -316,7 +363,7 @@ const Constr = ({ toggle, firebase }) => {
                     {hatimNo}. {LanguageData["/cuz"].Button.Question}
                 </DialogText>
 
-                
+
                 <DialogInputBox value={username} onChange = {(event)=>{
                     setUsername(event.target.value);
                 }}>
@@ -327,7 +374,7 @@ const Constr = ({ toggle, firebase }) => {
                     if(partIptal)
                     {
                         await firebase.cuzIptal(hatimNo, activeHatimSubKey);
-                        
+
                         switch (currentApi) {
                             case 2:
                                 if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
@@ -377,20 +424,20 @@ const Constr = ({ toggle, firebase }) => {
                         return;
                     }
 
-                   
+
 
                     setAllLanguage(objectToArray(await firebase.hatimGetir()));
                 }}>
                     {takePart}
                 </NavBtnLink>
 
-                
+
 
             </DialogBox>
 
             <ShareBox shareBoxVisibility={hideShareBox} changeShareBoxVisibility={changeShareBoxVisibility} />
 
-            <AskDialog          buttonCallback={async ()=>{
+            {/* <AskDialog          buttonCallback={async ()=>{
                                     let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, true);
 
                                     let temp = [];
@@ -398,31 +445,41 @@ const Constr = ({ toggle, firebase }) => {
                                         temp[i] = false;
                                     }
                                     setHatimlerVisibilities(temp);
-                                    await afterRun();
+                                    // await afterRun();
                                 }}
-                                buttonText={LanguageData["/"].Button.Header.Button} top={"3px"} 
+                                buttonText={LanguageData["/"].Button.Header.Button} top={"3px"}
                                 firebase={firebase} setHatimKey={setHatimKey} setYazilar={setYazilar}
                                  propHideDialogBox={{hideNewHatimBox, setHideNewHatimBox}}
                                 askDialogBox={askDialogBox} setAskDialogBox={setAskDialogBox}
                                 hatimKonu={hatimKonu} setHatimKonu={setHatimKonu} changeAskDialogBox={changeAskDialogBox}
-                                hatimBitisTarihi={hatimBitisTarihi} setHatimBitisTarihi={setHatimBitisTarihi} />
+                                hatimBitisTarihi={hatimBitisTarihi} setHatimBitisTarihi={setHatimBitisTarihi} /> */}
 
 
                 {/* Hatimler ikonu ve yazısı */}
 
                  { !loadingVisibility && allLanguage.map( (Language, index) => {
 
-                        console.log(`message from: `);
-                        console.log(Language);
+                        // console.log(`message from: `);
+                        // console.log(Language);
 
-                
+
                 return <>
-            
-    
+
+
                 { (index==0) && <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                    <CuzlerHatimCard header={Language.baslik} description={Language.description} 
-                                    progress={totalPartsTaken/30*100} leftCuzs={allLanguage.length*30-totalPartsTaken} duaLeftDays={Language.bitisTarihi.split("-").reverse().join("/")}
-                    ></CuzlerHatimCard>
+                    {
+                        currentApi == 2 ?
+                    <CuzlerHatimCard header={Language.baslik} description={Language.description}
+                                    progress={totalPartsTaken/(allLanguage.length*30)*100} leftCuzs={allLanguage.length*30-totalPartsTaken}
+                                    duaLeftDays={Language.bitisTarihi.split("-").reverse().join("/")}
+                                    yesHandler={yesHandlerState} toggleYesHandler={toggleYesHandlerState}
+                                    noHandler={noHandlerState} toggleNoHandler={toggleNoHandlerState}
+
+                    ></CuzlerHatimCard> 
+                            :
+                    Language.baslik
+
+                    }
                 </div>}
 
 
@@ -430,7 +487,7 @@ const Constr = ({ toggle, firebase }) => {
                             {index+1}. hatim
                         {
                             hatimlerVisibilities.length > 1 ?
-                                (hatimlerVisibilities[index] 
+                                (hatimlerVisibilities[index]
                                     ?
                                 <>
                                     <HatimIconContainer>
@@ -459,17 +516,17 @@ const Constr = ({ toggle, firebase }) => {
                     </QuestionItem>}
 
                     {/* Hatmin kendisi */}
-    
-                <HatimContainer className="hatimContainer" visibility={hatimlerVisibilities[index]}>
-    
+
+                <HatimContainer className="hatimContainer"  visibility={hatimlerVisibilities[index]} >
+
                 {/* <QuestionInnerContainer>
-                    
-                    
+
+
                 { Language.description != null && Language.description.length > 0 && <CuzlerDescription>
                     {Language.description.split('\n').map(str => <p>{str}</p>)}
                     </CuzlerDescription>
                 }
-    
+
                     { Language.bitisTarihi != null && Language.bitisTarihi.length > 0 &&  <CuzlerFinishDate fontSize={"1rem"}>
                             {LanguageData["/cuz"].KhatmFinishDate[0]}  {Language.bitisTarihi.split("-").reverse().join("/")} {LanguageData["/cuz"].KhatmFinishDate[1]}
                     </CuzlerFinishDate>
@@ -483,45 +540,57 @@ const Constr = ({ toggle, firebase }) => {
                             {LanguageData["/cuz"].Before.Question}
                     </QuestionItem>
                 </QuestionInnerContainer> */}
-           
-                
+
+
                 <RespondContainer visibility={hideRespond}>
                     <RespondOuterContainer>
                     <RespondInnerContainer>
                         {
                             Language[1].cevaplar.map(({cevap, alindi, isim}) => (
-                                
+
                                 <ResponseItem bgColor={alindi} onClick={()=>{
 
                                     if (alindi) {
                                         setActiveHatimSubKey(Language.subKey);
-                                        
-                                        switch (currentApi) {
-                                            case 2:
-                                                if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
-                                                let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
-                                                if(localStorageCuzObj[Language.subKey] == null)
-                                                    localStorageCuzObj[Language.subKey] = [];
-                                                if(!localStorageCuzObj[Language.subKey].includes(cevap)){
-                                                    return;
-                                                }
-                                                break;
-                                            case 1:
-                                                if(!JSON.parse(localStorage.getItem("cuz_v1")).includes(cevap)){
-                                                    return;
-                                                }
-                                                break;
+                                        if(!Array.isArray(LocDb.ref("Hatim/adminToken").get()))
+                                            LocDb.ref("Hatim/adminToken").set([])
+                                        let filtered = LocDb.ref("Hatim/adminToken").get().filter(x=>Object.keys(x)[0].toString() == extractKey().replace("/","").toString());
+                                        if(filtered.length == 0){
+                                            switch (currentApi) {
+                                                case 2:
+                                                    if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
+                                                    let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                                                    if(localStorageCuzObj[Language.subKey] == null)
+                                                        localStorageCuzObj[Language.subKey] = [];
+                                                    if(!localStorageCuzObj[Language.subKey].includes(cevap)){
+                                                        return;
+                                                    }
+                                                    break;
+                                                case 1:
+                                                    if(!JSON.parse(localStorage.getItem("cuz_v1")).includes(cevap)){
+                                                        return;
+                                                    }
+                                                    break;
+                                            }
+
+                                            setTakePart(LanguageData["/cuz"].Button.TakeCancel)
+                                            setPartIptal(true);
+                                            //unnecessary, please fix it
+                                            setHatimNo(cevap);
+                                            setUsername(isim);
+                                            setHideDialogBox(true);
+                                            return;
+                                        }else{
+                                            dispatch(cuzModalActions.changeSubKey(Language.subKey))
+                                            dispatch(cuzModalActions.changeName(isim))
+                                            dispatch(cuzModalActions.changeCuzNo(cevap))
+                                            dispatch(cuzModalActions.toggleVisibility())
+                                            return;
                                         }
-                                        
-                                        setTakePart(LanguageData["/cuz"].Button.TakeCancel)
-                                        setPartIptal(true);
-                                        //unnecessary, please fix it
-                                        setHatimNo(cevap);
-                                        setUsername(isim);
-                                        setHideDialogBox(true);
-                                        return;
+
+
                                     }
-                                    
+
                                     setTakePart(LanguageData["/cuz"].Button.Take);
                                     setHatimNo(cevap);
                                     setActiveHatimSubKey(Language.subKey);
@@ -540,40 +609,49 @@ const Constr = ({ toggle, firebase }) => {
                         }
                         {
                             Language[2].cevaplar.map(({cevap, alindi, isim}) => (
-                                
+
                                 <ResponseItem bgColor={alindi} onClick={()=>{
                                     if (alindi) {
                                         setActiveHatimSubKey(Language.subKey);
+                                        if(!Array.isArray(LocDb.ref("Hatim/adminToken").get()))
+                                            LocDb.ref("Hatim/adminToken").set([])
+                                        let filtered = LocDb.ref("Hatim/adminToken").get().filter(x=>Object.keys(x)[0].toString() == extractKey().replace("/","").toString());
+                                        if(filtered.length == 0){
+                                            switch (currentApi) {
+                                                case 2:
+                                                    if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
+                                                    let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                                                    if(localStorageCuzObj[Language.subKey] == null)
+                                                        localStorageCuzObj[Language.subKey] = [];
+                                                    if(!localStorageCuzObj[Language.subKey].includes(cevap)){
+                                                        return;
+                                                    }
+                                                    break;
+                                                case 1:
+                                                    if(!JSON.parse(localStorage.getItem("cuz_v1")).includes(cevap)){
+                                                        return;
+                                                    }
+                                                    break;
+                                            }
 
-                                    
-                                        switch (currentApi) {
-                                            case 2:
-                                                if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
-                                                let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
-                                                if(localStorageCuzObj[Language.subKey] == null)
-                                                    localStorageCuzObj[Language.subKey] = [];
-                                                if(!localStorageCuzObj[Language.subKey].includes(cevap)){
-                                                    return;
-                                                }
-                                                break;
-                                            case 1:
-                                                if(!JSON.parse(localStorage.getItem("cuz_v1")).includes(cevap)){
-                                                    return;
-                                                }
-                                                break;
+                                            setTakePart(LanguageData["/cuz"].Button.TakeCancel)
+                                            setPartIptal(true);
+                                            //unnecessary, please fix it
+                                            setHatimNo(cevap);
+                                            setUsername(isim);
+                                            setHideDialogBox(true);
+                                            return;
+                                        }else{
+                                            dispatch(cuzModalActions.changeSubKey(Language.subKey))
+                                            dispatch(cuzModalActions.changeName(isim))
+                                            dispatch(cuzModalActions.changeCuzNo(cevap))
+                                            dispatch(cuzModalActions.toggleVisibility())
+                                            return;
                                         }
 
-                                        setTakePart(LanguageData["/cuz"].Button.TakeCancel)
-                                        setPartIptal(true);
-                                        //unnecessary, please fix it
-                                        setHatimNo(cevap);
-                                        setUsername(isim);
-                                        setHideDialogBox(true);
-                                        return;
-                                    
+
                                     }
-                                    
-                                    
+
                                     setTakePart(LanguageData["/cuz"].Button.Take);
                                     setHatimNo(cevap);
                                     setActiveHatimSubKey(Language.subKey);
@@ -592,40 +670,50 @@ const Constr = ({ toggle, firebase }) => {
                         }
                         {
                             Language[3].cevaplar.map(({cevap, alindi, isim}) => (
-                                
-                                
+
+
                                 <ResponseItem bgColor={alindi} onClick={()=>{
 
                                     if (alindi) {
                                         setActiveHatimSubKey(Language.subKey);
+                                        if(!Array.isArray(LocDb.ref("Hatim/adminToken").get()))
+                                            LocDb.ref("Hatim/adminToken").set([])
+                                        let filtered = LocDb.ref("Hatim/adminToken").get().filter(x=>Object.keys(x)[0].toString() == extractKey().replace("/","").toString());
+                                        if(filtered.length == 0){
+                                            switch (currentApi) {
+                                                case 2:
+                                                    if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
+                                                    let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                                                    if(localStorageCuzObj[Language.subKey] == null)
+                                                        localStorageCuzObj[Language.subKey] = [];
+                                                    if(!localStorageCuzObj[Language.subKey].includes(cevap)){
+                                                        return;
+                                                    }
+                                                    break;
+                                                case 1:
+                                                    if(!JSON.parse(localStorage.getItem("cuz_v1")).includes(cevap)){
+                                                        return;
+                                                    }
+                                                    break;
+                                            }
 
-                                        switch (currentApi) {
-                                            case 2:
-                                                if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
-                                                let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
-                                                if(localStorageCuzObj[Language.subKey] == null)
-                                                    localStorageCuzObj[Language.subKey] = [];
-                                                if(!localStorageCuzObj[Language.subKey].includes(cevap)){
-                                                    return;
-                                                }
-                                                break;
-                                            case 1:
-                                                if(!JSON.parse(localStorage.getItem("cuz_v1")).includes(cevap)){
-                                                    return;
-                                                }
-                                                break;
+                                            setTakePart(LanguageData["/cuz"].Button.TakeCancel)
+                                            setPartIptal(true);
+                                            //unnecessary, please fix it
+                                            setHatimNo(cevap);
+                                            setUsername(isim);
+                                            setHideDialogBox(true);
+                                            return;
+                                        }else{
+                                            dispatch(cuzModalActions.changeSubKey(Language.subKey))
+                                            dispatch(cuzModalActions.changeName(isim))
+                                            dispatch(cuzModalActions.changeCuzNo(cevap))
+                                            dispatch(cuzModalActions.toggleVisibility())
+                                            return;
                                         }
 
-                                        setTakePart(LanguageData["/cuz"].Button.TakeCancel)
-                                        setPartIptal(true);
-                                        //unnecessary, please fix it
-                                        setHatimNo(cevap);
-                                        setUsername(isim);
-                                        setHideDialogBox(true);
-                                        return;
 
                                     }
-                                    
 
                                     setTakePart(LanguageData["/cuz"].Button.Take);
                                     setHatimNo(cevap);
@@ -644,32 +732,33 @@ const Constr = ({ toggle, firebase }) => {
                             ))
                         }
                     </RespondInnerContainer>
-    
-                    
-    
+
+
+
                     </RespondOuterContainer>
-    
-                    
+
+
                 </RespondContainer>
-    
+
                 </HatimContainer>
-                
+
                 </>
                 })}
 
-              
+
 
            {  (currentApi==2) && (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
                 <YeniHatimContainer>
                     <YeniHatimButton id="NewSubKhatm" onClick={()=>{
-                        setYesNoVisible(true);
+                        dispatch(yesNoDialogAlertActions.changeText(LanguageData["/cuz"].AddKhatmAlert.Question))
+                        dispatch(yesNoDialogAlertActions.toggleVisibility())
                     }}>
                         <YeniHatimIcon />
                         <YeniHatimText>{LanguageData["/cuz"].NewSubKhatm}</YeniHatimText>
                     </YeniHatimButton>
                 </YeniHatimContainer>
             </YeniHatimWrapper>}
-           
+
         </QuestionContainer>
         </>
     )

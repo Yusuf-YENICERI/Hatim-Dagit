@@ -32,7 +32,9 @@ let english = {
     Footer: {
         aciz_kul: "Made by Yusuf YENİÇERİ",
         ziyaret: ["This site has been visited ", " times"],
-        version: "Current version is "
+        version: "Current version is ",
+        GoToMainPage: "Go to Home",
+        Feedback: "Give Feedback"
 
     },
 
@@ -43,7 +45,7 @@ let english = {
             Ramazan: "Make New Ramazan Khatm (Cycled)",
             Header: {
                 Text: "Make New Khatm",
-                InputSpan: ["Title", "Khatm Finish Date"],
+                InputSpan: ["Title", "Description", "Khatm Finish Date"],
                 Input: ["Please enter a Khatm title"],
                 Button: "Continue"
             },
@@ -64,7 +66,7 @@ let english = {
                 }
             }
         },
-        MevcutHatimler:'Khatms Made'
+        ExistingKhatms:'Khatms Made'
 
     },
 
@@ -76,7 +78,8 @@ let english = {
         Before: {
             Question: "Click the Part You Want ..",
             Wait: "Please wait ..",
-            Error: "An error occured, please refresh the page!"
+            Error: "An error occured, please refresh the page!",
+            Deleted: "This Khatm has been deleted by its owner!"
         },
 
         After: {
@@ -103,6 +106,47 @@ let english = {
         AlertDialog:{
             Title: "Part is already taken! Please take another Part.",
             Button: "Ok"
+        },
+
+
+        CuzlerHatimCard: {
+            deleteHatim: "Delete Khatm",
+            changeHatim: "Change",
+            takenParts: "Taken parts",
+            leftParts: " parts left",
+            dua: ["", "left until prayer", "Prayer was done", "Prayer will be made today", "", "left until prayer"],
+            Modal:{
+                Title:'Change Khatm Info',
+                Header:'Khatm Title',
+                Description:'Khatm Description',
+                Date:'Khatm Prayer Date',
+                Button:'Ok'
+            },
+
+            Notification:{
+                Title: 'Information is being updated',
+                Description: 'Please wait until information is being updated.'
+            },
+
+            PartModal:{
+                Title: 'Change Part Info',
+                Name: 'Name of Who Taken the Part',
+                ChangeNameButton: 'Change Name',
+                CancelPart: 'Cancel Part',
+            }
+        },
+
+
+        AddKhatmAlert:{
+            Question: 'Are you sure you want to add a new Khatm?',
+            YesButton:'Yes',
+            NoButton:'No'
+        },
+
+        DeleteKhatmAlert:{
+            Question: 'Are you sure you want to delete this Khatm?',
+            YesButton: 'Yes',
+            NoButton: 'No'
         }
 
     },
