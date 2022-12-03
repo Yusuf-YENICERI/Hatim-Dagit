@@ -77,7 +77,7 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
                 const route = isRamazan ? "ramazan" : "cuz";
                 setYazilar({
                     baslik:Language["/"].Button.Final.After.Header,
-                    link: `https://hatim-dagit.web.app/${route}/` + _hatimKey,
+                    link: `https://hatimdagit.com/${route}/` + _hatimKey,
                     cevap:Language["/"].Button.Final.After.Button
                 })  
             }}>{Language["/"].Button.Header.Button}</NavBtnLink>
@@ -194,7 +194,7 @@ const Question = ({ firebase, toggle }) => {
 
                 <DialogIcon src={copy} iconSize={"30px"} onClick={()=>{
                    const route = ramazan ? "ramazan" : "cuz"
-                   var text = `https://hatim-dagit.web.app/${route}/` + hatimKey;
+                   var text = `https://hatimdagit.com/${route}/` + hatimKey;
                    navigator.clipboard.writeText(text).then(function() {
                         setLinkKopyala(Language["/"].Button.Final.After.Copy)
                    }, function(err) {
