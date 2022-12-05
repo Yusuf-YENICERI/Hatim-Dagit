@@ -342,7 +342,9 @@ const Constr = ({ toggle, firebase }) => {
         </ShareContainer>
 
         <CopyContainer onClick={()=>{
-                   var text = window.location;
+                   let newLocation = window.location.href.replace("localhost:3000","hatimdagit.com")
+                   newLocation = newLocation.replace("hatim-dagit.web.app","hatimdagit.com")
+                   var text = newLocation;
                    navigator.clipboard.writeText(text).then(function() {
                         setLinkCopiedText(LanguageData["/cuz"].After.Copy.After)
                    }, function(err) {});
@@ -435,7 +437,7 @@ const Constr = ({ toggle, firebase }) => {
 
             </DialogBox>
 
-            <ShareBox shareBoxVisibility={hideShareBox} changeShareBoxVisibility={changeShareBoxVisibility} />
+            <ShareBox hatimHeader={allLanguage[0].baslik} shareBoxVisibility={hideShareBox} changeShareBoxVisibility={changeShareBoxVisibility} />
 
             {/* <AskDialog          buttonCallback={async ()=>{
                                     let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, true);

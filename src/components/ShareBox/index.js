@@ -13,7 +13,7 @@ import sms from '../../icons/sms.svg';
 import whatsapp from '../../icons/whatsapp.svg';
 
 
-const ShareDialogBox = ({shareBoxVisibility, changeShareBoxVisibility}) => {
+const ShareDialogBox = ({hatimHeader, shareBoxVisibility, changeShareBoxVisibility}) => {
 
     const [hideShareBox, setHideShareBox] = useState(false);
 
@@ -31,10 +31,12 @@ const ShareDialogBox = ({shareBoxVisibility, changeShareBoxVisibility}) => {
                 </ShareText>
 
                 <ShareItemContainer onClick={()=>{
+                    let newLocation = window.location.href.replace("localhost:3000","hatimdagit.com")
+                    newLocation = newLocation.replace("hatim-dagit.web.app","hatimdagit.com")
                     if(navigator.userAgent.match(/Android/i)){
-                        window.open('sms:?body=' + window.location, '_blank')
+                        window.open('sms:?body=' + hatimHeader + "%0A%0A" + newLocation, '_blank')
                     }else{
-                        window.open('sms:&body=' + window.location, '_blank')
+                        window.open('sms:&body=' + hatimHeader + "%0A%0A" +newLocation, '_blank')
                     }
                 }}>
                     <ShareItemIcon src={sms} />
@@ -43,7 +45,9 @@ const ShareDialogBox = ({shareBoxVisibility, changeShareBoxVisibility}) => {
 
 
                 <ShareItemContainer onClick={()=>{
-                    window.open("whatsapp://send?text=" + window.location)
+                    let newLocation = window.location.href.replace("localhost:3000","hatimdagit.com")
+                    newLocation = newLocation.replace("hatim-dagit.web.app","hatimdagit.com")
+                    window.open("whatsapp://send?text=" + hatimHeader + "%0A%0A" + newLocation)
                 }}>
                     <ShareItemIcon src={whatsapp} />
                     <ShareItemText>{LanguageData["/cuz"].ShareBox.Whatsapp}</ShareItemText>
