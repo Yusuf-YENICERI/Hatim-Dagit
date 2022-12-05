@@ -329,7 +329,7 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
 
             </DialogBox>
 
-            <ShareBox shareBoxVisibility={hideShareBox} changeShareBoxVisibility={changeShareBoxVisibility} />
+            <ShareBox hatimHeader={allLanguage[0].baslik} shareBoxVisibility={hideShareBox} changeShareBoxVisibility={changeShareBoxVisibility} />
 
             <AskDialog          buttonCallback={async ()=>{
                                     let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, true);
