@@ -5969,6 +5969,555 @@
                     "filename": "strings/Turkish.js"
                 }
             ]
+        },
+        {
+            "version": "0.2.7",
+            "counttime": "2022-12-18 11:24:47",
+            "filesum": 87,
+            "codesum": 5630,
+            "commentsum": 492,
+            "blanksum": 1571,
+            "statistics": {
+                ".css": {
+                    "code": 22,
+                    "comment": 13,
+                    "blank": 10
+                },
+                ".js": {
+                    "code": 5585,
+                    "comment": 479,
+                    "blank": 1561
+                },
+                ".svg": {
+                    "code": 23,
+                    "comment": 0,
+                    "blank": 0
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 2,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "App.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "App.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "App.test.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 68,
+                    "comment": 0,
+                    "filename": "common.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "components/AlertDialog/AlertDialogComponents.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "components/AlertDialog/index.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "components/AskDialog/AskDialogElements.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "components/AskDialog/index.js"
+                },
+                {
+                    "blank": 129,
+                    "code": 564,
+                    "comment": 78,
+                    "filename": "components/Cuzler/index.js"
+                },
+                {
+                    "blank": 104,
+                    "code": 456,
+                    "comment": 22,
+                    "filename": "components/Cuzler/QuestionElements.js"
+                },
+                {
+                    "blank": 37,
+                    "code": 161,
+                    "comment": 6,
+                    "filename": "components/CuzlerHatimCard/index.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 60,
+                    "comment": 1,
+                    "filename": "components/CuzModal/index.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 0,
+                    "comment": 49,
+                    "filename": "components/DialogBox/DialogBoxElements.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 0,
+                    "comment": 28,
+                    "filename": "components/DialogBox/index.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 68,
+                    "comment": 1,
+                    "filename": "components/EditModalContent/index.js"
+                },
+                {
+                    "blank": 38,
+                    "code": 98,
+                    "comment": 11,
+                    "filename": "components/Firebase/api/v1/index.js"
+                },
+                {
+                    "blank": 58,
+                    "code": 151,
+                    "comment": 13,
+                    "filename": "components/Firebase/api/v2/index.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "components/Firebase/context.js"
+                },
+                {
+                    "blank": 35,
+                    "code": 93,
+                    "comment": 8,
+                    "filename": "components/Firebase/firebase.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "components/Firebase/helpers/index.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "components/Firebase/index.js"
+                },
+                {
+                    "blank": 30,
+                    "code": 132,
+                    "comment": 4,
+                    "filename": "components/Footer/FooterElements.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 53,
+                    "comment": 20,
+                    "filename": "components/Footer/index.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 93,
+                    "comment": 0,
+                    "filename": "components/Message/index.js"
+                },
+                {
+                    "blank": 21,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "components/Message/MessageElements.js"
+                },
+                {
+                    "blank": 25,
+                    "code": 103,
+                    "comment": 40,
+                    "filename": "components/Navbar/index.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "components/Navbar/navbar.css"
+                },
+                {
+                    "blank": 27,
+                    "code": 150,
+                    "comment": 7,
+                    "filename": "components/Navbar/NavbarElements.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 2,
+                    "comment": 1,
+                    "filename": "components/Navbar/service-worker.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 29,
+                    "comment": 1,
+                    "filename": "components/Pwa/index.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 59,
+                    "comment": 1,
+                    "filename": "components/Pwa/PwaElements.js"
+                },
+                {
+                    "blank": 75,
+                    "code": 223,
+                    "comment": 26,
+                    "filename": "components/Question/index.js"
+                },
+                {
+                    "blank": 53,
+                    "code": 271,
+                    "comment": 10,
+                    "filename": "components/Question/QuestionElements.js"
+                },
+                {
+                    "blank": 104,
+                    "code": 471,
+                    "comment": 56,
+                    "filename": "components/RamazanDonerli/index.js"
+                },
+                {
+                    "blank": 110,
+                    "code": 471,
+                    "comment": 22,
+                    "filename": "components/RamazanDonerli/RamazanDonerliElements.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 42,
+                    "comment": 9,
+                    "filename": "components/RingProgress/index.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "components/ShareBox/index.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 63,
+                    "comment": 3,
+                    "filename": "components/ShareBox/ShareBoxElements.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 48,
+                    "comment": 20,
+                    "filename": "components/Sidebar/index.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "components/Sidebar/sidebar.css"
+                },
+                {
+                    "blank": 17,
+                    "code": 98,
+                    "comment": 0,
+                    "filename": "components/Sidebar/SiderbarElements.js"
+                },
+                {
+                    "blank": 22,
+                    "code": 108,
+                    "comment": 0,
+                    "filename": "components/Table/index.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "components/YesNoDialog/index.js"
+                },
+                {
+                    "blank": 19,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "components/YesNoDialog/YesNoDialogElements.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "features/cuzlerFunctionTrigger/cuzlerFunctionTriggerSlice.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "features/cuzlerFunctionTrigger/index.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 63,
+                    "comment": 0,
+                    "filename": "features/cuzModal/cuzModalSlice.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "features/cuzModal/index.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 50,
+                    "comment": 4,
+                    "filename": "features/editCuzlerModal/editCuzlerModalSlice.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "features/editCuzlerModal/index.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "features/notification/index.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "features/notification/notificationSlice.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "features/yesNoDialogAlert/index.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "features/yesNoDialogAlert/yesNoDialogAlertSlice.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/button.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/c.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/close.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/copy.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/cpp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/csharp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/enterprise.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/game.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/java.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/js.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "icons/lamp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/mobile.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/php.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/python.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/ruby.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/share.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/sms.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/website.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/whatsapp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 13,
+                    "filename": "index.css"
+                },
+                {
+                    "blank": 24,
+                    "code": 67,
+                    "comment": 27,
+                    "filename": "index.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "logo.svg"
+                },
+                {
+                    "blank": 7,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "pages/cuz.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "pages/index.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 68,
+                    "comment": 0,
+                    "filename": "pages/ramazan.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "redux/store.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "reportWebVitals.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "setupTests.js"
+                },
+                {
+                    "blank": 30,
+                    "code": 146,
+                    "comment": 0,
+                    "filename": "strings/Arabic.js"
+                },
+                {
+                    "blank": 40,
+                    "code": 173,
+                    "comment": 1,
+                    "filename": "strings/dataFormat.js"
+                },
+                {
+                    "blank": 45,
+                    "code": 147,
+                    "comment": 0,
+                    "filename": "strings/english.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 40,
+                    "comment": 6,
+                    "filename": "strings/index.js"
+                },
+                {
+                    "blank": 37,
+                    "code": 145,
+                    "comment": 0,
+                    "filename": "strings/Turkish.js"
+                }
+            ]
         }
     ]
 }

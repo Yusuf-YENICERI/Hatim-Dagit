@@ -24,7 +24,7 @@ import backButton from '../../icons/button.svg';
 import copy from '../../icons/copy.svg';
 import share from '../../icons/share.svg';
 import close from '../../icons/close.svg';
-import {FirebaseContext} from '../Firebase';
+import {DatabaseContext, db} from '../../backend';
 import ShareBox from '../ShareBox';
 import { extractKey, initializeLocalStorage } from "../../common";
 import { Language } from '@styled-icons/ionicons-outline';
@@ -35,13 +35,13 @@ import { Language } from '@styled-icons/ionicons-outline';
 
 
 const Question = ({toggleCizelge, cizelgeId, toggleCizelgeId}) => {
-    return <FirebaseContext.Consumer>
+    return <DatabaseContext.Consumer>
         {
             frbs => {
                 return <Constr  firebase={frbs} toggleCizelge={toggleCizelge} cizelgeId={cizelgeId} toggleCizelgeId={toggleCizelgeId}/>
             }
         }
-    </FirebaseContext.Consumer>
+    </DatabaseContext.Consumer>
 }
 
 const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId }) => {

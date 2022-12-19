@@ -6,7 +6,7 @@
 
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import {db} from '../../components/Firebase';
+import {db} from '../../backend';
 import { useContext } from "react";
 
 const initialState = {

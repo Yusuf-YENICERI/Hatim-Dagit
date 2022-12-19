@@ -12,7 +12,7 @@ MevcutHatimTitle, MevcutHatimListeContainer, MevcutHatimListe, MevcutHatimListeE
 import Language from '../../strings/index';
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../icons/button.svg';
-import Firebase, {FirebaseContext} from '../Firebase';
+import Database, {DatabaseContext} from '../../backend';
 import copy from '../../icons/copy.svg';
 import close from '../../icons/close.svg';
 import { NavBtnLink } from '../Navbar/NavbarElements';
@@ -87,7 +87,7 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
 }
 
 const Constr = ({toggle}) => {
-    return <FirebaseContext.Consumer>
+    return <DatabaseContext.Consumer>
                     {
                         firebase => {
 
@@ -95,7 +95,7 @@ const Constr = ({toggle}) => {
 
                     }
                 }
-            </FirebaseContext.Consumer>
+            </DatabaseContext.Consumer>
 }
 
 const Question = ({ firebase, toggle }) => {

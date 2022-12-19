@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {FirebaseContext, db} from './components/Firebase';
+import {DatabaseContext, db} from './backend';
 import { isSafari, isStandalone } from "./common";
 import detectLanguage from './common';
 import Language from "./strings";
@@ -14,13 +14,13 @@ import { NotificationsProvider } from '@mantine/notifications';
 
 
 ReactDOM.render(
-  <FirebaseContext.Provider value={db}>
+  <DatabaseContext.Provider value={db}>
     <Provider store={store}>
       <NotificationsProvider position="top-right">
         <App />
       </NotificationsProvider>
     </Provider>
-  </FirebaseContext.Provider>,
+  </DatabaseContext.Provider>,
   document.getElementById('root')
 );
 

@@ -1,0 +1,130 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "/home/yusuf/Desktop/Hat/hatimGit/cypress",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2022-12-18 11:25:15",
+            "filesum": 16,
+            "codesum": 350,
+            "commentsum": 169,
+            "blanksum": 194,
+            "statistics": {
+                ".js": {
+                    "code": 345,
+                    "comment": 169,
+                    "blank": 194
+                },
+                ".json": {
+                    "code": 5,
+                    "comment": 0,
+                    "blank": 0
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "fixtures/example.json"
+                },
+                {
+                    "blank": 24,
+                    "code": 47,
+                    "comment": 28,
+                    "filename": "integration/CUZ_add_Khatm_to_default_page.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 13,
+                    "comment": 6,
+                    "filename": "integration/CUZ_old_version_test.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 53,
+                    "comment": 35,
+                    "filename": "integration/CUZ_user_behaviour.js"
+                },
+                {
+                    "blank": 56,
+                    "code": 101,
+                    "comment": 0,
+                    "filename": "integration/NETLIFY_take_cuz.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 18,
+                    "comment": 2,
+                    "filename": "integration/NETLIFY_take_cuz_helper.js"
+                },
+                {
+                    "blank": 32,
+                    "code": 53,
+                    "comment": 28,
+                    "filename": "integration/RAMAZAN_add_Khatm_to_default_page.js"
+                },
+                {
+                    "blank": 25,
+                    "code": 53,
+                    "comment": 34,
+                    "filename": "integration/RAMAZAN_user_behaviour.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 5,
+                    "comment": 18,
+                    "filename": "plugins/index.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": "support/commands.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 1,
+                    "comment": 17,
+                    "filename": "support/index.js"
+                },
+                {
+                    "filename": "videos/CUZ_add_Khatm_to_default_page.js.mp4",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "videos/CUZ_old_version_test.js.mp4",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "videos/CUZ_user_behaviour.js.mp4",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "videos/RAMAZAN_add_Khatm_to_default_page.js.mp4",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "videos/RAMAZAN_user_behaviour.js.mp4",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                }
+            ]
+        }
+    ]
+}

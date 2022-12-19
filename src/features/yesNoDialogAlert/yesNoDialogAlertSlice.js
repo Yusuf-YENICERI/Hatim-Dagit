@@ -6,7 +6,7 @@
 
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { db } from "../../components/Firebase";
+import {db} from '../../backend';
 
 const initialState = {
     visible: false,

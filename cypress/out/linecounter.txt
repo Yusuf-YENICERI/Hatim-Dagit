@@ -1,0 +1,34 @@
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2022-12-18 11:25:15
+count workspace : /home/yusuf/Desktop/Hat/hatimGit/cypress
+total files : 16
+total code lines : 350
+total comment lines : 169
+total blank lines : 194
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |            .js|            345|            169|            194|     99|
+   |          .json|              5|              0|              0|    1.4|
+   -------------------------------------------------------------------------
+fixtures/example.json, code is 5, comment is 0, blank is 0.
+integration/CUZ_add_Khatm_to_default_page.js, code is 47, comment is 28, blank is 24.
+integration/CUZ_old_version_test.js, code is 13, comment is 6, blank is 10.
+integration/CUZ_user_behaviour.js, code is 53, comment is 35, blank is 26.
+integration/NETLIFY_take_cuz.js, code is 101, comment is 0, blank is 56.
+integration/NETLIFY_take_cuz_helper.js, code is 18, comment is 2, blank is 13.
+integration/RAMAZAN_add_Khatm_to_default_page.js, code is 53, comment is 28, blank is 32.
+integration/RAMAZAN_user_behaviour.js, code is 53, comment is 34, blank is 25.
+plugins/index.js, code is 5, comment is 18, blank is 4.
+support/commands.js, code is 1, comment is 1, blank is 2.
+support/index.js, code is 1, comment is 17, blank is 2.
+videos/CUZ_add_Khatm_to_default_page.js.mp4, it is a binary file.
+videos/CUZ_old_version_test.js.mp4, it is a binary file.
+videos/CUZ_user_behaviour.js.mp4, it is a binary file.
+videos/RAMAZAN_add_Khatm_to_default_page.js.mp4, it is a binary file.
+videos/RAMAZAN_user_behaviour.js.mp4, it is a binary file.
+===============================================================================

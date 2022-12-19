@@ -24,7 +24,7 @@ import backButton from '../../icons/button.svg';
 import copy from '../../icons/copy.svg';
 import share from '../../icons/share.svg';
 import close from '../../icons/close.svg';
-import {FirebaseContext} from '../Firebase';
+import {DatabaseContext} from '../../backend';
 import ShareBox from '../ShareBox';
 import { extractKey, initializeLocalStorage } from "../../common";
 import { Language } from '@styled-icons/ionicons-outline';
@@ -49,13 +49,13 @@ import { cuzModalActions, useCuzModal } from '../../features/cuzModal';
 
 
 const Question = () => {
-    return <FirebaseContext.Consumer>
+    return <DatabaseContext.Consumer>
         {
             frbs => {
                 return <Constr  firebase={frbs}/>
             }
         }
-    </FirebaseContext.Consumer>
+    </DatabaseContext.Consumer>
 }
 
 const Constr = ({ toggle, firebase }) => {
@@ -234,7 +234,7 @@ const Constr = ({ toggle, firebase }) => {
 
     const afterRun = async () => {
         try {
-            let firebaseListener = firebase.db.ref(`hatim/${firebase.extractKey()}`).on('value', snapshot => {
+            let firebaseListener = firebase.api.db.ref(`hatim/${firebase.extractKey()}`).on('value', snapshot => {
 
 
                 let data = snapshot.val();
@@ -288,7 +288,7 @@ const Constr = ({ toggle, firebase }) => {
             // await afterRun();
             dispatch(cuzlerFunctionTriggerActions.toggleVisibility())
         }
-      }, [cuzlerFunctionTrigger.visible]);
+      }, [cuzlerFunctionTrigger.visible, hatimlerVisibilities]);
 
     return (
         <>

@@ -7,13 +7,13 @@ import { FooterContainer, FooterWrapper, FooterLinksContainer, FooterLinkWrapper
 Business, BusinessWrap, BusinessLogo, WebsiteRights, BusinessIcons, BusinessIconLink, BusinessVisit, BusinessMainPage, BusinessFeedback } from "./FooterElements";
 import {Linker} from '../Question/QuestionElements';
 import { FaGithub } from "react-icons/fa";
-import {FirebaseContext} from '../Firebase';
+import {DatabaseContext} from '../../backend';
 import {version} from '../../common'
 
 
 
 const Footer = () => {
-    const db = useContext(FirebaseContext);
+    const db = useContext(DatabaseContext);
     const [ziyaretSayisi, setZiyaretSayisi] = useState(0)
 
     useEffect( () => {

@@ -5,13 +5,31 @@
 
 
 import {dataFormat} from '../../../../strings/dataFormat';
-import { countNumberOfCuzs } from "../../helpers";
+import { countNumberOfCuzs } from "../../../utils";
+import app from 'firebase/app';
+import 'firebase/database';
+
+require('dotenv').config()
+
+const config = {
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    databaseURL: process.env.REACT_APP_databaseURL,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId,
+    measurementId: process.env.REACT_APP_measurementId
+};
+
 
 class Api_v1{
 
-    constructor(_db){
-  
-      this.db = _db;
+    constructor(){
+      
+      app.initializeApp(config);
+      this.db = app.database();
+
       this.countNumberOfCuzs = countNumberOfCuzs
     
     }
