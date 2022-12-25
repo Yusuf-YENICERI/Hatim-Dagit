@@ -161,7 +161,7 @@ class FirebaseAPI{
       let ownerId = LocDb.ref(`Hatim/hatimKeys/${hatimKey}/${subKey}/ownerId`).get()
 
       if((typeof ownerId) == "object"){
-        let ownerId = generateHash({length: 8});
+        ownerId = generateHash({length: 8});
         LocDb.ref(`Hatim/hatimKeys/${hatimKey}/${subKey}/ownerId`).set(ownerId);
       }
 
