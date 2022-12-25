@@ -4,7 +4,7 @@ import {Home} from './pages';
 import {Cuz} from './pages/cuz';
 import {Ramazan} from './pages/ramazan';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Message from './components/Message';
+import Message from './components/common/Message';
 
 
 function App() {

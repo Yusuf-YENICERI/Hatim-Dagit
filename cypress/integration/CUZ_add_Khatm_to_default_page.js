@@ -43,6 +43,10 @@ describe('add Khatm to default page', ()=>{
         cy.get(`#questionContainer > div:nth-child(12) > div > div > div > div:nth-child(${Part})`).click()
         //click to release it
         cy.get('#cancelPart').click()
+
+        cy.get('#deleteHatim').click()
+
+        cy.get('#questionContainer > div:nth-child(1) > div > div > div > div > button:nth-child(1)').click()
     });
 
     it('user should be able to add khatm to default page, should be able to take Part ', ()=>{
@@ -75,6 +79,8 @@ describe('add Khatm to default page', ()=>{
         cy.get('#takeButton').click()
         //check the name of the Part
         cy.get(`#questionContainer > div:nth-child(12) > div > div > div div:nth-child(${Part}) > div:nth-child(3)`).should('have.text', username)
+
+
     })
 
 
@@ -94,6 +100,7 @@ describe('add Khatm to default page', ()=>{
         cy.get('#takeButton').click()
         //check the name of the Part
         cy.get(`#questionContainer > div:nth-child(12) > div > div > div div:nth-child(${Part}) > div:nth-child(3)`).should('have.text', other_user)
+
     })
 
 });

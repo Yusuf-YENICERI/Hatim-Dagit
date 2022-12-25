@@ -1,12 +1,12 @@
 
 
 import React, {useState, useEffect} from 'react'
-import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar'
-import Question from '../components/Question'
-import Footer from '../components/Footer';
+import Navbar from '../components/common/Navbar';
+import Sidebar from '../components/common/Sidebar'
+import Question from '../components/main/Question'
+import Footer from '../components/common/Footer';
 import Cuzler from '../components/cuz/Cuzler';
-import Pwa from '../components/Pwa';
+import Pwa from '../components/common/Pwa';
 
 export const Cuz = () => {
 

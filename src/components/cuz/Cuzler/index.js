@@ -185,9 +185,9 @@ const Question = ({ toggle }) => {
 
     const afterRun = async () => {
         try {
-            let databaseListener = database.api.db.ref(`hatim/${database.extractKey()}`).on('value', snapshot => {
+            let databaseListener = database.hatimListener(snapshot => {
 
-
+                console.log('it works!')
                 let data = snapshot.val();
 
                 if(data.delete != undefined){
@@ -330,7 +330,7 @@ const Question = ({ toggle }) => {
                         return;
                     }
 
-                    let result = await database.cuzAlindi(username, hatimNo, activeHatimSubKey);
+                    let result = await database.cuzAl(username, hatimNo, activeHatimSubKey);
                     if(result == -1){
                         toggleAlertVisibility();
                     }else{

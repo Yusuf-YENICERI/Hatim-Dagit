@@ -2,12 +2,9 @@
 
 
 
-import Api_v1 from './APIs/firebase_api/v1';
-import Api_v2 from './APIs/firebase_api/v2';
-
 class Database{
-  constructor(){
-    this.api = new Api_v2();
+  constructor(_api){
+    this.api = _api;
   }
 
 
@@ -39,12 +36,12 @@ class Database{
     return (await this.api.yeniHatim(baslik, bitisTarihi, mevcutHatim, isRamazan, description));
   }
 
-  cuzAlindi = async (isim, no, subKey) => {
-    return await this.api.cuzAlindi(isim, no, subKey);
+  cuzAl = async (isim, no, subKey) => {
+    return (await this.api.cuzAl(isim, no, subKey));
   }
 
   cuzIsimDegistir = async (isim, no, subKey) => {
-    return await this.api.cuzIsimDegistir(isim, no, subKey);
+    return (await this.api.cuzIsimDegistir(isim, no, subKey));
   }
 
 
@@ -74,6 +71,10 @@ class Database{
 
   deleteHatim = async () => {
     return (await this.api.deleteHatim());
+  }
+
+  hatimListener = (callback) => {
+    return this.api.hatimListener(callback);
   }
 }
 

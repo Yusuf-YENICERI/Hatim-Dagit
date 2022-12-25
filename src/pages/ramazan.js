@@ -1,13 +1,13 @@
 
 
 import React, {useState, useEffect, useRef} from 'react'
-import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar'
-import Question from '../components/Question'
-import Footer from '../components/Footer';
-import RamazanDonerli from '../components/RamazanDonerli';
-import Pwa from '../components/Pwa';
-import RamazanTable from '../components/Table';
+import Navbar from '../components/common/Navbar';
+import Sidebar from '../components/common/Sidebar'
+import Question from '../components/main/Question'
+import Footer from '../components/common/Footer';
+import RamazanDonerli from '../components/ramazan/RamazanDonerli';
+import Pwa from '../components/common/Pwa';
+import RamazanTable from '../components/common/Table';
 
 import button from "../icons/button.svg";
 

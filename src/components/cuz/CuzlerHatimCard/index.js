@@ -146,6 +146,7 @@ export default function StatsCard({header, description, progress, leftCuzs, duaL
                                       toggleNoHandler(noHandlerPayload)
                                       dispatch(yesNoDialogAlertActions.toggleVisibility())
                                     }}
+                                    id="deleteHatim"
                                     >
                                       {Language["/cuz"].CuzlerHatimCard.deleteHatim}
                                   </Button>
