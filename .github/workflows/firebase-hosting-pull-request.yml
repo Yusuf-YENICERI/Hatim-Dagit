@@ -4,11 +4,18 @@
 name: Deploy to Firebase Hosting on PR
 'on': pull_request
 jobs:
-  build_and_preview:
+  cypress-run:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: yarn install && CI='' yarn build
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn start
+          wait-on: 'http://localhost:3000'
         env:
           REACT_APP_apiKey: '${{ secrets.FIREBASE_APIKEY }}'
           REACT_APP_authDomain: '${{ secrets.FIREBASE_AUTHDOMAIN }}'
@@ -18,10 +25,5 @@ jobs:
           REACT_APP_messagingSenderId: '${{ secrets.FIREBASE_MESSAGINGSENDERID }}'
           REACT_APP_appId: '${{ secrets.FIREBASE_APPID }}'
           REACT_APP_measurementId: '${{ secrets.FIREBASE_MEASUREMENTID }}'
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_HATIM_DAGIT }}'
-          projectId: '${{ secrets.FIREBASE_PROJECTID }}'
-        env:
-          FIREBASE_CLI_PREVIEWS: hostingchannels
+          REACT_APP_dev: '${{ secrets.DEV_MODE }}'
+          CYPRESS_DEV_MODE: '${{ secrets.DEV_MODE }}'
