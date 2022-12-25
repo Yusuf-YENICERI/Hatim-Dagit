@@ -1,6 +1,6 @@
 # Hatim-Dagit
 
-Website: https://hatim-dagit.web.app
+Website: https://hatimdagit.com
 
 This is an application to distribute Khatm between people very easily.
 
