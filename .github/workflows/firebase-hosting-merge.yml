@@ -12,7 +12,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - run: CI=false
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
       - name: Cypress run
@@ -29,7 +28,8 @@ jobs:
           REACT_APP_messagingSenderId: '${{ secrets.FIREBASE_MESSAGINGSENDERID }}'
           REACT_APP_appId: '${{ secrets.FIREBASE_APPID }}'
           REACT_APP_measurementId: '${{ secrets.FIREBASE_MEASUREMENTID }}'
-        
+          REACT_APP_dev: '${{ secrets.DEV_MODE }}'
+          CYPRESS_DEV_MODE: '${{ secrets.DEV_MODE }}'
 
           
   build_and_deploy:
@@ -47,6 +47,8 @@ jobs:
           REACT_APP_messagingSenderId: '${{ secrets.FIREBASE_MESSAGINGSENDERID }}'
           REACT_APP_appId: '${{ secrets.FIREBASE_APPID }}'
           REACT_APP_measurementId: '${{ secrets.FIREBASE_MEASUREMENTID }}'
+          REACT_APP_dev: '${{ secrets.DEV_MODE }}'
+          CYPRESS_DEV_MODE: '${{ secrets.DEV_MODE }}'
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
