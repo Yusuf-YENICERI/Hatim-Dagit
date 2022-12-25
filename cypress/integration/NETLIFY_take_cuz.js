@@ -6,18 +6,18 @@ import {getResponse} from './NETLIFY_take_cuz_helper'
 
 describe('NETLIFY functions test', () => {
 
-    let dev = Cypress.env('DEV_MODE');
-
+    let dev = Cypress.env('DEV_MODE') == "true";
     let params = {
-        key: '-NIZ501BTdCZDmj4kdh7',
-        subKey: '-NJOSY6pcGEKRU3nnFl9',
+        key: dev ? '-NIZ501BTdCZDmj4kdh7' : '-NK76or4L73tCuf2wx3b',
+        subKey: dev ? '-NJOSY6pcGEKRU3nnFl9' :  '-NK76oxIUV1je0c6dbc2',
         cuzNo: '1',
         name: 'asd',
         alindi: 'true',
         ownerId: '16',
         makeNewHatimArg: undefined,
-        dev: dev.toString(),
+        dev: Cypress.env('DEV_MODE'),
     };
+
 
     it('user should be able to take Cuz and other user shouldn\'t be able to take', async ()=>{
         
@@ -43,14 +43,14 @@ describe('NETLIFY functions test', () => {
     it('user should be able to release Cuz and other should be able to take', async ()=>{
         
         params = {
-            key: '-NIZ501BTdCZDmj4kdh7',
-            subKey: '-NJOSY6pcGEKRU3nnFl9',
+            key: dev ? '-NIZ501BTdCZDmj4kdh7' : '-NK76or4L73tCuf2wx3b',
+            subKey: dev ? '-NJOSY6pcGEKRU3nnFl9' :  '-NK76oxIUV1je0c6dbc2',
             cuzNo: '1',
-            name: 'asd',
+            name: '',
             alindi: 'false',
             ownerId: '16',
             makeNewHatimArg: undefined,
-            dev: dev.toString(),
+            dev: Cypress.env('DEV_MODE'),
         };    
 
         let response = await getResponse(params);
@@ -79,7 +79,7 @@ describe('NETLIFY functions test', () => {
 
         params.ownerId = '12';
         params.alindi = 'false';
-        params.name = 'other';
+        params.name = '';
 
         response = await getResponse(params);
 
@@ -91,14 +91,14 @@ describe('NETLIFY functions test', () => {
     it('user should be able to take Cuz and new Hatim should be made', async ()=>{
 
         params = {
-            key: '-NIZ501BTdCZDmj4kdh7',
-            subKey: '-NJ0Qu6cVNWyAoM2PqQg',
+            key: dev ? '-NIZ501BTdCZDmj4kdh7' : '-NK76or4L73tCuf2wx3b',
+            subKey: dev ? '-NJOSY6pcGEKRU3nnFl9' :  '-NK76oxIUV1je0c6dbc2',
             cuzNo: '1',
-            name: 'asd',
+            name: '',
             alindi: 'false',
             ownerId: '16',
             makeNewHatimArg: 'true',
-            dev: dev.toString(),
+            dev: Cypress.env('DEV_MODE'),
         };
 
         let response = await getResponse(params);
@@ -124,14 +124,14 @@ describe('NETLIFY functions test', () => {
 
     it('user should be able to take Cuz and new Hatim shouldn\'t be made', async ()=>{
         params = {
-            key: '-NIZ501BTdCZDmj4kdh7',
-            subKey: '-NJ0Qu6cVNWyAoM2PqQg',
+            key: dev ? '-NIZ501BTdCZDmj4kdh7' : '-NK76or4L73tCuf2wx3b',
+            subKey: dev ? '-NJOSY6pcGEKRU3nnFl9' :  '-NK76oxIUV1je0c6dbc2',
             cuzNo: '1',
-            name: 'asd',
+            name: '',
             alindi: 'false',
             ownerId: '16',
             makeNewHatimArg: undefined,
-            dev: dev.toString(),
+            dev: Cypress.env('DEV_MODE'),
         };
 
         let response = await getResponse(params);
