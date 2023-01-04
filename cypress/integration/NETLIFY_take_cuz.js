@@ -92,7 +92,7 @@ describe('NETLIFY functions test', () => {
 
         params = {
             key: dev ? '-NIZ501BTdCZDmj4kdh7' : '-NK76or4L73tCuf2wx3b',
-            subKey: dev ? '-NJOSY6pcGEKRU3nnFl9' :  '-NK76oxIUV1je0c6dbc2',
+            subKey: dev ? '-NJ0Qu6cVNWyAoM2PqQg' :  '-NK76oxIUV1je0c6dbc2',
             cuzNo: '1',
             name: '',
             alindi: 'false',

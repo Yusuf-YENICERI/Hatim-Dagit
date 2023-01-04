@@ -32,12 +32,12 @@ class Database{
     return (await this.api.hatimBasligiGetir(hatimKey));
   }
 
-  yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false, isRamazan = false, description = "") => {
-    return (await this.api.yeniHatim(baslik, bitisTarihi, mevcutHatim, isRamazan, description));
+  yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false, isRamazan = false, description = "", makeNewHatim = false) => {
+    return (await this.api.yeniHatim(baslik, bitisTarihi, mevcutHatim, isRamazan, description, makeNewHatim));
   }
 
-  cuzAl = async (isim, no, subKey) => {
-    return (await this.api.cuzAl(isim, no, subKey));
+  cuzAl = async (isim, no, subKey, alindi = true, makeNewHatim = false) => {
+    return (await this.api.cuzAl(isim, no, subKey, alindi, makeNewHatim ));
   }
 
   cuzIsimDegistir = async (isim, no, subKey) => {

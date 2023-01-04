@@ -37,7 +37,7 @@ const removeAll = (obj, item, subKey) => {
   }
 
 const objectToArray = (obj) => {
-  return Object.keys(obj).filter(x=>(x!="adminToken") && (x!="subKey")).map((key) => {
+  return Object.keys(obj).filter(x=>(x!="adminToken") && (x!="subKey") && (x!="makeNewHatim")).map((key) => {
     obj[key].subKey = key;
     return obj[key];
   });
@@ -77,7 +77,7 @@ const initializeLocalStorage = (type) => {
   }
 }
 
-const version = "1.1.1";
+const version = "1.1.5";
 
 export default detectLanguage;
 

@@ -65,6 +65,8 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
     const [askDialogBox, setAskDialogBox] = useState(false);
     const [activeHatimSubKey, setActiveHatimSubKey] = useState(false);
     const [currentApi, setCurrentApi] = useState(2);
+    const [makeNewHatimState, setMakeNewHatimState] = useState(false);
+
     
     {/** AskDialog */}
     const [yazilar, setYazilar] = useState({baslik:LanguageData["/"].Button.Final.Before.Header, link:LanguageData["/"].Button.Final.Before.LinkReady,
@@ -90,6 +92,13 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
             while(result == "error"){
                 result = await firebase.hatimGetir();
             } 
+
+            let makeNewHatimStateTemp = result.makeNewHatim;
+
+            if(makeNewHatimStateTemp != undefined){
+                setMakeNewHatimState(makeNewHatimStateTemp);
+            }
+
             console.log(result);
 
             let allHatimler;
@@ -296,8 +305,8 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
                         setPartIptal(false);
                         return;
                     }
-                    let result = await firebase.cuzAl(username, hatimNo, activeHatimSubKey);
-                    if(result == -1){
+                    let result = await firebase.cuzAl(username, hatimNo, activeHatimSubKey, true, makeNewHatimState);
+                    if(result.code == -1){
                         // perform action
                     }
                     

@@ -44,5 +44,15 @@ export const AlertButton = styled.button`
     border: 1px solid white;
     border-radius: 5px;
     padding: 10px;
+    margin: 0 10px 0 10px;
+`;
+
+export const FeedbackButton = styled.button`
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 10px 0 10px;
 `;
 

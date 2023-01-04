@@ -9,6 +9,7 @@ import { cuzlerFunctionTriggerReducer } from "../features/cuzlerFunctionTrigger"
 import { cuzModalReducer } from "../features/cuzModal";
 import { editModalCuzlerReducer } from "../features/editCuzlerModal";
 import { notificationReducer } from "../features/notification";
+import {loggerReducer} from "../features/logger"
 import { yesNoDialogAlertReducer } from "../features/yesNoDialogAlert";
 
 export const store = configureStore({
@@ -18,5 +19,6 @@ export const store = configureStore({
         editModalCuzler: editModalCuzlerReducer,
         yesNoDialogAlert: yesNoDialogAlertReducer,
         cuzModal: cuzModalReducer,
+        logger: loggerReducer
     }
 })

@@ -16,75 +16,7 @@ import Database, {DatabaseContext} from '../../../backend';
 import copy from '../../../icons/copy.svg';
 import close from '../../../icons/close.svg';
 import { NavBtnLink } from '../../common/Navbar/NavbarElements';
-
-const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDialogBox, setAskDialogBox, hatimKonu, setHatimKonu, hatimBitisTarihi, setHatimBitisTarihi, changeAskDialogBox,
-                    isRamazan, setHatimDescription, hatimDescription }) => {
-    return (
-    <DialogBox visibility={askDialogBox} height={"380px"} top={"10%"}>
-
-                <DialogContainer>
-
-                <DialogIcon src={close} iconSize={"30px"} alignEnd={true} onClick={
-                ()=>{
-                   changeAskDialogBox();
-                }
-            } />
-
-                <DialogText fontSize={"20px"}>
-                {Language["/"].Button.Header.Text}
-                </DialogText>
-
-                <div style={{height:'30px'}}></div>
-                
-                <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <DialogTextSpan>{Language["/"].Button.Header.InputSpan[0]}</DialogTextSpan>
-                    <DialogInputBox placeholder={Language["/"].Button.Header.Input[0]} onChange = {(event)=>{
-                        setHatimKonu(event.target.value);
-                        
-                    }}/>
-                </div>
-
-                <div style={{height:'10px'}}></div>
-
-                <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <DialogTextSpan>{Language["/"].Button.Header.InputSpan[1]}</DialogTextSpan>
-                    <DialogTextArea rows="2" type="" placeholder={Language["/"].Button.Header.Input[1]} onChange = {(event)=>{
-                        setHatimDescription(event.target.value);
-                        
-                    }}/>
-                </div>
-
-                <div style={{height:'10px'}}></div>
-
-
-                <div style={{display: 'flex', flexDirection: 'column'}}>
-                    <DialogTextSpan>{Language["/"].Button.Header.InputSpan[2]}</DialogTextSpan>
-                    <DialogInputBox type="date"  onChange = {(event)=>{
-                        setHatimBitisTarihi(event.target.value);
-                    }}/>
-                </div>
-
-                {<div style={{height:'10px'}}></div>}
-
-             
-                </DialogContainer>
-
-            <NavBtnLink onClick={async ()=>{
-                setAskDialogBox(false);
-                propHideDialogBox.setHideDialogBox(true);
-                let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, false, isRamazan, hatimDescription);
-                setHatimKey(_hatimKey);
-                const route = isRamazan ? "ramazan" : "cuz";
-                setYazilar({
-                    baslik:Language["/"].Button.Final.After.Header,
-                    link: `https://hatimdagit.com/${route}/` + _hatimKey,
-                    cevap:Language["/"].Button.Final.After.Button
-                })
-            }}>{Language["/"].Button.Header.Button}</NavBtnLink>
-
-            </DialogBox>
-    );
-}
+import AskDialog from '../AskDialog';
 
 const Constr = ({toggle}) => {
     return <DatabaseContext.Consumer>

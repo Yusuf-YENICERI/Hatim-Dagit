@@ -9,7 +9,9 @@ import { generateHash } from "random-hash";
 import LocDb from "@yusuf-yeniceri/easy-storage";
 import app from 'firebase/app';
 import 'firebase/database';
+import 'firebase/analytics';
 import {sFunctions} from '../../sFunctions'
+import Logger from './logger'
 
 require('dotenv').config()
 
@@ -35,7 +37,8 @@ class FirebaseAPI{
         app.initializeApp(config);
         this.db = app.database();
         this.countNumberOfCuzs = countNumberOfCuzs;
-    
+        this.analytics = app.analytics();
+        this.logger = new Logger(this.db);
     }
   
   
@@ -81,7 +84,7 @@ class FirebaseAPI{
         if(data.baslik != null){
           data = [data];
         }
-  
+        console.log('gelen Hatim:')
         console.log(data);
         
         return data;
@@ -95,13 +98,14 @@ class FirebaseAPI{
       return baslik.val();
     }
   
-    yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false, isRamazan = false, description = "") => {
+    yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false, isRamazan = false, description = "", makeNewHatim = false) => {
       dataFormat.baslik = baslik;
       dataFormat.bitisTarihi = bitisTarihi;
       dataFormat.isRamazan = isRamazan;
       dataFormat.description = description;
     
-      // console.log(dataFormat)
+
+      console.log(dataFormat)
       // console.log(baslik)
   
       let hatimKey, adminToken;
@@ -109,6 +113,7 @@ class FirebaseAPI{
         hatimKey = await this.db.ref("hatim").push().key;
         adminToken = generateHash({length: 16});
         await this.db.ref(`hatim/${hatimKey}/adminToken`).set(adminToken)
+        await this.db.ref(`hatim/${hatimKey}/makeNewHatim`).set(makeNewHatim)
       }else{
         hatimKey = this.extractKey();
         hatimKey = hatimKey.replace("/", "");
@@ -154,7 +159,7 @@ class FirebaseAPI{
       }
     }
   
-    cuzAl = async (isim, no, subKey, alindi = true) => {
+    cuzAl = async (isim, no, subKey, alindi = true, makeNewHatim = false) => {
       let hatimKey = this.extractKey().replace('/','');
       let sira = this.hatimSiraBelirle(no);
 
@@ -172,22 +177,37 @@ class FirebaseAPI{
             name: isim,
             alindi: alindi.toString(),
             ownerId: ownerId,
-            dev: netlifyParams.dev
+            dev: netlifyParams.dev,
+            makeNewHatimArg: makeNewHatim ?? undefined
       }
 
-      console.log(`params: ${params.dev}`)
+      // console.log(`params: ${params.dev}`)
 
       try {
         let result = await sFunctions.takeCuz(params);
-        if(result.code == 200){
-         // 0 means taking Cuz is successfull
-          return 0;
-        }else{
-          return -1;
+        let _errorKey = undefined;
+
+        if(result.error != undefined)
+        {
+          let errorRef = "cuzAl";
+          let errorKey = this.db.ref(`logging/errors/${errorRef}`).push().key;
+          
+          result.error.errorKey = errorKey;
+          this.logger.logError(errorRef ,errorKey, result.error);
+          this.analytics.logEvent("cuz_al", result.error);
+          
+          _errorKey = `${errorRef}/${errorKey}`;
         }
+         // 0 means taking Cuz is successfull
+        if(result.code == 200){
+          return {code: 0};
+        }else{
+          return {code: -1, errorKey: _errorKey};
+        }
+
       } catch (error) {
         //-1 means Cuz is already taken
-        return -1;
+        return {code: -1, errorKey: undefined};
       }
       
        

@@ -14,6 +14,9 @@
 //     dev: dev.toString(),
 // };
 
+import LocDb from "@yusuf-yeniceri/easy-storage";
+
+
 
 class Netlify{
     
@@ -47,16 +50,42 @@ class Netlify{
             url = `https://playful-malasada-5142b3.netlify.app/.netlify/functions/takeCuz?key=${params.key}&subKey=${params.subKey}&cuzNo=${params.cuzNo}&name=${params.name}&alindi=${params.alindi}&ownerId=${params.ownerId}&makeNewHatimArg=${params.makeNewHatimArg}&dev=${params.dev}`;   
         }
     
-        let response = await fetch(url);
-        let data = await response.text();
-    
-        if(response.status == 200){
-            data = JSON.parse(data);
+        let response = undefined
+        let error = undefined
+        try {
+            response = await fetch(url);            
+        } catch (error) {
+            error = error;
+            return {
+                code: undefined,
+                error: {"data": error}
+            }
         }
-    
+
+        let data = await response.text();
+        switch (response.status) {
+            case 200:
+                data = JSON.parse(data);
+                break;
+            case 400:
+            case 401:
+            case 500:
+                let ownerId = LocDb.ref(`Hatim/hatimKeys/${params.key}/${params.subKey}/ownerId`).get()
+                if(typeof ownerId == "object"){
+                    ownerId = undefined;
+                }
+                
+                let userAgent = window.navigator.userAgent ?? undefined
+
+                error = {code: response.status, data: data, params: params, localOwnerId: ownerId, userAgent: userAgent, dateTime: (new Date()).toString()}
+            default:
+                break;
+        }
+
         return {
             code: response.status,
-            data: data
+            data: data,
+            error: error
         }
     }
 }
