@@ -7,11 +7,15 @@
 import React from 'react'
 import { AlertButton, AlertContainer, AlertLayout, AlertText, Container, FeedbackButton } from './AlertDialogComponents'
 import {useLogger} from '../../../features/logger'
+import { useDispatch } from 'react-redux';
+import { alertDialogActions } from '../../../features/alertDialog';
 
 const AlertDialog = ({text, textButton, alertVisible, toggleAlertVisibility}) => {
   
   const {errorKey} = useLogger();
   console.log(errorKey)
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -22,7 +26,7 @@ const AlertDialog = ({text, textButton, alertVisible, toggleAlertVisibility}) =>
                     <div>
                       <AlertButton onClick={toggleAlertVisibility}>{textButton}</AlertButton>
                       {errorKey && <FeedbackButton bgColor="red" onClick={()=>{
-                        window.location.href = `mailto:hep.beraber.okuyalim@gmail.com?subject=Hata var, hata kodu:${errorKey}`;
+                        dispatch(alertDialogActions.toggleVisibility())
                       }}>Hata Bildir</FeedbackButton>}
                     </div>
                 </AlertLayout>

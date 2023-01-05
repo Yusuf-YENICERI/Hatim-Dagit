@@ -13,6 +13,14 @@ class Logger{
             console.error(error);
         }
     }
+
+    deleteLog = async (ref) => {
+        try{
+            await this.db.ref(`logs/errors/${ref}`).remove();
+        }catch(error){
+            console.error(error);
+        }
+    }
 }
 
 export default Logger;

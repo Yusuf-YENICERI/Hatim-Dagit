@@ -4,6 +4,7 @@
 
 class Database{
   constructor(_api){
+    this.logger = _api.logger;
     this.api = _api;
   }
 

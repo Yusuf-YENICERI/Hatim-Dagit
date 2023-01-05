@@ -39,10 +39,13 @@ import { Text, Modal } from '@mantine/core';
 import EditModalContent from "../EditModalContent";
 import { cuzlerFunctionTriggerActions, useCuzlerFunctionTrigger } from '../../../features/cuzlerFunctionTrigger';
 import { yesNoDialogAlertActions } from '../../../features/yesNoDialogAlert';
-import {loggerActions} from '../../../features/logger'
+import {loggerActions, useLogger} from '../../../features/logger'
 import CuzModal from "../CuzModal";
 import LocDb from "@yusuf-yeniceri/easy-storage";
 import { cuzModalActions, useCuzModal } from '../../../features/cuzModal';
+import AlertDialogCommon from '../../common/AlertDialogCommon'
+import Logger from '../../../backend/APIs/firebase_api/logger';
+import { alertDialogActions } from '../../../features/alertDialog';
 
 
 
@@ -106,6 +109,20 @@ const Question = ({ toggle }) => {
         setAlertVisible(!alertVisible)
     }
     /** AlertDialog End */
+
+    /** AlertDialogCommon */
+    const {errorKey} = useLogger();
+    const yesClick = () => {
+        window.location.href = `mailto:hep.beraber.okuyalim@gmail.com?subject=Hata var, hata kodu:${errorKey}`;
+    }
+
+    const noClick = async () => {
+        let errorRef = errorKey
+        await database.logger.deleteLog(errorRef);
+        dispatch(alertDialogActions.toggleVisibility())
+        setAlertVisible(false);
+    }
+    /** AlertDialogCommon End */
 
 
     /** YesNoDialog */
@@ -658,6 +675,10 @@ const Question = ({ toggle }) => {
                 </YeniHatimButton>
             </YeniHatimContainer>
         </YeniHatimWrapper>}
+
+        {/** Cüz alınamadığı durumda user agent bildirgesi inşaAllah */}
+        <AlertDialogCommon text={"Hatayı bildirerek kullandığınız tarayıcı, tarayıcı versiyonu, sistem bilgisi vb. bilgileri (bkz. user-agent) sisteme gönderecektir. Kabul ediyor musunuz?"} yesClick={yesClick} noClick={noClick} />
+        
 
         </QuestionContainer>
         </>
