@@ -56,9 +56,15 @@ class Netlify{
             response = await fetch(url);            
         } catch (error) {
             error = error;
+
+            let ownerId = LocDb.ref(`Hatim/hatimKeys/${params.key}/${params.subKey}/ownerId`).get()
+                if(typeof ownerId == "object"){
+                    ownerId = undefined;
+                }
+            let userAgent = window.navigator.userAgent ?? undefined
             return {
                 code: undefined,
-                error: {"data": error}
+                error: {"data": error, params: params, localOwnerId: ownerId, userAgent: userAgent, dateTime: (new Date()).toString()}
             }
         }
 
