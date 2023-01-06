@@ -9,6 +9,7 @@ import { AlertButton, AlertContainer, AlertLayout, AlertText, Container, Feedbac
 import {useLogger} from '../../../features/logger'
 import { useDispatch } from 'react-redux';
 import { alertDialogActions } from '../../../features/alertDialog';
+import Language from '../../../strings';
 
 const AlertDialog = ({text, textButton, alertVisible, toggleAlertVisibility}) => {
   
@@ -27,7 +28,7 @@ const AlertDialog = ({text, textButton, alertVisible, toggleAlertVisibility}) =>
                       <AlertButton onClick={toggleAlertVisibility}>{textButton}</AlertButton>
                       {errorKey && <FeedbackButton bgColor="red" onClick={()=>{
                         dispatch(alertDialogActions.toggleVisibility())
-                      }}>Hata Bildir</FeedbackButton>}
+                      }}>{Language["/cuz"].AlertDialog.Feedback}</FeedbackButton>}
                     </div>
                 </AlertLayout>
             </AlertContainer>

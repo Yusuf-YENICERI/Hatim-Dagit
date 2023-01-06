@@ -113,6 +113,7 @@ const Question = ({ toggle }) => {
     /** AlertDialogCommon */
     const {errorKey} = useLogger();
     const yesClick = () => {
+        dispatch(alertDialogActions.toggleVisibility())
         window.location.href = `mailto:hep.beraber.okuyalim@gmail.com?subject=Hata var, hata kodu:${errorKey}`;
     }
 
@@ -284,6 +285,7 @@ const Question = ({ toggle }) => {
         <AlertDialog text={LanguageData["/cuz"].AlertDialog.Title} textButton={LanguageData["/cuz"].AlertDialog.Button}
          alertVisible={alertVisible} toggleAlertVisibility={toggleAlertVisibility}>
         </AlertDialog>
+
 
         <LoadingContainer visibility={loadingVisibility}>
             <LoadingItem >{waitText}</LoadingItem>
@@ -662,7 +664,6 @@ const Question = ({ toggle }) => {
         </>
         })}
 
-
         {/**Yeni Hatim ekleme butonu */}
         {  (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
             <YeniHatimContainer>
@@ -676,8 +677,9 @@ const Question = ({ toggle }) => {
             </YeniHatimContainer>
         </YeniHatimWrapper>}
 
+        
         {/** Cüz alınamadığı durumda user agent bildirgesi inşaAllah */}
-        <AlertDialogCommon text={"Hatayı bildirerek kullandığınız tarayıcı, tarayıcı versiyonu, sistem bilgisi vb. bilgileri (bkz. user-agent) sisteme gönderecektir. Kabul ediyor musunuz?"} yesClick={yesClick} noClick={noClick} />
+        <AlertDialogCommon text={LanguageData.AlertDialog.Text} yesClick={yesClick} noClick={noClick} />
         
 
         </QuestionContainer>

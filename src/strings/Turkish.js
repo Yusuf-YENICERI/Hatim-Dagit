@@ -30,6 +30,13 @@ let Turkish = {
         GoToMainPage: "Anasayfaya Git",
         Feedback: "Geribildirim Yap"
     },
+
+
+    AlertDialog: {
+        Text: "Hatayı bildirerek kullandığınız tarayıcı, tarayıcı versiyonu, sistem bilgisi vb. bilgileri (bkz. user-agent) sisteme gönderecektir. Kabul ediyor musunuz?",
+        Yes: 'Evet',
+        No: 'Hayır'
+    },
     
 
     "/" : {
@@ -99,7 +106,8 @@ let Turkish = {
 
         AlertDialog:{
             Title: "Cüz çoktan alınmış. Lütfen başka bir cüzü almayı deneyin!",
-            Button: "Tamam"
+            Button: "Tamam",
+            Feedback: "Hata Bildir"
         },
 
 

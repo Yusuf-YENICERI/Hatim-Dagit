@@ -38,6 +38,12 @@ let english = {
 
     },
 
+    AlertDialog: {
+        Text: "You will send browser, browser information, system information etc. (user-agent in short) by accepting this. Do you want to continue?",
+        Yes: 'Yes',
+        No: 'No'
+    },
+
     "/" : {
         Question: "Click on Button to Make New Khatm",
         Button: {
@@ -105,7 +111,8 @@ let english = {
 
         AlertDialog:{
             Title: "Part is already taken! Please take another Part.",
-            Button: "Ok"
+            Button: "Ok",
+            Feedback: "Send Feedback"
         },
 
 
