@@ -42,11 +42,13 @@ let Turkish = {
     "/" : {
         Question: "Butona Tıklayarak Yeni Bir Hatim Oluştur!",
         Button: {
-            Main: "Hızlı Hatim Oluştur",
+            Main: "Hızlıca Hatim Oluştur",
             Ramazan: "Ramazan Dönerli Hatim Oluştur",
+            Aylar3: "3 Aylar Hatmi Oluştur",
             Header: {
                 Text: "Yeni Hatim Oluştur",
-                InputSpan: ["Başlık", "Açıklama", "Hatim Duası Tarihi"],
+                Text3MonthProgram: "Program Seç",
+                InputSpan: ["Başlık", "Açıklama", "Hatim Duası Tarihi", "Hatim Sayısı"],
                 Input: ["Lütfen Hatim başlığı yazın ..", "Lütfen Hatim için açıklama yazın .."],
                 Button: "Devam Et"
             },

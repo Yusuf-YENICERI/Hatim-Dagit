@@ -1,5 +1,10 @@
 
 
+
+
+
+import dataMonths3 from "./strings/dataMonths3";
+
 const detectLanguage = () => {
     let language = window.navigator.userLanguage || window.navigator.language;
     if (localStorage.getItem('language') != null)
@@ -77,8 +82,21 @@ const initializeLocalStorage = (type) => {
   }
 }
 
+const getMonths3Date = () => {
+  const data = dataMonths3[(new Date()).getFullYear()];
+  if(data.double){
+    if ((new Date()) < new Date(data.startingDate2)){
+      return data.startingDate1
+    }
+    return data.startingDate2;
+  }else{
+    return data.startingDate;
+  }
+}
+
 const version = "1.1.5";
 
 export default detectLanguage;
 
-export {setLanguage, removeAll, removeAll_v1, objectToArray, isSafari, isStandalone, extractKey, initializeLocalStorage, version};
+export {setLanguage, removeAll, removeAll_v1, objectToArray, isSafari, isStandalone, extractKey,
+   initializeLocalStorage, getMonths3Date, version};

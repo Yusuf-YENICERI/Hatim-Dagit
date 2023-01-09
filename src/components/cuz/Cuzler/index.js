@@ -50,7 +50,6 @@ import { alertDialogActions } from '../../../features/alertDialog';
 
 
 
-
 const Question = ({ toggle }) => {
 
     const database = useContext(DatabaseContext)
@@ -149,6 +148,25 @@ const Question = ({ toggle }) => {
 
 
 
+    /** current index for Hatimler visibilities */
+    const getCurrentIndex = (allLanguage) => {
+        let currentIndex = 0;
+        for (let i = 0; i < allLanguage.length; i++) {
+
+            let totalCevap = allLanguage[i][1].cevaplar.filter((cevap)=>cevap.alindi).length +
+            allLanguage[i][2].cevaplar.filter((cevap)=>cevap.alindi).length +
+            allLanguage[i][3].cevaplar.filter((cevap)=>cevap.alindi).length;
+
+            if(totalCevap != 30){
+                currentIndex = i;
+                break;
+            }
+        }
+
+        return currentIndex;
+    }
+    /** current index end */
+
 
     const initialRun = async () => {
         try {
@@ -171,18 +189,7 @@ const Question = ({ toggle }) => {
                 }
             }
 
-            let currentIndex = 0;
-            for (let i = 0; i < allHatimler.length; i++) {
-
-                let totalCevap = allHatimler[i][1].cevaplar.filter((cevap)=>cevap.alindi).length +
-                allHatimler[i][2].cevaplar.filter((cevap)=>cevap.alindi).length +
-                allHatimler[i][3].cevaplar.filter((cevap)=>cevap.alindi).length;
-
-                if(totalCevap != 30){
-                    currentIndex = i;
-                    break;
-                }
-            }
+            
             // setTotalPartsTaken(database.countNumberOfCuzs(allHatimler))
             setAllLanguage(allHatimler);
             setHideRespond(true);
@@ -192,6 +199,7 @@ const Question = ({ toggle }) => {
                 for (let i = 0; i < objectToArray(result).length; i++) {
                     newArr[i] = false;
                 }
+                let currentIndex = getCurrentIndex(objectToArray(result));
                 newArr[currentIndex] = true;
                 return newArr;
             })());
@@ -226,6 +234,16 @@ const Question = ({ toggle }) => {
                 }
 
                 let result = data;
+
+                if(initialRunDone && (allLanguage.length < objectToArray(result).length)){
+                    let newArr = [...hatimlerVisibilities];
+                    let arrLength = newArr.length + 1;
+                    for (let i = 0; i < arrLength; i++) {
+                        newArr[i] = false;
+                    }
+                    newArr[newArr.length-1] = true;
+                    setHatimlerVisibilities(newArr);
+                }
 
                 setAllLanguage(objectToArray(result));
                 setHideRespond(true);

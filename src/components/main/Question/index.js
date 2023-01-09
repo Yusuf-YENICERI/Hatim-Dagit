@@ -17,6 +17,7 @@ import copy from '../../../icons/copy.svg';
 import close from '../../../icons/close.svg';
 import { NavBtnLink } from '../../common/Navbar/NavbarElements';
 import AskDialog from '../AskDialog';
+import Months3Dialog from '../Months3Dialog';
 
 const Constr = ({toggle}) => {
     return <DatabaseContext.Consumer>
@@ -48,7 +49,9 @@ const Question = ({ firebase, toggle }) => {
     const [mevcutHatimlerVisible, setMevcutHatimlerVisible] = useState(false);
     const [ramazan, setRamazan] = useState(false)
     const [hatimDescription, setHatimDescription] = useState("")
-
+    const [hatimCount, setHatimCount] = useState(1)
+    const [months3DialogVisible, setMonths3DialogVisible] = useState(false)
+    
     const changeAskDialogBox = () => {
         setAskDialogBox(!askDialogBox)
     }
@@ -137,7 +140,7 @@ const Question = ({ firebase, toggle }) => {
                 </DialogIcon>
                 </DialogContainer>
 
-            <NavBtnLink to={(ramazan ? "/ramazan/" : "/cuz/") + hatimKey}>{yazilar.cevap}</NavBtnLink>
+            <NavBtnLink to={yazilar.link.replace("https://hatimdagit.com", "")}>{yazilar.cevap}</NavBtnLink>
 
             </DialogBox>
             
@@ -146,7 +149,11 @@ const Question = ({ firebase, toggle }) => {
                                 askDialogBox={askDialogBox} setAskDialogBox={setAskDialogBox}
                                 hatimKonu={hatimKonu} setHatimKonu={setHatimKonu} changeAskDialogBox={changeAskDialogBox}
                                 hatimBitisTarihi={hatimBitisTarihi} setHatimBitisTarihi={setHatimBitisTarihi} 
-                                isRamazan={ramazan} setHatimDescription={setHatimDescription} hatimDescription={hatimDescription}/>
+                                isRamazan={ramazan} setHatimDescription={setHatimDescription} hatimDescription={hatimDescription}
+                                hatimCount={hatimCount} setHatimCount={setHatimCount} />
+
+            <Months3Dialog months3DialogVisible={months3DialogVisible} setMonths3DialogVisible={setMonths3DialogVisible}
+                            setHatimKey={setHatimKey} setYazilar={setYazilar} setHideDialogBox={setHideDialogBox} />
 
         {/* <BackContainer>
                 <BackButtonIcon hide={datas == 1 ? false : true} src={backButton} onClick={()=>{setDatas(routes.pop()); console.log(routes); setRoutes(routes);}}>
@@ -180,12 +187,27 @@ const Question = ({ firebase, toggle }) => {
                            <RespondInnerContainer hatimExists={hideMevcutHatimler}>
                            
 
+                                    <ResponseItem onClick={ ()=>{
+                                        setMonths3DialogVisible(true)
+                                        
+                                    }}>
+                                         <NewFeatureTag>Yeni</NewFeatureTag>
+                                        <ResponseText>
+                                        {Language["/"].Button.Aylar3}
+                                        </ResponseText>
+                                    </ResponseItem>
+                            </RespondInnerContainer>
+            </RespondContainer>
+
+            <RespondContainer style={{marginTop: '20px'}}>
+                           <RespondInnerContainer hatimExists={hideMevcutHatimler}>
+                           
+
                                     <ResponseItem id={"newDonerliRamazanKhatm"} onClick={ ()=>{
                                         setRamazan(true);
                                         setAskDialogBox(true)
                                         
                                     }}>
-                                         <NewFeatureTag>Yeni</NewFeatureTag>
                                         <ResponseText>
                                         {Language["/"].Button.Ramazan}
                                         </ResponseText>

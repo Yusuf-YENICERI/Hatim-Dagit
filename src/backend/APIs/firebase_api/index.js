@@ -98,7 +98,7 @@ class FirebaseAPI{
       return baslik.val();
     }
   
-    yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false, isRamazan = false, description = "", makeNewHatim = false) => {
+    yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false, isRamazan = false, description = "", makeNewHatim = false, hatimCount) => {
       dataFormat.baslik = baslik;
       dataFormat.bitisTarihi = bitisTarihi;
       dataFormat.isRamazan = isRamazan;
@@ -119,11 +119,15 @@ class FirebaseAPI{
         hatimKey = hatimKey.replace("/", "");
        
       }
-      let hatimAltKey = await this.db.ref(`hatim/${hatimKey}`).push().key;
-      await this.db.ref( `hatim/${hatimKey}/${hatimAltKey}` ).set(dataFormat);
-  
+
       console.log(`hatimKey: ${hatimKey}`)
-      console.log(`hatimAltKey: ${hatimAltKey}`)
+      
+      for (let i = 0; i < hatimCount; i++) {
+              let hatimAltKey = await this.db.ref(`hatim/${hatimKey}`).push().key;
+              await this.db.ref( `hatim/${hatimKey}/${hatimAltKey}` ).set(dataFormat);
+              console.log(`hatimAltKey: ${hatimAltKey}`)
+      }
+  
   
       if(!mevcutHatim){
         let localStorageCuzKeylerArr = JSON.parse(localStorage.getItem("CuzKeyler"));

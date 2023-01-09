@@ -55,7 +55,7 @@ export const RespondContainer = styled.div`
     }
 `
 export const RespondInnerContainer = styled.div`
-    padding: ${({hatimExists}) => hatimExists ? "0px" : "50px"};
+    padding: ${({hatimExists}) => hatimExists ? "0px" : "10px"};
     /* background-color: red; */
     display: flex;
     flex-direction: row;
@@ -309,6 +309,7 @@ margin-bottom: 10px;
 export const DialogInputBox = styled.input`
     width: 250px;
     font-size: 0.8rem;
+    height: 40px;
 `
 
 export const DialogTextArea = styled.textarea`

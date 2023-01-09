@@ -10,16 +10,17 @@ import {DialogBox, DialogContainer, DialogIcon, DialogText, DialogTextSpan, Dial
 import { NavBtnLink } from '../../common/Navbar/NavbarElements';
 import close from '../../../icons/close.svg';
 import { Checkbox } from "@mantine/core";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Counter from '../Counter';
 
 
 const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDialogBox, setAskDialogBox, hatimKonu, setHatimKonu, hatimBitisTarihi, setHatimBitisTarihi, changeAskDialogBox,
-    isRamazan, setHatimDescription, hatimDescription }) => {
+    isRamazan, setHatimDescription, hatimDescription, setHatimCount, hatimCount }) => {
 
         const [makeNewHatim, setMakeNewHatim] = useState(false);
 
         return (
-                <DialogBox visibility={askDialogBox} height={"430px"} top={"10%"}>
+                <DialogBox visibility={askDialogBox} height={"510px"} top={"5%"}>
 
                 <DialogContainer>
 
@@ -65,7 +66,12 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
                 {<div style={{height:'10px'}}></div>}
                 
 
-                <div style={{display: 'flex', flexDirection: 'column', width: '250px'}}>
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <DialogTextSpan>{Language["/"].Button.Header.InputSpan[3]}</DialogTextSpan>
+                    <Counter hatimCount={hatimCount} setHatimCount={setHatimCount} />
+                </div>
+
+                <div style={{display: 'flex', flexDirection: 'column', width: '250px', marginTop: '10px'}}>
                      <Checkbox styles={{ label: {fontSize: '0.8em', fontFamily: 'Righteous'}}} color='lime' value={false} 
                      onChange={(event) => {
                                             setMakeNewHatim(event.currentTarget.checked)
@@ -77,7 +83,8 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
                 <NavBtnLink onClick={async ()=>{
                 setAskDialogBox(false);
                 propHideDialogBox.setHideDialogBox(true);
-                let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, false, isRamazan, hatimDescription, makeNewHatim);
+                let _hatimKey = await firebase.yeniHatim(hatimKonu, hatimBitisTarihi, false, isRamazan, 
+                                                        hatimDescription, makeNewHatim, hatimCount);
                 setHatimKey(_hatimKey);
                 const route = isRamazan ? "ramazan" : "cuz";
                 setYazilar({
