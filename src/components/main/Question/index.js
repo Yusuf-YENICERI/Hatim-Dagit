@@ -199,7 +199,7 @@ const Question = ({ firebase, toggle }) => {
                             </RespondInnerContainer>
             </RespondContainer>
 
-            <RespondContainer style={{marginTop: '20px'}}>
+            <RespondContainer style={{marginTop: '20px', paddingBottom: '50px'}}>
                            <RespondInnerContainer hatimExists={hideMevcutHatimler}>
                            
 
@@ -217,7 +217,7 @@ const Question = ({ firebase, toggle }) => {
 
             
 
-            {
+            {/* {
             hideMevcutHatimler 
                     ? 
                     <>
@@ -258,14 +258,14 @@ const Question = ({ firebase, toggle }) => {
                             </MevcutHatimButtonInnerContainer>
             </MevcutHatimButtonContainer>
                 
-            {/* <MevcutHatimTitle>{Language["/"].MevcutHatimler}</MevcutHatimTitle> */}
+            
 
             
                 
                     </>
                     :
                     <></>
-}
+} */}
            
         </QuestionContainer>
         </>

@@ -5,8 +5,8 @@
 let Turkish = {
     Navbar: {
         Logo: "Hatim Dağıt",
-        Links: ["Hatim Oluştur", "Hakkında", "Dil Değiştir",],
-        LinkHelpers: ["/", "hakkimda"],
+        Links: ["Hatim Oluştur", "Hakkında", "Dil Değiştir", "Çizelgelerim"],
+        LinkHelpers: ["/", "hakkimda", "cizelgelerim"],
         Buttons: ["Geribildirim Yap"],
         Languages: [{label: "Arapça", value: 'ar'}, {label: "İngilizce", value: 'en'}, {label: "Türkçe", value: 'tr'}],
         Pwa: "Telefona İndir"
@@ -41,7 +41,11 @@ let Turkish = {
 
     "/" : {
         Question: "Butona Tıklayarak Yeni Bir Hatim Oluştur!",
+        MyInfos: "Oluşturduğum Hatimler ve Çizelgelerim",
         Button: {
+            MyInfos: {
+                Charts: "Çizelgelerim"
+            },
             Main: "Hızlıca Hatim Oluştur",
             Ramazan: "Ramazan Dönerli Hatim Oluştur",
             Aylar3: "3 Aylar Hatmi Oluştur",
@@ -151,7 +155,11 @@ let Turkish = {
             Question: 'Bu Hatmi silmek istediğinize emin misiniz?',
             YesButton: 'Evet',
             NoButton: 'Hayır'
-        }
+        },
+
+        CuzItem: {
+            ChartButton: 'Çizelgeyi Görüntüle'
+        },
 
     },
 

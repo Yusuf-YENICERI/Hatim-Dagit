@@ -52,10 +52,10 @@ const Months3Dialog = ({months3DialogVisible, setMonths3DialogVisible, setHatimK
             { type=="options" && 
                 <OptionContainer>
                     <Option onClick={()=>setType("hergun1cuz")}>3 aylar boyunca günde 1 cüz</Option>
-                    <Option>Recep ve Şaban aylarında günde 10 sayfa, Ramazan'da günde 1 cüz</Option>
-                    <Option>Recep ve Şaban aylarında günde 5 sayfa, Ramazan'da günde 10 sayfa</Option>
-                    <Option>3 aylar boyunca her gün aynı sayfa</Option>
-                    <Option>3 aylar boyunca her gün aynı sure</Option>
+                    <Option notExist={true} >Recep ve Şaban aylarında günde 10 sayfa, Ramazan'da günde 1 cüz</Option>
+                    <Option notExist={true} >Recep ve Şaban aylarında günde 5 sayfa, Ramazan'da günde 10 sayfa</Option>
+                    <Option notExist={true} >3 aylar boyunca her gün aynı sayfa</Option>
+                    <Option notExist={true} >3 aylar boyunca her gün aynı sure</Option>
                 </OptionContainer>
             }
 
@@ -99,7 +99,24 @@ const Months3Dialog = ({months3DialogVisible, setMonths3DialogVisible, setHatimK
                         <NavBtnLink onClick={async ()=>{
                             setMonths3DialogVisible(false);
                             setHideDialogBox(true);
-                            let _hatimKey = await database.yeniHatim(hatimKonu, getMonths3Date(), false, false, 
+                            
+                            let dateData = getMonths3Date();
+                            
+                            let fillString = ''
+                            if( dateData.chosen != undefined){
+                                fillString = dateData.chosen;
+                            }
+
+                            let _date = dateData[`startingDate${fillString}`];
+                            _date = new Date(_date);
+
+                            _date.setDate(_date.getDate() + dateData[`monthDays${fillString}`].reduce((a,b)=>a+b));
+                            
+                            let _dateString =  _date.getFullYear() + "-" + ("0"+(_date.getMonth()+1)).slice(-2) + "-" + ("0" + _date.getDate()).slice(-2)
+                            
+                            
+
+                            let _hatimKey = await database.yeniHatim(hatimKonu, _dateString, false, false, 
                                                                     hatimDescription, makeNewHatim, hatimCount);
                             setHatimKey(_hatimKey);
                             const route = "ucaylarhergun1cuz"

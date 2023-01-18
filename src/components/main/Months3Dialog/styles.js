@@ -87,7 +87,7 @@ export const OptionContainer = styled.div`
 
 export const Option = styled.div`
     padding: 10px;
-    background-color: #FFBF17;
+    background-color: ${({notExist}) => notExist ? "gray" : "#FFBF17" } ;
     cursor: pointer;
     margin-top: 20px;
     border-radius: 5px;
@@ -96,8 +96,17 @@ export const Option = styled.div`
 -moz-box-shadow: 0px 12px 12px 0px rgba(0,0,0,0.75);
     font-size: 0.9em;
 
-    &:hover{
-        background-color: white;
-        color: black;
+
+    ${
+        ({notExist}) => {
+            if(!notExist){
+                return `&:hover{
+                            background-color: white;
+                            color: black;
+                        }`
+            }
+        }
     }
+
+    
 `;

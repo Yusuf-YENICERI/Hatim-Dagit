@@ -8,6 +8,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {db} from '../../backend';
 import { useContext } from "react";
+import { partsProcessor } from "localStorage/parts";
+import { extractKey } from "common";
 
 const initialState = {
     visible: false,
@@ -26,6 +28,9 @@ const changeCuz = createAsyncThunk("cuzModal/changeCuz", async ({nameState, cuzN
 const cancelCuz = createAsyncThunk("cuzModal/cancelCuz", async ({ cuzNo, subKey})=>{
     const result = await db.cuzIptal(cuzNo, subKey);
     if(result == -1) throw new Error("Cuz can't be cancelled!");
+    else{
+        partsProcessor.cancelPart({key: extractKey(), subKey: subKey, partId: cuzNo});
+    }
 })
 
 const cuzModalSlice = createSlice({

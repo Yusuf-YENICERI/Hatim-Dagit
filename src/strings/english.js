@@ -10,8 +10,8 @@
 let english = {
     Navbar: {
         Logo: "Distribute Khatm",
-        Links: ["Make New Khatm", "About", "Change Language",],
-        LinkHelpers: ["/", "hakkimda"],
+        Links: ["Make New Khatm", "About", "Change Language", "My Charts"],
+        LinkHelpers: ["/", "hakkimda", "cizelgelerim"],
         Buttons: ["Send Feedback"],
         Languages: [{label: "Arabic", value: 'ar'}, {label: "English", value: 'en'}, {label: "Turkish", value: 'tr'}],
         Pwa: "Download to Phone"
@@ -46,7 +46,11 @@ let english = {
 
     "/" : {
         Question: "Click on Button to Make New Khatm",
+        MyInfos: "Khatms I Made and My Charts",
         Button: {
+            MyInfos: {
+                Charts: "My Charts"
+            },
             Main: "New Khatm",
             Ramazan: "Make New Ramazan Khatm (Cycled)",
             Header: {
@@ -154,7 +158,11 @@ let english = {
             Question: 'Are you sure you want to delete this Khatm?',
             YesButton: 'Yes',
             NoButton: 'No'
-        }
+        },
+
+        CuzItem: {
+            ChartButton: 'View Chart'
+        },
 
     },
 

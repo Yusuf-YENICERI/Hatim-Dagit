@@ -12,8 +12,9 @@ import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import './navbar.css'
 import { setLanguage } from "../../../common";
+import { MediaQuery, Text } from "@mantine/core";
 
-const Navbar = ({ toggle, font }) => {
+const Navbar = ({ toggle }) => {
 
     const [scrollNav, setScrollNav] = useState(false);
     const [width, setWidth] = useState(window.innerWidth);
@@ -49,7 +50,7 @@ let isMobile = (width <= 768);
 
     return (
        <>
-        <Nav scrollNav={scrollNav} font={font}>
+        <Nav scrollNav={scrollNav}>
             <NavbarContainer>
                 <NavLogo to="/"
                 smooth={true}
@@ -65,9 +66,14 @@ let isMobile = (width <= 768);
                     <InstallText>{Language.Navbar.Pwa}</InstallText>
                 </InstallContainer>
 
+                <div style={{display: 'flex', flexDirection: 'column', fontSize: '0.7em', position: 'relative'}}>
                 <MobileIcon onClick={toggle}>
                     <FaBars />
                 </MobileIcon>
+                <MediaQuery largerThan={"sm"} styles={{display: 'none'}}>
+                    <span style={{position: 'absolute', bottom: '-6px', color: 'white'}}>Menü</span>
+                </MediaQuery>
+                </div>
                 <NavMenu>
                     <NavItem>
                         <NavLinksR

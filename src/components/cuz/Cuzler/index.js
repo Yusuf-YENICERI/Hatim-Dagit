@@ -17,7 +17,7 @@ HideHatimIcon, ShowHatimIcon, HatimContainer, HatimIconContainer, HatimIconText,
 } from './QuestionElements';
 import AskDialog from "../AskDialog";
 import LanguageData from '../../../strings';
-import {dataFormat} from '../../../strings/dataFormat';
+import {dataFormat} from '../../../backend/datas/dataFormat';
 import { removeAll, objectToArray, removeAll_v1 } from "../../../common";
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../../icons/button.svg';
@@ -476,28 +476,6 @@ const Question = ({ toggle }) => {
             {/* Hatmin kendisi */}
 
         <HatimContainer className="hatimContainer"  visibility={hatimlerVisibilities[index]} >
-
-        {/* <QuestionInnerContainer>
-
-
-        { Language.description != null && Language.description.length > 0 && <CuzlerDescription>
-            {Language.description.split('\n').map(str => <p>{str}</p>)}
-            </CuzlerDescription>
-        }
-
-            { Language.bitisTarihi != null && Language.bitisTarihi.length > 0 &&  <CuzlerFinishDate fontSize={"1rem"}>
-                    {LanguageData["/cuz"].KhatmFinishDate[0]}  {Language.bitisTarihi.split("-").reverse().join("/")} {LanguageData["/cuz"].KhatmFinishDate[1]}
-            </CuzlerFinishDate>
-            }
-
-            <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
-                <StatsRing data={[{label: 'Kalan cüz sayısı', stats: totalPartsTaken.toString(), progress: totalPartsTaken/30*100, color: 'green', icon: 'up'}]}></StatsRing>
-            </div>
-
-            <QuestionItem fontSize={"1.1rem"}>
-                    {LanguageData["/cuz"].Before.Question}
-            </QuestionItem>
-        </QuestionInnerContainer> */}
 
 
         <RespondContainer visibility={hideRespond}>

@@ -52,7 +52,8 @@ const Message = () => {
             <Divider my="sm"></Divider>
                 
                 <MessageMain>
-                    <Timeline color="green" active={1,2,3,4,5} bulletSize={30} lineWidth={2} styles={{
+                    {/* remove the [] from 1,2,3,4,5 */}
+                    <Timeline color="green" active={[1,2,3,4,5]} bulletSize={30} lineWidth={2} styles={{
                         itemTitle:{lineHeight: '25px', fontSize: '1em', letterSpacing: '1px'},
                     }}>
                         <Timeline.Item  bullet={<GitBranch size={12} />} title="Yeni bir özellik eklenmesi gerektiğinde, kendi bilgisayarlarımızda gerekli kodları yazıyoruz">

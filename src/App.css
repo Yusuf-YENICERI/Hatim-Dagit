@@ -6,6 +6,10 @@
   font-family: 'Righteous', cursive;
 }
 
+/* html, body{
+  height: 100%;
+} */
+
 .dropdowner{
   background-color: transparent;
 }

@@ -12,6 +12,7 @@ import { notificationReducer } from "../features/notification";
 import {loggerReducer} from "../features/logger"
 import { yesNoDialogAlertReducer } from "../features/yesNoDialogAlert";
 import { alertDialogReducer } from "../features/alertDialog";
+import { cizelgelerimReducer } from "features/cizelgelerim";
 
 export const store = configureStore({
     reducer: {
@@ -21,6 +22,7 @@ export const store = configureStore({
         yesNoDialogAlert: yesNoDialogAlertReducer,
         cuzModal: cuzModalReducer,
         logger: loggerReducer,
-        alertDialog: alertDialogReducer
+        alertDialog: alertDialogReducer,
+        cizelgelerim: cizelgelerimReducer
     }
 })

@@ -17,7 +17,7 @@ CuzlerDescription
 } from './RamazanDonerliElements';
 import AskDialog from "../AskDialog";
 import LanguageData from '../../../strings';
-import {dataFormat} from '../../../strings/dataFormat';
+import {dataFormat} from '../../../backend/datas/dataFormat';
 import { removeAll, objectToArray, removeAll_v1 } from "../../../common";
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../../icons/button.svg';
@@ -478,7 +478,7 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
                                     toggleCizelgeId(Number(cevap))
                                     toggleCizelge();
                                 }}>
-                                    Çizelgeyi görüntüle
+                                    {LanguageData["/cuz"].CuzItem.ChartButton}
                                 </ResponseTable>
                                 </div>
                             ))
@@ -537,7 +537,7 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
                                     toggleCizelgeId(Number(cevap))
                                     toggleCizelge();
                                 }}>
-                                    Çizelgeyi görüntüle
+                                    {LanguageData["/cuz"].CuzItem.ChartButton}
                                 </ResponseTable>
 
                                 </div>
@@ -598,7 +598,7 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
                                     toggleCizelgeId(Number(cevap))
                                     toggleCizelge();
                                 }}>
-                                    Çizelgeyi görüntüle
+                                    {LanguageData["/cuz"].CuzItem.ChartButton}
                                 </ResponseTable>
 
                                 </div>

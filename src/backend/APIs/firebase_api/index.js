@@ -3,7 +3,7 @@
 
 
 
-import {dataFormat} from '../../../strings/dataFormat';
+import {dataFormat} from '../../datas/dataFormat';
 import { countNumberOfCuzs } from "../../utils";
 import { generateHash } from "random-hash";
 import LocDb from "@yusuf-yeniceri/easy-storage";
@@ -63,11 +63,14 @@ class FirebaseAPI{
     }
   
     extractKey = () => {
-      let link = window.location.toString();
-      let index = link.indexOf("/cuz")
-      if(index != -1) return link.substr(index+4, link.length).replace('/', '');
-      index = link.indexOf("/ramazan")
-      return link.substr(index+8, link.length).replace('/', '');
+      const link = window.location.toString();
+      const substring = ['/cuz','/ramazan','/ucaylarhergun1cuz'];
+      const found = substring.find(substring => link.indexOf(substring) !== -1);
+      if(found){
+        const index = link.indexOf(found);
+        return link.substr(index + found.length, link.length).replace('/', '');
+      }
+      return '';
     }
   
     /**

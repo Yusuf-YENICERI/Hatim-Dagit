@@ -1,0 +1,131 @@
+
+
+//                                          BİSMİLLAHİRRAHMANİRRAHİM
+//                                              ALLAHU EKBER
+//                                              ELHAMDÜLİLLAH
+
+// import map from '../../src/images/map.svg'
+// import blog from '../../src/images/blog.svg'
+// import message from '../../src/images/message.svg'
+import cpp from '../icons/cpp.svg'
+import php from '../icons/php.svg'
+import ruby from '../icons/ruby.svg'
+import csharp from '../icons/csharp.svg'
+import js from '../icons/js.svg'
+import python from '../icons/python.svg'
+import java from '../icons/java.svg'
+import c from '../icons/c.svg'
+import lamp from '../icons/lamp.svg'
+import game from '../icons/game.svg'
+import mobile from '../icons/mobile.svg'
+import enterprise from '../icons/enterprise.svg'
+import website from '../icons/website.svg'
+import detectLanguage from '../common';
+import Arabic from './Arabic';
+import Turkish from './Turkish';
+import english from './english';
+
+export type LanguageType = {
+    Navbar: {
+        Logo: string,
+        Links: string[],
+        LinkHelpers: string[],
+        Buttons: string[],
+        Languages: {[key:string]:string}[],
+        Pwa: string
+
+    },
+
+    Pwa: {
+        Alert: string,
+        Popup: string[]
+    },
+
+    Footer: {
+        aciz_kul: string,
+        ziyaret: string[],
+        version: string,
+        GoToMainPage: string,
+        Feedback: string
+
+    },
+
+    AlertDialog: {
+        Text: string,
+        Yes: string,
+        No: string
+    },
+
+    "/" : {
+        Question: string,
+        MyInfos?: string,
+        Button: {
+            MyInfos?: {
+                Charts: string
+            },
+            Main: string,
+            Ramazan: string,
+            Aylar3?: string,
+            Header: {
+                Text: string,
+                Text3MonthProgram?: string,
+                InputSpan: string[],
+                Input: string[],
+                Button: string
+            },
+            Final: {
+                Before: {
+                    Header: string,
+                    Link: string,
+                    LinkReady: string,
+                    Copy: string,
+                    Button: string
+                },
+
+                After: {
+                    Header: string,
+                    Link: string,
+                    Copy: string,
+                    Button: string
+                }
+            }
+        },
+        ExistingKhatms:string
+
+    },
+
+    "/cuz":any,
+
+    "/ramazan":any
+}
+
+
+let Language: LanguageType;
+switch (detectLanguage()) {
+    case "ar":
+    case "ar-iq":
+    case "ar-sa":
+    case "ar-ly":
+    case "ar-eg":
+    case "ar-gulf":
+        Language = Arabic;
+        break;
+
+    case "tr":
+    case "tr-TR":
+        Language = Turkish;
+        break;
+
+    
+    case "en":
+    case "en-US":
+        Language = english;
+        break;
+    
+    default:
+        Language = Turkish;
+        break;
+}
+
+export default Language;
+

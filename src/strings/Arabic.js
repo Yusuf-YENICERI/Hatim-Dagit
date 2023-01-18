@@ -6,8 +6,8 @@ let Arabic = {
 
     Navbar: {
         Logo: "ختم توزيع",
-        Links: ["إنشاء ختم", "بشأن", "تغيير اللغة"],
-        LinkHelpers: ["/", "hakkimda"],
+        Links: ["إنشاء ختم", "بشأن", "تغيير اللغة", "مخططاتي"],
+        LinkHelpers: ["/", "hakkimda", "cizelgelerim"],
         Buttons: ["أرسل تقييما"],
         Languages: [{label: "عربي", value: 'ar'}, {label: "الانجليزية", value: 'en'}, {label: "اللغة التركية", value: 'tr'}],
         Pwa: 'تنزيله',
@@ -40,7 +40,11 @@ let Arabic = {
 
     "/" : {
         Question: "إنشاء ختم جديد بالنقر فوق الزر!",
+        MyInfos: "خاتس صنعتها و مخططاتي",
         Button: {
+            MyInfos: {
+                Charts: "مخططاتي"
+            },
             Main: "إنشاء ختم جديد",
             Ramazan: "جعل تناوب رمضان الخطمي",
             Header: {
@@ -144,7 +148,11 @@ let Arabic = {
             Question: 'هل أنت متأكد أنك تريد حذف هذا خاتم؟',
             YesButton: 'نعم',
             NoButton: 'لا'
-        }
+        },
+
+        CuzItem: {
+            ChartButton: 'إظهار الرسوم مخططاتي'
+        },
     },
 
     "/ramazan":{

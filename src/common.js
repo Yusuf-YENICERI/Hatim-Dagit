@@ -4,6 +4,7 @@
 
 
 import dataMonths3 from "./strings/dataMonths3";
+import { db } from "./backend";
 
 const detectLanguage = () => {
     let language = window.navigator.userLanguage || window.navigator.language;
@@ -61,13 +62,7 @@ const isStandalone = () => {
   return ('standalone' in window.navigator) && window.navigator.standalone;
 }
 
-const extractKey = () => {
-  let link = window.location.toString();
-  let index = link.indexOf("/cuz")
-  if(index != -1) return link.substr(index+5, link.length);
-  index = link.indexOf("/ramazan")
-  return link.substr(index+9, link.length);
-}
+const extractKey = db.api.extractKey;
 
 
 const initializeLocalStorage = (type) => {
@@ -86,17 +81,28 @@ const getMonths3Date = () => {
   const data = dataMonths3[(new Date()).getFullYear()];
   if(data.double){
     if ((new Date()) < new Date(data.startingDate2)){
-      return data.startingDate1
+      data.chosen = 1;
+    }else{
+    data.chosen = 2;
     }
-    return data.startingDate2;
+    return data;
   }else{
-    return data.startingDate;
+    return data;
   }
 }
 
-const version = "1.1.5";
+
+const isEmptyObjectLocDb = (value) => {
+  if(typeof value == "object" && Object.keys(value).length == 0){
+    return true;
+  }
+
+  return false;
+}
+
+const version = "1.2.1";
 
 export default detectLanguage;
 
 export {setLanguage, removeAll, removeAll_v1, objectToArray, isSafari, isStandalone, extractKey,
-   initializeLocalStorage, getMonths3Date, version};
+   initializeLocalStorage, getMonths3Date, version, isEmptyObjectLocDb};

@@ -1,0 +1,67 @@
+
+
+
+
+
+
+
+
+import React, {useState} from 'react'
+import { Container, HatimsContainer, HatimsTemplate, MyInfosContainer, MyInfosTemplate, Template, Seperator, HatimsIcon, HatimsText, MyInfosIcon, MyInfosText, HatimsWrapper, MyInfosWrapper } from './styles'
+import { Book, ChartDonut4 } from 'tabler-icons-react';
+
+const BottomNavigation = ({page, changePage, bottomNavigationVisible}: {page: string, changePage: (value: string) => {},
+bottomNavigationVisible: boolean}) => {
+
+  if(!bottomNavigationVisible) return (<></>)
+
+  return (
+    <Container>
+      <Template>
+        
+        <HatimsContainer onClick={()=>{
+          changePage("hatims")
+        }}>
+          <HatimsTemplate>
+            <HatimsWrapper active={page == "hatims" ? false : true}>
+              <HatimsIcon>
+                  <Book
+                    size={30}
+                    strokeWidth={2}
+                    color={'black'}
+                  />
+              </HatimsIcon>
+              <HatimsText>
+                Hatimler
+              </HatimsText>
+            </HatimsWrapper>
+          </HatimsTemplate>
+        </HatimsContainer>
+        
+        <Seperator />
+
+        <MyInfosContainer onClick={()=>{
+          changePage("myInfos")
+        }}>
+          <MyInfosTemplate>
+            <MyInfosWrapper active={page == "myInfos" ? false : true}>
+              <MyInfosIcon>
+              <ChartDonut4
+                size={30}
+                strokeWidth={2}
+                color={'black'}
+              />
+              </MyInfosIcon>
+              <MyInfosText>
+                Bilgilerim
+              </MyInfosText>
+            </MyInfosWrapper>
+          </MyInfosTemplate>
+        </MyInfosContainer>
+
+      </Template>
+    </Container>
+  )
+}
+
+export default BottomNavigation

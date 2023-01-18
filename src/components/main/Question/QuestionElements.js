@@ -69,7 +69,7 @@ export const RespondInnerContainer = styled.div`
     text-align:center;
     }
 `
-export const ResponseItem = styled(LinkR)`
+export const ResponseItem = styled.div`
     overflow: hidden;
     position: relative;
     padding: 20px;
@@ -132,7 +132,7 @@ export const MevcutHatimButtonInnerContainer = styled.div`
         text-align:center;
     }
 `
-export const MevcutHatimButtonItem = styled(LinkR)`
+export const MevcutHatimButtonItem = styled.div`
     padding: 20px;
     margin: 0 10px;
     height: 100px;
