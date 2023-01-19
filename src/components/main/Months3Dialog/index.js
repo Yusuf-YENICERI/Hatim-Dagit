@@ -51,7 +51,7 @@ const Months3Dialog = ({months3DialogVisible, setMonths3DialogVisible, setHatimK
 
             { type=="options" && 
                 <OptionContainer>
-                    <Option onClick={()=>setType("hergun1cuz")}>3 aylar boyunca günde 1 cüz</Option>
+                    <Option onClick={()=>setType("hergun1cuz")} id="#eachday1part">3 aylar boyunca günde 1 cüz</Option>
                     <Option notExist={true} >Recep ve Şaban aylarında günde 10 sayfa, Ramazan'da günde 1 cüz</Option>
                     <Option notExist={true} >Recep ve Şaban aylarında günde 5 sayfa, Ramazan'da günde 10 sayfa</Option>
                     <Option notExist={true} >3 aylar boyunca her gün aynı sayfa</Option>
@@ -117,7 +117,7 @@ const Months3Dialog = ({months3DialogVisible, setMonths3DialogVisible, setHatimK
                             
 
                             let _hatimKey = await database.yeniHatim(hatimKonu, _dateString, false, false, 
-                                                                    hatimDescription, makeNewHatim, hatimCount);
+                                                                    hatimDescription, makeNewHatim, hatimCount, {eachday1part: true});
                             setHatimKey(_hatimKey);
                             const route = "ucaylarhergun1cuz"
                             setYazilar({

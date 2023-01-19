@@ -9,6 +9,7 @@
 import React, {useState} from 'react'
 import { Container, HatimsContainer, HatimsTemplate, MyInfosContainer, MyInfosTemplate, Template, Seperator, HatimsIcon, HatimsText, MyInfosIcon, MyInfosText, HatimsWrapper, MyInfosWrapper } from './styles'
 import { Book, ChartDonut4 } from 'tabler-icons-react';
+import Language from '../../../strings';
 
 const BottomNavigation = ({page, changePage, bottomNavigationVisible}: {page: string, changePage: (value: string) => {},
 bottomNavigationVisible: boolean}) => {
@@ -32,7 +33,7 @@ bottomNavigationVisible: boolean}) => {
                   />
               </HatimsIcon>
               <HatimsText>
-                Hatimler
+                {Language['/'].BottomNavigation.NewKhatm}
               </HatimsText>
             </HatimsWrapper>
           </HatimsTemplate>
@@ -53,7 +54,7 @@ bottomNavigationVisible: boolean}) => {
               />
               </MyInfosIcon>
               <MyInfosText>
-                Bilgilerim
+              {Language['/'].BottomNavigation.KhatmInfos}
               </MyInfosText>
             </MyInfosWrapper>
           </MyInfosTemplate>

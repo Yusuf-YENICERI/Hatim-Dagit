@@ -42,14 +42,16 @@ let Arabic = {
         Question: "إنشاء ختم جديد بالنقر فوق الزر!",
         MyInfos: "خاتس صنعتها و مخططاتي",
         Button: {
+            NewTag: "الجديد",
             MyInfos: {
                 Charts: "مخططاتي"
             },
             Main: "إنشاء ختم جديد",
             Ramazan: "جعل تناوب رمضان الخطمي",
+            Aylar3: "إجعل 3 شهور خاتم",
             Header: {
                 Text: "إنشاء ختم",
-                InputSpan: ["عنوان", "الوصف" ,"تاريخ إنهاء خاتم"],
+                InputSpan: ["عنوان", "الوصف" ,"تاريخ إنهاء خاتم", "عدد الختم", "اصنع خاتمًا جديدًا تلقائيًا عند انتهاء خاتم"],
                 Input: ["الرجاء إدخال عنوان"],
                 Button: "استمر"
             },
@@ -70,7 +72,11 @@ let Arabic = {
                 }
             }
         },
-        ExistingKhatms:'ختم شيدت'
+        ExistingKhatms:'ختم شيدت',
+        BottomNavigation: {
+            NewKhatm: "خاتم جديد",
+            KhatmInfos: "معلوماتي خاتم"
+        }
 
     },
 

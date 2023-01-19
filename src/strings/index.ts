@@ -7,19 +7,6 @@
 // import map from '../../src/images/map.svg'
 // import blog from '../../src/images/blog.svg'
 // import message from '../../src/images/message.svg'
-import cpp from '../icons/cpp.svg'
-import php from '../icons/php.svg'
-import ruby from '../icons/ruby.svg'
-import csharp from '../icons/csharp.svg'
-import js from '../icons/js.svg'
-import python from '../icons/python.svg'
-import java from '../icons/java.svg'
-import c from '../icons/c.svg'
-import lamp from '../icons/lamp.svg'
-import game from '../icons/game.svg'
-import mobile from '../icons/mobile.svg'
-import enterprise from '../icons/enterprise.svg'
-import website from '../icons/website.svg'
 import detectLanguage from '../common';
 import Arabic from './Arabic';
 import Turkish from './Turkish';
@@ -60,6 +47,7 @@ export type LanguageType = {
         Question: string,
         MyInfos?: string,
         Button: {
+            NewTag: string,
             MyInfos?: {
                 Charts: string
             },
@@ -90,7 +78,11 @@ export type LanguageType = {
                 }
             }
         },
-        ExistingKhatms:string
+        ExistingKhatms:string,
+        BottomNavigation: {
+            NewKhatm: string,
+            KhatmInfos: string
+        }
 
     },
 

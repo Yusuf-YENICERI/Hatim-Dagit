@@ -14,6 +14,12 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^29.2.5",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
     "@yusuf-yeniceri/easy-storage": "^1.0.23",
     "chai": "^4.3.7",
     "dayjs": "^1.11.1",
@@ -31,13 +37,17 @@
     "react-window": "^1.8.8",
     "styled-components": "^5.3.0",
     "tabler-icons-react": "^1.45.0",
+    "typescript": "^4.9.4",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "BROWSER='firefox' react-scripts start",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "eslintConfig": {
     "extends": [
@@ -59,6 +69,19 @@
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.2",
-    "cypress": "^9.1.1"
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-scroll": "^1.8.6",
+    "@types/styled-components": "^5.1.26",
+    "cypress": "^9.1.1",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "kcd-scripts": "^12.3.0",
+    "prettier": "^2.8.2",
+    "react-hide-on-scroll": "^1.1.4"
   }
 }

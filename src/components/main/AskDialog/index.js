@@ -75,7 +75,7 @@ const AskDialog = ({ firebase, setHatimKey, setYazilar, propHideDialogBox, askDi
                      <Checkbox styles={{ label: {fontSize: '0.8em', fontFamily: 'Righteous'}}} color='lime' value={false} 
                      onChange={(event) => {
                                             setMakeNewHatim(event.currentTarget.checked)
-                                            }} label="Hatim bittiğinde otomatik olarak yeni hatim oluştur" />
+                                            }} label={Language["/"].Button.Header.InputSpan[4]} />
                 </div>
 
                 </DialogContainer>

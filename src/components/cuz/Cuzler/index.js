@@ -184,8 +184,16 @@ const Question = ({ toggle }) => {
             let allHatimler;
             if(!Array.isArray(result)){
                 allHatimler = objectToArray(result);
+                
                 if(allHatimler[0].isRamazan){
                     window.location = `/ramazan/${extractKey()}`
+                }
+
+                if(allHatimler[0].isMonths3 != undefined ){
+
+                    if(allHatimler[0].isMonths3.eachday1part ?? false){
+                        window.location = `/ucaylarhergun1cuz/${extractKey()}`
+                    }
                 }
             }
 

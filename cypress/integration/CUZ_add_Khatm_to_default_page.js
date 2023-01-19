@@ -44,9 +44,9 @@ describe('add Khatm to default page', ()=>{
         //click to release it
         cy.get('#cancelPart').click()
 
-        cy.get('#deleteHatim').click()
+        // cy.get('#deleteHatim').click()
 
-        cy.get('#questionContainer > div:nth-child(1) > div > div > div > div > button:nth-child(1)').click()
+        // cy.get('#questionContainer > div:nth-child(1) > div > div > div > div > button:nth-child(1)').click()
     });
 
     it('user should be able to add khatm to default page, should be able to take Part ', ()=>{

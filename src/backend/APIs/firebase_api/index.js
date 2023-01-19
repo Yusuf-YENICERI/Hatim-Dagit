@@ -101,12 +101,12 @@ class FirebaseAPI{
       return baslik.val();
     }
   
-    yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false, isRamazan = false, description = "", makeNewHatim = false, hatimCount) => {
+    yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false, isRamazan = false, description = "", makeNewHatim = false, hatimCount, isMonths3) => {
       dataFormat.baslik = baslik;
       dataFormat.bitisTarihi = bitisTarihi;
       dataFormat.isRamazan = isRamazan;
       dataFormat.description = description;
-    
+      dataFormat.isMonths3 = isMonths3;
 
       console.log(dataFormat)
       // console.log(baslik)

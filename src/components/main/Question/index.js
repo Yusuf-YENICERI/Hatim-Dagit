@@ -187,11 +187,11 @@ const Question = ({ firebase, toggle }) => {
                            <RespondInnerContainer hatimExists={hideMevcutHatimler}>
                            
 
-                                    <ResponseItem onClick={ ()=>{
+                                    <ResponseItem id={"months3"} onClick={ ()=>{
                                         setMonths3DialogVisible(true)
                                         
                                     }}>
-                                         <NewFeatureTag>Yeni</NewFeatureTag>
+                                         <NewFeatureTag>{Language["/"].Button.NewTag}</NewFeatureTag>
                                         <ResponseText>
                                         {Language["/"].Button.Aylar3}
                                         </ResponseText>

@@ -43,6 +43,7 @@ let Turkish = {
         Question: "Butona Tıklayarak Yeni Bir Hatim Oluştur!",
         MyInfos: "Oluşturduğum Hatimler ve Çizelgelerim",
         Button: {
+            NewTag: "Yeni",
             MyInfos: {
                 Charts: "Çizelgelerim"
             },
@@ -52,7 +53,8 @@ let Turkish = {
             Header: {
                 Text: "Yeni Hatim Oluştur",
                 Text3MonthProgram: "Program Seç",
-                InputSpan: ["Başlık", "Açıklama", "Hatim Duası Tarihi", "Hatim Sayısı"],
+                InputSpan: ["Başlık", "Açıklama", "Hatim Duası Tarihi", 
+                            "Hatim Sayısı", "Hatim bittiğinde otomatik olarak yeni hatim oluştur"],
                 Input: ["Lütfen Hatim başlığı yazın ..", "Lütfen Hatim için açıklama yazın .."],
                 Button: "Devam Et"
             },
@@ -74,6 +76,10 @@ let Turkish = {
             }
         },
         ExistingKhatms:'Oluşturulmuş Hatimler',
+        BottomNavigation: {
+            NewKhatm: "Hatim Oluştur",
+            KhatmInfos: "Hatim Bilgilerim"
+        }
     },
 
     "/cuz":{

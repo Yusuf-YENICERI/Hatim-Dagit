@@ -48,14 +48,16 @@ let english = {
         Question: "Click on Button to Make New Khatm",
         MyInfos: "Khatms I Made and My Charts",
         Button: {
+            NewTag: "New",
             MyInfos: {
                 Charts: "My Charts"
             },
             Main: "New Khatm",
             Ramazan: "Make New Ramazan Khatm (Cycled)",
+            Aylar3: "Make 3 Months Khatm",
             Header: {
                 Text: "Make New Khatm",
-                InputSpan: ["Title", "Description", "Khatm Finish Date"],
+                InputSpan: ["Title", "Description", "Khatm Finish Date", "Number of Khatm", "Automatically make new Khatm when Khatm is finished"],
                 Input: ["Please enter a Khatm title"],
                 Button: "Continue"
             },
@@ -76,7 +78,11 @@ let english = {
                 }
             }
         },
-        ExistingKhatms:'Khatms Made'
+        ExistingKhatms:'Khatms Made',
+        BottomNavigation: {
+            NewKhatm: "New Khatm",
+            KhatmInfos: "My Khatm Informations"
+        }
 
     },
 
