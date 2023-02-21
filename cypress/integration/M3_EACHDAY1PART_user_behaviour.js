@@ -59,8 +59,28 @@ describe('user behaviour inshaALLAH', ()=>{
 
         //click on the taken Part
         cy.get(`#questionContainer > div:nth-child(9) > div > div > div > div:nth-child(${Part})`).click()
+
+        //check for both release button
+        let takeButtonActive = false;
+        cy.get("body").then($body => {
+            if ($body.find("#takeButton").length > 0) {   
+                console.log("takeButton exists")
+                cy.get("#takeButton").then($header => {
+                  if ($header.is(':visible')){
+                    cy.get('#takeButton').click()
+                console.log("takeButton visible")
+                    takeButtonActive = true
+                  }
+                });
+            }
+        });
+
+        if(takeButtonActive == false){
+            console.log("takeButton doesn't exists")
+            cy.get('#cancelPart').click()
+        }
+
         //click to release it
-        cy.get('#cancelPart').click()
 
         cy.get(`#questionContainer > div:nth-child(9) > div > div > div > div:nth-child(${Part}) >  div:nth-child(1) > div:nth-child(3)`).should('have.text', '')
 

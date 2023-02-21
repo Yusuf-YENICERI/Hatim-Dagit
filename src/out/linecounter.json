@@ -7431,6 +7431,949 @@
                     "filename": "strings/Turkish.js"
                 }
             ]
+        },
+        {
+            "version": "0.2.7",
+            "counttime": "2023-01-21 00:41:52",
+            "filesum": 151,
+            "codesum": 10090,
+            "commentsum": 629,
+            "blanksum": 2951,
+            "statistics": {
+                ".js": {
+                    "code": 8718,
+                    "comment": 574,
+                    "blank": 2438
+                },
+                ".css": {
+                    "code": 22,
+                    "comment": 16,
+                    "blank": 11
+                },
+                ".tsx": {
+                    "code": 474,
+                    "comment": 15,
+                    "blank": 188
+                },
+                ".svg": {
+                    "code": 23,
+                    "comment": 0,
+                    "blank": 0
+                },
+                ".ts": {
+                    "code": 853,
+                    "comment": 24,
+                    "blank": 314
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 3,
+                    "code": 9,
+                    "comment": 3,
+                    "filename": "App.css"
+                },
+                {
+                    "blank": 4,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "App.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "App.test.js"
+                },
+                {
+                    "blank": 61,
+                    "code": 196,
+                    "comment": 11,
+                    "filename": "backend/APIs/firebase_api/index.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "backend/APIs/firebase_api/logger.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "backend/context.js"
+                },
+                {
+                    "blank": 24,
+                    "code": 52,
+                    "comment": 7,
+                    "filename": "backend/database.js"
+                },
+                {
+                    "blank": 40,
+                    "code": 173,
+                    "comment": 1,
+                    "filename": "backend/datas/dataFormat.js"
+                },
+                {
+                    "blank": 33,
+                    "code": 159,
+                    "comment": 1,
+                    "filename": "backend/datas/dataFormat_v2.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "backend/index.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "backend/sFunctions/index.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 58,
+                    "comment": 12,
+                    "filename": "backend/sFunctions/netlify/index.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "backend/utils/index.js"
+                },
+                {
+                    "blank": 24,
+                    "code": 84,
+                    "comment": 0,
+                    "filename": "common.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 61,
+                    "comment": 0,
+                    "filename": "components/cizelgelerim/index.tsx"
+                },
+                {
+                    "blank": 15,
+                    "code": 59,
+                    "comment": 1,
+                    "filename": "components/cizelgelerim/styles.ts"
+                },
+                {
+                    "blank": 24,
+                    "code": 54,
+                    "comment": 0,
+                    "filename": "components/cizelgelerim/TumCizelgeler/CizelgeListesi/CuzListesi/index.tsx"
+                },
+                {
+                    "blank": 16,
+                    "code": 28,
+                    "comment": 1,
+                    "filename": "components/cizelgelerim/TumCizelgeler/CizelgeListesi/CuzListesi/styles.ts"
+                },
+                {
+                    "blank": 82,
+                    "code": 342,
+                    "comment": 12,
+                    "filename": "components/cizelgelerim/TumCizelgeler/CizelgeListesi/CuzListesi/Table/index.js"
+                },
+                {
+                    "blank": 19,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "components/cizelgelerim/TumCizelgeler/CizelgeListesi/index.tsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "components/cizelgelerim/TumCizelgeler/CizelgeListesi/styles.ts"
+                },
+                {
+                    "blank": 12,
+                    "code": 28,
+                    "comment": 11,
+                    "filename": "components/cizelgelerim/TumCizelgeler/index.tsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "components/cizelgelerim/TumCizelgeler/RamazanCizelgeleri/index.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "components/cizelgelerim/TumCizelgeler/RamazanCizelgeleri/styles.ts"
+                },
+                {
+                    "blank": 15,
+                    "code": 57,
+                    "comment": 1,
+                    "filename": "components/cizelgelerim/TumCizelgeler/styles.ts"
+                },
+                {
+                    "blank": 13,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "components/cizelgelerim/TumCizelgeler/UcAylarÇizelgeleri/index.tsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "components/cizelgelerim/TumCizelgeler/UcAylarÇizelgeleri/styles.ts"
+                },
+                {
+                    "blank": 14,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "components/common/AlertDialogCommon/AlertDialogComponents.js"
+                },
+                {
+                    "blank": 11,
+                    "code": 23,
+                    "comment": 0,
+                    "filename": "components/common/AlertDialogCommon/index.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 0,
+                    "comment": 49,
+                    "filename": "components/common/DialogBox/DialogBoxElements.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 0,
+                    "comment": 28,
+                    "filename": "components/common/DialogBox/index.js"
+                },
+                {
+                    "blank": 30,
+                    "code": 132,
+                    "comment": 4,
+                    "filename": "components/common/Footer/FooterElements.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 53,
+                    "comment": 20,
+                    "filename": "components/common/Footer/index.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 94,
+                    "comment": 0,
+                    "filename": "components/common/Message/index.js"
+                },
+                {
+                    "blank": 21,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "components/common/Message/MessageElements.js"
+                },
+                {
+                    "blank": 25,
+                    "code": 109,
+                    "comment": 40,
+                    "filename": "components/common/Navbar/index.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "components/common/Navbar/navbar.css"
+                },
+                {
+                    "blank": 27,
+                    "code": 150,
+                    "comment": 7,
+                    "filename": "components/common/Navbar/NavbarElements.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 2,
+                    "comment": 1,
+                    "filename": "components/common/Navbar/service-worker.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 29,
+                    "comment": 1,
+                    "filename": "components/common/Pwa/index.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 59,
+                    "comment": 1,
+                    "filename": "components/common/Pwa/PwaElements.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 53,
+                    "comment": 20,
+                    "filename": "components/common/Sidebar/index.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "components/common/Sidebar/sidebar.css"
+                },
+                {
+                    "blank": 17,
+                    "code": 98,
+                    "comment": 0,
+                    "filename": "components/common/Sidebar/SiderbarElements.js"
+                },
+                {
+                    "blank": 22,
+                    "code": 108,
+                    "comment": 0,
+                    "filename": "components/common/Table/index.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "components/cuz/AlertDialog/AlertDialogComponents.js"
+                },
+                {
+                    "blank": 11,
+                    "code": 29,
+                    "comment": 0,
+                    "filename": "components/cuz/AlertDialog/index.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "components/cuz/AskDialog/AskDialogElements.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "components/cuz/AskDialog/index.js"
+                },
+                {
+                    "blank": 137,
+                    "code": 533,
+                    "comment": 24,
+                    "filename": "components/cuz/Cuzler/index.js"
+                },
+                {
+                    "blank": 104,
+                    "code": 456,
+                    "comment": 22,
+                    "filename": "components/cuz/Cuzler/QuestionElements.js"
+                },
+                {
+                    "blank": 37,
+                    "code": 162,
+                    "comment": 6,
+                    "filename": "components/cuz/CuzlerHatimCard/index.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 60,
+                    "comment": 1,
+                    "filename": "components/cuz/CuzModal/index.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 68,
+                    "comment": 1,
+                    "filename": "components/cuz/EditModalContent/index.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 42,
+                    "comment": 9,
+                    "filename": "components/cuz/RingProgress/index.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "components/cuz/ShareBox/index.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 63,
+                    "comment": 3,
+                    "filename": "components/cuz/ShareBox/ShareBoxElements.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "components/cuz/YesNoDialog/index.js"
+                },
+                {
+                    "blank": 19,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "components/cuz/YesNoDialog/YesNoDialogElements.js"
+                },
+                {
+                    "blank": 29,
+                    "code": 72,
+                    "comment": 1,
+                    "filename": "components/main/AskDialog/index.js"
+                },
+                {
+                    "blank": 16,
+                    "code": 52,
+                    "comment": 0,
+                    "filename": "components/main/BottomNavigation/index.tsx"
+                },
+                {
+                    "blank": 23,
+                    "code": 52,
+                    "comment": 0,
+                    "filename": "components/main/BottomNavigation/styles.ts"
+                },
+                {
+                    "blank": 10,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "components/main/CommonButton/index.tsx"
+                },
+                {
+                    "blank": 15,
+                    "code": 49,
+                    "comment": 0,
+                    "filename": "components/main/CommonButton/styles.ts"
+                },
+                {
+                    "blank": 15,
+                    "code": 71,
+                    "comment": 0,
+                    "filename": "components/main/Counter/index.js"
+                },
+                {
+                    "blank": 38,
+                    "code": 97,
+                    "comment": 1,
+                    "filename": "components/main/Months3Dialog/index.js"
+                },
+                {
+                    "blank": 23,
+                    "code": 89,
+                    "comment": 0,
+                    "filename": "components/main/Months3Dialog/styles.js"
+                },
+                {
+                    "blank": 50,
+                    "code": 162,
+                    "comment": 4,
+                    "filename": "components/main/MyInfos/index.tsx"
+                },
+                {
+                    "blank": 56,
+                    "code": 264,
+                    "comment": 13,
+                    "filename": "components/main/MyInfos/styles.ts"
+                },
+                {
+                    "blank": 54,
+                    "code": 151,
+                    "comment": 73,
+                    "filename": "components/main/Question/index.js"
+                },
+                {
+                    "blank": 53,
+                    "code": 272,
+                    "comment": 10,
+                    "filename": "components/main/Question/QuestionElements.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "components/ramazan/AskDialog/AskDialogElements.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "components/ramazan/AskDialog/index.js"
+                },
+                {
+                    "blank": 108,
+                    "code": 476,
+                    "comment": 56,
+                    "filename": "components/ramazan/RamazanDonerli/index.js"
+                },
+                {
+                    "blank": 110,
+                    "code": 471,
+                    "comment": 22,
+                    "filename": "components/ramazan/RamazanDonerli/RamazanDonerliElements.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "components/ramazan/ShareBox/index.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 63,
+                    "comment": 3,
+                    "filename": "components/ramazan/ShareBox/ShareBoxElements.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 62,
+                    "comment": 0,
+                    "filename": "components/ucaylarhergun1cuz/AskDialog/AskDialogElements.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 43,
+                    "comment": 0,
+                    "filename": "components/ucaylarhergun1cuz/AskDialog/index.js"
+                },
+                {
+                    "blank": 37,
+                    "code": 162,
+                    "comment": 6,
+                    "filename": "components/ucaylarhergun1cuz/CuzlerHatimCard/index.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 60,
+                    "comment": 1,
+                    "filename": "components/ucaylarhergun1cuz/CuzModal/index.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 68,
+                    "comment": 1,
+                    "filename": "components/ucaylarhergun1cuz/EditModalContent/index.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 44,
+                    "comment": 0,
+                    "filename": "components/ucaylarhergun1cuz/ShareBox/index.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 63,
+                    "comment": 3,
+                    "filename": "components/ucaylarhergun1cuz/ShareBox/ShareBoxElements.js"
+                },
+                {
+                    "blank": 82,
+                    "code": 342,
+                    "comment": 12,
+                    "filename": "components/ucaylarhergun1cuz/Table/index.js"
+                },
+                {
+                    "blank": 119,
+                    "code": 505,
+                    "comment": 21,
+                    "filename": "components/ucaylarhergun1cuz/UcAylarHerGun1CuzDonerli/index.js"
+                },
+                {
+                    "blank": 110,
+                    "code": 471,
+                    "comment": 22,
+                    "filename": "components/ucaylarhergun1cuz/UcAylarHerGun1CuzDonerli/styles.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 39,
+                    "comment": 0,
+                    "filename": "components/ucaylarhergun1cuz/YesNoDialog/index.js"
+                },
+                {
+                    "blank": 19,
+                    "code": 36,
+                    "comment": 0,
+                    "filename": "components/ucaylarhergun1cuz/YesNoDialog/YesNoDialogElements.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 18,
+                    "comment": 0,
+                    "filename": "features/alertDialog/alertDialogSlice.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "features/alertDialog/index.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "features/cizelgelerim/cizelgelerimSlice.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "features/cizelgelerim/index.ts"
+                },
+                {
+                    "blank": 13,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "features/cuzlerFunctionTrigger/cuzlerFunctionTriggerSlice.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "features/cuzlerFunctionTrigger/index.js"
+                },
+                {
+                    "blank": 20,
+                    "code": 68,
+                    "comment": 0,
+                    "filename": "features/cuzModal/cuzModalSlice.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "features/cuzModal/index.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 50,
+                    "comment": 4,
+                    "filename": "features/editCuzlerModal/editCuzlerModalSlice.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "features/editCuzlerModal/index.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "features/logger/index.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "features/logger/loggerSlice.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "features/notification/index.js"
+                },
+                {
+                    "blank": 12,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "features/notification/notificationSlice.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "features/yesNoDialogAlert/index.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "features/yesNoDialogAlert/yesNoDialogAlertSlice.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/button.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/c.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/close.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/copy.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/cpp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/csharp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/enterprise.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/game.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/java.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/js.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "icons/lamp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/mobile.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/php.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/python.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/ruby.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/share.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/sms.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/website.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "icons/whatsapp.svg"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 13,
+                    "filename": "index.css"
+                },
+                {
+                    "blank": 24,
+                    "code": 67,
+                    "comment": 27,
+                    "filename": "index.js"
+                },
+                {
+                    "blank": 15,
+                    "code": 26,
+                    "comment": 0,
+                    "filename": "localStorage/charts/ChartsProcessor.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "localStorage/charts/index.ts"
+                },
+                {
+                    "blank": 6,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "localStorage/charts/types/params.ts"
+                },
+                {
+                    "blank": 20,
+                    "code": 45,
+                    "comment": 1,
+                    "filename": "localStorage/charts/UcAylar/HerGun1Cuz.ts"
+                },
+                {
+                    "blank": 12,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "localStorage/hatims/HatimsProcessor.ts"
+                },
+                {
+                    "blank": 9,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "localStorage/hatims/index.ts"
+                },
+                {
+                    "blank": 19,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "localStorage/hatims/UcAylar/UcAylarHatimsProcessor.ts"
+                },
+                {
+                    "blank": 9,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "localStorage/parts/index.ts"
+                },
+                {
+                    "blank": 13,
+                    "code": 41,
+                    "comment": 0,
+                    "filename": "localStorage/parts/PartsProcessor.ts"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "logo.svg"
+                },
+                {
+                    "blank": 13,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "pages/cizelgelerim.tsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "pages/cuz.js"
+                },
+                {
+                    "blank": 17,
+                    "code": 30,
+                    "comment": 26,
+                    "filename": "pages/index.js"
+                },
+                {
+                    "blank": 14,
+                    "code": 68,
+                    "comment": 0,
+                    "filename": "pages/ramazan.js"
+                },
+                {
+                    "blank": 11,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "pages/ucaylarhergun1cuz.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 1,
+                    "filename": "react-app-env.d.ts"
+                },
+                {
+                    "blank": 7,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "redux/store.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 12,
+                    "comment": 0,
+                    "filename": "reportWebVitals.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 4,
+                    "filename": "setupTests.js"
+                },
+                {
+                    "blank": 31,
+                    "code": 165,
+                    "comment": 0,
+                    "filename": "strings/Arabic.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 33,
+                    "comment": 0,
+                    "filename": "strings/dataCizelge.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 22,
+                    "comment": 0,
+                    "filename": "strings/dataMonths3.js"
+                },
+                {
+                    "blank": 47,
+                    "code": 166,
+                    "comment": 0,
+                    "filename": "strings/english.js"
+                },
+                {
+                    "blank": 22,
+                    "code": 95,
+                    "comment": 6,
+                    "filename": "strings/index.ts"
+                },
+                {
+                    "blank": 40,
+                    "code": 166,
+                    "comment": 0,
+                    "filename": "strings/Turkish.js"
+                }
+            ]
         }
     ]
 }
