@@ -56,6 +56,7 @@ describe('user behaviour inshaALLAH', ()=>{
         //click to Take it
         cy.get('#takeButton').click()
         //check the name of the Part
+        cy.get(`#questionContainer > div:nth-child(9) > div > div > div > div:nth-child(${Part}) >  div:nth-child(1) > div:nth-child(3)`).should('have.text', username)
 
         //click on the taken Part
         cy.get(`#questionContainer > div:nth-child(9) > div > div > div > div:nth-child(${Part})`).click()
