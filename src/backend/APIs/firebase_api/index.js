@@ -236,13 +236,14 @@ class FirebaseAPI{
     }
   
     ziyaretSayisiGetir = async () => {
+      while(true){
       try {
         let ziyaretSayisi = await this.db.ref( "ziyaretSayisi" ).get();
         return ziyaretSayisi.val();
       } catch (error) {
-        console.error(`client is offline`)
-        return 0;
+        //wait until it works
       }
+     }
     }
   
     ziyaretSayisiArtir = async () => {
