@@ -236,8 +236,13 @@ class FirebaseAPI{
     }
   
     ziyaretSayisiGetir = async () => {
-      let ziyaretSayisi = await this.db.ref( "ziyaretSayisi" ).get();
-      return ziyaretSayisi.val();
+      try {
+        let ziyaretSayisi = await this.db.ref( "ziyaretSayisi" ).get();
+        return ziyaretSayisi.val();
+      } catch (error) {
+        console.error(`client is offline`)
+        return 0;
+      }
     }
   
     ziyaretSayisiArtir = async () => {
@@ -262,6 +267,18 @@ class FirebaseAPI{
 
     hatimListener = (callback) => {
       return this.db.ref(`hatim/${this.extractKey()}`).on('value', callback);
+    }
+
+    stopMakingNewKhatm = async () => {
+      const hatimKey = this.extractKey();
+
+      try {
+        await this.db.ref(`hatim/${hatimKey}/makeNewHatim`).set(false);
+        return 200;  
+      } catch (error) {
+        console.error(error)
+        return 500;
+      }
     }
   }
 

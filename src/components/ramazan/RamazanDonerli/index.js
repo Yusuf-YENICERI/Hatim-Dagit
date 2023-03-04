@@ -28,6 +28,7 @@ import {DatabaseContext, db} from '../../../backend';
 import ShareBox from '../ShareBox';
 import { extractKey, initializeLocalStorage } from "../../../common";
 import { Language } from '@styled-icons/ionicons-outline';
+import {Button, Center} from '@mantine/core'
 
 
 // let counter = 0;+0
@@ -66,7 +67,7 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
     const [activeHatimSubKey, setActiveHatimSubKey] = useState(false);
     const [currentApi, setCurrentApi] = useState(2);
     const [makeNewHatimState, setMakeNewHatimState] = useState(false);
-
+    const [makeNewHatim, setMakeNewHatim] = useState(false)
     
     {/** AskDialog */}
     const [yazilar, setYazilar] = useState({baslik:LanguageData["/"].Button.Final.Before.Header, link:LanguageData["/"].Button.Final.Before.LinkReady,
@@ -97,6 +98,11 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
 
             if(makeNewHatimStateTemp != undefined){
                 setMakeNewHatimState(makeNewHatimStateTemp);
+            }
+
+            const makeNewHatimActiveResult = result.makeNewHatim;
+            if(makeNewHatimActiveResult){
+                setMakeNewHatim(makeNewHatimActiveResult);
             }
 
             console.log(result);
@@ -620,7 +626,7 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
 
               
 
-           {  (currentApi==2) && (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
+           { ( ! makeNewHatim) && (currentApi==2) && (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
                 <YeniHatimContainer>
                     <YeniHatimButton id="NewSubKhatm" onClick={()=>{
                         changeAskDialogBox();
@@ -630,6 +636,18 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
                     </YeniHatimButton>
                 </YeniHatimContainer>
             </YeniHatimWrapper>}
+
+            {makeNewHatim && 
+            <Center>
+                <Button mb="10px" align="center" color="red" size="md" onClick={async ()=>{
+                    let response = await firebase.stopMakingNewKhatm();
+                    if(response == 200){
+                        setMakeNewHatim(false);
+                    }else{
+                        alert('Lütfen tekrar deneyin!')
+                    }
+                }}>Otomatik Hatim Oluşturmayı Durdur</Button>
+            </Center>}
            
         </QuestionContainer>
         </>

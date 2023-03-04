@@ -84,15 +84,16 @@ const Months3Dialog = ({months3DialogVisible, setMonths3DialogVisible, setHatimK
                         {<div style={{height:'10px'}}></div>}
                 
 
-                        <div style={{display: 'flex', flexDirection: 'column'}}>
+                        { makeNewHatim == false && <div style={{display: 'flex', flexDirection: 'column'}}>
                             <DialogTextSpan>{Language["/"].Button.Header.InputSpan[3]}</DialogTextSpan>
                             <Counter hatimCount={hatimCount} setHatimCount={setHatimCount} />
-                        </div>
+                        </div>}
 
                         <div style={{display: 'flex', flexDirection: 'column', width: '250px', marginTop: '10px'}}>
                             <Checkbox styles={{ label: {fontSize: '0.8em', fontFamily: 'Righteous'}}} color='lime' value={false} 
                             onChange={(event) => {
                                                     setMakeNewHatim(event.currentTarget.checked)
+                                                    setHatimCount(1)
                                                     }} label="Hatim bittiğinde otomatik olarak yeni hatim oluştur" />
                         </div>
 

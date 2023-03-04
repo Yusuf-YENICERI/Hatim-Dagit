@@ -77,6 +77,10 @@ class Database{
   hatimListener = (callback) => {
     return this.api.hatimListener(callback);
   }
+
+  stopMakingNewKhatm = async () => {
+    return (await this.api.stopMakingNewKhatm());
+  }
 }
 
 export default Database;

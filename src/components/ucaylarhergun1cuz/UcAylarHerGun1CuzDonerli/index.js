@@ -29,7 +29,7 @@ import ShareBox from '../ShareBox';
 import { extractKey, initializeLocalStorage } from "../../../common";
 import { Language } from '@styled-icons/ionicons-outline';
 import { cuzlerFunctionTriggerActions, useCuzlerFunctionTrigger } from 'features/cuzlerFunctionTrigger';
-import {Modal} from '@mantine/core'
+import {Modal, Center, Button} from '@mantine/core'
 import { useNotification } from 'features/notification';
 import { editModalCuzlerActions, useEditCuzlerModal } from 'features/editCuzlerModal';
 import { cuzModalActions, useCuzModal } from 'features/cuzModal';
@@ -84,6 +84,7 @@ const Constr = ({ toggle, database, toggleCizelge, cizelgeId, toggleCizelgeId, c
     const [makeNewHatimState, setMakeNewHatimState] = useState(false);
     const [initialRunDone, setInitialRunDone] = useState(false);
     const [totalPartsTaken, setTotalPartsTaken] = useState(0);
+    const [makeNewHatim, setMakeNewHatim] = useState(false)
 
 
     /** redux */
@@ -226,6 +227,11 @@ const Constr = ({ toggle, database, toggleCizelge, cizelgeId, toggleCizelgeId, c
 
             if(makeNewHatimStateTemp != undefined){
                 setMakeNewHatimState(makeNewHatimStateTemp);
+            }
+
+            let makeNewHatimResult = result.makeNewHatim;
+            if(makeNewHatimResult){
+                setMakeNewHatim(makeNewHatimResult);
             }
 
             let allHatimler;
@@ -621,7 +627,7 @@ const Constr = ({ toggle, database, toggleCizelge, cizelgeId, toggleCizelgeId, c
         })}
 
             {/**Yeni Hatim ekleme butonu */}
-        {  (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
+        { ( ! makeNewHatim) &&  (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
             <YeniHatimContainer>
                 <YeniHatimButton id="NewSubKhatm" onClick={()=>{
                     dispatch(yesNoDialogAlertActions.changeText(LanguageData["/cuz"].AddKhatmAlert.Question))
@@ -632,6 +638,18 @@ const Constr = ({ toggle, database, toggleCizelge, cizelgeId, toggleCizelgeId, c
                 </YeniHatimButton>
             </YeniHatimContainer>
         </YeniHatimWrapper>}
+
+        {makeNewHatim && 
+        <Center>
+            <Button mb={"10px"} align="center" color="red" size="md" onClick={async ()=>{
+                let response = await database.stopMakingNewKhatm();
+                if(response == 200){
+                    setMakeNewHatim(false);
+                }else{
+                    alert('Lütfen tekrar deneyin!')
+                }
+            }}>Otomatik Hatim Oluşturmayı Durdur</Button>
+        </Center>}
 
         
         {/** Cüz alınamadığı durumda user agent bildirgesi inşaAllah */}

@@ -35,7 +35,7 @@ import YesNoDialog from "../YesNoDialog";
 import { useNotification, notificationActions } from '../../../features/notification';
 import { showNotification } from '@mantine/notifications';
 import { editModalCuzlerActions, useEditCuzlerModal } from '../../../features/editCuzlerModal';
-import { Text, Modal } from '@mantine/core';
+import { Text, Modal, Button, Center } from '@mantine/core';
 import EditModalContent from "../EditModalContent";
 import { cuzlerFunctionTriggerActions, useCuzlerFunctionTrigger } from '../../../features/cuzlerFunctionTrigger';
 import { yesNoDialogAlertActions } from '../../../features/yesNoDialogAlert';
@@ -73,6 +73,7 @@ const Question = ({ toggle }) => {
     const [activeHatimSubKey, setActiveHatimSubKey] = useState(false);
     const [initialRunDone, setInitialRunDone] = useState(false);
     const [makeNewHatimState, setMakeNewHatimState] = useState(false);
+    const [makeNewHatim, setMakeNewHatim] = useState(false);
 
     /** redux */
     const dispatch = useDispatch();
@@ -179,6 +180,11 @@ const Question = ({ toggle }) => {
 
             if(makeNewHatimStateTemp != undefined){
                 setMakeNewHatimState(makeNewHatimStateTemp);
+            }
+
+            const makeNewHatimActiveResult = result.makeNewHatim;
+            if(makeNewHatimActiveResult){
+                setMakeNewHatim(makeNewHatimActiveResult);
             }
 
             let allHatimler;
@@ -669,7 +675,7 @@ const Question = ({ toggle }) => {
         })}
 
         {/**Yeni Hatim ekleme butonu */}
-        {  (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
+        { (! makeNewHatim) && (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>
             <YeniHatimContainer>
                 <YeniHatimButton id="NewSubKhatm" onClick={()=>{
                     dispatch(yesNoDialogAlertActions.changeText(LanguageData["/cuz"].AddKhatmAlert.Question))
@@ -680,6 +686,18 @@ const Question = ({ toggle }) => {
                 </YeniHatimButton>
             </YeniHatimContainer>
         </YeniHatimWrapper>}
+
+        {makeNewHatim && 
+        <Center>
+            <Button align="center" color="red" size="md" onClick={async ()=>{
+                let response = await database.stopMakingNewKhatm();
+                if(response == 200){
+                    setMakeNewHatim(false);
+                }else{
+                    alert('Lütfen tekrar deneyin!')
+                }
+            }}>Otomatik Hatim Oluşturmayı Durdur</Button>
+        </Center>}
 
         
         {/** Cüz alınamadığı durumda user agent bildirgesi inşaAllah */}
