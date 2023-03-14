@@ -183,7 +183,7 @@ const Question = ({ firebase, toggle }) => {
                             </RespondInnerContainer>
             </RespondContainer>
 
-            <RespondContainer style={{marginTop: '20px'}}>
+            <RespondContainer style={{marginTop: '5px'}}>
                            <RespondInnerContainer hatimExists={hideMevcutHatimler}>
                            
 
@@ -199,7 +199,8 @@ const Question = ({ firebase, toggle }) => {
                             </RespondInnerContainer>
             </RespondContainer>
 
-            <RespondContainer style={{marginTop: '20px', paddingBottom: '50px'}}>
+
+            <RespondContainer style={{marginTop: '5px'}}>
                            <RespondInnerContainer hatimExists={hideMevcutHatimler}>
                            
 
@@ -210,6 +211,22 @@ const Question = ({ firebase, toggle }) => {
                                     }}>
                                         <ResponseText>
                                         {Language["/"].Button.Ramazan}
+                                        </ResponseText>
+                                    </ResponseItem>
+                            </RespondInnerContainer>
+            </RespondContainer>
+
+
+            <RespondContainer style={{marginTop: '5px', paddingBottom: '50px'}}>
+                           <RespondInnerContainer hatimExists={hideMevcutHatimler}>
+                           
+
+                                    <ResponseItem  onClick={ (event)=>{
+                                        event.preventDefault();
+                                        window.location.href = "https://virdzikir.hatimdagit.com"
+                                    }}>
+                                        <ResponseText>
+                                        {Language["/"].Button.EvradEzkar}
                                         </ResponseText>
                                     </ResponseItem>
                             </RespondInnerContainer>

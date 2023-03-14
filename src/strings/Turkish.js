@@ -50,6 +50,7 @@ let Turkish = {
             Main: "Hızlıca Hatim Oluştur",
             Ramazan: "Ramazan Dönerli Hatim Oluştur",
             Aylar3: "3 Aylar Hatmi Oluştur",
+            EvradEzkar:"Vird-Zikir Dağıt",
             Header: {
                 Text: "Yeni Hatim Oluştur",
                 Text3MonthProgram: "Program Seç",

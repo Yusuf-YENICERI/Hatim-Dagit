@@ -55,6 +55,7 @@ let english = {
             Main: "New Khatm",
             Ramazan: "Make New Ramazan Khatm (Cycled)",
             Aylar3: "Make 3 Months Khatm",
+            EvradEzkar:"Distribute Vird-Dhikr",
             Header: {
                 Text: "Make New Khatm",
                 InputSpan: ["Title", "Description", "Khatm Finish Date", "Number of Khatm", "Automatically make new Khatm when Khatm is finished"],

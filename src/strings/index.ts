@@ -54,6 +54,7 @@ export type LanguageType = {
             Main: string,
             Ramazan: string,
             Aylar3?: string,
+            EvradEzkar:string,
             Header: {
                 Text: string,
                 Text3MonthProgram?: string,

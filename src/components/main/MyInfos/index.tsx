@@ -158,7 +158,7 @@ const Question = ({ firebase, toggle } : {toggle: ()=>{}, firebase: any}) => {
             
 
             {
-            hideMevcutHatimler 
+            hideMevcutHatimler && mevcutHatimler.length > 0
                     ? 
                     <>
             <MevcutHatimButtonContainer style={{marginTop: '20px'}}>

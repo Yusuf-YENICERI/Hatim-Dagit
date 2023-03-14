@@ -12,7 +12,7 @@ import { CizelgelerimPage } from 'pages/cizelgelerim';
 function App() {
   return (
     <>
-    <Message />
+    {/* <Message /> */}
     <BrowserRouter>
       <Switch>
         <Route path="/" component={Home} exact />

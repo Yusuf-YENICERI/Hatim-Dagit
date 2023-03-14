@@ -19,11 +19,11 @@ describe('add Khatm to default page', ()=>{
         //click to the button
         cy.get("#months3").click()
         //click to the option
-        cy.get("#root > div:nth-child(5) > div:nth-child(3) > div > div:nth-child(2) > div:nth-child(1)").click()
+        cy.get("#root > div:nth-child(4) > div:nth-child(3) > div > div:nth-child(2) > div:nth-child(1)").click()
         //type Khatm header
-        cy.get('#root > div:nth-child(5) > div:nth-child(3) > div > div:nth-child(3) > input').type('test')
+        cy.get('#root > div:nth-child(4) > div:nth-child(3) > div > div:nth-child(3) > input').type('test')
         //type description
-        cy.get('#root > div:nth-child(5) > div:nth-child(3) > div > div:nth-child(5) > textarea').type('description')
+        cy.get('#root > div:nth-child(4) > div:nth-child(3) > div > div:nth-child(5) > textarea').type('description')
         //click Continue
         cy.findByRole('link', {  name: /continue/i}).click()
         //click Continue again
@@ -60,11 +60,11 @@ describe('add Khatm to default page', ()=>{
         //click to the button
         cy.get("#months3").click()
         //click to the option
-        cy.get("#root > div:nth-child(5) > div:nth-child(3) > div > div:nth-child(2) > div:nth-child(1)").click()
+        cy.get("#root > div:nth-child(4) > div:nth-child(3) > div > div:nth-child(2) > div:nth-child(1)").click()
         //type Khatm header
-        cy.get('#root > div:nth-child(5) > div:nth-child(3) > div > div:nth-child(3) > input').type('test')
+        cy.get('#root > div:nth-child(4) > div:nth-child(3) > div > div:nth-child(3) > input').type('test')
         //type description
-        cy.get('#root > div:nth-child(5) > div:nth-child(3) > div > div:nth-child(5) > textarea').type('description')
+        cy.get('#root > div:nth-child(4) > div:nth-child(3) > div > div:nth-child(5) > textarea').type('description')
         //click Continue
         cy.findByRole('link', {  name: /continue/i}).click()
         //click Continue again

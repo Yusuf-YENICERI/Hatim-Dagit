@@ -15,9 +15,9 @@ describe('user behaviour inshaALLAH', ()=>{
         //click on the button
         cy.get("#newDonerliRamazanKhatm").click()
         //type Khatm header
-        cy.get('#root > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(4) > input').type('test')
+        cy.get('#root > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(4) > input').type('test')
         //type description
-        cy.get('#root > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(6) > textarea').type('description')
+        cy.get('#root > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(6) > textarea').type('description')
         //click Continue
         cy.findByRole('link', {  name: /continue/i}).click()
         //click Continue again
@@ -72,9 +72,9 @@ describe('user behaviour inshaALLAH', ()=>{
         //click on the button
         cy.get("#newDonerliRamazanKhatm").click()
         //type Khatm header
-        cy.get('#root > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(4) > input').type('test')
+        cy.get('#root > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(4) > input').type('test')
         //type description
-        cy.get('#root > div:nth-child(5) > div:nth-child(2) > div > div:nth-child(6) > textarea').type('description')
+        cy.get('#root > div:nth-child(4) > div:nth-child(2) > div > div:nth-child(6) > textarea').type('description')
         //click Continue
         cy.findByRole('link', {  name: /continue/i}).click()
         //click Continue again
