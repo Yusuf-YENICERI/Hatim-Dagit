@@ -7,6 +7,9 @@ import dataMonths3 from "./strings/dataMonths3";
 import { db } from "./backend";
 
 const detectLanguage = () => {
+  if(navigator.userAgent.indexOf("googlebot")){
+    return "tr";
+  }
     let language = window.navigator.userLanguage || window.navigator.language;
     if (localStorage.getItem('language') != null)
         return localStorage.getItem('language')
