@@ -48,6 +48,7 @@ let Turkish = {
                 Charts: "Çizelgelerim"
             },
             Main: "Hızlıca Hatim Oluştur",
+            YearBased:"Yıllık Hatim Oluştur",
             Ramazan: "Ramazan Dönerli Hatim Oluştur",
             Aylar3: "3 Aylar Hatmi Oluştur",
             EvradEzkar:"Vird-Zikir Dağıt",
@@ -55,7 +56,9 @@ let Turkish = {
                 Text: "Yeni Hatim Oluştur",
                 Text3MonthProgram: "Program Seç",
                 InputSpan: ["Başlık", "Açıklama", "Hatim Duası Tarihi", 
-                            "Hatim Sayısı", "Hatim bittiğinde otomatik olarak yeni hatim oluştur"],
+                            "Hatim Sayısı", "Hatim bittiğinde otomatik olarak yeni hatim oluştur",
+                            "Başlama Tarihi", "Kaç Günde Bir Birlikte Hatim Bitecek",
+                            "Toplam Birlikte Bitecek Hatim Sayısı", "Dönerli Hatim"],
                 Input: ["Lütfen Hatim başlığı yazın ..", "Lütfen Hatim için açıklama yazın .."],
                 Button: "Devam Et"
             },

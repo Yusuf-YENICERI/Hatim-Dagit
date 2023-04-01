@@ -53,6 +53,7 @@ let english = {
                 Charts: "My Charts"
             },
             Main: "New Khatm",
+            YearBased: "Make Yearly Khatm",
             Ramazan: "Make New Ramazan Khatm (Cycled)",
             Aylar3: "Make 3 Months Khatm",
             EvradEzkar:"Distribute Vird-Dhikr",

@@ -17,6 +17,7 @@ import copy from '../../../icons/copy.svg';
 import close from '../../../icons/close.svg';
 import { NavBtnLink } from '../../common/Navbar/NavbarElements';
 import AskDialog from '../AskDialog';
+import YearlyKhatmDialog from  './YearlyKhatmDialog';
 import Months3Dialog from '../Months3Dialog';
 
 const Constr = ({toggle}) => {
@@ -51,6 +52,7 @@ const Question = ({ firebase, toggle }) => {
     const [hatimDescription, setHatimDescription] = useState("")
     const [hatimCount, setHatimCount] = useState(1)
     const [months3DialogVisible, setMonths3DialogVisible] = useState(false)
+    const [yearBasedKhatmDialogVisible, setYearBasedKhatmDialogVisible] = useState(false)
     
     const changeAskDialogBox = () => {
         setAskDialogBox(!askDialogBox)
@@ -155,6 +157,8 @@ const Question = ({ firebase, toggle }) => {
             <Months3Dialog months3DialogVisible={months3DialogVisible} setMonths3DialogVisible={setMonths3DialogVisible}
                             setHatimKey={setHatimKey} setYazilar={setYazilar} setHideDialogBox={setHideDialogBox} />
 
+            <YearlyKhatmDialog  visible={yearBasedKhatmDialogVisible} setVisible={setYearBasedKhatmDialogVisible} />
+
         {/* <BackContainer>
                 <BackButtonIcon hide={datas == 1 ? false : true} src={backButton} onClick={()=>{setDatas(routes.pop()); console.log(routes); setRoutes(routes);}}>
 
@@ -177,7 +181,19 @@ const Question = ({ firebase, toggle }) => {
                                         
                                     }}>
                                         <ResponseText>
-                                        {Language["/"].Button.Main}
+                                            {Language["/"].Button.Main}
+                                        </ResponseText>
+                                    </ResponseItem>
+                            </RespondInnerContainer>
+            </RespondContainer>
+
+            <RespondContainer>
+                           <RespondInnerContainer hatimExists={hideMevcutHatimler}>
+                                    <ResponseItem id={"yearBased"} onClick={ ()=>{
+                                        setYearBasedKhatmDialogVisible(true);
+                                    }}>
+                                        <ResponseText>
+                                            {Language["/"].Button.YearBased}
                                         </ResponseText>
                                     </ResponseItem>
                             </RespondInnerContainer>

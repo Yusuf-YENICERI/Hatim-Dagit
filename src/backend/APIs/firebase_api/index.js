@@ -4,6 +4,8 @@
 
 
 import {dataFormat} from '../../datas/dataFormat';
+import {dataFormat_yillikHatim} from '../../datas/dataFormat_yillikHatim';
+
 import { countNumberOfCuzs } from "../../utils";
 import { generateHash } from "random-hash";
 import LocDb from "@yusuf-yeniceri/easy-storage";
@@ -64,7 +66,7 @@ class FirebaseAPI{
   
     extractKey = () => {
       const link = window.location.toString();
-      const substring = ['/cuz','/ramazan','/ucaylarhergun1cuz'];
+      const substring = ['/cuz','/ramazan','/ucaylarhergun1cuz', '/yillik'];
       const found = substring.find(substring => link.indexOf(substring) !== -1);
       if(found){
         const index = link.indexOf(found);
@@ -154,6 +156,64 @@ class FirebaseAPI{
       
       
       return hatimKey;
+    }
+
+    yeniYillikHatim = async ({header, description, startingDate, howManyDays, totalKhatmsBeDistributed, donerli, makeNewHatim, mevcutHatim}) => {
+
+      // console.log(dataFormat_yillikHatim)
+      // console.log(baslik)
+      try {
+        let hatimKey, adminToken;
+      if(!mevcutHatim){
+        hatimKey = await this.db.ref("hatim").push().key;
+        adminToken = generateHash({length: 16});
+        await this.db.ref(`hatim/${hatimKey}`).set({
+          type: "yillik",
+          version: 3.0,
+          adminToken:adminToken,
+          header:header,
+          description:description,
+          startingDate: startingDate,
+          howManyDays: howManyDays,
+          totalKhatmsBeDistributed: totalKhatmsBeDistributed,
+          donerli: donerli,
+          makeNewHatim: makeNewHatim
+        });
+      }else{
+        hatimKey = this.extractKey();
+        hatimKey = hatimKey.replace("/", "");
+       
+      }
+
+      // console.log(`hatimKey: ${hatimKey}`)
+      
+      let hatimSubKeys = [];
+      let hatimCount = 1;
+      for (let i = 0; i < hatimCount; i++) {
+              let hatimAltKey = await this.db.ref(`hatim/${hatimKey}`).push().key;
+              await this.db.ref( `hatim/${hatimKey}/${hatimAltKey}` ).set(dataFormat_yillikHatim);
+              console.log(`hatimAltKey: ${hatimAltKey}`)
+
+              hatimSubKeys.push(hatimAltKey);
+      }
+      
+      
+      return {
+        data: {
+          hatimKey: hatimKey,
+          hatimSubKeys: hatimSubKeys,
+          adminToken: adminToken
+        },
+        error: undefined
+      };
+      } catch (error) {
+        return {
+          data: undefined,
+          error: error
+        }
+      }
+
+      
     }
 
 

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {DatabaseContext, db} from './backend';
+import {DatabaseContext, dataService, DataServiceContext, db} from './backend';
 import { isSafari, isStandalone } from "./common";
 import detectLanguage from './common';
 import Language from "./strings";
@@ -14,13 +14,15 @@ import { NotificationsProvider } from '@mantine/notifications';
 
 
 ReactDOM.render(
-  <DatabaseContext.Provider value={db}>
-    <Provider store={store}>
-      <NotificationsProvider position="top-right">
-        <App />
-      </NotificationsProvider>
-    </Provider>
-  </DatabaseContext.Provider>,
+  <DataServiceContext.Provider value={dataService} >
+    <DatabaseContext.Provider value={db}>
+      <Provider store={store}>
+        <NotificationsProvider position="top-right">
+          <App />
+        </NotificationsProvider>
+      </Provider>
+    </DatabaseContext.Provider>
+  </DataServiceContext.Provider>,
   document.getElementById('root')
 );
 

@@ -52,6 +52,7 @@ export type LanguageType = {
                 Charts: string
             },
             Main: string,
+            YearBased:string,
             Ramazan: string,
             Aylar3?: string,
             EvradEzkar:string,
