@@ -7,10 +7,12 @@ let Arabic = {
     Navbar: {
         Logo: "ختم توزيع",
         Links: ["إنشاء ختم", "بشأن", "تغيير اللغة", "مخططاتي"],
-        LinkHelpers: ["/", "hakkimda", "cizelgelerim"],
+        LinkHelpers: ["/", "hakkimda", "/cizelgelerim"],
         Buttons: ["أرسل تقييما"],
         Languages: [{label: "عربي", value: 'ar'}, {label: "الانجليزية", value: 'en'}, {label: "اللغة التركية", value: 'tr'}],
         Pwa: 'تنزيله',
+        Menu: 'خيارات'
+
     },
 
     Pwa: {
@@ -29,7 +31,7 @@ let Arabic = {
         ziyaret: ["تمت زيارة هذا الموقع "," مرات."],
         version: " الإصدار الحالي هو",
         GoToMainPage: "انتقل إلى الصفحة الرئيسية",
-        Feedback: "أرسل رسالة"
+        Feedback: "أرسل رسالة",
     },
 
     AlertDialog: {
@@ -37,6 +39,8 @@ let Arabic = {
         Yes: 'نعم',
         No: 'لا'
     },
+
+    AutomaticKhatm: 'توقفوا عن صنع الختم',
 
     "/" : {
         Question: "إنشاء ختم جديد بالنقر فوق الزر!",
@@ -191,6 +195,9 @@ let Arabic = {
             Sms: 'شارك مع الرسائل القصيرة',
             Whatsapp: 'Whatsapp شارك مع',
         }
+    },
+
+    "/ucaylarhergun1cuz":{
     }
 }
 

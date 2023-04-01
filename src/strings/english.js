@@ -11,10 +11,11 @@ let english = {
     Navbar: {
         Logo: "Distribute Khatm",
         Links: ["Make New Khatm", "About", "Change Language", "My Charts"],
-        LinkHelpers: ["/", "hakkimda", "cizelgelerim"],
+        LinkHelpers: ["/", "hakkimda", "/cizelgelerim"],
         Buttons: ["Send Feedback"],
         Languages: [{label: "Arabic", value: 'ar'}, {label: "English", value: 'en'}, {label: "Turkish", value: 'tr'}],
-        Pwa: "Download to Phone"
+        Pwa: "Download to Phone",
+        Menu: 'Menu'
 
     },
 
@@ -34,7 +35,7 @@ let english = {
         ziyaret: ["This site has been visited ", " times"],
         version: "Current version is ",
         GoToMainPage: "Go to Home",
-        Feedback: "Give Feedback"
+        Feedback: "Give Feedback",
 
     },
 
@@ -43,6 +44,8 @@ let english = {
         Yes: 'Yes',
         No: 'No'
     },
+
+    AutomaticKhatm: 'Stop Making Automatic Khatms',
 
     "/" : {
         Question: "Click on Button to Make New Khatm",
@@ -204,8 +207,10 @@ let english = {
             Sms: 'Share with Sms',
             Whatsapp: 'Share with Whatsapp',
         }
-    }
+    },
 
+    "/ucaylarhergun1cuz":{
+    }
 
 
     

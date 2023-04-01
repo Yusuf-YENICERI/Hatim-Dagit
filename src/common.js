@@ -11,9 +11,10 @@ const detectLanguage = () => {
     return "tr";
   }
     let language = window.navigator.userLanguage || window.navigator.language;
-    if (localStorage.getItem('language') != null)
-        return localStorage.getItem('language')
-    return language;
+    if (localStorage.getItem('language') != null){
+        return localStorage.getItem('language').toLowerCase()
+    }
+    return language.toLowerCase();
 }
 
 const setLanguage = (lang) => localStorage.setItem("language", lang)

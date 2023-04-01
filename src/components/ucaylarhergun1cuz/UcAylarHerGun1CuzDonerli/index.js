@@ -639,7 +639,7 @@ const Constr = ({ toggle, database, toggleCizelge, cizelgeId, toggleCizelgeId, c
             </YeniHatimContainer>
         </YeniHatimWrapper>}
 
-        {makeNewHatim && 
+        {makeNewHatim && (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) &&
         <Center>
             <Button mb={"10px"} align="center" color="red" size="md" onClick={async ()=>{
                 let response = await database.stopMakingNewKhatm();
@@ -648,7 +648,7 @@ const Constr = ({ toggle, database, toggleCizelge, cizelgeId, toggleCizelgeId, c
                 }else{
                     alert('Lütfen tekrar deneyin!')
                 }
-            }}>Otomatik Hatim Oluşturmayı Durdur</Button>
+            }}>{LanguageData.AutomaticKhatm}</Button>
         </Center>}
 
         

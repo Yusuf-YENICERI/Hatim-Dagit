@@ -19,7 +19,9 @@ export type LanguageType = {
         LinkHelpers: string[],
         Buttons: string[],
         Languages: {[key:string]:string}[],
-        Pwa: string
+        Pwa: string,
+        Menu: string,
+
 
     },
 
@@ -33,7 +35,7 @@ export type LanguageType = {
         ziyaret: string[],
         version: string,
         GoToMainPage: string,
-        Feedback: string
+        Feedback: string,
 
     },
 
@@ -42,6 +44,8 @@ export type LanguageType = {
         Yes: string,
         No: string
     },
+
+    AutomaticKhatm: string,
 
     "/" : {
         Question: string,
@@ -89,7 +93,9 @@ export type LanguageType = {
 
     "/cuz":any,
 
-    "/ramazan":any
+    "/ramazan":any,
+
+    "/ucaylarhergun1cuz":any,
 }
 
 

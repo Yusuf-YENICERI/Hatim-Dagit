@@ -19,7 +19,7 @@ function App() {
         <Route path="/cuz" component={Cuz} />
         <Route path="/ramazan" component={Ramazan} />
         <Route path="/ucaylarhergun1cuz" component={UcAylarHerGun1Cuz} />
-        <Route path="/cizelgelerim" component={CizelgelerimPage} />
+        <Route path="/cizelgelerim" component={CizelgelerimPage} exact />
 
       </Switch>
     </BrowserRouter>

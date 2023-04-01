@@ -687,7 +687,7 @@ const Question = ({ toggle }) => {
             </YeniHatimContainer>
         </YeniHatimWrapper>}
 
-        {makeNewHatim && 
+        {makeNewHatim && (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) &&
         <Center>
             <Button align="center" color="red" size="md" onClick={async ()=>{
                 let response = await database.stopMakingNewKhatm();
@@ -696,7 +696,7 @@ const Question = ({ toggle }) => {
                 }else{
                     alert('Lütfen tekrar deneyin!')
                 }
-            }}>Otomatik Hatim Oluşturmayı Durdur</Button>
+            }}>{LanguageData.AutomaticKhatm}</Button>
         </Center>}
 
         

@@ -11,7 +11,9 @@ describe('user behaviour inshaALLAH', ()=>{
 
     it('user made Khatm should be able to make new Part', () => {
 
-        cy.visit('http://localhost:3000/')
+        cy.visit('http://localhost:3000/', {onBeforeLoad: function (window) {
+            window.localStorage.setItem('language', 'en');
+        }})
         //click to the button
         cy.get("#months3").click()
         //click to the option
@@ -91,7 +93,9 @@ describe('user behaviour inshaALLAH', ()=>{
     Part = 13;
 
     it('user should be able make Khatm and take Part', ()=>{
-        cy.visit('http://localhost:3000/')
+        cy.visit('http://localhost:3000/', {onBeforeLoad: function (window) {
+            window.localStorage.setItem('language', 'en');
+        }})
         //click to the button
         cy.get("#months3").click()
         //click to the option

@@ -27,11 +27,7 @@ const Sidebar = ({ toggle, isOpen}) => {
                         spy={true}
                         exact="true"
                         offset={0} to={Language.Navbar.LinkHelpers[0]} onClick={toggle}>{Language.Navbar.Links[0]}</SidebarLinkR>
-                        <SidebarLinkR smooth={true}
-                        duration={500}
-                        spy={true}
-                        exact="true"
-                        offset={0} to={Language.Navbar.LinkHelpers[2]} onClick={toggle}>{Language.Navbar.Links[3]}</SidebarLinkR>
+                        <SidebarLinkR  to={Language.Navbar.LinkHelpers[2]}onClick={toggle}>{Language.Navbar.Links[3]}</SidebarLinkR>
                         <SidebarLink smooth={true}
                         duration={500}
                         spy={true}

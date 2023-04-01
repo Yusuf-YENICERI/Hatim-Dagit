@@ -6,10 +6,12 @@ let Turkish = {
     Navbar: {
         Logo: "Hatim Dağıt",
         Links: ["Hatim Oluştur", "Hakkında", "Dil Değiştir", "Çizelgelerim"],
-        LinkHelpers: ["/", "hakkimda", "cizelgelerim"],
+        LinkHelpers: ["/", "hakkimda", "/cizelgelerim"],
         Buttons: ["Geribildirim Yap"],
         Languages: [{label: "Arapça", value: 'ar'}, {label: "İngilizce", value: 'en'}, {label: "Türkçe", value: 'tr'}],
-        Pwa: "Telefona İndir"
+        Pwa: "Telefona İndir",
+        Menu: 'Menü'
+
     },
 
     Pwa: {
@@ -28,7 +30,7 @@ let Turkish = {
         ziyaret: ["Bu site ", " defa ziyaret edildi"],
         version: "Mevcut versiyon ",
         GoToMainPage: "Anasayfaya Git",
-        Feedback: "Geribildirim Yap"
+        Feedback: "Geribildirim Yap",
     },
 
 
@@ -37,6 +39,8 @@ let Turkish = {
         Yes: 'Evet',
         No: 'Hayır'
     },
+
+    AutomaticKhatm: 'Otomatik Hatim Oluşturmayı Durdur',
     
 
     "/" : {
@@ -197,9 +201,10 @@ let Turkish = {
             Sms: 'Sms ile Paylaş',
             Whatsapp: 'Whatsapp ile Paylaş',
         }
+    },
+
+    "/ucaylarhergun1cuz":{
     }
-
-
 
     
 }

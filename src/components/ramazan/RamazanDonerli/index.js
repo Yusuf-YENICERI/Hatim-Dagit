@@ -637,7 +637,7 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
                 </YeniHatimContainer>
             </YeniHatimWrapper>}
 
-            {makeNewHatim && 
+            {makeNewHatim && (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) &&
             <Center>
                 <Button mb="10px" align="center" color="red" size="md" onClick={async ()=>{
                     let response = await firebase.stopMakingNewKhatm();
@@ -646,7 +646,7 @@ const Constr = ({ toggle, firebase, toggleCizelge, cizelgeId, toggleCizelgeId })
                     }else{
                         alert('Lütfen tekrar deneyin!')
                     }
-                }}>Otomatik Hatim Oluşturmayı Durdur</Button>
+                }}>{LanguageData.AutomaticKhatm}</Button>
             </Center>}
            
         </QuestionContainer>
