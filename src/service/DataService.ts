@@ -5,6 +5,7 @@ import { BaseResponse } from "backend/types/responses/BaseResponse";
 import { YeniYillikHatimParams } from "backend/types/params/YeniYillikHatimParams";
 import { YeniYillikHatimResponse } from "backend/types/responses/YeniYillikHatimResponse";
 import { HatimGetirCustomResponse } from "backend/types/responses/HatimGetirCustomResponse";
+import { HatimType } from "backend/types/HatimType";
 
 
 
@@ -74,8 +75,9 @@ export class DataService implements IDatabase{
     ziyaretSayisiArtir(): Promise<BaseResponse<void>> {
         throw new Error("Method not implemented.");
     }
-    countNumberOfCuzs(allHatimler: Promise<BaseResponse<any>>): Promise<BaseResponse<any>> {
-        throw new Error("Method not implemented.");
+    countNumberOfCuzs(hatimsData: HatimType[]): BaseResponse<number> {
+        let remoteDbResult = this.remoteDatabase.countNumberOfCuzs(hatimsData);
+        return remoteDbResult;
     }
     hatimDegistir(baslik: string, bitisTarihi: string, description: string, subKey: string): Promise<BaseResponse<number>> {
         throw new Error("Method not implemented.");

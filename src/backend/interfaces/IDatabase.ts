@@ -1,3 +1,4 @@
+import { HatimType } from "backend/types/HatimType";
 import { YeniYillikHatimParams } from "backend/types/params/YeniYillikHatimParams";
 import { BaseResponse } from "backend/types/responses/BaseResponse";
 import { YeniYillikHatimResponse } from "backend/types/responses/YeniYillikHatimResponse";
@@ -34,7 +35,7 @@ export interface IDatabase{
     
     ziyaretSayisiArtir():Promise<BaseResponse<void>>;
     
-    countNumberOfCuzs(allHatimler:Promise<BaseResponse<any>>):Promise<BaseResponse<any>>;
+    countNumberOfCuzs(allHatimler:HatimType[]):BaseResponse<number>;
     
     hatimDegistir(baslik:string, bitisTarihi:string, description:string, subKey:string):Promise<BaseResponse<number>>;
     

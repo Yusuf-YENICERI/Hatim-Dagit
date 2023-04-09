@@ -46,7 +46,29 @@ const removeAll = (obj, item, subKey) => {
   }
 
 const objectToArray = (obj) => {
-  return Object.keys(obj).filter(x=>(x!="adminToken") && (x!="delete") && (x!="subKey") && (x!="makeNewHatim")).map((key) => {
+  return Object.keys(obj).filter(x=> ["adminToken", "delete", "subKey", "makeNewHatim"].includes(x) == false).map((key) => {
+    obj[key].subKey = key;
+    return obj[key];
+  });
+}
+
+const objectToArrayV3 = (obj) => {
+
+  const keys = [
+    'header',
+    'description',
+    'adminToken',
+    'donerli',
+    'howManyDays',
+   'makeNewHatim',
+   'startingDate',
+    'totalKhatmsBeDistributed',
+    'type',
+   'version'
+  ];
+  
+
+  return Object.keys(obj).filter(x=> keys.includes(x) == false).map((key) => {
     obj[key].subKey = key;
     return obj[key];
   });
@@ -107,5 +129,5 @@ const version = "1.2.1";
 
 export default detectLanguage;
 
-export {setLanguage, removeAll, removeAll_v1, objectToArray, isSafari, isStandalone, extractKey,
+export {setLanguage, removeAll, removeAll_v1, objectToArray, objectToArrayV3, isSafari, isStandalone, extractKey,
    initializeLocalStorage, getMonths3Date, version, isEmptyObjectLocDb};

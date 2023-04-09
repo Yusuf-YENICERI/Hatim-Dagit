@@ -6,7 +6,7 @@
 import {dataFormat} from '../../datas/dataFormat';
 import {dataFormat_yillikHatim} from '../../datas/dataFormat_yillikHatim';
 
-import { countNumberOfCuzs } from "../../utils";
+import { countNumberOfCuzs, countNumberOfCuzsV3 } from "../../utils";
 import { generateHash } from "random-hash";
 import LocDb from "@yusuf-yeniceri/easy-storage";
 import app from 'firebase/app';
@@ -39,6 +39,7 @@ class FirebaseAPI{
         app.initializeApp(config);
         this.db = app.database();
         this.countNumberOfCuzs = countNumberOfCuzs;
+        this.countNumberOfCuzsV3 = countNumberOfCuzsV3;
         this.analytics = app.analytics();
         this.logger = new Logger(this.db);
     }

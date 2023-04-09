@@ -11,6 +11,7 @@ import { YeniYillikHatimParams } from "./types/params/YeniYillikHatimParams";
 import { BaseResponse } from "./types/responses/BaseResponse";
 import { YeniYillikHatimResponse } from "./types/responses/YeniYillikHatimResponse";
 import db from '@yusuf-yeniceri/easy-storage';
+import { HatimType } from "./types/HatimType";
 
 
 export class LocalDatabase implements ILocalDatabase{
@@ -64,7 +65,7 @@ export class LocalDatabase implements ILocalDatabase{
     ziyaretSayisiArtir(): Promise<BaseResponse<void>> {
         throw new Error("Method not implemented.");
     }
-    countNumberOfCuzs(allHatimler: Promise<BaseResponse<any>>): Promise<BaseResponse<any>> {
+    countNumberOfCuzs(hatimsData: HatimType[]): BaseResponse<number> {
         throw new Error("Method not implemented.");
     }
     hatimDegistir(baslik: string, bitisTarihi: string, description: string, subKey: string): Promise<BaseResponse<number>> {
