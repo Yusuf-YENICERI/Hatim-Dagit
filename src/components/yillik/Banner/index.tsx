@@ -20,7 +20,7 @@ import { editModalCuzlerActions, useEditCuzlerModal } from 'features/editCuzlerM
 import { useContext, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Language from 'strings';
-
+import YesNoDialog from './YesNoDialog';
 
 const Banner = ({hatimRootData}: {hatimRootData:HatimGetirCustomResponse|undefined}) => {
 
@@ -68,6 +68,12 @@ const Banner = ({hatimRootData}: {hatimRootData:HatimGetirCustomResponse|undefin
 
   return (
     <>
+
+
+        {/**Hatim silme */}
+        <YesNoDialog yesHandler={yesHandlerState} noHandler={noHandlerState} />
+
+
         {/** Hatim editleme*/}
         <Modal
         styles={{

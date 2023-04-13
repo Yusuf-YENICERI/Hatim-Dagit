@@ -25,11 +25,13 @@ const AskDialog = ({ firebase, visible, setVisible }) => {
         const [pageName, setPageName] = useState("enterInfo");
         const [linkKopyala, setLinkKopyala] = useState(Language["/"].Button.Final.Before.Copy) 
 
+
+        const currentDate = new Date();
         const form = useForm({
             initialValues: {
               header: '',
               description: '',
-              startingDate: (new Date()).getFullYear(),
+              startingDate: currentDate.getFullYear() + "-" + String(currentDate.getMonth()+1).padStart(2,'0') + "-" + String(currentDate.getDate()).padStart(2,'0'),
               howManyDays: 7,
               totalKhatmsBeDistributed: 30,
               donerli: false,

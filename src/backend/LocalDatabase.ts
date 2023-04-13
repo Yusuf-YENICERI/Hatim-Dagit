@@ -36,10 +36,16 @@ export class LocalDatabase implements ILocalDatabase{
     async yeniYillikHatimCustom(params: YeniYillikHatimResponse): Promise<BaseResponse<string>> {
         try {
             params.hatimSubKeys.map(hatimSubKey=>{
-                db.ref(`Hatim/`).set({[params.hatimKey]: hatimSubKey})
+                db.ref(`Hatim/${params.hatimKey}/`).modify((data) => {
+                    data[hatimSubKey] = true;
+                    return data;
+                })
             })
             
-            db.ref(`Hatim`).set({[params.hatimKey]: params.adminToken});
+            db.ref(`Hatim/${params.hatimKey}/`).modify((data) => {
+                data["adminToken"] = params.adminToken;
+                return data;
+            });
 
             return {data: "Alhamdulillah", error: undefined};
     

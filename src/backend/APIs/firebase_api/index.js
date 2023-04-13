@@ -326,6 +326,21 @@ class FirebaseAPI{
       }
     }
 
+    deleteHatimV3 = async () => {
+      try {
+
+        const adminToken = LocDb.ref(`Hatim/${this.extractKey()}/adminToken`).get();
+
+        await this.db.ref(`hatim/${this.extractKey()}/delete`).set({adminToken: adminToken});
+        // await this.db.ref(`hatim/${this.extractKey()}`).set({adminToken: filtered[0][Object.keys(filtered[0])]});
+
+        return 0;  
+      } catch (error) {
+        console.error(error)
+        return -1;
+      }
+    }
+
 
     hatimListener = (callback) => {
       return this.db.ref(`hatim/${this.extractKey()}`).on('value', callback);

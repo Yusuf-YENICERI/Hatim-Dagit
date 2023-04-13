@@ -98,18 +98,11 @@ export default function StatsCard({header, description, progress, leftCuzs, duaL
 
   const yesHandlerPayload = () => {
 
-    let localStorageCuzKeylerArr = JSON.parse(localStorage.getItem("CuzKeyler"));
-    if(localStorageCuzKeylerArr == null) {
-        alert('Hata var!');
-        return;
-    }
-    let index = localStorageCuzKeylerArr.findIndex(C => C == extractKey().replace("/",""))
-    localStorageCuzKeylerArr.splice(index, 1);
-    localStorage.setItem("CuzKeyler", JSON.stringify(localStorageCuzKeylerArr))
-
-    let localStorageCuzKeylerArrBaslik = JSON.parse(localStorage.getItem("CuzKeylerBaslik"));
-    localStorageCuzKeylerArrBaslik.splice(index, 1)
-    localStorage.setItem("CuzKeylerBaslik", JSON.stringify(localStorageCuzKeylerArrBaslik))
+    localDb.ref(`Hatim/`).modify((data) => {
+      let hatimKey = extractKey();
+      delete data[hatimKey];
+      return data;
+    });
 
     dispatch(yesNoDialogAlertFunctions.deleteHatim())
     history.push("/")
@@ -120,13 +113,13 @@ export default function StatsCard({header, description, progress, leftCuzs, duaL
 
 
 
-  let adminToken = localDb.ref("Hatim/adminToken").get()
+  let adminToken = localDb.ref(`Hatim/${extractKey()}/adminToken`).get()
   let tokenExists;
   if(Object.keys(adminToken).length == 0){
     tokenExists = 0;
   }
   else{
-    tokenExists = adminToken.filter(token => Object.keys(token)[0] == extractKey().replace("/","")).length;
+    tokenExists = adminToken;
   }
 
   return (
