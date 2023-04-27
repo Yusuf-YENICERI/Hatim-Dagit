@@ -7,7 +7,7 @@
 
 import React, { useRef, useState } from 'react';
 import { createStyles, Table, Checkbox, ScrollArea, Group, Avatar, Text, Title, ActionIcon } from '@mantine/core';
-import close from "../../../icons/close.svg";
+import close from "icons/close.svg";
 
 const useStyles = createStyles((theme) => ({
   rowSelected: {

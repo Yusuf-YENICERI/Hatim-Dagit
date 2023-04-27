@@ -6,7 +6,7 @@
 
 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import {db} from '../../backend';
+import {db, localDatabase} from '../../backend';
 import { useContext } from "react";
 import { partsProcessor } from "localStorage/parts";
 import { extractKey } from "common";
@@ -16,7 +16,9 @@ const initialState = {
     name: '',
     cuzNo: 0,
     subKey: '',
-    loading: false
+    loading: false,
+    takingPart: true,
+    makeNewKhatm: false,
 }
 
 
@@ -33,12 +35,58 @@ const cancelCuz = createAsyncThunk("cuzModal/cancelCuz", async ({ cuzNo, subKey}
     }
 })
 
+const takeCuzV3 = createAsyncThunk("cuzModal/takeCuzV3", async ({nameState, cuzNo, subKey}, {getState})=>{
+    const makeNewKhatm = getState().cuzModal.makeNewKhatm;
+    const {data, error} = await db.cuzAlV3(nameState, cuzNo, subKey, true, makeNewKhatm);
+    if(data == 200){
+        let {data, error} = localDatabase.cuzAl(nameState, cuzNo, subKey, true, makeNewKhatm);
+        if(data == undefined){
+            alert('Cüz bilgileri cihazınıza kaydedilemedi ancak Cüz alındı!')
+        }
+    }
+    else{
+        alert("Cüz alınamadı! Bir başkası tarafından alınmış ya da internet bağlantısı koptu!");
+    }
+})
+
+const changeCuzV3 = createAsyncThunk("cuzModal/changeCuzV3", async ({nameState, cuzNo, subKey})=>{
+    const {data, error} = await db.cuzIsimDegistirV3(nameState, cuzNo, subKey);
+    if(data == 200) {
+        let {data, error} = localDatabase.cuzIsimDegistir(nameState, cuzNo, subKey);
+        if(data == undefined){
+            alert('Cüz bilgileri cihazınıza kaydedilemedi ancak Cüz alındı!')
+        }
+    }
+    else{
+        alert("Cüz güncellenemedi!");
+    }
+})
+
+const cancelCuzV3 = createAsyncThunk("cuzModal/cancelCuzV3", async ({ cuzNo, subKey})=>{
+    const {data, error} = await db.cuzIptalV3(cuzNo, subKey);
+    if(data == 200) {
+        let {data, error} = localDatabase.cuzIptal(cuzNo, subKey);
+        if(data == undefined){
+            alert('Cüz bilgileri cihazınıza kaydedilemedi ancak Cüz iptal edildi!')
+        }
+    }
+    else{
+        alert("Cüz iptal edilemedi!");
+    }
+})
+
 const cuzModalSlice = createSlice({
     name: 'cuzModal',
     initialState,
     reducers:{
         toggleVisibility: state => {
             state.visible = !state.visible;
+        },
+        changeMakeNewKhatm: (state, {payload}) => {
+            state.makeNewKhatm = payload;
+        },
+        changeTakingPart: (state, {payload}) => {
+            state.takingPart = payload;
         },
         changeName: (state, {payload}) => {
             state.name = payload;
@@ -77,6 +125,48 @@ const cuzModalSlice = createSlice({
         [cancelCuz.rejected]: (state) => {
             state.visible = false
             state.loading = false
+        },
+
+        [changeCuzV3.pending]: (state) => {
+            state.loading = true
+        },
+
+        [changeCuzV3.fulfilled]: (state, {payload}) => {
+            state.loading = false
+            state.visible = false
+        },
+        
+        [changeCuzV3.rejected]: (state) => {
+            state.visible = false
+            state.loading = false
+        },
+
+        [cancelCuzV3.pending]: (state) => {
+            state.loading = true
+        },
+
+        [cancelCuzV3.fulfilled]: (state, {payload}) => {
+            state.loading = false
+            state.visible = false
+        },
+        
+        [cancelCuzV3.rejected]: (state) => {
+            state.visible = false
+            state.loading = false
+        },
+
+        [takeCuzV3.pending]: (state) => {
+            state.loading = true
+        },
+
+        [takeCuzV3.fulfilled]: (state, {payload}) => {
+            state.loading = false
+            state.visible = false
+        },
+        
+        [takeCuzV3.rejected]: (state) => {
+            state.visible = false
+            state.loading = false
         }
     }
 })
@@ -84,5 +174,5 @@ const cuzModalSlice = createSlice({
 const actions = cuzModalSlice.actions;
 
 
-export {actions, changeCuz, cancelCuz}
+export {actions, changeCuz, cancelCuz, changeCuzV3, cancelCuzV3, takeCuzV3}
 export default cuzModalSlice.reducer;

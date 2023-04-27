@@ -226,6 +226,24 @@ class FirebaseAPI{
         return -1;
       }
     }
+
+    hatimDegistirV3 = async (baslik, bitisTarihi, description, subKey) => {
+      try {
+        await this.db.ref(`hatim/${this.extractKey()}/${subKey}`).update({baslik: baslik, bitisTarihi: bitisTarihi, description: description});
+        return 0;        
+      } catch (error) {
+        return -1;
+      }
+    }
+
+    yillikHatimDegistirV3 = async (header, startingDate, description) => {
+      try {
+        await this.db.ref(`hatim/${this.extractKey()}/`).update({header: header, startingDate: startingDate, description: description});
+        return {data: "success", error: undefined};        
+      } catch (error) {
+        return {data: undefined, error: error};
+      }
+    }
   
     cuzAl = async (isim, no, subKey, alindi = true, makeNewHatim = false) => {
       let hatimKey = this.extractKey().replace('/','');
@@ -246,7 +264,7 @@ class FirebaseAPI{
             alindi: alindi.toString(),
             ownerId: ownerId,
             dev: netlifyParams.dev,
-            makeNewHatimArg: makeNewHatim ?? undefined
+            makeNewHatimArg: makeNewHatim ?? undefined,
       }
 
       // console.log(`params: ${params.dev}`)
@@ -291,7 +309,77 @@ class FirebaseAPI{
     cuzIptal = async (no, subKey) => {
       return this.cuzAl('', no, subKey, false);
     }
+
+
+    cuzAlV3 = async (isim, no, subKey, alindi = true, makeNewHatim = false) => {
+      let hatimKey = this.extractKey().replace('/','');
+
+      let ownerId = LocDb.ref(`Hatim/${hatimKey}/${subKey}/ownerId`).get()
+
+      if(["object", "undefined"].includes(typeof ownerId) == true){
+        ownerId = generateHash({length: 8});
+        LocDb.ref(`Hatim/${hatimKey}/${subKey}`).modify((data) => {
+          if(typeof data == "boolean") data = {}
+          data.ownerId = ownerId;
+          return data;
+        });
+      }
+
+      let params = {
+            key: hatimKey.toString(),
+            subKey: subKey.toString(),
+            cuzNo: no.toString(),
+            name: isim,
+            alindi: alindi.toString(),
+            ownerId: ownerId,
+            dev: netlifyParams.dev,
+            makeNewHatimArg: makeNewHatim ?? undefined,
+            version: 3
+      }
+
+      // console.log(`params: ${params.dev}`)
+
+      try {
+        let result = await sFunctions.takeCuz(params);
+        let _errorKey = undefined;
+
+        if(result.error != undefined)
+        {
+          let errorRef = "cuzAl";
+          let errorKey = this.db.ref(`logging/errors/${errorRef}`).push().key;
+          
+          result.error.errorKey = errorKey;
+          this.logger.logError(errorRef ,errorKey, result.error);
+          this.analytics.logEvent("cuz_al_v3", result.error);
+          
+          _errorKey = `${errorRef}/${errorKey}`;
+        }
+         // 0 means taking Cuz is successfull
+        if(result.code == 200){
+          return {data: 200, error: undefined};
+        }else{
+          return {data: undefined, error: _errorKey};
+        }
+
+      } catch (error) {
+        //-1 means Cuz is already taken
+        return {data: undefined, error: error};
+      }
+      
+       
+        
+      
+    }
   
+
+    cuzIsimDegistirV3 = async (isim, no, subKey) => {
+      return this.cuzAlV3(isim, no, subKey);
+    }
+  
+  
+    cuzIptalV3 = async (no, subKey) => {
+      return this.cuzAlV3('', no, subKey, false);
+    }
     cuzBitti = async (hatimKey) => {
       await this.db.ref("hatim/" + hatimKey + "/bitti").set(true);
     }
@@ -315,6 +403,7 @@ class FirebaseAPI{
       try {
         let aD = LocDb.ref("Hatim/adminToken").get();
         let filtered = aD.filter(x=>Object.keys(x)[0].toString() == this.extractKey().replace("/","").toString());
+        console.log('test')
 
         await this.db.ref(`hatim/${this.extractKey()}/delete`).set({adminToken: filtered[0][Object.keys(filtered[0])]});
         await this.db.ref(`hatim/${this.extractKey()}`).set({adminToken: filtered[0][Object.keys(filtered[0])]});
@@ -330,7 +419,7 @@ class FirebaseAPI{
       try {
 
         const adminToken = LocDb.ref(`Hatim/${this.extractKey()}/adminToken`).get();
-
+        console.log('test')
         await this.db.ref(`hatim/${this.extractKey()}/delete`).set({adminToken: adminToken});
         // await this.db.ref(`hatim/${this.extractKey()}`).set({adminToken: filtered[0][Object.keys(filtered[0])]});
 

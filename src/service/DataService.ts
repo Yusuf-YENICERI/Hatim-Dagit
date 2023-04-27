@@ -23,7 +23,7 @@ export class DataService implements IDatabase{
         this.localDatabase = localDatabase;
     }
     hatimSiraBelirle(no: number): Promise<BaseResponse<any>> {
-        throw new Error("Method not implemented.");
+        throw new Error("Method not implemented.")
     }
     extractKey(): Promise<BaseResponse<string>> {
         throw new Error("Method not implemented.");
@@ -33,7 +33,7 @@ export class DataService implements IDatabase{
         return remoteDbResult;
     }
 
-    async hatimGetirCustom(): Promise<BaseResponse<HatimGetirCustomResponse>> {
+    async hatimGetirCustom(): Promise<BaseResponse<HatimGetirCustomResponse|string>> {
         try {
             let remoteDbResult:HatimGetirCustomResponse = await this.remoteDatabase.hatimGetir();
             return {data: remoteDbResult, error: undefined};     

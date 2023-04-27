@@ -148,6 +148,7 @@ let Turkish = {
 
             PartModal:{
                 Title: 'Cüz bilgilerinde değişiklik yap',
+                Title2: 'Cüz almak için aşağıya isminizi girin',
                 Name: 'Cüzü alan kişinin ismi',
                 ChangeNameButton: 'İsmini Değiştir',
                 CancelPart: 'Cüzü İptal Et',

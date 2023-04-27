@@ -12,13 +12,10 @@ import { BaseResponse } from "./types/responses/BaseResponse";
 import { YeniYillikHatimResponse } from "./types/responses/YeniYillikHatimResponse";
 import db from '@yusuf-yeniceri/easy-storage';
 import { HatimType } from "./types/HatimType";
-
+import {extractKey} from 'common'
 
 export class LocalDatabase implements ILocalDatabase{
     hatimSiraBelirle(no: number): Promise<BaseResponse<any>> {
-        throw new Error("Method not implemented.");
-    }
-    extractKey(): Promise<BaseResponse<string>> {
         throw new Error("Method not implemented.");
     }
     hatimGetir(): Promise<BaseResponse<any>> {
@@ -53,14 +50,38 @@ export class LocalDatabase implements ILocalDatabase{
             return {data:undefined, error: error};            
         }
     }
-    cuzAl(isim: string, no: number, subKey: string, alindi: boolean, makeNewHatim: boolean): Promise<BaseResponse<any>> {
-        throw new Error("Method not implemented.");
+    cuzAl(isim: string, no: number, subKey: string, alindi: boolean, makeNewHatim: boolean): BaseResponse<any> {
+        try {
+            let key = extractKey();
+            db.ref(`Hatim/${key}/${subKey}/parts/${no}`).set({isTaken: alindi, name:isim});
+            return {data: "Alhamdulillah", error: undefined}
+        } catch (error) {
+            return {data: undefined, error: error}
+        }
+        
     }
-    cuzIsimDegistir(isim: string, no: number, subKey: string): Promise<BaseResponse<any>> {
-        throw new Error("Method not implemented.");
+    cuzIsimDegistir(isim: string, no: number, subKey: string): BaseResponse<any> {
+        try {
+            let {data, error} = this.cuzAl(isim, no, subKey, true, false)
+            if(data != undefined){
+                return {data: "Alhamdulillah", error: undefined}    
+            }
+            return {data: undefined, error: error}
+        } catch (error) {
+            return {data: undefined, error: error}
+        }
     }
-    cuzIptal(no: number, subKey: string): Promise<BaseResponse<any>> {
-        throw new Error("Method not implemented.");
+    cuzIptal(no: number, subKey: string): BaseResponse<any> {
+        try {
+            let key = extractKey();
+            db.ref(`Hatim/${key}/${subKey}/parts`).modify((data)=>{
+                delete data[no];
+                return data;
+            });
+            return {data: "Alhamdulillah", error: undefined}    
+        } catch (error) {
+            return {data: undefined, error: error}
+        }
     }
     cuzBitti(hatimKey: string): Promise<BaseResponse<any>> {
         throw new Error("Method not implemented.");

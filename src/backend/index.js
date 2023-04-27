@@ -23,4 +23,4 @@ const DataServiceContext = React.createContext(dataService);
 
 export default Database;
 
-export {DatabaseContext, db, DataServiceContext, dataService};
+export {DatabaseContext, db, DataServiceContext, dataService, localDatabase};

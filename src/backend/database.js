@@ -54,6 +54,19 @@ export class Database{
     await this.api.cuzIptal(no, subKey);
   }
 
+  cuzAlV3 = async (isim, no, subKey, alindi = true, makeNewHatim = false) => {
+    return (await this.api.cuzAlV3(isim, no, subKey, alindi, makeNewHatim ));
+  }
+
+  cuzIsimDegistirV3 = async (isim, no, subKey) => {
+    return (await this.api.cuzIsimDegistirV3(isim, no, subKey));
+  }
+
+
+  cuzIptalV3 = async (no, subKey) => {
+    await this.api.cuzIptalV3(no, subKey);
+  }
+
   cuzBitti = async (hatimKey) => {
     await this.api.cuzBitti(hatimKey);
   }
@@ -74,8 +87,21 @@ export class Database{
     return (await this.api.hatimDegistir(baslik, bitisTarihi, description, subKey));
   }
 
+  hatimDegistirV3 = async (baslik, bitisTarihi, description, subKey) => {
+    return (await this.api.hatimDegistirV3(baslik, bitisTarihi, description, subKey));
+  }
+
+  yillikHatimDegistirV3 = async (baslik, bitisTarihi, description, subKey) => {
+    return (await this.api.yillikHatimDegistirV3(baslik, bitisTarihi, description, subKey));
+  }
+
+
   deleteHatim = async () => {
     return (await this.api.deleteHatim());
+  }
+
+  deleteHatimV3 = async () => {
+    return (await this.api.deleteHatimV3());
   }
 
   hatimListener = (callback) => {

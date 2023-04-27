@@ -102,6 +102,42 @@ const initializeLocalStorage = (type) => {
   }
 }
 
+/** current index for Hatimler visibilities */
+const getCurrentIndex = (allLanguage) => {
+  let currentIndex = 0;
+  for (let i = 0; i < allLanguage.length; i++) {
+
+      let totalCevap = allLanguage[i][1].cevaplar.filter((cevap)=>cevap.alindi).length +
+      allLanguage[i][2].cevaplar.filter((cevap)=>cevap.alindi).length +
+      allLanguage[i][3].cevaplar.filter((cevap)=>cevap.alindi).length;
+
+      if(totalCevap != 30){
+          currentIndex = i;
+          break;
+      }
+  }
+
+  return currentIndex;
+}
+
+/** current index for Hatimler visibilities */
+const getCurrentIndexV3 = (hatims) => {
+  let currentIndex = 0;
+  for (let i = 0; i < hatims.length; i++) {
+
+      let totalCevap = hatims[i].parts.filter(part => part.isTaken).length
+
+      if(totalCevap != 30){
+          currentIndex = i;
+          break;
+      }
+  }
+
+  return currentIndex;
+}
+
+
+
 const getMonths3Date = () => {
   const data = dataMonths3[(new Date()).getFullYear()];
   if(data.double){
@@ -125,9 +161,17 @@ const isEmptyObjectLocDb = (value) => {
   return false;
 }
 
+const typeCheck = (data, type) => {
+  if(typeof data == type){
+    return true;
+  }
+  
+  return false;
+}
+
 const version = "1.2.1";
 
 export default detectLanguage;
 
 export {setLanguage, removeAll, removeAll_v1, objectToArray, objectToArrayV3, isSafari, isStandalone, extractKey,
-   initializeLocalStorage, getMonths3Date, version, isEmptyObjectLocDb};
+   initializeLocalStorage, getMonths3Date, version, isEmptyObjectLocDb, typeCheck, getCurrentIndex, getCurrentIndexV3};

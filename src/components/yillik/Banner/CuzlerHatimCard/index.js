@@ -98,13 +98,15 @@ export default function StatsCard({header, description, progress, leftCuzs, duaL
 
   const yesHandlerPayload = () => {
 
+    dispatch(yesNoDialogAlertFunctions.deleteHatimV3())
+
+
     localDb.ref(`Hatim/`).modify((data) => {
       let hatimKey = extractKey();
       delete data[hatimKey];
       return data;
     });
 
-    dispatch(yesNoDialogAlertFunctions.deleteHatim())
     history.push("/")
 
   }

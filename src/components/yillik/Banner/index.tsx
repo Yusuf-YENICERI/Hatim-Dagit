@@ -15,7 +15,7 @@ import { BaseResponse } from 'backend/types/responses/BaseResponse';
 import { HatimGetirCustomResponse } from 'backend/types/responses/HatimGetirCustomResponse';
 import { objectToArrayV3 } from 'common';
 import CuzlerHatimCard from './CuzlerHatimCard';
-import EditModalContent from 'components/cuz/EditModalContent'
+import EditModalContent from './EditModalContent'
 import { editModalCuzlerActions, useEditCuzlerModal } from 'features/editCuzlerModal';
 import { useContext, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -57,7 +57,7 @@ const Banner = ({hatimRootData}: {hatimRootData:HatimGetirCustomResponse|undefin
 
     useEffect(()=>{
       if(hatimRootData != undefined){
-      preprocessData();
+        preprocessData();
       }
     },[hatimRootData])
 
