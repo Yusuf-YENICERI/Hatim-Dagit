@@ -9,6 +9,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {db} from '../../backend';
 import { useContext } from "react";
 import { cancelCuzV3, changeCuzV3, takeCuzV3 } from "features/cuzModal/cuzModalSlice";
+import { newYearlyKhatmV3 } from "features/yesNoDialogAlert/yesNoDialogAlertSlice";
 
 const initialState = {
     visible: false,
@@ -139,7 +140,20 @@ const editCuzlerModalSlice = createSlice({
         
         [takeCuzV3.rejected]: (state) => {
             state.refetchData = !state.refetchData
+        },
+
+        [newYearlyKhatmV3.pending]: (state) => {
+            state.refetchData = !state.refetchData
+        },
+
+        [newYearlyKhatmV3.fulfilled]: (state, {payload}) => {
+            state.refetchData = !state.refetchData
+        },
+        
+        [newYearlyKhatmV3.rejected]: (state) => {
+            state.refetchData = !state.refetchData
         }
+
     }
 })
 

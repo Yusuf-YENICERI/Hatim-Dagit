@@ -13,6 +13,7 @@ import localDb from "@yusuf-yeniceri/easy-storage";
 import Language from "strings";
 import { extractKey } from 'common';
 import { editModalCuzlerActions } from 'features/editCuzlerModal';
+import { localDatabase } from 'backend';
 
 const ICON_SIZE = 60;
 
@@ -73,7 +74,8 @@ const BadgeSpecifier = ({otherCaseDuaLeftDays, _duaLeftDays}) => {
 }
 
 export default function StatsCard({header, description, progress, leftCuzs, duaLeftDays,
-                                  yesHandler, toggleYesHandler, noHandler, toggleNoHandler}) {
+                                  yesHandler, toggleYesHandler, noHandler, toggleNoHandler,
+                                  hatimsData}) {
   const { classes } = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -123,6 +125,8 @@ export default function StatsCard({header, description, progress, leftCuzs, duaL
   else{
     tokenExists = adminToken;
   }
+
+  const allParts = localDatabase.getParts(hatimsData);
 
   return (
     <Paper m="11%" my="0" radius="md" withBorder  className={classes.card} mt={ICON_SIZE / 1.5}>
@@ -192,6 +196,22 @@ export default function StatsCard({header, description, progress, leftCuzs, duaL
         <Badge size="sm" color="green" variant="filled" >{leftCuzs}  {Language["/cuz"].CuzlerHatimCard.leftParts}</Badge>
         <BadgeSpecifier otherCaseDuaLeftDays={otherCaseDuaLeftDays} _duaLeftDays={_duaLeftDays} />
       </Group>
+
+      {allParts.data != undefined && <Text mt="xl" size="sm" color="dimmed">
+                                      {Language["/cuz"].CuzlerHatimCard.yourParts}
+                                    </Text>
+      }
+        { allParts.data != undefined && allParts.data.sort((a,b) => Object.keys(a)[0] - Object.keys(b)[0]).map((part,index) => {
+          let test = 1;
+          return <>
+            
+            <Badge size="md" mt="xs" color="blue" variant="filled" >{Number(Object.keys(part))+1}.Hatim</Badge>
+            <Group mt="xs">
+              {part[Object.keys(part)[0]].map(no => <Badge size="md" color="green" variant="filled" >{no}</Badge>)}
+            </Group>
+          </>
+        })}
+        
     </Paper>
   );
 }

@@ -22,6 +22,8 @@ import Parts from "./Parts";
 import CuzModal from "./CuzModal"
 import { useDispatch } from "react-redux";
 import { cuzModalActions } from "features/cuzModal";
+import NewKhatmPart from "./NewKhatmPart";
+import Table from "./Table";
 
 const Yillik = () => {
 
@@ -81,8 +83,13 @@ const Yillik = () => {
   const BannerTemplate = styled.div`
   display: flex;
   justify-content: center;
+  `
 
-`
+  const NewKhatmWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  `;
 
 if(loadingVisibility){
   return (
@@ -99,11 +106,16 @@ if(loadingVisibility){
   return (
     <>
     <YillikTemplate>
+    <Table data={undefined} />
+
         <CuzModal />
         <BannerTemplate>
           <Banner hatimRootData={hatimData} />
         </BannerTemplate>
         <Parts hatimRootData={hatimData} />
+        <NewKhatmWrapper>
+          <NewKhatmPart />
+        </NewKhatmWrapper>
       </YillikTemplate>
     </>
   )

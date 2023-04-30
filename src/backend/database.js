@@ -64,7 +64,7 @@ export class Database{
 
 
   cuzIptalV3 = async (no, subKey) => {
-    await this.api.cuzIptalV3(no, subKey);
+    return await this.api.cuzIptalV3(no, subKey);
   }
 
   cuzBitti = async (hatimKey) => {
@@ -81,6 +81,10 @@ export class Database{
 
   countNumberOfCuzs = (allHatimler) => {
     return this.api.countNumberOfCuzs(allHatimler);
+  }
+
+  countNumberOfCuzsV3 = (allHatimler) => {
+    return this.api.countNumberOfCuzsV3(allHatimler);
   }
 
   hatimDegistir = async (baslik, bitisTarihi, description, subKey) => {

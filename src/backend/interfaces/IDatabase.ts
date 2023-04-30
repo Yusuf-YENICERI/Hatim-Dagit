@@ -5,6 +5,7 @@ import { YeniYillikHatimResponse } from "backend/types/responses/YeniYillikHatim
 
 
 export interface IDatabase{
+    countNumberOfCuzsV3(hatimsData: HatimType[]): number;
     hatimSiraBelirle(no: number):Promise<BaseResponse<any>>;
     
     extractKey():Promise<BaseResponse<string>>;

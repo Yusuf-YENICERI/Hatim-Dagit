@@ -133,6 +133,7 @@ let english = {
             changeHatim: "Change",
             takenParts: "Taken parts",
             leftParts: " parts left",
+            yourParts: "The Parts You Took",
             dua: ["", "left until prayer", "Prayer was done", "Prayer will be made today", "", "left until prayer"],
             Modal:{
                 Title:'Change Khatm Info',
@@ -149,6 +150,7 @@ let english = {
 
             PartModal:{
                 Title: 'Change Part Info',
+                Title2: 'Enter your name below to take the Part',
                 Name: 'Name of Who Taken the Part',
                 ChangeNameButton: 'Change Name',
                 CancelPart: 'Cancel Part',

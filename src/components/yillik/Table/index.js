@@ -8,6 +8,8 @@
 import React, { useRef, useState } from 'react';
 import { createStyles, Table, Checkbox, ScrollArea, Group, Avatar, Text, Title, ActionIcon } from '@mantine/core';
 import close from "icons/close.svg";
+import { useYillikTable, yillikTableActions } from 'features/yillikTable';
+import { useDispatch } from 'react-redux';
 
 const useStyles = createStyles((theme) => ({
   rowSelected: {
@@ -28,7 +30,6 @@ const useStyles = createStyles((theme) => ({
 
   base:{
     position: 'fixed',
-    zIndex: -10,
     height: '100%',
     width: '100%',
     backgroundColor: '#91ffbb',
@@ -36,12 +37,19 @@ const useStyles = createStyles((theme) => ({
 }));
 
 
-export default function TableSelection({ data, cizelgeRef, toggleCizelge, cizelgeId }) {
+export default function TableSelection({ data }) {
 
 
-  if(data === undefined) return <div></div>;
+  if(data === undefined) {
+    data = []
+  };
+
+  
 
   const { classes, cx } = useStyles();
+  const {visible, subKey, partNo} = useYillikTable();
+  
+  const dispatch = useDispatch();
   
   const [selection, setSelection] = useState(['1']);
   const toggleRow = (id) =>
@@ -51,22 +59,17 @@ export default function TableSelection({ data, cizelgeRef, toggleCizelge, cizelg
   const toggleAll = () =>
     setSelection((current) => (current.length === data.length ? [] : data.map((item) => item.id)));
 
-  const baseRef = cizelgeRef;
 
-  let counter = cizelgeId;
+  let counter = partNo;
   let i = 0;
   for (; counter <= 30; i++) {
-    const item = data[i];
-    item.id = counter;
-    item.email = `${counter}. cüz`
+    data[i] = {id: counter, email: `${counter}. cüz`}
     counter++;
   }
 
   counter = 1;
-  for(; counter < cizelgeId; i++){
-    const item = data[i];
-    item.id = counter;
-    item.email = `${counter}. cüz`
+  for(; counter < partNo; i++){
+    data[i] = {id: counter, email: `${counter}. cüz`}
     counter++;
   }
   
@@ -93,14 +96,14 @@ export default function TableSelection({ data, cizelgeRef, toggleCizelge, cizelg
   });
 
   return (
-    <div ref={baseRef} className={classes.base}>
+    <div  className={classes.base} style={{zIndex:visible ? 100 : -10}}>
 
 
 
     <div style={{display: 'flex', justifyContent: 'end', margin: '20px'}}>
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <ActionIcon onClick={()=>{
-                toggleCizelge();
+                dispatch(yillikTableActions.changeVisibility(false))
             }} >
                 <img src={close}></img>
             </ActionIcon>

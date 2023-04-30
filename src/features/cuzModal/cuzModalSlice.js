@@ -63,9 +63,9 @@ const changeCuzV3 = createAsyncThunk("cuzModal/changeCuzV3", async ({nameState, 
 })
 
 const cancelCuzV3 = createAsyncThunk("cuzModal/cancelCuzV3", async ({ cuzNo, subKey})=>{
-    const {data, error} = await db.cuzIptalV3(cuzNo, subKey);
-    if(data == 200) {
-        let {data, error} = localDatabase.cuzIptal(cuzNo, subKey);
+    const result = await db.cuzIptalV3(cuzNo, subKey);
+    if(result.data == 200) {
+        const {data, error} = localDatabase.cuzIptal(cuzNo, subKey);
         if(data == undefined){
             alert('Cüz bilgileri cihazınıza kaydedilemedi ancak Cüz iptal edildi!')
         }

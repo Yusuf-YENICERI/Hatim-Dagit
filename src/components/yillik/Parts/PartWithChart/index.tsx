@@ -12,7 +12,8 @@ import Part from './Part'
 import { ResponseItem } from './styles'
 import { cuzModalActions } from 'features/cuzModal'
 import { useDispatch } from 'react-redux'
-
+import { localDatabase } from 'backend'
+import { yillikTableActions } from 'features/yillikTable'
 
 const PWCContainer = styled.div``
 
@@ -36,6 +37,11 @@ const PartWithChart = ({data, no, subKey}:{data:{isTaken: boolean, name: string,
   return (
     <PWCTemplate>
       <ResponseItem  bgColor={data.isTaken} onClick={()=>{
+
+        if(data.isTaken == true && localDatabase.partExists(no, subKey).data == false){
+          return;
+        }
+
         if(data.isTaken == false){
           dispatch(cuzModalActions.changeTakingPart(true));
           dispatch(cuzModalActions.changeSubKey(subKey))
@@ -53,7 +59,11 @@ const PartWithChart = ({data, no, subKey}:{data:{isTaken: boolean, name: string,
             <Part data={data} no={no}/>
       </ResponseItem >
 
-      <ChartTemplate bgColor={data.isTaken}>Çizelgeyi Görüntüle</ChartTemplate>
+      <ChartTemplate bgColor={data.isTaken} onClick={()=>{
+        dispatch(yillikTableActions.changePartNo(no))
+        dispatch(yillikTableActions.changeSubKey(subKey))
+        dispatch(yillikTableActions.changeVisibility(true));
+      }}>Çizelgeyi Görüntüle</ChartTemplate>
 
     </PWCTemplate>
   )

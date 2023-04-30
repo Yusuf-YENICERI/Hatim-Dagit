@@ -7,7 +7,7 @@ import Question from '../components/main/Question'
 import Footer from '../components/common/Footer';
 import YillikDonerli from 'components/yillik';
 import Pwa from '../components/common/Pwa';
-import YillikTable from 'components/yillik/Parts/PartWithChart/Table'
+import YillikTable from 'components/yillik/Table'
 import button from "../icons/button.svg";
 
 export const Yillik = () => {
@@ -42,7 +42,7 @@ export const Yillik = () => {
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
             <Pwa />
-            <YillikTable cizelgeRef={cizelgeRef} toggleCizelge={toggleCizelge} cizelgeId={cizelgeId} data={undefined} />
+            {/* <YillikTable cizelgeRef={cizelgeRef} toggleCizelge={toggleCizelge} cizelgeId={cizelgeId} data={undefined} /> */}
             <YillikDonerli />
             {/* <YillikDonerli  toggleCizelge={toggleCizelge} cizelgeId={cizelgeId} toggleCizelgeId={toggleCizelgeId}/> */}
             <Footer/>

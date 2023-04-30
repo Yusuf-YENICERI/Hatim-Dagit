@@ -47,10 +47,10 @@ const Banner = ({hatimRootData}: {hatimRootData:HatimGetirCustomResponse|undefin
       const result = objectToArrayV3(hatimRootData);
       setHatimsData(result);
 
-      if(hatimsData != undefined){
-      let dataResult = dataService.countNumberOfCuzs(hatimsData);
-      if(dataResult.data !== undefined){
-        setTotalPartsTaken(dataResult.data);
+      if(result != undefined){
+      let dataResult = dataService.countNumberOfCuzsV3(result);
+      if(dataResult !== undefined){
+        setTotalPartsTaken(dataResult);
       }
       }
     }
@@ -94,6 +94,7 @@ const Banner = ({hatimRootData}: {hatimRootData:HatimGetirCustomResponse|undefin
                             duaLeftDays={hatimRootData.startingDate?.split("-").reverse().join("/")}
                             yesHandler={yesHandlerState} toggleYesHandler={toggleYesHandlerState}
                             noHandler={noHandlerState} toggleNoHandler={toggleNoHandlerState}
+                            hatimsData={hatimsData}
 
         ></CuzlerHatimCard> 
     </>

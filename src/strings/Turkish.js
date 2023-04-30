@@ -132,6 +132,7 @@ let Turkish = {
             changeHatim: "Değiştir",
             takenParts: "Alınan cüzler",
             leftParts: " cüz kaldı",
+            yourParts: "Aldığınız cüzler",
             dua: ["Duaya", "gün kaldı", "Duası yapıldı", "Duası bugün yapılacak", "Duaya", "gün kaldı"],
             Modal:{
                 Title:'Hatim bilgilerinde değişiklik yap',

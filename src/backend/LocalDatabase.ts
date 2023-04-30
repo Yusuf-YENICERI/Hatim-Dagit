@@ -12,7 +12,7 @@ import { BaseResponse } from "./types/responses/BaseResponse";
 import { YeniYillikHatimResponse } from "./types/responses/YeniYillikHatimResponse";
 import db from '@yusuf-yeniceri/easy-storage';
 import { HatimType } from "./types/HatimType";
-import {extractKey} from 'common'
+import {extractKey, objectToArrayV3} from 'common'
 
 export class LocalDatabase implements ILocalDatabase{
     hatimSiraBelirle(no: number): Promise<BaseResponse<any>> {
@@ -83,6 +83,7 @@ export class LocalDatabase implements ILocalDatabase{
             return {data: undefined, error: error}
         }
     }
+
     cuzBitti(hatimKey: string): Promise<BaseResponse<any>> {
         throw new Error("Method not implemented.");
     }
@@ -108,6 +109,34 @@ export class LocalDatabase implements ILocalDatabase{
         throw new Error("Method not implemented.");
     }
     
+    partExists(no:number, subKey: string): BaseResponse<boolean> {
+        try {
+            const key = extractKey();
+            const part = db.ref(`Hatim/${key}/${subKey}/parts/${no}`).get()
     
+            const result = Object.keys(part).length > 0;
+    
+            return {data:result, error: undefined};            
+        } catch (error) {
+            return {data:undefined, error: error};            
+        }
+
+    }
+
+    getParts(originalAllHatims:HatimType[]): BaseResponse<{[key:number]:string[]}[]>{
+        try {
+            const key = extractKey();
+            const allHatims = db.ref(`Hatim/${key}`).get()
+            const allHatimsProcessed = objectToArrayV3(allHatims)
+            const result = allHatimsProcessed.map((hatim:any, index) => { 
+              const responseKey =  originalAllHatims.map(_hatim => _hatim.subKey).findIndex(x => x == hatim.subKey)
+              const responseValue = Object.keys(hatim.parts).filter(partKey => hatim.parts[partKey].isTaken != undefined)
+              return {[responseKey]: responseValue};
+            })
+            return {data: result, error: undefined};
+        } catch (error) {
+            return {data: undefined, error: error};
+        }
+    }
     
 }

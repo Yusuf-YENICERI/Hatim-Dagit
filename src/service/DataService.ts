@@ -79,6 +79,16 @@ export class DataService implements IDatabase{
         let remoteDbResult = this.remoteDatabase.countNumberOfCuzs(hatimsData);
         return remoteDbResult;
     }
+
+    /**
+     * This function needs to be rewritten
+     * @param hatimsData 
+     * @returns 
+     */
+    countNumberOfCuzsV3(hatimsData: HatimType[]): number {
+        let remoteDbResult = this.remoteDatabase.countNumberOfCuzsV3(hatimsData);
+        return remoteDbResult;
+    }
     hatimDegistir(baslik: string, bitisTarihi: string, description: string, subKey: string): Promise<BaseResponse<number>> {
         throw new Error("Method not implemented.");
     }
