@@ -8,7 +8,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    visible: true,
+    visible: false,
     subKey: '',
     partNo: 1,
 }

@@ -24,6 +24,7 @@ import { useDispatch } from "react-redux";
 import { cuzModalActions } from "features/cuzModal";
 import NewKhatmPart from "./NewKhatmPart";
 import Table from "./Table";
+import ShareButtons from "./ShareButtons";
 
 const Yillik = () => {
 
@@ -106,16 +107,23 @@ if(loadingVisibility){
   return (
     <>
     <YillikTemplate>
-    <Table data={undefined} />
-
+        <Table data={undefined} howManyDays={hatimData?.howManyDays} totalKhatmsBeDistributed={hatimData?.totalKhatmsBeDistributed}
+        startingDate={hatimData?.startingDate} donerli={hatimData?.donerli} hatimData={hatimData} />
+        
         <CuzModal />
+        
         <BannerTemplate>
           <Banner hatimRootData={hatimData} />
         </BannerTemplate>
+        
         <Parts hatimRootData={hatimData} />
+        
         <NewKhatmWrapper>
-          <NewKhatmPart />
+          <NewKhatmPart makeNewKhatm={hatimData?.makeNewHatim} />
         </NewKhatmWrapper>
+        
+        <ShareButtons hatimHeader={hatimData?.header}/>
+
       </YillikTemplate>
     </>
   )

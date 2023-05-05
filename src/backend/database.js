@@ -115,6 +115,14 @@ export class Database{
   stopMakingNewKhatm = async () => {
     return (await this.api.stopMakingNewKhatm());
   }
+
+  markChart = async (params) => {
+    return (await this.api.markChart(params))
+  }
+
+  fetchChart = async (params) => {
+    return (await this.api.fetchChart(params))
+  }
 }
 
 export default Database;

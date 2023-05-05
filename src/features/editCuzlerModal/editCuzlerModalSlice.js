@@ -63,6 +63,10 @@ const editCuzlerModalSlice = createSlice({
         changeDate: (state, {payload}) => {
             state.date = payload;
         },
+
+        triggerRefetchData: (state) => {
+            state.refetchData = !state.refetchData;
+        }
     },
     extraReducers:{
         [updateHatim.pending]: (state) => {

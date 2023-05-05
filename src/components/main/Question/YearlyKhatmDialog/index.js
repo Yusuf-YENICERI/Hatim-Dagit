@@ -120,7 +120,7 @@ const AskDialog = ({ firebase, visible, setVisible }) => {
                 <div style={{display: 'flex', flexDirection: 'column', width: '250px', marginTop: '10px'}}>
                      <Checkbox styles={{ label: {fontSize: '0.8em', fontFamily: 'Righteous'}}} color='lime' value={false} 
                      onChange={(event) => {
-                        form.setFieldValue('makeNewHatim', !form.values.donerli)
+                        form.setFieldValue('makeNewHatim', !form.values.makeNewHatim)
                                             }} label={Language["/"].Button.Header.InputSpan[4]} />
                 </div>
 
@@ -135,7 +135,7 @@ const AskDialog = ({ firebase, visible, setVisible }) => {
                     howManyDays: form.values.howManyDays,
                     totalKhatmsBeDistributed: form.values.totalKhatmsBeDistributed,
                     donerli: form.values.donerli,
-                    makeNewHatim: false,
+                    makeNewHatim: form.values.makeNewHatim,
                     mevcutHatim: false
                 });
                 if(result.data !== undefined){
@@ -144,6 +144,7 @@ const AskDialog = ({ firebase, visible, setVisible }) => {
                         link: `https://hatimdagit.com/yillik/` + result.data.hatimKey, 
                         cevap: Language["/"].Button.Final.After.Button,}
                     );
+                    alert('Yıllık Hatim linkinizi kaydedin! Şimdilik sistem otomatik kaydetmiyor.')
                 }else{
                     alert('Bir hata oluştu!')
                 }

@@ -44,5 +44,10 @@ export interface IDatabase{
     
     hatimListener(callback:Promise<BaseResponse<any>>):Promise<BaseResponse<any>>;
     
-    stopMakingNewKhatm():Promise<BaseResponse<any>>;
+    stopMakingNewKhatm():Promise<number>;
+
+    markChart(params: {subKey: string, partNo: number, itemNo:number, value:boolean}): Promise<BaseResponse<string>>;
+
+    fetchChart(params: {subKey: string, partNo: number}): Promise<BaseResponse<any>>;
+
 }

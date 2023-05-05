@@ -5,11 +5,16 @@
 
 
 
-import React, { useRef, useState } from 'react';
+
+
+import React, { useRef, useState, useContext, useEffect } from 'react';
 import { createStyles, Table, Checkbox, ScrollArea, Group, Avatar, Text, Title, ActionIcon } from '@mantine/core';
 import close from "icons/close.svg";
 import { useYillikTable, yillikTableActions } from 'features/yillikTable';
 import { useDispatch } from 'react-redux';
+import { DataServiceContext, localDatabase } from "backend";
+import { showNotification } from '@mantine/notifications';
+
 
 const useStyles = createStyles((theme) => ({
   rowSelected: {
@@ -37,13 +42,14 @@ const useStyles = createStyles((theme) => ({
 }));
 
 
-export default function TableSelection({ data }) {
+export default function TableSelection({ data, howManyDays, totalKhatmsBeDistributed, startingDate, donerli, hatimData }) {
 
 
   if(data === undefined) {
     data = []
   };
 
+  const dataService = useContext( DataServiceContext );
   
 
   const { classes, cx } = useStyles();
@@ -51,49 +57,96 @@ export default function TableSelection({ data }) {
   
   const dispatch = useDispatch();
   
-  const [selection, setSelection] = useState(['1']);
-  const toggleRow = (id) =>
-    setSelection((current) =>
-      current.includes(id) ? current.filter((item) => item !== id) : [...current, id]
-    );
+  const [selection, setSelection] = useState([]);
+  const toggleRow = async (id) => {
+
+    if(localDatabase.partExists(partNo, subKey).data == false){
+      showNotification({
+        title: 'Uyarı',
+        message: 'Lütfen bu Cüzü alın, aldıktan sonra işaretlemeye başlayabilirsiniz!',
+        color: 'red',
+        id: 'scroll-down'
+      })
+      return;
+    }
+
+    let result;
+    if(selection.includes(id)){
+      result = await dataService.markChart({subKey: subKey, partNo: partNo, itemNo: id, value: false})
+    }else{
+      result = await dataService.markChart({subKey: subKey, partNo: partNo, itemNo: id, value: true})
+    }
+
+    if(result != undefined && result.error == undefined){
+      setSelection((current) =>
+        current.includes(id) ? current.filter((item) => item !== id) : [...current, id]
+      );        
+    }
+  }
   const toggleAll = () =>
     setSelection((current) => (current.length === data.length ? [] : data.map((item) => item.id)));
 
 
-  let counter = partNo;
-  let i = 0;
-  for (; counter <= 30; i++) {
-    data[i] = {id: counter, email: `${counter}. cüz`}
-    counter++;
-  }
 
-  counter = 1;
-  for(; counter < partNo; i++){
-    data[i] = {id: counter, email: `${counter}. cüz`}
+  let counter = partNo-1;
+  let dayIterator = new Date(startingDate);
+  for (let i = 0; i < totalKhatmsBeDistributed; i++) {
+    const options = {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }
+    data[i] = {id: i, job:dayIterator.toLocaleDateString(navigator.language, options).toString(), email: donerli ? `${(counter%30)+1}. Cüz` : `${partNo}. Cüz`}
+    dayIterator.setDate(dayIterator.getDate()+howManyDays);
+    data[i].job2 = dayIterator.toLocaleDateString(navigator.language, options);
     counter++;
   }
   
   const rows = data.map((item) => {
-    const selected = selection.includes(item.id);
+    const selected = selection.includes(item.id.toString());
     return (
       <tr key={item.id} style={{backgroundColor: 'white'}} className={cx({ [classes.rowSelected]: selected })}>
         <td>
           <Checkbox
-            checked={selection.includes(item.id)}
-            onChange={() => toggleRow(item.id)}
+            checked={selection.includes(item.id.toString())}
+            onChange={() => toggleRow(item.id.toString())}
             transitionDuration={0}
           />
         </td>
-        <td >
+        {/* <td >
             <Text size="xs" weight={500}>
               {item.name}
             </Text>
-        </td>
+        </td> */}
+        <td ><div>{item.job}<br/>{item.job2}</div></td>
         <td >{item.email}</td>
-        <td >{item.job}</td>
       </tr>
     );
   });
+
+  const chartOperation = async () => {
+
+    let newSelection = []
+
+    const result =  await dataService.fetchChart({subKey:subKey, partNo:partNo});
+    const charts =  result.data;
+
+    if(charts != undefined){
+        Object.keys(charts).map(itemKey => {
+          if(charts[itemKey]){
+            newSelection = [...newSelection, itemKey]
+          }
+        })
+    }
+
+    setSelection(newSelection);
+  }
+
+  useEffect(()=>{
+
+    chartOperation();
+  
+  }, [partNo])
 
   return (
     <div  className={classes.base} style={{zIndex:visible ? 100 : -10}}>
@@ -110,7 +163,7 @@ export default function TableSelection({ data }) {
             <Text style={{fontFamily: 'Righteous'}} size="xs">Kapat</Text>
         </div>
     </div>
-    <Title align="center" m="xl" style={{fontFamily: 'Righteous'}}>Ramazan Çizelgesi</Title>
+    <Title align="center" m="xl" style={{fontFamily: 'Righteous'}}>Yıllık Hatim Çizelgesi</Title>
 
     <ScrollArea  type="always" scrollbarSize={20} className={classes.scrollArea} mx="20px">
       <Table  className={classes.table}  verticalSpacing="xs">
@@ -124,9 +177,10 @@ export default function TableSelection({ data }) {
                 transitionDuration={0}
               />
             </th>
-            <th>Gün</th>
-            <th>Cüz</th>
+            {/* <th>Gün</th> */}
             <th>Tarih</th>
+            <th>Cüz</th>
+
           </tr>
         </thead>
         <tbody>{rows}</tbody>

@@ -118,7 +118,7 @@ export class LocalDatabase implements ILocalDatabase{
     
             return {data:result, error: undefined};            
         } catch (error) {
-            return {data:undefined, error: error};            
+            return {data:false, error: error};            
         }
 
     }

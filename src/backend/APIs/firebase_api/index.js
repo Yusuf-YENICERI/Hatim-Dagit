@@ -440,10 +440,32 @@ class FirebaseAPI{
 
       try {
         await this.db.ref(`hatim/${hatimKey}/makeNewHatim`).set(false);
-        return 200;  
+        return 200;
       } catch (error) {
         console.error(error)
         return 500;
+      }
+    }
+
+    markChart = async ({subKey, partNo, itemNo, value}) => {
+      try {
+        let key = this.extractKey();
+        await this.db.ref(`hatim/${key}/${subKey}/charts/${partNo}/${itemNo}`).set(value);        
+        
+        return {data: 'Alhamdulillah', error: undefined};
+      } catch (error) {
+        return {data: undefined, error: error};
+      }
+    }
+
+    fetchChart = async ({subKey, partNo}) => {
+      try {
+        let key = this.extractKey();
+        let result = await this.db.ref(`hatim/${key}/${subKey}/charts/${partNo}`).get();        
+        
+        return {data: result.val(), error: undefined};
+      } catch (error) {
+        return {data: undefined, error: error};
       }
     }
   }

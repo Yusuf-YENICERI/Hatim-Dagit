@@ -13,7 +13,7 @@ import { HatimType } from "backend/types/HatimType";
 
 
 
-export class DataService implements IDatabase{
+export class DataService {
 
     remoteDatabase: IDatabase;
     localDatabase: LocalDatabase;
@@ -98,8 +98,23 @@ export class DataService implements IDatabase{
     hatimListener(callback: Promise<BaseResponse<any>>): Promise<BaseResponse<any>> {
         throw new Error("Method not implemented.");
     }
-    stopMakingNewKhatm(): Promise<BaseResponse<any>> {
-        throw new Error("Method not implemented.");
+    async stopMakingNewKhatm(): Promise<BaseResponse<any>> {
+        let result = await this.remoteDatabase.stopMakingNewKhatm();
+        switch (result) {
+            case 200:
+                return {data: 200, error: undefined}                
+            default:
+                return {data: undefined, error: `can't stop making new Khatm`}
+                break;
+        }        
+    }
+
+    async markChart(params: {subKey: string, partNo: number, itemNo:number, value:boolean}): Promise<BaseResponse<string>> {
+        return (await this.remoteDatabase.markChart(params));
+    }
+
+    async fetchChart(params: {subKey: string, partNo: number}): Promise<BaseResponse<string>> {
+        return (await this.remoteDatabase.fetchChart(params));
     }
     
     
