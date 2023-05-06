@@ -43,6 +43,22 @@ const Cizelgeler = () => {
                                     </ResponseItem>
                             </RespondInnerContainer>
             </RespondContainer>
+{/* 
+            <RespondContainer>  
+                           <RespondInnerContainer hatimExists={hideMevcutHatimler}>
+                                    <ResponseItem onClick={()=>{
+                                        dispatch(cizelgelerimActions.changePreviousComponentName('tumcizelgeler'))
+
+                                        
+
+                                        dispatch(cizelgelerimActions.changeComponentName('yillikhatimcizelgeleri'))
+                                    }}>
+                                        <ResponseText>
+                                        Yıllık Hatim Çizelgeleri
+                                        </ResponseText>
+                                    </ResponseItem>
+                            </RespondInnerContainer>
+            </RespondContainer> */}
     </div>
   )
 }

@@ -190,8 +190,10 @@ const Question = ({ firebase, toggle }) => {
             <RespondContainer>
                            <RespondInnerContainer hatimExists={hideMevcutHatimler}>
                                     <ResponseItem id={"yearBased"} onClick={ ()=>{
+                                        alert(`Yıllık Hatim yeni olup, henüz testleri tam olarak yapılmamıştır. Hatalarla karşılaşılabilir. Bu durumu göz önünde bulundurun.`)
                                         setYearBasedKhatmDialogVisible(true);
                                     }}>
+                                         <NewFeatureTag>{Language["/"].Button.BetaTag}</NewFeatureTag>
                                         <ResponseText>
                                             {Language["/"].Button.YearBased}
                                         </ResponseText>

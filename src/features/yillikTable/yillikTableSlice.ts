@@ -10,7 +10,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     visible: false,
     subKey: '',
-    partNo: 1,
+    partNo: 0,
 }
 
 const yillikTableSlice = createSlice({

@@ -44,6 +44,7 @@ let Turkish = {
         MyInfos: "Oluşturduğum Hatimler ve Çizelgelerim",
         Button: {
             NewTag: "Yeni",
+            BetaTag: "Beta",
             MyInfos: {
                 Charts: "Çizelgelerim"
             },

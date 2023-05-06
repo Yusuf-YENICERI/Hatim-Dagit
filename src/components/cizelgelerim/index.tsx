@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux'
 import { ArrowBigLeftLine } from 'tabler-icons-react';
 import CizelgeListesi from './TumCizelgeler/CizelgeListesi'
 import CuzListesi from './TumCizelgeler/CizelgeListesi/CuzListesi'
+import CizelgeListesiYillikHatim from './TumCizelgeler/CizelgeListesiYillikHatim'
 
 const Cizelgelerim = () => {
 
@@ -27,16 +28,14 @@ const Cizelgelerim = () => {
     switch(name){
       case "tumcizelgeler":
         return <TumCizelgeler />
-        break;
       case "ucaylarcizelgeleri":
         return <UcAylarCizelgeleri />
-        break;
       case "cizelgelistesi":
         return <CizelgeListesi />
-        break;
       case "cuzlistesi":
         return <CuzListesi />
-        break;
+      case "yillikhatimcizelgeleri":
+        return <CizelgeListesiYillikHatim />
     }
   }
 

@@ -322,11 +322,11 @@ export const DialogTextArea = styled.textarea`
 
 export const NewFeatureTag = styled.div`
     background-color: #FFBF17;
-    width: 50px;
+    width: 60px;
     color: black;
     position: absolute;
     transform: rotateZ(30deg);
-    top: 0;
+    top: 4px;
     right: 0;
     font-size: 0.7rem;
     margin-right: -10px;

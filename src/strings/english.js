@@ -49,6 +49,7 @@ let english = {
         MyInfos: "Khatms I Made and My Charts",
         Button: {
             NewTag: "New",
+            BetaTag: "Beta",
             MyInfos: {
                 Charts: "My Charts"
             },

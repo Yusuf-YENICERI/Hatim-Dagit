@@ -41,6 +41,8 @@ export class LocalDatabase implements ILocalDatabase{
             
             db.ref(`Hatim/${params.hatimKey}/`).modify((data) => {
                 data["adminToken"] = params.adminToken;
+                data["header"] = params.header;
+                data["type"] = params.type;
                 return data;
             });
 
@@ -123,6 +125,29 @@ export class LocalDatabase implements ILocalDatabase{
 
     }
 
+    showAndMarkWarning(message: string, path: string): BaseResponse<string> {
+        try {
+            db.ref(`Hatim/${path}`).set({warning: true});
+            alert(message);
+            return {data: "Alhamdulillah", error: undefined}
+        } catch (error) {
+            return {data: undefined, error: error}
+        }
+    }
+
+    doesWarningExists(path: string): BaseResponse<string> {
+        try {
+            let result = db.ref(`Hatim/${path}/warning`).get();
+            if(result == true){
+                return {data: "Alhamdulillah", error: undefined}
+            }else{
+                return {data: undefined, error: "error"}
+            }
+        } catch (error) {
+            return {data: undefined, error: error}
+        }
+    }
+
     getParts(originalAllHatims:HatimType[]): BaseResponse<{[key:number]:string[]}[]>{
         try {
             const key = extractKey();
@@ -136,6 +161,16 @@ export class LocalDatabase implements ILocalDatabase{
             return {data: result, error: undefined};
         } catch (error) {
             return {data: undefined, error: error};
+        }
+    }
+
+    getTitles(): BaseResponse<string[]> {
+        try {
+            let hatims = db.ref(`Hatim`).get();
+            return {data:Object.keys(hatims).filter(hatimKey => hatims[hatimKey].type == "yillikHatim").map(hatimKey => hatims[hatimKey].header), 
+            error: undefined}
+        } catch (error) {
+            return {data: undefined, error: error}
         }
     }
     

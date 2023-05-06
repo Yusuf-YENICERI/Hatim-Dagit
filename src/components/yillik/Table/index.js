@@ -142,9 +142,16 @@ export default function TableSelection({ data, howManyDays, totalKhatmsBeDistrib
     setSelection(newSelection);
   }
 
+  const warningForOnce = () => {
+    if(partNo != 0 && localDatabase.doesWarningExists(`yillikHatimBeta`).data == undefined){
+      localDatabase.showAndMarkWarning(`Tablo online olarak çalışmaktadır. İşaretlenen tikler herkes tarafından görülmektedir.`, `yillikHatimBeta`);
+    }
+  }
+
   useEffect(()=>{
 
     chartOperation();
+    warningForOnce();
   
   }, [partNo])
 

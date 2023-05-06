@@ -43,6 +43,7 @@ let Arabic = {
         MyInfos: "خاتس صنعتها و مخططاتي",
         Button: {
             NewTag: "الجديد",
+            BetaTag: "بيتا",
             MyInfos: {
                 Charts: "مخططاتي"
             },

@@ -203,7 +203,8 @@ class FirebaseAPI{
         data: {
           hatimKey: hatimKey,
           hatimSubKeys: hatimSubKeys,
-          adminToken: adminToken
+          adminToken: adminToken,
+          header: header,
         },
         error: undefined
       };
@@ -263,6 +264,7 @@ class FirebaseAPI{
             name: isim,
             alindi: alindi.toString(),
             ownerId: ownerId,
+            version: 2,
             dev: netlifyParams.dev,
             makeNewHatimArg: makeNewHatim ?? undefined,
       }
