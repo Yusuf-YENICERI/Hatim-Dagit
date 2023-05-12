@@ -97,7 +97,7 @@ export default function TableSelection({ data, howManyDays, totalKhatmsBeDistrib
       year: 'numeric'
     }
     data[i] = {id: i, job:dayIterator.toLocaleDateString(navigator.language, options).toString(), email: donerli ? `${(counter%30)+1}. Cüz` : `${partNo}. Cüz`}
-    dayIterator.setDate(dayIterator.getDate()+howManyDays);
+    dayIterator.setDate(dayIterator.getDate()+Number(howManyDays));
     data[i].job2 = dayIterator.toLocaleDateString(navigator.language, options);
     counter++;
   }
