@@ -48,10 +48,12 @@ let Turkish = {
         MyInfos: "Oluşturduğum Hatimler ve Çizelgelerim",
         Button: {
             NewTag: "Yeni",
+            BetaTag: "Beta",
             MyInfos: {
                 Charts: "Çizelgelerim"
             },
             Main: "Hızlıca Hatim Oluştur",
+            YearBased:"Yıllık Hatim Oluştur",
             Ramazan: "Ramazan Dönerli Hatim Oluştur",
             Aylar3: "3 Aylar Hatmi Oluştur",
             EvradEzkar:"Vird-Zikir Dağıt",
@@ -59,7 +61,9 @@ let Turkish = {
                 Text: "Yeni Hatim Oluştur",
                 Text3MonthProgram: "Program Seç",
                 InputSpan: ["Başlık", "Açıklama", "Hatim Duası Tarihi", 
-                            "Hatim Sayısı", "Hatim bittiğinde otomatik olarak yeni hatim oluştur"],
+                            "Hatim Sayısı", "Hatim bittiğinde otomatik olarak yeni hatim oluştur",
+                            "Başlama Tarihi", "Kaç Günde Bir Birlikte Hatim Bitecek",
+                            "Toplam Birlikte Bitecek Hatim Sayısı", "Dönerli Hatim"],
                 Input: ["Lütfen Hatim başlığı yazın ..", "Lütfen Hatim için açıklama yazın .."],
                 Button: "Devam Et"
             },
@@ -133,6 +137,7 @@ let Turkish = {
             changeHatim: "Değiştir",
             takenParts: "Alınan cüzler",
             leftParts: " cüz kaldı",
+            yourParts: "Aldığınız cüzler",
             dua: ["Duaya", "gün kaldı", "Duası yapıldı", "Duası bugün yapılacak", "Duaya", "gün kaldı"],
             Modal:{
                 Title:'Hatim bilgilerinde değişiklik yap',
@@ -149,6 +154,7 @@ let Turkish = {
 
             PartModal:{
                 Title: 'Cüz bilgilerinde değişiklik yap',
+                Title2: 'Cüz almak için aşağıya isminizi girin',
                 Name: 'Cüzü alan kişinin ismi',
                 ChangeNameButton: 'İsmini Değiştir',
                 CancelPart: 'Cüzü İptal Et',

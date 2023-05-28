@@ -13,6 +13,8 @@ import {loggerReducer} from "../features/logger"
 import { yesNoDialogAlertReducer } from "../features/yesNoDialogAlert";
 import { alertDialogReducer } from "../features/alertDialog";
 import { cizelgelerimReducer } from "features/cizelgelerim";
+import { hatimlerVisibilitiesReducer } from "features/hatimlerVisibilities";
+import { yillikTableReducer } from "features/yillikTable";
 
 export const store = configureStore({
     reducer: {
@@ -23,6 +25,8 @@ export const store = configureStore({
         cuzModal: cuzModalReducer,
         logger: loggerReducer,
         alertDialog: alertDialogReducer,
-        cizelgelerim: cizelgelerimReducer
+        cizelgelerim: cizelgelerimReducer,
+        hatimlerVisibilities: hatimlerVisibilitiesReducer,
+        yillikTable: yillikTableReducer
     }
 })

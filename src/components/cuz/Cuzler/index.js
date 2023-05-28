@@ -506,7 +506,6 @@ const Question = ({ toggle }) => {
                                     LocDb.ref("Hatim/adminToken").set([])
                                 let filtered = LocDb.ref("Hatim/adminToken").get().filter(x=>Object.keys(x)[0].toString() == extractKey().replace("/","").toString());
                                 if(filtered.length == 0){
-
                                     if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
                                     let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
                                     if(localStorageCuzObj[Language.subKey] == null)

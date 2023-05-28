@@ -44,10 +44,14 @@ class Netlify{
     getResponse = async (params) => {
 
         let url = undefined;
+        let version = "";
+        if(params.version != 2){
+            version = "V" + params.version.toString();
+        }
         if(params.makeNewHatimArg === undefined){
-            url = `https://sfunction.hatimdagit.com/.netlify/functions/takeCuz?key=${params.key}&subKey=${params.subKey}&cuzNo=${params.cuzNo}&name=${params.name}&alindi=${params.alindi}&ownerId=${params.ownerId}&dev=${params.dev}`;
+            url = `https://sfunction.hatimdagit.com/.netlify/functions/takeCuz${version}?key=${params.key}&subKey=${params.subKey}&cuzNo=${params.cuzNo}&name=${params.name}&alindi=${params.alindi}&ownerId=${params.ownerId}&dev=${params.dev}`;
         }else{
-            url = `https://sfunction.hatimdagit.com/.netlify/functions/takeCuz?key=${params.key}&subKey=${params.subKey}&cuzNo=${params.cuzNo}&name=${params.name}&alindi=${params.alindi}&ownerId=${params.ownerId}&makeNewHatimArg=${params.makeNewHatimArg}&dev=${params.dev}`;   
+            url = `https://sfunction.hatimdagit.com/.netlify/functions/takeCuz${version}?key=${params.key}&subKey=${params.subKey}&cuzNo=${params.cuzNo}&name=${params.name}&alindi=${params.alindi}&ownerId=${params.ownerId}&makeNewHatimArg=${params.makeNewHatimArg}&dev=${params.dev}`;   
         }
     
         let response = undefined

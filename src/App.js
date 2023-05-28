@@ -7,6 +7,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Message from './components/common/Message';
 import { UcAylarHerGun1Cuz } from 'pages/ucaylarhergun1cuz';
 import { CizelgelerimPage } from 'pages/cizelgelerim';
+import { Yillik } from 'pages/yillik';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/ramazan" component={Ramazan} />
         <Route path="/ucaylarhergun1cuz" component={UcAylarHerGun1Cuz} />
         <Route path="/cizelgelerim" component={CizelgelerimPage} exact />
+        <Route path="/yillik" component={Yillik} />
 
       </Switch>
     </BrowserRouter>

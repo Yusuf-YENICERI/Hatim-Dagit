@@ -4,7 +4,9 @@
 
 
 import {dataFormat} from '../../datas/dataFormat';
-import { countNumberOfCuzs } from "../../utils";
+import {dataFormat_yillikHatim} from '../../datas/dataFormat_yillikHatim';
+
+import { countNumberOfCuzs, countNumberOfCuzsV3 } from "../../utils";
 import { generateHash } from "random-hash";
 import LocDb from "@yusuf-yeniceri/easy-storage";
 import app from 'firebase/app';
@@ -37,6 +39,7 @@ class FirebaseAPI{
         app.initializeApp(config);
         this.db = app.database();
         this.countNumberOfCuzs = countNumberOfCuzs;
+        this.countNumberOfCuzsV3 = countNumberOfCuzsV3;
         this.analytics = app.analytics();
         this.logger = new Logger(this.db);
     }
@@ -64,7 +67,7 @@ class FirebaseAPI{
   
     extractKey = () => {
       const link = window.location.toString();
-      const substring = ['/cuz','/ramazan','/ucaylarhergun1cuz'];
+      const substring = ['/cuz','/ramazan','/ucaylarhergun1cuz', '/yillik'];
       const found = substring.find(substring => link.indexOf(substring) !== -1);
       if(found){
         const index = link.indexOf(found);
@@ -156,6 +159,65 @@ class FirebaseAPI{
       return hatimKey;
     }
 
+    yeniYillikHatim = async ({header, description, startingDate, howManyDays, totalKhatmsBeDistributed, donerli, makeNewHatim, mevcutHatim}) => {
+
+      // console.log(dataFormat_yillikHatim)
+      // console.log(baslik)
+      try {
+        let hatimKey, adminToken;
+      if(!mevcutHatim){
+        hatimKey = await this.db.ref("hatim").push().key;
+        adminToken = generateHash({length: 16});
+        await this.db.ref(`hatim/${hatimKey}`).set({
+          type: "yillik",
+          version: 3.0,
+          adminToken:adminToken,
+          header:header,
+          description:description,
+          startingDate: startingDate,
+          howManyDays: howManyDays,
+          totalKhatmsBeDistributed: totalKhatmsBeDistributed,
+          donerli: donerli,
+          makeNewHatim: makeNewHatim
+        });
+      }else{
+        hatimKey = this.extractKey();
+        hatimKey = hatimKey.replace("/", "");
+       
+      }
+
+      // console.log(`hatimKey: ${hatimKey}`)
+      
+      let hatimSubKeys = [];
+      let hatimCount = 1;
+      for (let i = 0; i < hatimCount; i++) {
+              let hatimAltKey = await this.db.ref(`hatim/${hatimKey}`).push().key;
+              await this.db.ref( `hatim/${hatimKey}/${hatimAltKey}` ).set(dataFormat_yillikHatim);
+              console.log(`hatimAltKey: ${hatimAltKey}`)
+
+              hatimSubKeys.push(hatimAltKey);
+      }
+      
+      
+      return {
+        data: {
+          hatimKey: hatimKey,
+          hatimSubKeys: hatimSubKeys,
+          adminToken: adminToken,
+          header: header,
+        },
+        error: undefined
+      };
+      } catch (error) {
+        return {
+          data: undefined,
+          error: error
+        }
+      }
+
+      
+    }
+
 
     hatimDegistir = async (baslik, bitisTarihi, description, subKey) => {
       try {
@@ -163,6 +225,24 @@ class FirebaseAPI{
         return 0;        
       } catch (error) {
         return -1;
+      }
+    }
+
+    hatimDegistirV3 = async (baslik, bitisTarihi, description, subKey) => {
+      try {
+        await this.db.ref(`hatim/${this.extractKey()}/${subKey}`).update({baslik: baslik, bitisTarihi: bitisTarihi, description: description});
+        return 0;        
+      } catch (error) {
+        return -1;
+      }
+    }
+
+    yillikHatimDegistirV3 = async (header, startingDate, description) => {
+      try {
+        await this.db.ref(`hatim/${this.extractKey()}/`).update({header: header, startingDate: startingDate, description: description});
+        return {data: "success", error: undefined};        
+      } catch (error) {
+        return {data: undefined, error: error};
       }
     }
   
@@ -184,8 +264,9 @@ class FirebaseAPI{
             name: isim,
             alindi: alindi.toString(),
             ownerId: ownerId,
+            version: 2,
             dev: netlifyParams.dev,
-            makeNewHatimArg: makeNewHatim ?? undefined
+            makeNewHatimArg: makeNewHatim ?? undefined,
       }
 
       // console.log(`params: ${params.dev}`)
@@ -230,7 +311,77 @@ class FirebaseAPI{
     cuzIptal = async (no, subKey) => {
       return this.cuzAl('', no, subKey, false);
     }
+
+
+    cuzAlV3 = async (isim, no, subKey, alindi = true, makeNewHatim = false) => {
+      let hatimKey = this.extractKey().replace('/','');
+
+      let ownerId = LocDb.ref(`Hatim/${hatimKey}/${subKey}/ownerId`).get()
+
+      if(["object", "undefined"].includes(typeof ownerId) == true){
+        ownerId = generateHash({length: 8});
+        LocDb.ref(`Hatim/${hatimKey}/${subKey}`).modify((data) => {
+          if(typeof data == "boolean") data = {}
+          data.ownerId = ownerId;
+          return data;
+        });
+      }
+
+      let params = {
+            key: hatimKey.toString(),
+            subKey: subKey.toString(),
+            cuzNo: no.toString(),
+            name: isim,
+            alindi: alindi.toString(),
+            ownerId: ownerId,
+            dev: netlifyParams.dev,
+            makeNewHatimArg: makeNewHatim ?? undefined,
+            version: 3
+      }
+
+      // console.log(`params: ${params.dev}`)
+
+      try {
+        let result = await sFunctions.takeCuz(params);
+        let _errorKey = undefined;
+
+        if(result.error != undefined)
+        {
+          let errorRef = "cuzAl";
+          let errorKey = this.db.ref(`logging/errors/${errorRef}`).push().key;
+          
+          result.error.errorKey = errorKey;
+          this.logger.logError(errorRef ,errorKey, result.error);
+          this.analytics.logEvent("cuz_al_v3", result.error);
+          
+          _errorKey = `${errorRef}/${errorKey}`;
+        }
+         // 0 means taking Cuz is successfull
+        if(result.code == 200){
+          return {data: 200, error: undefined};
+        }else{
+          return {data: undefined, error: _errorKey};
+        }
+
+      } catch (error) {
+        //-1 means Cuz is already taken
+        return {data: undefined, error: error};
+      }
+      
+       
+        
+      
+    }
   
+
+    cuzIsimDegistirV3 = async (isim, no, subKey) => {
+      return this.cuzAlV3(isim, no, subKey);
+    }
+  
+  
+    cuzIptalV3 = async (no, subKey) => {
+      return this.cuzAlV3('', no, subKey, false);
+    }
     cuzBitti = async (hatimKey) => {
       await this.db.ref("hatim/" + hatimKey + "/bitti").set(true);
     }
@@ -254,9 +405,25 @@ class FirebaseAPI{
       try {
         let aD = LocDb.ref("Hatim/adminToken").get();
         let filtered = aD.filter(x=>Object.keys(x)[0].toString() == this.extractKey().replace("/","").toString());
+        console.log('test')
 
         await this.db.ref(`hatim/${this.extractKey()}/delete`).set({adminToken: filtered[0][Object.keys(filtered[0])]});
         await this.db.ref(`hatim/${this.extractKey()}`).set({adminToken: filtered[0][Object.keys(filtered[0])]});
+
+        return 0;  
+      } catch (error) {
+        console.error(error)
+        return -1;
+      }
+    }
+
+    deleteHatimV3 = async () => {
+      try {
+
+        const adminToken = LocDb.ref(`Hatim/${this.extractKey()}/adminToken`).get();
+        console.log('test')
+        await this.db.ref(`hatim/${this.extractKey()}/delete`).set({adminToken: adminToken});
+        // await this.db.ref(`hatim/${this.extractKey()}`).set({adminToken: filtered[0][Object.keys(filtered[0])]});
 
         return 0;  
       } catch (error) {
@@ -275,10 +442,32 @@ class FirebaseAPI{
 
       try {
         await this.db.ref(`hatim/${hatimKey}/makeNewHatim`).set(false);
-        return 200;  
+        return 200;
       } catch (error) {
         console.error(error)
         return 500;
+      }
+    }
+
+    markChart = async ({subKey, partNo, itemNo, value}) => {
+      try {
+        let key = this.extractKey();
+        await this.db.ref(`hatim/${key}/${subKey}/charts/${partNo}/${itemNo}`).set(value);        
+        
+        return {data: 'Alhamdulillah', error: undefined};
+      } catch (error) {
+        return {data: undefined, error: error};
+      }
+    }
+
+    fetchChart = async ({subKey, partNo}) => {
+      try {
+        let key = this.extractKey();
+        let result = await this.db.ref(`hatim/${key}/${subKey}/charts/${partNo}`).get();        
+        
+        return {data: result.val(), error: undefined};
+      } catch (error) {
+        return {data: undefined, error: error};
       }
     }
   }

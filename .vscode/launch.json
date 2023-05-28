@@ -10,7 +10,7 @@
             "command":"yarn start",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:3000",
-            // "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }

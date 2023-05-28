@@ -37,14 +37,13 @@ import { useDispatch } from 'react-redux';
 import YesNoDialog from '../YesNoDialog';
 import EditModalContent from "../EditModalContent";
 import AlertDialogCommon from '../../common/AlertDialogCommon'
-import { useLogger } from 'features/logger';
+import { loggerActions, useLogger } from 'features/logger';
 import CuzModal from '../CuzModal'
 import CuzlerHatimCard from '../CuzlerHatimCard'
 import LocDb from '@yusuf-yeniceri/easy-storage';
 import { yesNoDialogAlertActions } from 'features/yesNoDialogAlert';
 import { partsProcessor } from 'localStorage/parts';
 import { hatimsProcessor } from 'localStorage/hatims';
-
 
 // let counter = 0;+0
 // let total = Language[18].cevaplar.length;

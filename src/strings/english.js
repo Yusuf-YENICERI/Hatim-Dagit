@@ -52,16 +52,19 @@ let english = {
         MyInfos: "Khatms I Made and My Charts",
         Button: {
             NewTag: "New",
+            BetaTag: "Beta",
             MyInfos: {
                 Charts: "My Charts"
             },
             Main: "New Khatm",
+            YearBased: "Make Yearly Khatm",
             Ramazan: "Make New Ramazan Khatm (Cycled)",
             Aylar3: "Make 3 Months Khatm",
             EvradEzkar:"Distribute Vird-Dhikr",
             Header: {
                 Text: "Make New Khatm",
-                InputSpan: ["Title", "Description", "Khatm Finish Date", "Number of Khatm", "Automatically make new Khatm when Khatm is finished"],
+                InputSpan: ["Title", "Description", "Khatm Finish Date", "Number of Khatm", "Automatically make new Khatm when Khatm is finished", "Starting Date", "Number of Days To Finish A Khatm Together",
+                "Total Khatm Number Will Be Finished", "Rotated Khatm"],
                 Input: ["Please enter a Khatm title"],
                 Button: "Continue"
             },
@@ -135,6 +138,7 @@ let english = {
             changeHatim: "Change",
             takenParts: "Taken parts",
             leftParts: " parts left",
+            yourParts: "The Parts You Took",
             dua: ["", "left until prayer", "Prayer was done", "Prayer will be made today", "", "left until prayer"],
             Modal:{
                 Title:'Change Khatm Info',
@@ -151,6 +155,7 @@ let english = {
 
             PartModal:{
                 Title: 'Change Part Info',
+                Title2: 'Enter your name below to take the Part',
                 Name: 'Name of Who Taken the Part',
                 ChangeNameButton: 'Change Name',
                 CancelPart: 'Cancel Part',

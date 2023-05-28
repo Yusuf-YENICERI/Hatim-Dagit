@@ -2,7 +2,7 @@
 
 
 
-class Database{
+export class Database{
   constructor(_api){
     this.logger = _api.logger;
     this.api = _api;
@@ -37,6 +37,10 @@ class Database{
     return (await this.api.yeniHatim(baslik, bitisTarihi, mevcutHatim, isRamazan, description, makeNewHatim, hatimCount, isMonths3));
   }
 
+  yeniYillikHatim = async (params) => {
+    return (await this.api.yeniYillikHatim(params));
+  }
+
   cuzAl = async (isim, no, subKey, alindi = true, makeNewHatim = false) => {
     return (await this.api.cuzAl(isim, no, subKey, alindi, makeNewHatim ));
   }
@@ -48,6 +52,19 @@ class Database{
 
   cuzIptal = async (no, subKey) => {
     await this.api.cuzIptal(no, subKey);
+  }
+
+  cuzAlV3 = async (isim, no, subKey, alindi = true, makeNewHatim = false) => {
+    return (await this.api.cuzAlV3(isim, no, subKey, alindi, makeNewHatim ));
+  }
+
+  cuzIsimDegistirV3 = async (isim, no, subKey) => {
+    return (await this.api.cuzIsimDegistirV3(isim, no, subKey));
+  }
+
+
+  cuzIptalV3 = async (no, subKey) => {
+    return await this.api.cuzIptalV3(no, subKey);
   }
 
   cuzBitti = async (hatimKey) => {
@@ -66,12 +83,29 @@ class Database{
     return this.api.countNumberOfCuzs(allHatimler);
   }
 
+  countNumberOfCuzsV3 = (allHatimler) => {
+    return this.api.countNumberOfCuzsV3(allHatimler);
+  }
+
   hatimDegistir = async (baslik, bitisTarihi, description, subKey) => {
     return (await this.api.hatimDegistir(baslik, bitisTarihi, description, subKey));
   }
 
+  hatimDegistirV3 = async (baslik, bitisTarihi, description, subKey) => {
+    return (await this.api.hatimDegistirV3(baslik, bitisTarihi, description, subKey));
+  }
+
+  yillikHatimDegistirV3 = async (baslik, bitisTarihi, description, subKey) => {
+    return (await this.api.yillikHatimDegistirV3(baslik, bitisTarihi, description, subKey));
+  }
+
+
   deleteHatim = async () => {
     return (await this.api.deleteHatim());
+  }
+
+  deleteHatimV3 = async () => {
+    return (await this.api.deleteHatimV3());
   }
 
   hatimListener = (callback) => {
@@ -80,6 +114,14 @@ class Database{
 
   stopMakingNewKhatm = async () => {
     return (await this.api.stopMakingNewKhatm());
+  }
+
+  markChart = async (params) => {
+    return (await this.api.markChart(params))
+  }
+
+  fetchChart = async (params) => {
+    return (await this.api.fetchChart(params))
   }
 }
 
