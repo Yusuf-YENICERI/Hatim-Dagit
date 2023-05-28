@@ -15,7 +15,9 @@ describe('add Khatm to default page', ()=>{
 
 
     it('user should be able to add khatm to default page, should be able to take Part and release', ()=>{
-        cy.visit('http://localhost:3000/')
+        cy.visit('http://localhost:3000/', {onBeforeLoad: function (window) {
+            window.localStorage.setItem('language', 'en');
+        }})
         //click to the button
         cy.get("#yearBased").click()
         //click to the option
@@ -58,7 +60,9 @@ describe('add Khatm to default page', ()=>{
     });
 
     it('user should be able to add khatm to default page, should be able to take Part ', ()=>{
-        cy.visit('http://localhost:3000/')
+        cy.visit('http://localhost:3000/', {onBeforeLoad: function (window) {
+            window.localStorage.setItem('language', 'en');
+        }})
         //click to the button
         cy.get("#yearBased").click()
         //click to the option

@@ -8,13 +8,14 @@
 
 
 import React, { useRef, useState, useContext, useEffect } from 'react';
-import { createStyles, Table, Checkbox, ScrollArea, Group, Avatar, Text, Title, ActionIcon } from '@mantine/core';
+import { createStyles, Table, Checkbox, ScrollArea, Group, Avatar, Text, Title, ActionIcon, Button } from '@mantine/core';
 import close from "icons/close.svg";
 import { useYillikTable, yillikTableActions } from 'features/yillikTable';
 import { useDispatch } from 'react-redux';
 import { DataServiceContext, localDatabase } from "backend";
 import { showNotification } from '@mantine/notifications';
-
+import {Printer} from 'tabler-icons-react'
+import Pdf from "react-to-pdf";
 
 const useStyles = createStyles((theme) => ({
   rowSelected: {
@@ -41,6 +42,32 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+// // Create styles
+// const styles = StyleSheet.create({
+//   page: {
+//     flexDirection: 'row',
+//     backgroundColor: '#E4E4E4'
+//   },
+//   section: {
+//     margin: 10,
+//     padding: 10,
+//     flexGrow: 1
+//   }
+// });
+
+// // Create Document Component
+// const MyDocument = () => (
+//   <Document>
+//     <Page size="A4" style={styles.page}>
+//       <View style={styles.section}>
+//         <TextPdf>Section #1</TextPdf>
+//       </View>
+//       <View style={styles.section}>
+//         <TextPdf>Section #2</TextPdf>
+//       </View>
+//     </Page>
+//   </Document>
+// );
 
 export default function TableSelection({ data, howManyDays, totalKhatmsBeDistributed, startingDate, donerli, hatimData }) {
 
@@ -56,7 +83,11 @@ export default function TableSelection({ data, howManyDays, totalKhatmsBeDistrib
   const {visible, subKey, partNo} = useYillikTable();
   
   const dispatch = useDispatch();
-  
+
+  const tableRef = React.createRef();
+
+  const [showPdf, setShowPdf] = useState(false);
+
   const [selection, setSelection] = useState([]);
   const toggleRow = async (id) => {
 
@@ -108,7 +139,7 @@ export default function TableSelection({ data, howManyDays, totalKhatmsBeDistrib
   const rows = data.map((item) => {
     const selected = selection.includes(item.id.toString());
     return (
-      <tr key={item.id} style={{backgroundColor: 'white'}} className={cx({ [classes.rowSelected]: selected })}>
+      <tr key={item.id} style={{backgroundColor: 'white', }} className={cx({ [classes.rowSelected]: selected })}>
         <td>
           <Checkbox
             checked={selection.includes(item.id.toString())}
@@ -121,8 +152,8 @@ export default function TableSelection({ data, howManyDays, totalKhatmsBeDistrib
               {item.name}
             </Text>
         </td> */}
-        <td ><div>{item.job}<br/>{item.job2}</div></td>
-        <td >{item.email}</td>
+        <td ><div style={{}}>{item.job}<br/>{item.job2}</div></td>
+        <td style={{}}>{item.email}</td>
       </tr>
     );
   });
@@ -158,10 +189,23 @@ export default function TableSelection({ data, howManyDays, totalKhatmsBeDistrib
   
   }, [partNo])
 
+
+
   return (
     <div  className={classes.base} style={{zIndex:visible ? 100 : -10}}>
 
+    <Pdf targetRef={tableRef} filename="Yıllık Hatim Çizelegesi.pdf" options={{format:[14*totalKhatmsBeDistributed,250]}} scale={0.8}>
+        {({ toPdf }) => <Button className={classes.editButton} variant="outline" color="dark" leftIcon={<Printer width="20px"></Printer>} 
+        radius="xl" size="xs" styles={{
+          label: {marginLeft: '-7px'},
+          root: { position:'absolute', marginLeft: '40px', marginTop: '20px', padding: '4px', fontSize: '0.9rem'},
+          outline: {padding: '30px'},
+        }}
+        onClick={toPdf}
+    > Yazdır</Button>}
+      </Pdf>
 
+    
 
     <div style={{display: 'flex', justifyContent: 'end', margin: '20px'}}>
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -175,8 +219,10 @@ export default function TableSelection({ data, howManyDays, totalKhatmsBeDistrib
     </div>
     <Title align="center" m="xl" style={{fontFamily: 'Righteous'}}>Yıllık Hatim Çizelgesi</Title>
 
+
+
     <ScrollArea  type="always" scrollbarSize={20} className={classes.scrollArea} mx="20px">
-      <Table  className={classes.table}  verticalSpacing="xs">
+      <Table ref={tableRef} className={classes.table}  verticalSpacing="xs">
         <thead style={{position: 'sticky'}}>
           <tr>
             <th style={{ width: 40 }}>
@@ -196,6 +242,7 @@ export default function TableSelection({ data, howManyDays, totalKhatmsBeDistrib
         <tbody>{rows}</tbody>
       </Table>
     </ScrollArea>
+
     </div>
   );
 }

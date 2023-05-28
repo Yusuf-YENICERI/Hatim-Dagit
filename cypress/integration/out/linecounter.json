@@ -1,0 +1,96 @@
+{
+    "extension": "linecounter",
+    "version": "0.2.7",
+    "workspace": "/home/yusuf/Desktop/Hat/hatimGit/cypress/integration",
+    "linecount": [
+        {
+            "version": "0.2.7",
+            "counttime": "2023-05-28 16:59:24",
+            "filesum": 12,
+            "codesum": 578,
+            "commentsum": 289,
+            "blanksum": 318,
+            "statistics": {
+                ".js": {
+                    "code": 578,
+                    "comment": 289,
+                    "blank": 318
+                }
+            },
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "CUZ_add_Khatm_based_on_case.js"
+                },
+                {
+                    "blank": 30,
+                    "code": 51,
+                    "comment": 30,
+                    "filename": "CUZ_add_Khatm_to_default_page.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 0,
+                    "comment": 19,
+                    "filename": "CUZ_old_version_test.js"
+                },
+                {
+                    "blank": 26,
+                    "code": 57,
+                    "comment": 35,
+                    "filename": "CUZ_user_behaviour.js"
+                },
+                {
+                    "blank": 30,
+                    "code": 53,
+                    "comment": 32,
+                    "filename": "M3_EACHDAY1PART_add_Khatm_to_default_page.js"
+                },
+                {
+                    "blank": 32,
+                    "code": 77,
+                    "comment": 37,
+                    "filename": "M3_EACHDAY1PART_user_behaviour.js"
+                },
+                {
+                    "blank": 56,
+                    "code": 101,
+                    "comment": 0,
+                    "filename": "NETLIFY_take_cuz.js"
+                },
+                {
+                    "blank": 13,
+                    "code": 18,
+                    "comment": 2,
+                    "filename": "NETLIFY_take_cuz_helper.js"
+                },
+                {
+                    "blank": 32,
+                    "code": 57,
+                    "comment": 28,
+                    "filename": "RAMAZAN_add_Khatm_to_default_page.js"
+                },
+                {
+                    "blank": 29,
+                    "code": 58,
+                    "comment": 34,
+                    "filename": "RAMAZAN_user_behaviour.js"
+                },
+                {
+                    "blank": 30,
+                    "code": 50,
+                    "comment": 34,
+                    "filename": "YEARLY_add_Khatm_to_default_page.js"
+                },
+                {
+                    "blank": 30,
+                    "code": 56,
+                    "comment": 38,
+                    "filename": "YEARLY_user_behaviour.js"
+                }
+            ]
+        }
+    ]
+}

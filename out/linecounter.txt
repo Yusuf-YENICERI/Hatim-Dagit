@@ -832,3 +832,298 @@ tsconfig.json, code is 29, comment is 0, blank is 3.
 yarn-error.log, code is 10152, comment is 32, blank is 2414.
 yarn.lock, code is 14356, comment is 52, blank is 3697.
 ===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2023-05-28 16:57:09
+count workspace : /home/yusuf/Desktop/Hat/hatimGit
+total files : 265
+total code lines : 38713
+total comment lines : 1382
+total blank lines : 10411
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |               |             36|              0|              0|  0.093|
+   |            .js|          11135|            989|           3222|     29|
+   |           .css|             24|             16|             11|  0.062|
+   |           .tsx|           1077|             39|            424|    2.8|
+   |            .ts|           1490|             42|            579|    3.8|
+   |           .svg|             32|              0|              0|  0.083|
+   |          .json|            200|              0|              8|   0.52|
+   |          .html|             37|             25|              5|  0.096|
+   |           .txt|              6|            179|             18|  0.015|
+   |.code-workspace|              8|              0|              0|  0.021|
+   |            .md|             13|              3|             19|  0.034|
+   |           .yml|            147|              5|             14|   0.38|
+   |          .lock|          14356|             52|           3697|     37|
+   |           .log|          10152|             32|           2414|     26|
+   -------------------------------------------------------------------------
+.env, code is 11, comment is 0, blank is 0.
+.env-dev, code is 11, comment is 0, blank is 0.
+.eslintignore, code is 0, comment is 0, blank is 0.
+.eslintrc.js, code is 0, comment is 38, blank is 0.
+.github/workflows/codeql-analysis.yml, code is 61, comment is 2, blank is 10.
+.github/workflows/firebase-hosting-merge.yml, code is 36, comment is 1, blank is 2.
+.github/workflows/firebase-hosting-pull-request.yml, code is 29, comment is 1, blank is 1.
+.github/workflowsfirebase-hosting-merge.yml, code is 21, comment is 1, blank is 1.
+.gitignore, code is 5, comment is 0, blank is 0.
+.prettierrc, code is 9, comment is 0, blank is 0.
+build/asset-manifest.json, code is 25, comment is 0, blank is 1.
+build/book.svg, code is 1, comment is 0, blank is 0.
+build/index.html, code is 1, comment is 0, blank is 0.
+build/logo192.png, it is a binary file.
+build/logo512.png, it is a binary file.
+build/manifest.json, code is 20, comment is 0, blank is 0.
+build/network-ipad-retina.png, it is a binary file.
+build/network-ipad.png, it is a binary file.
+build/network-iphone-retina.png, it is a binary file.
+build/network.png, it is a binary file.
+build/nothing.ico, it is a binary file.
+build/robots.txt, code is 3, comment is 1, blank is 0.
+build/service-worker.js, code is 2, comment is 1, blank is 2.
+build/static/css/2.cf13eec6.chunk.css, code is 1, comment is 0, blank is 0.
+build/static/css/main.5531c5cb.chunk.css, code is 1, comment is 0, blank is 0.
+build/static/js/2.336a3ece.chunk.js, code is 1, comment is 1, blank is 0.
+build/static/js/2.336a3ece.chunk.js.LICENSE.txt, code is 0, comment is 177, blank is 18.
+build/static/js/3.3519342d.chunk.js, code is 1, comment is 0, blank is 0.
+build/static/js/main.65f36cc2.chunk.js, code is 1, comment is 0, blank is 0.
+build/static/js/runtime-main.50a112d7.js, code is 1, comment is 0, blank is 0.
+build/static/media/button.ef17e8d4.svg, code is 1, comment is 0, blank is 0.
+build/static/media/close.625ba8f0.svg, code is 1, comment is 0, blank is 0.
+build/static/media/copy.e88a7cef.svg, code is 1, comment is 0, blank is 0.
+build/static/media/logo.6ce24c58.svg, code is 1, comment is 0, blank is 0.
+build/static/media/share.2e198c97.svg, code is 1, comment is 0, blank is 0.
+build/static/media/sms.634ffd48.svg, code is 1, comment is 0, blank is 0.
+build/static/media/whatsapp.4a5048df.svg, code is 1, comment is 0, blank is 0.
+cypress.json, code is 1, comment is 0, blank is 0.
+cypress/fixtures/example.json, code is 5, comment is 0, blank is 0.
+cypress/integration/CUZ_add_Khatm_based_on_case.js, code is 0, comment is 0, blank is 0.
+cypress/integration/CUZ_add_Khatm_to_default_page.js, code is 51, comment is 30, blank is 30.
+cypress/integration/CUZ_old_version_test.js, code is 0, comment is 19, blank is 10.
+cypress/integration/CUZ_user_behaviour.js, code is 57, comment is 35, blank is 26.
+cypress/integration/M3_EACHDAY1PART_add_Khatm_to_default_page.js, code is 53, comment is 32, blank is 30.
+cypress/integration/M3_EACHDAY1PART_user_behaviour.js, code is 77, comment is 37, blank is 32.
+cypress/integration/NETLIFY_take_cuz.js, code is 101, comment is 0, blank is 56.
+cypress/integration/NETLIFY_take_cuz_helper.js, code is 18, comment is 2, blank is 13.
+cypress/integration/RAMAZAN_add_Khatm_to_default_page.js, code is 57, comment is 28, blank is 32.
+cypress/integration/RAMAZAN_user_behaviour.js, code is 58, comment is 34, blank is 29.
+cypress/integration/YEARLY_add_Khatm_to_default_page.js, code is 50, comment is 34, blank is 30.
+cypress/integration/YEARLY_user_behaviour.js, code is 56, comment is 38, blank is 30.
+cypress/plugins/index.js, code is 5, comment is 18, blank is 4.
+cypress/support/commands.js, code is 1, comment is 1, blank is 2.
+cypress/support/index.js, code is 1, comment is 17, blank is 2.
+firebase.json, code is 15, comment is 0, blank is 1.
+Hatim Dagit.code-workspace, code is 8, comment is 0, blank is 0.
+package.json, code is 85, comment is 0, blank is 3.
+public/book.svg, code is 1, comment is 0, blank is 0.
+public/index.html, code is 36, comment is 25, blank is 5.
+public/logo192.png, it is a binary file.
+public/logo512.png, it is a binary file.
+public/manifest.json, code is 20, comment is 0, blank is 0.
+public/network-ipad-retina.png, it is a binary file.
+public/network-ipad.png, it is a binary file.
+public/network-iphone-retina.png, it is a binary file.
+public/network.png, it is a binary file.
+public/nothing.ico, it is a binary file.
+public/robots.txt, code is 3, comment is 1, blank is 0.
+public/service-worker.js, code is 2, comment is 1, blank is 2.
+README.md, code is 13, comment is 3, blank is 19.
+src/App.css, code is 9, comment is 3, blank is 3.
+src/App.js, code is 28, comment is 0, blank is 4.
+src/App.test.js, code is 7, comment is 0, blank is 1.
+src/backend/APIs/firebase_api/index.js, code is 355, comment is 19, blank is 101.
+src/backend/APIs/firebase_api/logger.js, code is 20, comment is 0, blank is 6.
+src/backend/context.js, code is 4, comment is 0, blank is 4.
+src/backend/database.js, code is 85, comment is 7, blank is 37.
+src/backend/datas/dataFormat.js, code is 173, comment is 1, blank is 40.
+src/backend/datas/dataFormat_v2.js, code is 159, comment is 1, blank is 33.
+src/backend/datas/dataFormat_yillikHatim.js, code is 124, comment is 1, blank is 3.
+src/backend/index.js, code is 12, comment is 0, blank is 14.
+src/backend/interfaces/IDatabase.ts, code is 28, comment is 3, blank is 22.
+src/backend/interfaces/ILocalDatabase.ts, code is 7, comment is 0, blank is 5.
+src/backend/LocalDatabase.ts, code is 154, comment is 0, blank is 23.
+src/backend/sFunctions/index.js, code is 3, comment is 0, blank is 5.
+src/backend/sFunctions/netlify/index.js, code is 62, comment is 12, blank is 26.
+src/backend/types/HatimType.ts, code is 5, comment is 0, blank is 7.
+src/backend/types/params/YeniYillikHatimParams.ts, code is 11, comment is 0, blank is 6.
+src/backend/types/responses/BaseResponse.ts, code is 4, comment is 0, blank is 4.
+src/backend/types/responses/HatimGetirCustomResponse.ts, code is 15, comment is 0, blank is 9.
+src/backend/types/responses/YeniYillikHatimResponse.ts, code is 7, comment is 0, blank is 7.
+src/backend/utils/index.ts, code is 15, comment is 0, blank is 11.
+src/common.js, code is 135, comment is 2, blank is 41.
+src/components/cizelgelerim/index.tsx, code is 60, comment is 0, blank is 20.
+src/components/cizelgelerim/styles.ts, code is 59, comment is 1, blank is 15.
+src/components/cizelgelerim/TumCizelgeler/CizelgeListesi/CuzListesi/index.tsx, code is 54, comment is 0, blank is 24.
+src/components/cizelgelerim/TumCizelgeler/CizelgeListesi/CuzListesi/styles.ts, code is 28, comment is 1, blank is 16.
+src/components/cizelgelerim/TumCizelgeler/CizelgeListesi/CuzListesi/Table/index.js, code is 342, comment is 12, blank is 82.
+src/components/cizelgelerim/TumCizelgeler/CizelgeListesi/index.tsx, code is 34, comment is 0, blank is 19.
+src/components/cizelgelerim/TumCizelgeler/CizelgeListesi/styles.ts, code is 29, comment is 0, blank is 11.
+src/components/cizelgelerim/TumCizelgeler/CizelgeListesiYillikHatim/CuzListesi/index.tsx, code is 54, comment is 0, blank is 24.
+src/components/cizelgelerim/TumCizelgeler/CizelgeListesiYillikHatim/CuzListesi/styles.ts, code is 28, comment is 1, blank is 16.
+src/components/cizelgelerim/TumCizelgeler/CizelgeListesiYillikHatim/CuzListesi/Table/index.js, code is 342, comment is 12, blank is 82.
+src/components/cizelgelerim/TumCizelgeler/CizelgeListesiYillikHatim/index.tsx, code is 34, comment is 0, blank is 19.
+src/components/cizelgelerim/TumCizelgeler/CizelgeListesiYillikHatim/styles.ts, code is 29, comment is 0, blank is 11.
+src/components/cizelgelerim/TumCizelgeler/index.tsx, code is 29, comment is 26, blank is 13.
+src/components/cizelgelerim/TumCizelgeler/RamazanCizelgeleri/index.tsx, code is 13, comment is 0, blank is 11.
+src/components/cizelgelerim/TumCizelgeler/RamazanCizelgeleri/styles.ts, code is 1, comment is 0, blank is 6.
+src/components/cizelgelerim/TumCizelgeler/styles.ts, code is 57, comment is 1, blank is 15.
+src/components/cizelgelerim/TumCizelgeler/UcAylarÇizelgeleri/index.tsx, code is 23, comment is 0, blank is 13.
+src/components/cizelgelerim/TumCizelgeler/UcAylarÇizelgeleri/styles.ts, code is 1, comment is 0, blank is 6.
+src/components/common/AlertDialogCommon/AlertDialogComponents.js, code is 45, comment is 0, blank is 14.
+src/components/common/AlertDialogCommon/index.js, code is 23, comment is 0, blank is 11.
+src/components/common/DialogBox/DialogBoxElements.js, code is 0, comment is 49, blank is 16.
+src/components/common/DialogBox/index.js, code is 0, comment is 28, blank is 16.
+src/components/common/Footer/FooterElements.js, code is 132, comment is 4, blank is 30.
+src/components/common/Footer/index.js, code is 53, comment is 20, blank is 20.
+src/components/common/Message/index.js, code is 94, comment is 0, blank is 26.
+src/components/common/Message/MessageElements.js, code is 34, comment is 0, blank is 21.
+src/components/common/Navbar/index.js, code is 109, comment is 40, blank is 25.
+src/components/common/Navbar/navbar.css, code is 6, comment is 0, blank is 4.
+src/components/common/Navbar/NavbarElements.js, code is 150, comment is 7, blank is 27.
+src/components/common/Navbar/service-worker.js, code is 2, comment is 1, blank is 2.
+src/components/common/Pwa/index.js, code is 29, comment is 1, blank is 7.
+src/components/common/Pwa/PwaElements.js, code is 59, comment is 1, blank is 15.
+src/components/common/Sidebar/index.js, code is 49, comment is 20, blank is 12.
+src/components/common/Sidebar/sidebar.css, code is 7, comment is 0, blank is 4.
+src/components/common/Sidebar/SiderbarElements.js, code is 98, comment is 0, blank is 17.
+src/components/common/Table/index.js, code is 108, comment is 0, blank is 22.
+src/components/cuz/AlertDialog/AlertDialogComponents.js, code is 44, comment is 0, blank is 14.
+src/components/cuz/AlertDialog/index.js, code is 29, comment is 0, blank is 11.
+src/components/cuz/AskDialog/AskDialogElements.js, code is 62, comment is 0, blank is 14.
+src/components/cuz/AskDialog/index.js, code is 43, comment is 0, blank is 26.
+src/components/cuz/Cuzler/index.js, code is 549, comment is 24, blank is 138.
+src/components/cuz/Cuzler/QuestionElements.js, code is 456, comment is 22, blank is 104.
+src/components/cuz/CuzlerHatimCard/index.js, code is 162, comment is 6, blank is 37.
+src/components/cuz/CuzModal/index.js, code is 60, comment is 1, blank is 20.
+src/components/cuz/EditModalContent/index.js, code is 68, comment is 1, blank is 17.
+src/components/cuz/RingProgress/index.js, code is 42, comment is 9, blank is 10.
+src/components/cuz/ShareBox/index.js, code is 44, comment is 0, blank is 20.
+src/components/cuz/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+src/components/cuz/YesNoDialog/index.js, code is 39, comment is 0, blank is 20.
+src/components/cuz/YesNoDialog/YesNoDialogElements.js, code is 36, comment is 0, blank is 19.
+src/components/main/AskDialog/index.js, code is 73, comment is 1, blank is 29.
+src/components/main/BottomNavigation/index.tsx, code is 52, comment is 0, blank is 16.
+src/components/main/BottomNavigation/styles.ts, code is 52, comment is 0, blank is 23.
+src/components/main/CommonButton/index.tsx, code is 16, comment is 0, blank is 10.
+src/components/main/CommonButton/styles.ts, code is 49, comment is 0, blank is 15.
+src/components/main/Counter/index.js, code is 71, comment is 0, blank is 15.
+src/components/main/Months3Dialog/index.js, code is 98, comment is 1, blank is 38.
+src/components/main/Months3Dialog/styles.js, code is 89, comment is 0, blank is 23.
+src/components/main/MyInfos/index.tsx, code is 162, comment is 4, blank is 50.
+src/components/main/MyInfos/styles.ts, code is 264, comment is 13, blank is 56.
+src/components/main/Question/index.js, code is 179, comment is 73, blank is 61.
+src/components/main/Question/QuestionElements.js, code is 272, comment is 10, blank is 53.
+src/components/main/Question/YearlyKhatmDialog/index.js, code is 160, comment is 2, blank is 51.
+src/components/ramazan/AskDialog/AskDialogElements.js, code is 62, comment is 0, blank is 14.
+src/components/ramazan/AskDialog/index.js, code is 43, comment is 0, blank is 26.
+src/components/ramazan/RamazanDonerli/index.js, code is 493, comment is 56, blank is 109.
+src/components/ramazan/RamazanDonerli/RamazanDonerliElements.js, code is 471, comment is 22, blank is 110.
+src/components/ramazan/ShareBox/index.js, code is 44, comment is 0, blank is 20.
+src/components/ramazan/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+src/components/ucaylarhergun1cuz/AskDialog/AskDialogElements.js, code is 62, comment is 0, blank is 14.
+src/components/ucaylarhergun1cuz/AskDialog/index.js, code is 43, comment is 0, blank is 26.
+src/components/ucaylarhergun1cuz/CuzlerHatimCard/index.js, code is 162, comment is 6, blank is 37.
+src/components/ucaylarhergun1cuz/CuzModal/index.js, code is 60, comment is 1, blank is 20.
+src/components/ucaylarhergun1cuz/EditModalContent/index.js, code is 68, comment is 1, blank is 17.
+src/components/ucaylarhergun1cuz/ShareBox/index.js, code is 44, comment is 0, blank is 20.
+src/components/ucaylarhergun1cuz/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+src/components/ucaylarhergun1cuz/Table/index.js, code is 342, comment is 12, blank is 82.
+src/components/ucaylarhergun1cuz/UcAylarHerGun1CuzDonerli/index.js, code is 521, comment is 21, blank is 120.
+src/components/ucaylarhergun1cuz/UcAylarHerGun1CuzDonerli/styles.js, code is 471, comment is 22, blank is 110.
+src/components/ucaylarhergun1cuz/YesNoDialog/index.js, code is 39, comment is 0, blank is 20.
+src/components/ucaylarhergun1cuz/YesNoDialog/YesNoDialogElements.js, code is 36, comment is 0, blank is 19.
+src/components/yillik/Banner/CuzlerHatimCard/index.js, code is 172, comment is 6, blank is 42.
+src/components/yillik/Banner/EditModalContent/index.js, code is 59, comment is 10, blank is 19.
+src/components/yillik/Banner/index.tsx, code is 73, comment is 0, blank is 31.
+src/components/yillik/Banner/YesNoDialog/index.js, code is 46, comment is 0, blank is 22.
+src/components/yillik/Banner/YesNoDialog/YesNoDialogElements.js, code is 36, comment is 0, blank is 19.
+src/components/yillik/CuzModal/index.js, code is 80, comment is 1, blank is 19.
+src/components/yillik/index.tsx, code is 92, comment is 3, blank is 37.
+src/components/yillik/NewKhatmPart/index.tsx, code is 40, comment is 0, blank is 15.
+src/components/yillik/NewKhatmPart/styles.ts, code is 32, comment is 0, blank is 18.
+src/components/yillik/Parts/index.tsx, code is 90, comment is 0, blank is 27.
+src/components/yillik/Parts/PartWithChart/index.tsx, code is 53, comment is 0, blank is 19.
+src/components/yillik/Parts/PartWithChart/Part/index.tsx, code is 28, comment is 0, blank is 12.
+src/components/yillik/Parts/PartWithChart/styles.ts, code is 37, comment is 1, blank is 15.
+src/components/yillik/Parts/styles.ts, code is 88, comment is 8, blank is 30.
+src/components/yillik/ShareButtons/index.tsx, code is 44, comment is 0, blank is 20.
+src/components/yillik/ShareButtons/ShareBox/index.js, code is 44, comment is 0, blank is 20.
+src/components/yillik/ShareButtons/ShareBox/ShareBoxElements.js, code is 63, comment is 3, blank is 15.
+src/components/yillik/ShareButtons/styles.tsx, code is 54, comment is 6, blank is 20.
+src/components/yillik/styles.ts, code is 22, comment is 0, blank is 13.
+src/components/yillik/Table/index.js, code is 153, comment is 4, blank is 45.
+src/features/alertDialog/alertDialogSlice.js, code is 18, comment is 0, blank is 12.
+src/features/alertDialog/index.js, code is 8, comment is 0, blank is 7.
+src/features/cizelgelerim/cizelgelerimSlice.ts, code is 51, comment is 0, blank is 12.
+src/features/cizelgelerim/index.ts, code is 8, comment is 0, blank is 7.
+src/features/cuzlerFunctionTrigger/cuzlerFunctionTriggerSlice.js, code is 24, comment is 0, blank is 13.
+src/features/cuzlerFunctionTrigger/index.js, code is 8, comment is 0, blank is 7.
+src/features/cuzModal/cuzModalSlice.js, code is 146, comment is 0, blank is 32.
+src/features/cuzModal/index.js, code is 9, comment is 0, blank is 7.
+src/features/editCuzlerModal/editCuzlerModalSlice.js, code is 127, comment is 4, blank is 37.
+src/features/editCuzlerModal/index.js, code is 9, comment is 0, blank is 7.
+src/features/hatimlerVisibilities/hatimlerVisibilitiesSlice.ts, code is 23, comment is 0, blank is 23.
+src/features/hatimlerVisibilities/index.ts, code is 8, comment is 0, blank is 8.
+src/features/logger/index.js, code is 7, comment is 0, blank is 8.
+src/features/logger/loggerSlice.js, code is 16, comment is 0, blank is 12.
+src/features/notification/index.js, code is 7, comment is 0, blank is 8.
+src/features/notification/notificationSlice.js, code is 24, comment is 0, blank is 12.
+src/features/yesNoDialogAlert/index.js, code is 8, comment is 0, blank is 7.
+src/features/yesNoDialogAlert/yesNoDialogAlertSlice.js, code is 67, comment is 0, blank is 16.
+src/features/yillikTable/index.ts, code is 7, comment is 0, blank is 8.
+src/features/yillikTable/yillikTableSlice.ts, code is 24, comment is 0, blank is 12.
+src/icons/button.svg, code is 1, comment is 0, blank is 0.
+src/icons/c.svg, code is 1, comment is 0, blank is 0.
+src/icons/close.svg, code is 1, comment is 0, blank is 0.
+src/icons/copy.svg, code is 1, comment is 0, blank is 0.
+src/icons/cpp.svg, code is 1, comment is 0, blank is 0.
+src/icons/csharp.svg, code is 1, comment is 0, blank is 0.
+src/icons/enterprise.svg, code is 1, comment is 0, blank is 0.
+src/icons/game.svg, code is 1, comment is 0, blank is 0.
+src/icons/java.svg, code is 1, comment is 0, blank is 0.
+src/icons/js.svg, code is 1, comment is 0, blank is 0.
+src/icons/lamp.svg, code is 4, comment is 0, blank is 0.
+src/icons/mobile.svg, code is 1, comment is 0, blank is 0.
+src/icons/php.svg, code is 1, comment is 0, blank is 0.
+src/icons/python.svg, code is 1, comment is 0, blank is 0.
+src/icons/ruby.svg, code is 1, comment is 0, blank is 0.
+src/icons/share.svg, code is 1, comment is 0, blank is 0.
+src/icons/sms.svg, code is 1, comment is 0, blank is 0.
+src/icons/website.svg, code is 1, comment is 0, blank is 0.
+src/icons/whatsapp.svg, code is 1, comment is 0, blank is 0.
+src/index.css, code is 0, comment is 13, blank is 0.
+src/index.js, code is 69, comment is 27, blank is 24.
+src/localStorage/charts/ChartsProcessor.ts, code is 26, comment is 0, blank is 15.
+src/localStorage/charts/index.ts, code is 4, comment is 0, blank is 7.
+src/localStorage/charts/types/params.ts, code is 1, comment is 0, blank is 6.
+src/localStorage/charts/UcAylar/HerGun1Cuz.ts, code is 45, comment is 1, blank is 20.
+src/localStorage/hatims/HatimsProcessor.ts, code is 14, comment is 0, blank is 12.
+src/localStorage/hatims/index.ts, code is 5, comment is 0, blank is 9.
+src/localStorage/hatims/UcAylar/UcAylarHatimsProcessor.ts, code is 20, comment is 0, blank is 19.
+src/localStorage/parts/index.ts, code is 3, comment is 0, blank is 9.
+src/localStorage/parts/PartsProcessor.ts, code is 41, comment is 0, blank is 13.
+src/logo.svg, code is 1, comment is 0, blank is 0.
+src/pages/cizelgelerim.tsx, code is 31, comment is 0, blank is 13.
+src/pages/cuz.js, code is 22, comment is 0, blank is 7.
+src/pages/index.js, code is 30, comment is 26, blank is 17.
+src/pages/ramazan.js, code is 68, comment is 0, blank is 14.
+src/pages/ucaylarhergun1cuz.js, code is 40, comment is 0, blank is 11.
+src/pages/yillik.tsx, code is 41, comment is 0, blank is 11.
+src/react-app-env.d.ts, code is 0, comment is 1, blank is 0.
+src/redux/store.js, code is 25, comment is 0, blank is 7.
+src/reportWebVitals.js, code is 12, comment is 0, blank is 1.
+src/service/DataService.ts, code is 88, comment is 5, blank is 14.
+src/setupTests.js, code is 1, comment is 4, blank is 0.
+src/strings/Arabic.js, code is 174, comment is 0, blank is 34.
+src/strings/dataCizelge.js, code is 33, comment is 0, blank is 6.
+src/strings/dataMonths3.js, code is 22, comment is 0, blank is 7.
+src/strings/english.js, code is 176, comment is 0, blank is 48.
+src/strings/index.ts, code is 100, comment is 6, blank is 25.
+src/strings/Turkish.js, code is 177, comment is 0, blank is 41.
+tsconfig.json, code is 29, comment is 0, blank is 3.
+yarn-error.log, code is 10152, comment is 32, blank is 2414.
+yarn.lock, code is 14356, comment is 52, blank is 3697.
+===============================================================================
