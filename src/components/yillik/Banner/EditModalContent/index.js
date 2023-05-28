@@ -50,11 +50,12 @@ export default function ContainedInputs(props) {
 
   return (
     <div style={{height: '100%'}}>
+      
       <TextInput label={Language["/cuz"].CuzlerHatimCard.Modal.Header} value={form.values.header} onChange={(e)=>form.setFieldValue("header", e.currentTarget.value)} classNames={classes} />
+
       <Textarea mt="20px" label={Language["/cuz"].CuzlerHatimCard.Modal.Description} value={form.values.description} onChange={(e)=>form.setFieldValue("description", e.currentTarget.value)} classNames={classes} />
 
-
-      <DatePicker
+      {/* <DatePicker
         style={{ marginTop: 20 }}
         locale="tr"
         label={Language["/cuz"].CuzlerHatimCard.Modal.Date}
@@ -63,7 +64,7 @@ export default function ContainedInputs(props) {
         dropdownType="modal"
         value={dateValue}
         onChange={setDateValue}
-      />
+      /> */}
 
 
       <Group position="center">

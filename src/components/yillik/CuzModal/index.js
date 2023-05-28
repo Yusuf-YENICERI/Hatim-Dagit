@@ -47,7 +47,7 @@ export default function ContainedInputs(props) {
 
   return (
 
-    <Modal styles={{
+    <Modal id="modalPartYillik" styles={{
         root: {height: '100%'},
         inner: {height: '100%'},
         body: {height: '100%'},
@@ -71,7 +71,7 @@ export default function ContainedInputs(props) {
       </Notification>
         :
         <>
-            <Button mt="20px" onClick={async ()=>{
+            <Button mt="20px" id="takePartYillik" onClick={async ()=>{
               if(takingPart){
                 await dispatch(cuzModalFunctions.takeCuzV3({nameState, cuzNo, subKey}))
               }else{
@@ -83,7 +83,7 @@ export default function ContainedInputs(props) {
             </Button>
 
             { 
-            takingPart == false && <Button id="cancelPart" color="red" mt="20px" onClick={async ()=>{
+            takingPart == false && <Button id="cancelPartYillik" color="red" mt="20px" onClick={async ()=>{
               await dispatch(cuzModalFunctions.cancelCuzV3({cuzNo, subKey}))
               dispatch(cuzlerFunctionTriggerActions.toggleVisibility())
             }} >

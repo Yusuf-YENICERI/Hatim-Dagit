@@ -60,7 +60,8 @@ let english = {
             EvradEzkar:"Distribute Vird-Dhikr",
             Header: {
                 Text: "Make New Khatm",
-                InputSpan: ["Title", "Description", "Khatm Finish Date", "Number of Khatm", "Automatically make new Khatm when Khatm is finished"],
+                InputSpan: ["Title", "Description", "Khatm Finish Date", "Number of Khatm", "Automatically make new Khatm when Khatm is finished", "Starting Date", "Number of Days To Finish A Khatm Together",
+                "Total Khatm Number Will Be Finished", "Rotated Khatm"],
                 Input: ["Please enter a Khatm title"],
                 Button: "Continue"
             },
