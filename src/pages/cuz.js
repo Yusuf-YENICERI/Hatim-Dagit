@@ -7,6 +7,7 @@ import Question from '../components/main/Question'
 import Footer from '../components/common/Footer';
 import Cuzler from '../components/cuz/Cuzler';
 import Pwa from '../components/common/Pwa';
+import SorryMessage from 'components/common/SorryMessage';
 
 export const Cuz = () => {
 
@@ -20,6 +21,7 @@ export const Cuz = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
+            <SorryMessage />
             <Pwa />
             <Cuzler />
             <Footer/>

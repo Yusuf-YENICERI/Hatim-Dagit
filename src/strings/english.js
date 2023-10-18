@@ -27,7 +27,17 @@ let english = {
             'Add to Home Screen',
             'button from the menu open.',
             'the application is going to be installed insha\'Allah.'
-        ]
+        ],
+        SorryMessage: [`Dear Khatm Distribute users`,
+
+`First and foremost, we would like to express our gratitude to all the members who have been using the site. A substantial number of Khatms have been distributed for the Palestinian martyrs. May Allah be pleased.`,
+
+`Our site has undergone a restructuring process today due to unexpectedly high traffic. Therefore, we regret to inform you that we have had to temporarily close the site until the current congestion subsides.`,
+
+`Let's continue to pray for Palestine. We belive that we will see better days together, inshaAllah.`,
+
+`Khatm Distribute`
+]
     },
 
     Footer: {

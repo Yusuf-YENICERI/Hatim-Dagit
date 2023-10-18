@@ -297,18 +297,18 @@ const Question = ({ toggle }) => {
 
     useEffect(async () => {
 
-        setTotalPartsTaken(database.countNumberOfCuzs(allLanguage));
+        // setTotalPartsTaken(database.countNumberOfCuzs(allLanguage));
 
-        if(!initialRunDone){
-            await initialRun();
-            // await afterRun();
-            setInitialRunDone(true);
-        }
-        // databaseListener = await afterRun();
-        if(cuzlerFunctionTrigger.visible){
-            // await afterRun();
-            dispatch(cuzlerFunctionTriggerActions.toggleVisibility())
-        }
+        // if(!initialRunDone){
+        //     await initialRun();
+        //     // await afterRun();
+        //     setInitialRunDone(true);
+        // }
+        // // databaseListener = await afterRun();
+        // if(cuzlerFunctionTrigger.visible){
+        //     // await afterRun();
+        //     dispatch(cuzlerFunctionTriggerActions.toggleVisibility())
+        // }
       }, [cuzlerFunctionTrigger.visible, hatimlerVisibilities, allLanguage]);
 
     return (

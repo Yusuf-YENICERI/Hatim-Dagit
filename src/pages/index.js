@@ -8,6 +8,8 @@ import Footer from '../components/common/Footer';
 import Pwa from '../components/common/Pwa';
 import BottomNavigation from 'components/main/BottomNavigation';
 import MyInfos from '../components/main/MyInfos'
+import SorryMessage from 'components/common/SorryMessage';
+
 
 export const Home = () => {
 
@@ -61,6 +63,7 @@ export const Home = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
+            <SorryMessage />
             <Pwa  />
             { page == "hatims" && <Question />}
             { page == "myInfos" && <MyInfos />}
