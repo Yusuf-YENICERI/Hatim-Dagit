@@ -98,6 +98,22 @@ class FirebaseAPI{
         return "error";
       }
     }
+
+    altHatimGetir = async (altHatimKey) => {
+      try {
+        let hatimKey = this.extractKey();
+        let Hatim = await this.db.ref( `hatim/${hatimKey}/${altHatimKey}` ).get();
+        let data = Hatim.val();
+  
+        console.log('gelen alt Hatim:')
+        console.log(data);
+  
+        return data;
+            
+      } catch (error) {
+        return "error"
+      }
+    }
   
     hatimBasligiGetir = async (hatimKey) => {
       let baslik = await this.db.ref( "hatim/" + hatimKey + "/baslik" ).get();
@@ -302,6 +318,7 @@ class FirebaseAPI{
         
       
     }
+    
 
     cuzIsimDegistir = async (isim, no, subKey) => {
       return this.cuzAl(isim, no, subKey);

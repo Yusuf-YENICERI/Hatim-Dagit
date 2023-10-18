@@ -129,6 +129,7 @@ const Question = ({ toggle }) => {
     /** YesNoDialog */
     const yesHandler = async () => {
         let _hatimKey = await database.yeniHatim(hatimKonu, hatimBitisTarihi, true);
+        await addNewKhatm();
         dispatch(yesNoDialogAlertActions.toggleVisibility())
     }
 
@@ -231,44 +232,65 @@ const Question = ({ toggle }) => {
         }
     }
 
-    const afterRun = async () => {
+    const addNewKhatm = async () => {
         try {
-            let databaseListener = database.hatimListener(snapshot => {
+            let result = await database.hatimGetir();
+            while(result == "error"){
+                result = await database.hatimGetir();
+            }
 
-                let data = snapshot.val();
+            let allHatimler;
+            if(!Array.isArray(result)){
+                allHatimler = objectToArray(result);
+            }
+            
+            setAllLanguage(allHatimler);
 
-                if(data.delete != undefined){
-                    setLoadingVisibility(true)
-                    setWaitText(LanguageData["/cuz"].Before.Deleted)
-                    return;
-                }
-
-                if(data.baslik != null){
-                    data = [data];
-                }
-
-                let result = data;
-
-                if(initialRunDone && (allLanguage.length < objectToArray(result).length)){
-                    let newArr = [...hatimlerVisibilities];
-                    let arrLength = newArr.length + 1;
-                    for (let i = 0; i < arrLength; i++) {
-                        newArr[i] = false;
-                    }
-                    newArr[newArr.length-1] = true;
-                    setHatimlerVisibilities(newArr);
-                }
-
-                setAllLanguage(objectToArray(result));
-                setHideRespond(true);
-                setLoadingVisibility(false);
-            });
-
-        } catch (error) {
+        }catch(error){
+            console.log(`Cuzler\\index.js:addNewKhatm: ${error}`);
             setWaitText(LanguageData["/cuz"].Before.Error)
             return;
         }
     }
+
+    // const afterRun = async () => {
+    //     try {
+    //         let databaseListener = database.hatimListener(snapshot => {
+
+    //             let data = snapshot.val();
+
+    //             if(data.delete != undefined){
+    //                 setLoadingVisibility(true)
+    //                 setWaitText(LanguageData["/cuz"].Before.Deleted)
+    //                 return;
+    //             }
+
+    //             if(data.baslik != null){
+    //                 data = [data];
+    //             }
+
+    //             let result = data;
+
+    //             if(initialRunDone && (allLanguage.length < objectToArray(result).length)){
+    //                 let newArr = [...hatimlerVisibilities];
+    //                 let arrLength = newArr.length + 1;
+    //                 for (let i = 0; i < arrLength; i++) {
+    //                     newArr[i] = false;
+    //                 }
+    //                 newArr[newArr.length-1] = true;
+    //                 setHatimlerVisibilities(newArr);
+    //             }
+
+    //             setAllLanguage(objectToArray(result));
+    //             setHideRespond(true);
+    //             setLoadingVisibility(false);
+    //         });
+
+    //     } catch (error) {
+    //         setWaitText(LanguageData["/cuz"].Before.Error)
+    //         return;
+    //     }
+    // }
 
     const cuzlerFunctionTrigger = useCuzlerFunctionTrigger();
     let databaseListener = null;
@@ -279,7 +301,7 @@ const Question = ({ toggle }) => {
 
         if(!initialRunDone){
             await initialRun();
-            await afterRun();
+            // await afterRun();
             setInitialRunDone(true);
         }
         // databaseListener = await afterRun();

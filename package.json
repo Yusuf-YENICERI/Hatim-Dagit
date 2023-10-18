@@ -26,7 +26,6 @@
     "dayjs": "^1.11.1",
     "dotenv": "^10.0.0",
     "firebase": "8.2.3",
-    "html2canvas": "^1.4.1",
     "random-hash": "^4.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
