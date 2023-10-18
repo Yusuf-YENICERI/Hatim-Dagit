@@ -9,6 +9,8 @@ import YillikDonerli from 'components/yillik';
 import Pwa from '../components/common/Pwa';
 import YillikTable from 'components/yillik/Table'
 import button from "../icons/button.svg";
+import SorryMessage from 'components/common/SorryMessage';
+
 
 export const Yillik = () => {
 
@@ -41,6 +43,7 @@ export const Yillik = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
+            <SorryMessage />
             <Pwa />
             {/* <YillikTable cizelgeRef={cizelgeRef} toggleCizelge={toggleCizelge} cizelgeId={cizelgeId} data={undefined} /> */}
             <YillikDonerli />
