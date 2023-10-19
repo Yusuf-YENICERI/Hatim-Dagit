@@ -30,7 +30,7 @@ let english = {
         ],
         SorryMessage: [`Dear Khatm Distribute users`,
 
-`First and foremost, we would like to express our gratitude to all the members who have been using the site. A substantial number of Khatms have been distributed for the Palestinian martyrs. May Allah be pleased.`,
+`First and foremost, we would like to express our gratitude to all the members who have been using the site. A substantial number of Khatms have been distributed for the Palestinian martyrs. May Allah be pleased. The website will be opened between 22:00-23:00(with Turkey time) in order to access the information in the made Khatms, inshaAllah.`,
 
 `Our site has undergone a restructuring process today due to unexpectedly high traffic. Therefore, we regret to inform you that we have had to temporarily close the site until the current congestion subsides.`,
 

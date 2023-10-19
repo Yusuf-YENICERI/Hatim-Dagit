@@ -27,7 +27,7 @@ let Turkish = {
         
         `Öncelikle, siteyi kullanan tüm üyelerimize teşekkür etmek istiyoruz. Filistin şehitleri için büyük miktarlarda Hatim dağıtıldı. Allah razı olsun.`,
 
-`Sitemiz, bugün beklenilenden fazla karşılaştığı yoğunluk sebebiyle yeniden yapılanmaya girmiştir. Bu nedenle, mevcut yoğunluk azalana kadar siteyi geçiçi olarak kullanıma kapatmak zorunda kaldığımızı üzülerek bildirmek istiyoruz.`,
+`Sitemiz, bugün beklenilenden fazla karşılaştığı yoğunluk sebebiyle yeniden yapılanmaya girmiştir. Bu nedenle, mevcut yoğunluk azalana kadar siteyi geçiçi olarak kullanıma kapatmak zorunda kaldığımızı üzülerek bildirmek istiyoruz. Oluşturulmuş Hatimlerdeki bilgilere ulaşılabilmesi için saat 22:00-23:00 arasında site açılacak inşaAllah.`,
 
 `Filistin için dua etmeye devam edelim. Birlikte daha güzel günler göreceğimize olan inancımızı yitirmiyoruz inşaAllah.`,
 
