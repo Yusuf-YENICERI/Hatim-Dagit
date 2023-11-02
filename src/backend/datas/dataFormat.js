@@ -206,7 +206,7 @@ export const dataFormat = {
         ]
     },
     bitti: false,
-    baslik: 'testing data fromat',
+    baslik: 'ayarlanmadı',
     description: "",
     bitisTarihi: "",
     isRamazan: false,

@@ -176,8 +176,8 @@ const Question = ({ firebase, toggle }) => {
             <RespondContainer>
                            <RespondInnerContainer hatimExists={hideMevcutHatimler}>
                                     <ResponseItem id={"newKhatm"} onClick={ ()=>{
-                                        // setRamazan(false);
-                                        // setAskDialogBox(true)
+                                        setRamazan(false);
+                                        setAskDialogBox(true)
                                         
                                     }}>
                                         <ResponseText>

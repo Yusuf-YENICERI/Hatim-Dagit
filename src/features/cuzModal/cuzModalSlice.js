@@ -19,6 +19,7 @@ const initialState = {
     loading: false,
     takingPart: true,
     makeNewKhatm: false,
+    partsFull: false 
 }
 
 
@@ -27,8 +28,13 @@ const changeCuz = createAsyncThunk("cuzModal/changeCuz", async ({nameState, cuzN
     if(result == -1) throw new Error("Cuz can't be updated!");
 })
 
-const cancelCuz = createAsyncThunk("cuzModal/cancelCuz", async ({ cuzNo, subKey})=>{
-    const result = await db.cuzIptal(cuzNo, subKey);
+const cancelCuz = createAsyncThunk("cuzModal/cancelCuz", async ({ cuzNo, subKey, partsFull = false})=>{
+    let result = undefined
+    if(partsFull){
+        result = await db.cuzIptalTasarruflu(cuzNo, subKey, partsFull);
+    }else{
+        result = await db.cuzIptal(cuzNo, subKey);
+    }
     if(result == -1) throw new Error("Cuz can't be cancelled!");
     else{
         partsProcessor.cancelPart({key: extractKey(), subKey: subKey, partId: cuzNo});
@@ -81,6 +87,9 @@ const cuzModalSlice = createSlice({
     reducers:{
         toggleVisibility: state => {
             state.visible = !state.visible;
+        },
+        changePartsFull: (state, {payload}) => {
+            state.partsFull = payload;
         },
         changeMakeNewKhatm: (state, {payload}) => {
             state.makeNewKhatm = payload;

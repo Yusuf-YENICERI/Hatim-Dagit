@@ -15,6 +15,9 @@ import { alertDialogReducer } from "../features/alertDialog";
 import { cizelgelerimReducer } from "features/cizelgelerim";
 import { hatimlerVisibilitiesReducer } from "features/hatimlerVisibilities";
 import { yillikTableReducer } from "features/yillikTable";
+import { loadingOverlayReducer } from "features/loadingOverlay";
+
+
 
 export const store = configureStore({
     reducer: {
@@ -27,6 +30,7 @@ export const store = configureStore({
         alertDialog: alertDialogReducer,
         cizelgelerim: cizelgelerimReducer,
         hatimlerVisibilities: hatimlerVisibilitiesReducer,
-        yillikTable: yillikTableReducer
+        yillikTable: yillikTableReducer,
+        loadingOverlay: loadingOverlayReducer
     }
 })

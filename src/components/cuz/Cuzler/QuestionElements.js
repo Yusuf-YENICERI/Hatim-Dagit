@@ -546,7 +546,7 @@ export const HatimHeaderContainer = styled.div`
 export const HatimIconContainer = styled.div`
     color: black;
     position: absolute;
-    right: 50px;
+    right: 30px;
     top: 20px;
     border: 2px solid black;
     border-radius: 20px;
@@ -564,12 +564,10 @@ export const HatimIconText = styled.div`
     margin-top: -15px;
 `;
 
-export const HideHatimIcon = styled(ChevronUp)`
-    width: 30px;
+export const HideHatimIcon = styled.div`
 `;
 
-export const ShowHatimIcon = styled(ChevronDown)`
-    width: 30px;
+export const ShowHatimIcon = styled.div`
 
 `;
 

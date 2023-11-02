@@ -17339,6 +17339,11 @@ use-latest@^1.0.0:
   dependencies:
     use-isomorphic-layout-effect "^1.0.0"
 
+use-state-with-callback@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/use-state-with-callback/-/use-state-with-callback-3.0.2.tgz#69c73179292393e2c35fb8b12cf61bb3314cf205"
+  integrity sha512-gs6t5ilsbi2UvoYXdw8+dwQg6yT3QfO/sYhm5Wa3tfwcL6BSad85FiET8ZtTWid4gjul1T1TJ8ReV4Wk1B7UZg==
+
 use-sync-external-store@^1.0.0:
   version "1.1.0"
   resolved "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.1.0.tgz"

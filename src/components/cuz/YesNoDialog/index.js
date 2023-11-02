@@ -37,12 +37,12 @@ const YesNoDialog = ({yesHandler, noHandler, hatimlerVisibilities, toggleHatimle
 
                         <Button className={classes.button} color="yellow" onClick={()=>{
                             yesHandler();
-                            let newArr = [...hatimlerVisibilities];
-                            let arrLength = newArr.length + 1;
-                            for (let i = 0; i < arrLength; i++) {
-                                newArr[i] = false;
-                            }
-                            newArr[newArr.length-1] = true;
+                            let newArr = [...hatimlerVisibilities, false];
+                            // let arrLength = newArr.length + 1;
+                            // for (let i = 0; i < arrLength; i++) {
+                            //     newArr[i] = false;
+                            // }
+                            // newArr[newArr.length-1] = true;
                             toggleHatimlerVisibilities(newArr);
                         }}>{Language["/cuz"].AddKhatmAlert.YesButton}</Button>
                         <Button color="red" className={classes.button} onClick={noHandler}>{Language["/cuz"].AddKhatmAlert.NoButton}</Button>

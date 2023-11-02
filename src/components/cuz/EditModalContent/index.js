@@ -78,6 +78,7 @@ export default function ContainedInputs(props) {
         :
             <Button mt="20px" onClick={async ()=>{
             await dispatch(editModalCuzlerFunctions.updateHatim({form, dateValue, subKey}))
+            location.reload()
         }} >{Language["/cuz"].CuzlerHatimCard.Modal.Button}</Button>
         }
         </Group>

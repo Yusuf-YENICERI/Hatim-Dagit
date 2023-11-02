@@ -54,6 +54,10 @@ export class Database{
     await this.api.cuzIptal(no, subKey);
   }
 
+  cuzIptalTasarruflu = async (no, subKey, full = false) => {
+    await this.api.cuzIptalTasarruflu(no, subKey, full);
+  }
+
   cuzAlV3 = async (isim, no, subKey, alindi = true, makeNewHatim = false) => {
     return (await this.api.cuzAlV3(isim, no, subKey, alindi, makeNewHatim ));
   }
@@ -85,6 +89,10 @@ export class Database{
 
   countNumberOfCuzsV3 = (allHatimler) => {
     return this.api.countNumberOfCuzsV3(allHatimler);
+  }
+
+  getTotalReadParts = async () => {
+    return (await this.api.getTotalReadParts());
   }
 
   hatimDegistir = async (baslik, bitisTarihi, description, subKey) => {
@@ -122,6 +130,26 @@ export class Database{
 
   fetchChart = async (params) => {
     return (await this.api.fetchChart(params))
+  }
+
+  setActiveKhatmKey = async (params) => {
+    return (await this.api.setActiveKhatm(params))
+  }
+
+  getActiveKhatmKey = async () => {
+    return (await this.api.getActiveKhatmKey())
+  }
+
+  altHatimGetir = async ({altHatimKey}) => {
+    return (await this.api.altHatimGetir({altHatimKey}));
+  }
+
+  tasarrufluHatimGetir = async () => {
+    return (await this.api.tasarrufluHatimGetir());
+  }
+
+  getKhatmSubKeys = async () => {
+    return (await this.api.getKhatmSubKeys());
   }
 }
 

@@ -99,7 +99,83 @@ class FirebaseAPI{
       }
     }
 
-    altHatimGetir = async (altHatimKey) => {
+    tasarrufluHatimGetir = async () => {
+      try {
+        let hatimKey = this.extractKey();
+        let activeSubKhatmKeySnapshot = await this.db.ref( `hatim/${hatimKey}/activeSubKhatmKey` ).get();
+        let activeSubKhatmKey = activeSubKhatmKeySnapshot.val();
+
+        let makeNewHatim = await this.db.ref( `hatim/${hatimKey}/makeNewHatim` ).get();
+        let adminToken = await this.db.ref( `hatim/${hatimKey}/adminToken` ).get();
+        let deleteProp = await this.db.ref( `hatim/${hatimKey}/delete` ).get();
+
+        let khatmSubKeys = await this.db.ref( `hatim/${hatimKey}/khatmSubKeys` ).get();
+
+        let data = {khatms: []};
+        let hatimFilled = true;
+        let activeSubKhatmKeyArr = []
+        let khatmSubKeysArr = Object.values(khatmSubKeys.val());
+        let activeSubKhatmKeyIndex = khatmSubKeysArr.indexOf(activeSubKhatmKey) - 1;
+        let tempAltHatims = [];
+        let globalTotalPartTaken = 0;
+        while (hatimFilled) {
+          activeSubKhatmKeyIndex = (activeSubKhatmKeyIndex + 1) % (khatmSubKeysArr.length+1)
+          if(activeSubKhatmKeyArr.length == khatmSubKeysArr.length && globalTotalPartTaken == khatmSubKeysArr.length*30){
+            hatimFilled = false;
+            activeSubKhatmKeyIndex -= 1;
+            // activeSubKhatmKeyIndex = (activeSubKhatmKeyIndex + 1) % (khatmSubKeysArr.length+1)
+            break;
+          }
+          let altHatim = await this.altHatimGetir({altHatimKey: khatmSubKeysArr[activeSubKhatmKeyIndex]});
+          if(altHatim.error == undefined){
+            let totalPartTaken = altHatim.data[1]["cevaplar"].filter(item => item.alindi).length + altHatim.data[2]["cevaplar"].filter(item => item.alindi).length + altHatim.data[3]["cevaplar"].filter(item => item.alindi).length
+            globalTotalPartTaken += totalPartTaken;
+            if(totalPartTaken < 30){
+              hatimFilled = false;
+            }
+            tempAltHatims[activeSubKhatmKeyIndex] = {...altHatim.data, subKey: khatmSubKeysArr[activeSubKhatmKeyIndex]};
+
+            activeSubKhatmKeyArr.push(khatmSubKeysArr[activeSubKhatmKeyIndex]);
+          }
+        }
+
+        // for (let i = 1; i < 31; i++) {
+        //   this.cuzAl('', i, khatmSubKeysArr[0], true, false)
+        // }
+
+        // for (let k = 1; k < 3; k++) {
+        //   for (let i = 1; i < 31; i++) {
+        //     this.cuzAl('', i, khatmSubKeysArr[k], true, false)
+        //   }
+        // }
+
+
+        
+
+        if(activeSubKhatmKey != khatmSubKeysArr[activeSubKhatmKeyIndex]){
+          this.setActiveKhatmKey({hatimKey: hatimKey, key: khatmSubKeysArr[activeSubKhatmKeyIndex]});
+        }
+
+        //fill Khatms
+        for (let i = 0; i < khatmSubKeysArr.length; i++) {
+          if( activeSubKhatmKeyArr.includes(khatmSubKeysArr[i]) == false){
+            data["khatms"].push({...dataFormat, subKey: khatmSubKeysArr[i]});
+          }else{
+            data["khatms"].push(tempAltHatims[i]);
+          }
+        }
+
+        data = {...data, subKey: activeSubKhatmKey, activeSubKhatmKey: khatmSubKeysArr[activeSubKhatmKeyIndex], makeNewHatim: makeNewHatim.val(), adminToken: adminToken.val(), delete: deleteProp.val(), khatmSubKeys: khatmSubKeys.val()};
+
+
+        return {data: data, error: undefined};
+      } catch (error) {
+        return {data: undefined, error: error};
+      }
+    }
+
+
+    altHatimGetir = async ({altHatimKey}) => {
       try {
         let hatimKey = this.extractKey();
         let Hatim = await this.db.ref( `hatim/${hatimKey}/${altHatimKey}` ).get();
@@ -107,11 +183,11 @@ class FirebaseAPI{
   
         console.log('gelen alt Hatim:')
         console.log(data);
-  
-        return data;
+        data["subKey"] = altHatimKey;
+        return {data: data, error: undefined};
             
       } catch (error) {
-        return "error"
+        return {data: undefined, error: error}
       }
     }
   
@@ -121,13 +197,15 @@ class FirebaseAPI{
     }
   
     yeniHatim = async (baslik, bitisTarihi, mevcutHatim = false, isRamazan = false, description = "", makeNewHatim = false, hatimCount, isMonths3) => {
-      dataFormat.baslik = baslik;
-      dataFormat.bitisTarihi = bitisTarihi;
-      dataFormat.isRamazan = isRamazan;
-      dataFormat.description = description;
-      dataFormat.isMonths3 = isMonths3;
+      let newDataFormat = {...dataFormat}
+      newDataFormat.baslik = baslik;
+      newDataFormat.bitisTarihi = bitisTarihi;
+      newDataFormat.isRamazan = isRamazan;
+      newDataFormat.description = description;
+      newDataFormat.isMonths3 = isMonths3;
 
-      console.log(dataFormat)
+
+      console.log(newDataFormat)
       // console.log(baslik)
   
       let hatimKey, adminToken;
@@ -136,6 +214,8 @@ class FirebaseAPI{
         adminToken = generateHash({length: 16});
         await this.db.ref(`hatim/${hatimKey}/adminToken`).set(adminToken)
         await this.db.ref(`hatim/${hatimKey}/makeNewHatim`).set(makeNewHatim)
+        await this.db.ref(`hatim/${hatimKey}/totalReadParts`).set(0)
+
       }else{
         hatimKey = this.extractKey();
         hatimKey = hatimKey.replace("/", "");
@@ -144,11 +224,23 @@ class FirebaseAPI{
 
       console.log(`hatimKey: ${hatimKey}`)
       
+      let hatimAltKeys = []
+      //hatimCount'ı sınırla
       for (let i = 0; i < hatimCount; i++) {
-              let hatimAltKey = await this.db.ref(`hatim/${hatimKey}`).push().key;
-              await this.db.ref( `hatim/${hatimKey}/${hatimAltKey}` ).set(dataFormat);
+              let hatimAltKey = await this.db.ref(`hatim/${hatimKey}/khatmSubKeys`).push().key;
+              await this.db.ref(`hatim/${hatimKey}/khatmSubKeys`).push(hatimAltKey);
+
+              await this.db.ref( `hatim/${hatimKey}/${hatimAltKey}` ).set(newDataFormat);
               console.log(`hatimAltKey: ${hatimAltKey}`)
+              hatimAltKeys.push(hatimAltKey)
       }
+
+      if(!mevcutHatim){
+        await this.setActiveKhatmKey({hatimKey: hatimKey, key: hatimAltKeys[0]})
+      }
+      
+
+
   
   
       if(!mevcutHatim){
@@ -304,6 +396,25 @@ class FirebaseAPI{
         }
          // 0 means taking Cuz is successfull
         if(result.code == 200){
+
+          let totalReadPartsRef = await this.db.ref(`hatim/${this.extractKey()}/totalReadParts`);
+          let transactionResult = (await totalReadPartsRef.transaction((totalReadParts) => {
+            if(totalReadParts != null){
+              return totalReadParts + (alindi ? 1 : -1) ;
+            }else{
+              return -1;
+            }
+          }, async (error, committed, snapshot) => {
+            if (error) {
+                console.log('increasing read part transaction failed abnormally');
+            } else if (!committed) {
+                console.log('increasing read part transaction not committed.');
+            } else {
+                console.log("increasing read part successfull")
+            }
+            console.log("totalReadPart data: ", snapshot.val());
+          }, true));
+
           return {code: 0};
         }else{
           return {code: -1, errorKey: _errorKey};
@@ -327,6 +438,16 @@ class FirebaseAPI{
   
     cuzIptal = async (no, subKey) => {
       return this.cuzAl('', no, subKey, false);
+    }
+
+    cuzIptalTasarruflu = async (no, subKey, full = false) => {
+      let hatimKey = this.extractKey()
+      let cuzAlResult = await this.cuzAl('', no, subKey, false);
+      if (full){
+        await this.setActiveKhatmKey({hatimKey: hatimKey, key: subKey});
+      }
+
+      return cuzAlResult;
     }
 
 
@@ -487,6 +608,53 @@ class FirebaseAPI{
         return {data: undefined, error: error};
       }
     }
+
+    setActiveKhatmKey = async ({hatimKey, key}) => {
+      try {
+        await this.db.ref(`hatim/${hatimKey}/activeSubKhatmKey`).set(key);
+        return {data: "success", error: undefined}        
+      } catch (error) {
+        return {data: undefined, error: error}        
+      }
+    }
+
+    getActiveKhatmKey = async () => {
+      try {
+        let hatimKey = this.extractKey();
+        const snapshot = await this.db.ref(`hatim/${hatimKey}/activeSubKhatmKey`).get();
+        const activeKhatmKey = snapshot.val();
+        
+        return { data: activeKhatmKey, error: undefined };
+      } catch (error) {
+        return { data: undefined, error: error };
+      }
+    }
+
+    getKhatmSubKeys = async () => {
+      try {
+        let hatimKey = this.extractKey();
+        const snapshot = await this.db.ref(`hatim/${hatimKey}/khatmSubKeys`).get();
+        const khatmSubKeys = snapshot.val();
+        
+        return { data: khatmSubKeys.map(subKey => subKey), error: undefined };
+      } catch (error) {
+        return { data: undefined, error: error };
+      }
+    }
+
+
+    getTotalReadParts = async () => {
+      try {
+        let result = await this.db.ref(`hatim/${this.extractKey()}/totalReadParts`).get()
+        return {data: result.val(), error: undefined}        
+      } catch (error) {
+        return {data: undefined, error: error}
+      }
+
+    }
+
+
+    
   }
 
   export default FirebaseAPI;

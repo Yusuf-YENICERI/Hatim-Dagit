@@ -19,6 +19,7 @@ export const PwaContainer = styled.div`
     z-index: 998;
     position: fixed;
     height: 100%;
+    display: none;
     width: 100%;
     flex-direction: column;
     border: 1px solid #33f57c;

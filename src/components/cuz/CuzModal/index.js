@@ -39,7 +39,7 @@ const useStyles = createStyles((theme) => ({
 export default function ContainedInputs(props) {
   // You can add these classes as classNames to any Mantine input, it will work the same
   const { classes } = useStyles();
-  const {visible, name, cuzNo, subKey, loading } = useCuzModal();
+  const {visible, name, cuzNo, subKey, loading, partsFull } = useCuzModal();
   const [nameState, setNameState] = useState(name)
   const dispatch = useDispatch();
 
@@ -69,7 +69,7 @@ export default function ContainedInputs(props) {
         }} >{Language["/cuz"].CuzlerHatimCard.PartModal.ChangeNameButton}</Button>
 
             <Button id="cancelPart" color="red" mt="20px" onClick={async ()=>{
-            await dispatch(cuzModalFunctions.cancelCuz({cuzNo, subKey}))
+            await dispatch(cuzModalFunctions.cancelCuz({cuzNo, subKey, partsFull}))
             dispatch(cuzlerFunctionTriggerActions.toggleVisibility())
           }} >{Language["/cuz"].CuzlerHatimCard.PartModal.CancelPart}</Button>
         </>

@@ -47,10 +47,33 @@ const removeAll = (obj, item, subKey) => {
   }
 
 const objectToArray = (obj) => {
-  return Object.keys(obj).filter(x=> ["adminToken", "delete", "subKey", "makeNewHatim"].includes(x) == false).map((key) => {
+  return Object.keys(obj).filter(x=> ["adminToken", "delete", "subKey", "makeNewHatim", "khatmSubKeys", "activeSubKhatmKey"].includes(x) == false).map((key) => {
     obj[key].subKey = key;
     return obj[key];
   });
+}
+
+function getObjectSize(obj) {
+  const seen = new Set();
+  function sizeOfObject(object) {
+    if (object !== null && typeof object === 'object' && !seen.has(object)) {
+      seen.add(object);
+      let bytes = 0;
+      for (const key in object) {
+        if (object.hasOwnProperty(key)) {
+          bytes += sizeOfObject(object[key]);
+        }
+      }
+      return bytes;
+    }
+    if (object !== null && typeof object === 'string') {
+      return object.length * 2; // 2 bytes per character
+    }
+    return typeof object === 'number' ? 8 : 0; // Assuming 8 bytes for numbers
+  }
+
+  const bytes = sizeOfObject(obj);
+  return bytes;
 }
 
 const objectToArrayV3 = (obj) => {
@@ -162,6 +185,14 @@ const isEmptyObjectLocDb = (value) => {
   return false;
 }
 
+const isKhatmFull = (khatm) => {
+  let totalCevap = khatm[1].cevaplar.filter((cevap)=>cevap.alindi).length +
+  khatm[2].cevaplar.filter((cevap)=>cevap.alindi).length +
+  khatm[3].cevaplar.filter((cevap)=>cevap.alindi).length;
+
+  return totalCevap > 29;
+}
+
 const typeCheck = (data, type) => {
   if(typeof data == type){
     return true;
@@ -175,4 +206,5 @@ const version = "1.4.0";
 export default detectLanguage;
 
 export {setLanguage, removeAll, removeAll_v1, objectToArray, objectToArrayV3, isSafari, isStandalone, extractKey,
-   initializeLocalStorage, getMonths3Date, version, isEmptyObjectLocDb, typeCheck, getCurrentIndex, getCurrentIndexV3};
+   initializeLocalStorage, getMonths3Date, version, isEmptyObjectLocDb, typeCheck, getCurrentIndex, getCurrentIndexV3,
+   isKhatmFull};
