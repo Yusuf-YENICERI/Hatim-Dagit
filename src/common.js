@@ -47,7 +47,7 @@ const removeAll = (obj, item, subKey) => {
   }
 
 const objectToArray = (obj) => {
-  return Object.keys(obj).filter(x=> ["adminToken", "delete", "subKey", "makeNewHatim", "khatmSubKeys", "activeSubKhatmKey"].includes(x) == false).map((key) => {
+  return Object.keys(obj).filter(x=> ["adminToken", "delete", "subKey", "makeNewHatim", "khatmSubKeys", "activeSubKhatmKey", "totalReadParts"].includes(x) == false).map((key) => {
     obj[key].subKey = key;
     return obj[key];
   });
