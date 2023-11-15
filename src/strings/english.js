@@ -149,7 +149,7 @@ let english = {
             takenParts: "Taken parts",
             leftParts: " parts left",
             yourParts: "The Parts You Took",
-            dua: ["", "left until prayer", "Prayer was done", "Prayer will be made today", "", "left until prayer"],
+            dua: ["", "days left until prayer", "Prayer was done", "Prayer will be made today", "", "days left until prayer"],
             Modal:{
                 Title:'Change Khatm Info',
                 Header:'Khatm Title',

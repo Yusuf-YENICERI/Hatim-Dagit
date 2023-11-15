@@ -43,7 +43,7 @@ export const Yillik = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            <SorryMessage />
+            {/* <SorryMessage /> */}
             <Pwa />
             {/* <YillikTable cizelgeRef={cizelgeRef} toggleCizelge={toggleCizelge} cizelgeId={cizelgeId} data={undefined} /> */}
             <YillikDonerli />

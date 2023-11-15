@@ -70,7 +70,7 @@ const Yillik = () => {
   }
   
   useEffect(() => {
-    // getKhatm();
+    getKhatm();
   }, [refetchData])
 
   const YillikTemplate = styled.div`

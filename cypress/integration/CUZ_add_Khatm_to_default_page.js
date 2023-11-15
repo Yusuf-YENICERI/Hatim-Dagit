@@ -31,6 +31,9 @@ describe('add Khatm to default page', ()=>{
 
         cy.get('#questionContainer > div:nth-child(1) > div > div > div > div > button:nth-child(1)').click()
 
+        cy.findByText(/are you sure/i).should('not.be.visible')
+        
+        cy.get('#questionContainer > div:nth-child(11) > div').click()
              //click on some Part
         // cy.visit('http://localhost:3000/cuz/-Mr3hOiBGujMegW033tQ')
         cy.get(`#questionContainer > div:nth-child(12) > div > div > div > div:nth-child(${Part})`).click()
@@ -72,6 +75,10 @@ describe('add Khatm to default page', ()=>{
 
 
         cy.get('#questionContainer > div:nth-child(1) > div > div > div > div > button:nth-child(1)').click()
+
+        cy.findByText(/are you sure/i).should('not.be.visible')
+
+        cy.get('#questionContainer > div:nth-child(11) > div').click()
 
 
              //click on some Part

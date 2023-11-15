@@ -191,7 +191,7 @@ const Question = ({ firebase, toggle }) => {
                            <RespondInnerContainer hatimExists={hideMevcutHatimler}>
                                     <ResponseItem id={"yearBased"} onClick={ ()=>{
                                         // alert(`Yıllık Hatim yeni olup, henüz testleri tam olarak yapılmamıştır. Hatalarla karşılaşılabilir. Bu durumu göz önünde bulundurun.`)
-                                        // setYearBasedKhatmDialogVisible(true);
+                                        setYearBasedKhatmDialogVisible(true);
                                     }}>
                                          <NewFeatureTag>{Language["/"].Button.BetaTag}</NewFeatureTag>
                                         <ResponseText>
@@ -206,7 +206,7 @@ const Question = ({ firebase, toggle }) => {
                            
 
                                     <ResponseItem id={"months3"} onClick={ ()=>{
-                                        // setMonths3DialogVisible(true)
+                                        setMonths3DialogVisible(true)
                                         
                                     }}>
                                          <NewFeatureTag>{Language["/"].Button.NewTag}</NewFeatureTag>
@@ -223,8 +223,8 @@ const Question = ({ firebase, toggle }) => {
                            
 
                                     <ResponseItem id={"newDonerliRamazanKhatm"} onClick={ ()=>{
-                                        // setRamazan(true);
-                                        // setAskDialogBox(true)
+                                        setRamazan(true);
+                                        setAskDialogBox(true)
                                         
                                     }}>
                                         <ResponseText>

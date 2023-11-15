@@ -63,7 +63,7 @@ export const Home = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            <SorryMessage />
+            {/* <SorryMessage /> */}
             <Pwa  />
             { page == "hatims" && <Question />}
             { page == "myInfos" && <MyInfos />}
