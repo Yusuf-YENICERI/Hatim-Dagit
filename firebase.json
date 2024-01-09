@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "./build",
+    "runtime": "nodejs16",
     "ignore": [
       "firebase.json",
       "**/.*",
