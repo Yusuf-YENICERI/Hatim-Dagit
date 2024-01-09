@@ -8,7 +8,7 @@ import Footer from '../components/common/Footer';
 import RamazanDonerli from '../components/ramazan/RamazanDonerli';
 import Pwa from '../components/common/Pwa';
 import RamazanTable from '../components/common/Table';
-
+import {getMonths3Date} from 'common'
 import button from "../icons/button.svg";
 
 export const Ramazan = () => {
@@ -34,7 +34,7 @@ export const Ramazan = () => {
 
 
 
-    const data = [
+    let data = [
         { name: '1.Gün', email: '1.cüz', job: '23 Mart 2023', id:'1'},
         { name: '2.Gün', email: '1.cüz', job: '24 Mart 2023', id:'2'},
         { name: '3.Gün', email: '1.cüz', job: '25 Mart 2023', id:'3'},
@@ -66,6 +66,43 @@ export const Ramazan = () => {
         { name: '29.Gün', email: '1.cüz', job: '20 Nisan 2023', id:'1'},
         { name: '30.Gün', email: '1.cüz', job: '21 Nisan 2023', id:'1'},
     ]
+
+    let dateData = getMonths3Date();
+    
+    let fillString = ''
+    if( dateData.chosen != undefined){
+        fillString = dateData.chosen;
+    }
+    let recepDate = undefined;
+    let sabanDate = undefined;
+    let ramazanDate = undefined;
+  
+    let startingDate = new Date(dateData[`startingDate${fillString}`]);
+    
+    let recepDays = dateData[`monthDays${fillString}`][0];
+    let sabanDays = dateData[`monthDays${fillString}`][1];
+    let ramazanDays = dateData[`monthDays${fillString}`][2];
+
+    if( recepDays < 30 ){
+      startingDate.setDate(startingDate.getDate()-(30-recepDays));
+      recepDate = new Date(startingDate.getTime());
+    }else{
+      recepDate = new Date(startingDate.getTime())
+    }
+  
+    startingDate = new Date(dateData[`startingDate${fillString}`]);
+    startingDate.setDate(startingDate.getDate() + recepDays);
+    sabanDate = new Date(startingDate.getTime());
+  
+    startingDate = new Date(dateData[`startingDate${fillString}`]);
+    startingDate.setDate(startingDate.getDate() + recepDays + sabanDays);
+    ramazanDate = new Date(startingDate.getTime());
+
+    data = data.map(ramazanDay => {
+        ramazanDay.job = ramazanDate.toLocaleDateString();
+        ramazanDate.setDate(ramazanDate.getDate()+1);
+        return ramazanDay
+    })
 
     return (
         <>
