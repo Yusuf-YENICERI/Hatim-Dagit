@@ -186,21 +186,6 @@ const Question = ({ firebase, toggle }) => {
                                     </ResponseItem>
                             </RespondInnerContainer>
             </RespondContainer>
-
-            <RespondContainer>
-                           <RespondInnerContainer hatimExists={hideMevcutHatimler}>
-                                    <ResponseItem id={"yearBased"} onClick={ ()=>{
-                                        alert(`Yıllık Hatim yeni olup, henüz testleri tam olarak yapılmamıştır. Hatalarla karşılaşılabilir. Bu durumu göz önünde bulundurun.`)
-                                        setYearBasedKhatmDialogVisible(true);
-                                    }}>
-                                         <NewFeatureTag>{Language["/"].Button.BetaTag}</NewFeatureTag>
-                                        <ResponseText>
-                                            {Language["/"].Button.YearBased}
-                                        </ResponseText>
-                                    </ResponseItem>
-                            </RespondInnerContainer>
-            </RespondContainer>
-
             <RespondContainer style={{marginTop: '5px'}}>
                            <RespondInnerContainer hatimExists={hideMevcutHatimler}>
                            
@@ -209,13 +194,26 @@ const Question = ({ firebase, toggle }) => {
                                         setMonths3DialogVisible(true)
                                         
                                     }}>
-                                         <NewFeatureTag>{Language["/"].Button.NewTag}</NewFeatureTag>
+                                         <NewFeatureTag>{Language["/"].Button.UpToDate}</NewFeatureTag>
                                         <ResponseText>
                                         {Language["/"].Button.Aylar3}
                                         </ResponseText>
                                     </ResponseItem>
                             </RespondInnerContainer>
             </RespondContainer>
+
+            <RespondContainer>
+                           <RespondInnerContainer hatimExists={hideMevcutHatimler}>
+                                    <ResponseItem id={"yearBased"} onClick={ ()=>{
+                                        setYearBasedKhatmDialogVisible(true);
+                                    }}>
+                                        <ResponseText>
+                                            {Language["/"].Button.YearBased}
+                                        </ResponseText>
+                                    </ResponseItem>
+                            </RespondInnerContainer>
+            </RespondContainer>
+
 
 
             <RespondContainer style={{marginTop: '5px'}}>
