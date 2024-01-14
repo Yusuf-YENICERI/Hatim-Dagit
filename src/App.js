@@ -16,12 +16,12 @@ function App() {
     {/* <Message /> */}
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/cuz" component={Cuz} />
+        <Route path="/" component={Home} />
+        {/* <Route path="/cuz" component={Cuz} />
         <Route path="/ramazan" component={Ramazan} />
         <Route path="/ucaylarhergun1cuz" component={UcAylarHerGun1Cuz} />
         <Route path="/cizelgelerim" component={CizelgelerimPage} exact />
-        <Route path="/yillik" component={Yillik} />
+        <Route path="/yillik" component={Yillik} /> */}
 
       </Switch>
     </BrowserRouter>

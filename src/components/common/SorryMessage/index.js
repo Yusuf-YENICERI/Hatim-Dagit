@@ -19,22 +19,22 @@ const SorryMessage = () => {
                     }}/>
                 </PwaIconContainer> */}
                 <PwaTextContainer>
-                    <PwaTextDefault>{Language.Pwa.SorryMessage[0]}
+                    <PwaTextDefault>{Language.Pwa.UnderMaintenance[0]}
                     </PwaTextDefault>
                     <br/>
-                    <PwaTextDefault>{Language.Pwa.SorryMessage[1]}
+                    <PwaTextDefault>{Language.Pwa.UnderMaintenance[1]}
                     </PwaTextDefault>
                     <br/>
-                    <PwaTextDefault>{Language.Pwa.SorryMessage[2]}
+                    <PwaTextDefault>{Language.Pwa.UnderMaintenance[2]}
                     </PwaTextDefault>
                     <br/>
-                    <PwaTextDefault>{Language.Pwa.SorryMessage[3]}
+                    <PwaTextDefault>{Language.Pwa.UnderMaintenance[3]}
                     </PwaTextDefault>
                     <br/>
-                    <PwaTextDefault>{Language.Pwa.SorryMessage[4]}
+                    <PwaTextDefault>{Language.Pwa.UnderMaintenance[4]}
                     </PwaTextDefault>
                     <br/>
-                    <PwaTextDefault>{Language.Pwa.SorryMessage[5]}
+                    <PwaTextDefault>{Language.Pwa.UnderMaintenance[5]}
                     </PwaTextDefault>
                     <br/>
                 </PwaTextContainer>

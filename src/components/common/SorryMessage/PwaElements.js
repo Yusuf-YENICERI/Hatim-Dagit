@@ -1,9 +1,7 @@
 //                       BİSMİLLAHİRRAHMANİRRAHİM
 
-
 import styled, {keyframes} from 'styled-components';
-import { Share } from "@styled-icons/ionicons-outline";
-
+import {Share} from '@styled-icons/ionicons-outline';
 
 const LoadingLogoAnimation = keyframes`
     0%{
@@ -41,7 +39,6 @@ width: 30px;
 margin-right: 20px;
 `;
 
-
 export const PwaTextContainer = styled.div`
 text-align: center;
 padding: 30px;
@@ -50,7 +47,7 @@ flex-grow: 3;
 `;
 
 export const PwaTextDefault = styled.p`
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     line-height: 30px;
 `;
 
@@ -61,8 +58,7 @@ export const PwaTextStrong = styled.span`
     margin-right: 4px;
 `;
 
-
-export const PwaAppleShareIcon = styled(Share)`
+export const PwaAppleShareIcon = styled (Share)`
     color: #1c73ff;
     width: 30px;
     background-color: #91ffbb;
@@ -71,4 +67,3 @@ export const PwaAppleShareIcon = styled(Share)`
     margin-left: 4px;
     margin-right: 4px;
 `;
-
