@@ -375,6 +375,7 @@ class FirebaseAPI{
             version: 2,
             dev: netlifyParams.dev,
             makeNewHatimArg: makeNewHatim ?? undefined,
+            writeTotalReadParts: 'true'
       }
 
       // console.log(`params: ${params.dev}`)
@@ -396,25 +397,6 @@ class FirebaseAPI{
         }
          // 0 means taking Cuz is successfull
         if(result.code == 200){
-
-          let totalReadPartsRef = await this.db.ref(`hatim/${this.extractKey()}/totalReadParts`);
-          let transactionResult = (await totalReadPartsRef.transaction((totalReadParts) => {
-            if(totalReadParts != null){
-              return totalReadParts + (alindi ? 1 : -1) ;
-            }else{
-              return -1;
-            }
-          }, async (error, committed, snapshot) => {
-            if (error) {
-                console.log('increasing read part transaction failed abnormally');
-            } else if (!committed) {
-                console.log('increasing read part transaction not committed.');
-            } else {
-                console.log("increasing read part successfull")
-            }
-            console.log("totalReadPart data: ", snapshot.val());
-          }, true));
-
           return {code: 0};
         }else{
           return {code: -1, errorKey: _errorKey};
@@ -474,7 +456,8 @@ class FirebaseAPI{
             ownerId: ownerId,
             dev: netlifyParams.dev,
             makeNewHatimArg: makeNewHatim ?? undefined,
-            version: 3
+            version: 3,
+            writeTotalReadParts: 'false'
       }
 
       // console.log(`params: ${params.dev}`)
