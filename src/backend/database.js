@@ -41,8 +41,8 @@ export class Database{
     return (await this.api.yeniYillikHatim(params));
   }
 
-  cuzAl = async (isim, no, subKey, alindi = true, makeNewHatim = false) => {
-    return (await this.api.cuzAl(isim, no, subKey, alindi, makeNewHatim ));
+  cuzAl = async (isim, no, subKey, alindi = true, makeNewHatim = false, writeTotalReadParts) => {
+    return (await this.api.cuzAl(isim, no, subKey, alindi, makeNewHatim, writeTotalReadParts ));
   }
 
   cuzIsimDegistir = async (isim, no, subKey) => {

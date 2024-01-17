@@ -14,6 +14,7 @@ import 'firebase/database';
 import 'firebase/analytics';
 import {sFunctions} from '../../sFunctions'
 import Logger from './logger'
+import VersionError from '../errors/VersionError'
 
 require('dotenv').config()
 
@@ -67,7 +68,7 @@ class FirebaseAPI{
   
     extractKey = () => {
       const link = window.location.toString();
-      const substring = ['/cuz','/ramazan','/ucaylarhergun1cuz', '/yillik'];
+      const substring = ['/cuzv2', '/cuz','/ramazan','/ucaylarhergun1cuz', '/yillik', ];
       const found = substring.find(substring => link.indexOf(substring) !== -1);
       if(found){
         const index = link.indexOf(found);
@@ -104,6 +105,11 @@ class FirebaseAPI{
         let hatimKey = this.extractKey();
         let activeSubKhatmKeySnapshot = await this.db.ref( `hatim/${hatimKey}/activeSubKhatmKey` ).get();
         let activeSubKhatmKey = activeSubKhatmKeySnapshot.val();
+
+        if(activeSubKhatmKey == null){
+          console.log("heeyoo")
+          throw new VersionError("Khatm data is not right")
+        }
 
         let makeNewHatim = await this.db.ref( `hatim/${hatimKey}/makeNewHatim` ).get();
         let adminToken = await this.db.ref( `hatim/${hatimKey}/adminToken` ).get();
@@ -170,6 +176,11 @@ class FirebaseAPI{
 
         return {data: data, error: undefined};
       } catch (error) {
+
+        if(error instanceof VersionError){
+          return {data: undefined, error: error, versionError: true};
+        }
+
         return {data: undefined, error: error};
       }
     }
@@ -354,7 +365,7 @@ class FirebaseAPI{
       }
     }
   
-    cuzAl = async (isim, no, subKey, alindi = true, makeNewHatim = false) => {
+    cuzAl = async (isim, no, subKey, alindi = true, makeNewHatim = false, writeTotalReadParts = false) => {
       let hatimKey = this.extractKey().replace('/','');
       let sira = this.hatimSiraBelirle(no);
 
@@ -375,7 +386,7 @@ class FirebaseAPI{
             version: 2,
             dev: netlifyParams.dev,
             makeNewHatimArg: makeNewHatim ?? undefined,
-            writeTotalReadParts: 'true'
+            writeTotalReadParts: writeTotalReadParts.toString(),
       }
 
       // console.log(`params: ${params.dev}`)
@@ -424,7 +435,7 @@ class FirebaseAPI{
 
     cuzIptalTasarruflu = async (no, subKey, full = false) => {
       let hatimKey = this.extractKey()
-      let cuzAlResult = await this.cuzAl('', no, subKey, false);
+      let cuzAlResult = await this.cuzAl('', no, subKey, false, false, true);
       if (full){
         await this.setActiveKhatmKey({hatimKey: hatimKey, key: subKey});
       }
