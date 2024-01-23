@@ -1,4 +1,4 @@
-{
+/*{
   "root": true,
   "env": {
     "browser": true,
@@ -32,4 +32,4 @@
       "typescript": {}
     }
   }
-}
+}*/
