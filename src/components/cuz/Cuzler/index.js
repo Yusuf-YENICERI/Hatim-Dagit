@@ -154,6 +154,15 @@ const Question = ({ toggle }) => {
     /** YesNoDialog End */
 
 
+    /** CuzlerHatimCard */
+
+    const [cuzlerHatimCardTitle, setCuzlerHatimCardTitle] = useState("")
+    const [cuzlerHatimCardDescription, setCuzlerHatimCardDescription] = useState("")
+
+
+    /** CuzlerHatimCard End */
+
+
 
     /** current index for Hatimler visibilities */
     const getCurrentIndex = (allLanguage) => {
@@ -194,6 +203,11 @@ const Question = ({ toggle }) => {
                 setWaitText(LanguageData["/cuz"].Before.Deleted)
                 return;
             }
+
+            const {title, description} = await database.getTitleAndDescription({subKey: Object.values(result.khatmSubKeys)[0]});
+
+            setCuzlerHatimCardTitle(title)
+            setCuzlerHatimCardDescription(description)
 
             // console.log(result.khatmSubKeys)
             setKhatmSubKeys(result.khatmSubKeys);
@@ -514,7 +528,7 @@ const Question = ({ toggle }) => {
 
 { (index==0) && <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
             {
-            <CuzlerHatimCard header={allLanguage.filter(hatim=>hatim.subKey == currentKhatmSubKey)[0].baslik} description={allLanguage.filter(hatim=>hatim.subKey == currentKhatmSubKey)[0].description}
+            <CuzlerHatimCard header={cuzlerHatimCardTitle} description={cuzlerHatimCardDescription}
                             progress={totalPartsTaken/(allLanguage.length*30)*100} leftCuzs={allLanguage.length*30-totalPartsTaken}
                             duaLeftDays={allLanguage.filter(hatim=>hatim.subKey == currentKhatmSubKey)[0].bitisTarihi.split("-").reverse().join("/")}
                             yesHandler={yesHandlerState} toggleYesHandler={toggleYesHandlerState}
