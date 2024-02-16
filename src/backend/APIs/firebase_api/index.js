@@ -52,7 +52,7 @@ class FirebaseAPI{
   
     hatimSiraBelirle = (no) => {
       let hatimSira = 1;
-      switch(true){
+      switch (true) {
         case no < 11:
           break;
         case no < 21:
@@ -62,8 +62,11 @@ class FirebaseAPI{
           hatimSira = 3;
           break;
       }
-      
-      return hatimSira;
+    
+      return {
+        sira: hatimSira,
+        subSira: no - ((hatimSira - 1) * 10 + 1),
+      };
     }
   
     extractKey = () => {
@@ -367,7 +370,6 @@ class FirebaseAPI{
   
     cuzAl = async (isim, no, subKey, alindi = true, makeNewHatim = false, writeTotalReadParts = false) => {
       let hatimKey = this.extractKey().replace('/','');
-      let sira = this.hatimSiraBelirle(no);
 
       let ownerId = LocDb.ref(`Hatim/hatimKeys/${hatimKey}/${subKey}/ownerId`).get()
 
@@ -662,6 +664,30 @@ class FirebaseAPI{
         return {data: undefined, error: error}
       }
 
+    }
+
+    partRead = async ({subKey, partNo}) => {
+      try {
+        const {sira, subSira} = this.hatimSiraBelirle (partNo);
+
+        await this.db.ref(`hatim/${this.extractKey()}/${subKey}/${sira}/cevaplar/${subSira}/isRead`).set(true);
+
+        return {data: "Alhamdulillah", error: undefined}
+      } catch (error) {
+        return {data: undefined, error: error};
+      }
+    }
+
+    partNotRead = async ({subKey, partNo}) => {
+      try {
+        const {sira, subSira} = this.hatimSiraBelirle (partNo);
+
+        await this.db.ref(`hatim/${this.extractKey()}/${subKey}/${sira}/cevaplar/${subSira}/isRead`).set(false);
+
+        return {data: "Alhamdulillah", error: undefined}
+      } catch (error) {
+        return {data: undefined, error: error};
+      }
     }
 
 
