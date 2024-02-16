@@ -653,12 +653,9 @@ class FirebaseAPI{
       try {
         let titleResult = await this.db.ref(`hatim/${this.extractKey()}/${subKey}/baslik`).get();
         let descriptionResult = await this.db.ref(`hatim/${this.extractKey()}/${subKey}/description`).get();
-        let dateResult = await this.db.ref(`hatim/${this.extractKey()}/${subKey}/bitisTarihi`).get();
-
         return {
           title: titleResult.val(),
-          description: descriptionResult.val(),
-          date: dateResult.val()
+          description: descriptionResult.val()
         }        
       } catch (error) {
         return {data: undefined, error: error}
