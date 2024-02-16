@@ -161,6 +161,7 @@ const Question = ({ toggle }) => {
 
     const [cuzlerHatimCardTitle, setCuzlerHatimCardTitle] = useState("")
     const [cuzlerHatimCardDescription, setCuzlerHatimCardDescription] = useState("")
+    const [cuzlerHatimCardDate, setCuzlerHatimCardDate] = useState("")
 
 
     /** CuzlerHatimCard End */
@@ -207,10 +208,11 @@ const Question = ({ toggle }) => {
                 return;
             }
 
-            const {title, description} = await database.getTitleAndDescription({subKey: Object.values(result.khatmSubKeys)[0]});
+            const {title, description, date} = await database.getTitleAndDescription({subKey: Object.values(result.khatmSubKeys)[0]});
 
             setCuzlerHatimCardTitle(title)
             setCuzlerHatimCardDescription(description)
+            setCuzlerHatimCardDate(date)
 
             // console.log(result.khatmSubKeys)
             setKhatmSubKeys(result.khatmSubKeys);
@@ -536,7 +538,7 @@ const Question = ({ toggle }) => {
             {
             <CuzlerHatimCard header={cuzlerHatimCardTitle} description={cuzlerHatimCardDescription}
                             progress={totalPartsTaken/(allLanguage.length*30)*100} leftCuzs={allLanguage.length*30-totalPartsTaken}
-                            duaLeftDays={allLanguage.filter(hatim=>hatim.subKey == currentKhatmSubKey)[0].bitisTarihi.split("-").reverse().join("/")}
+                            duaLeftDays={cuzlerHatimCardDate.split("-").reverse().join("/")}
                             yesHandler={yesHandlerState} toggleYesHandler={toggleYesHandlerState}
                             noHandler={noHandlerState} toggleNoHandler={toggleNoHandlerState}
 
