@@ -18,7 +18,7 @@ HideHatimIcon, ShowHatimIcon, HatimContainer, HatimIconContainer, HatimIconText,
 import AskDialog from "../AskDialog";
 import LanguageData from '../../../strings';
 import {dataFormat} from '../../../backend/datas/dataFormat';
-import { removeAll, objectToArray, removeAll_v1, isKhatmFull } from "../../../common";
+import { removeAll, objectToArray, removeAll_v1, isKhatmFull, hatimSiraBelirle } from "../../../common";
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../../icons/button.svg';
 import copy from '../../../icons/copy.svg';
@@ -187,6 +187,14 @@ const Question = ({ toggle }) => {
 
     const initialRun = async () => {
         try {
+
+            let hatimKeyLength = extractKey().length;
+
+            if(hatimKeyLength < 20){
+                setWaitText(LanguageData["/cuz"].Before.WrongLength)
+                return;
+            }
+
             let result = await database.tasarrufluHatimGetir();
 
             if(result.versionError == true){
@@ -503,6 +511,13 @@ const Question = ({ toggle }) => {
                             console.log(_newState)
                             return _newState;
                         })
+                        const {sira, subSira} = hatimSiraBelirle(hatimNo)
+                        if (!partIptal && (altHatimResult.data[sira]['cevaplar'][subSira]['isim'] != username)){
+                            toggleAlertVisibility();
+                            // dispatch(loggerActions.changeErrorKey(result.errorKey))
+                        }else if(partIptal && (altHatimResult.data[sira]['cevaplar'][subSira]['isim'] != '')){
+                            alert('Cüz iptal edilemedi!')
+                        }
                     }else{
                         alert('Güncel veriler çekilemedi!')
                     }
