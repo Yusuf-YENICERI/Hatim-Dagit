@@ -196,6 +196,14 @@ export class Database {
   getTitleAndDescription = async ({subKey}) => {
     return await this.api.getTitleAndDescription ({subKey});
   };
+
+  partRead = async ({subKey, partNo}) => {
+    return await this.api.partRead ({subKey, partNo});
+  };
+
+  partNotRead = async ({subKey, partNo}) => {
+    return await this.api.partNotRead ({subKey, partNo});
+  };
 }
 
 export default Database;

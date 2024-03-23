@@ -49,6 +49,11 @@ let Turkish = {
     No: 'Hayır',
   },
 
+  IsReadDialog: {
+    Read: 'Okundu',
+    NotRead: 'Okunuyor',
+  },
+
   AutomaticKhatm: 'Otomatik Hatim Oluşturmayı Durdur',
 
   '/': {

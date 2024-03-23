@@ -136,6 +136,12 @@ export const RespondInnerContainer = styled.div`
         grid-auto-flow: row;
     }
 `;
+
+export const ResponseItemContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
 export const ResponseItem = styled.div`
     padding: 20px;
     margin: 10px;
@@ -148,9 +154,9 @@ export const ResponseItem = styled.div`
     text-align:center;
     justify-content: center;
     width: 105px;
-    box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);
--webkit-box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);
--moz-box-shadow: -1px 24px 29px -8px rgba(0,0,0,1);
+    box-shadow: -1px 20px 29px -8px rgba(0,0,0,1);
+-webkit-box-shadow: -1px 20px 29px -8px rgba(0,0,0,1);
+-moz-box-shadow: -1px 20px 29px -8px rgba(0,0,0,1);
 transition: 0.5s all ease-in;
     cursor: pointer;
 
@@ -178,6 +184,33 @@ overflow-wrap: break-word;
 font-size: 1rem;
 padding: 3px;
 color:${({color}) => (color ? '#fff' : '#000')};
+`;
+
+export const IsReadItem = styled.div`
+    background-color: ${({bgColor}) => (bgColor ? '#04d654' : '#FFBF17')} ;
+    text-align: center;
+    padding: 3px;
+    margin: 10px;
+    margin-top: 0px;
+    border-radius: 5px;
+    width: 105px;
+    box-shadow: -1px 15px 29px -8px rgba(0,0,0,1);
+    -webkit-box-shadow: -1px 15px 29px -8px rgba(0,0,0,1);
+    -moz-box-shadow: -1px 15px 29px -8px rgba(0,0,0,1);
+    transition: 0.5s all ease-in;
+
+    @media screen and (max-width: 480px){
+        margin-top: 10px;
+    }
+
+    &:hover{
+        transform: scale(1.1);
+        transition: 0.5s all ease-in;
+    }
+`;
+
+export const IsReadText = styled.div`
+    font-size: 0.9em;
 `;
 
 export const Linker = styled.a`

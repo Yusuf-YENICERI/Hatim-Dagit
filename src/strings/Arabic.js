@@ -51,6 +51,11 @@ let Arabic = {
     No: 'لا',
   },
 
+  IsReadDialog: {
+    Read: 'قُرِئَ',
+    NotRead: 'يُقْرَأُ',
+  },
+
   AutomaticKhatm: 'توقفوا عن صنع الختم',
 
   '/': {

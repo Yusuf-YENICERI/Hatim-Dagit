@@ -49,6 +49,11 @@ let english = {
     No: 'No',
   },
 
+  IsReadDialog: {
+    Read: 'Read',
+    NotRead: 'Being Read',
+  },
+
   AutomaticKhatm: 'Stop Making Automatic Khatms',
 
   '/': {
