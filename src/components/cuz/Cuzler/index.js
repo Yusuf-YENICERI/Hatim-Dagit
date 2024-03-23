@@ -13,7 +13,7 @@ LoadingContainer, LoadingItem,
 CopyContainer, CopyItem, CopyIcon,
 ShareContainer, ShareItem, ShareIcon,
 YeniHatimWrapper, YeniHatimContainer, YeniHatimButton, YeniHatimIcon, YeniHatimText,
-HideHatimIcon, ShowHatimIcon, HatimContainer, HatimIconContainer, HatimIconText, CuzlerDescription, CuzlerFinishDate
+HideHatimIcon, ShowHatimIcon, HatimContainer, HatimIconContainer, HatimIconText, CuzlerDescription, CuzlerFinishDate, RefreshKhatmsContainer, RefreshKhatmsIcon, RefreshKhatmsItem
 } from './QuestionElements';
 import AskDialog from "../AskDialog";
 import LanguageData from '../../../strings';
@@ -28,6 +28,7 @@ import {DatabaseContext} from '../../../backend';
 import ShareBox from '../ShareBox';
 import { extractKey, initializeLocalStorage } from "../../../common";
 import { Language } from '@styled-icons/ionicons-outline';
+import { RefreshCircle } from '@styled-icons/ionicons-outline';
 import AlertDialog from '../AlertDialog';
 import StatsRing from '../RingProgress';
 import CuzlerHatimCard from '../CuzlerHatimCard';
@@ -79,6 +80,7 @@ const Question = ({ toggle }) => {
     const [currentKhatmSubKey, setCurrentKhatmSubKey] = useState(undefined);
     const [khatmSubKeys, setKhatmSubKeys] = useState([])
     const [khatmsFetched, setKhatmsFetched] = useState([])
+    const [isRefreshKhatmClickable, setIsRefreshKhatmClickable] = useState(true);
 
     /** redux */
     const dispatch = useDispatch();
@@ -299,45 +301,6 @@ const Question = ({ toggle }) => {
         }
     }
 
-    // const afterRun = async () => {
-    //     try {
-    //         let databaseListener = database.hatimListener(snapshot => {
-
-    //             let data = snapshot.val();
-
-    //             if(data.delete != undefined){
-    //                 setLoadingVisibility(true)
-    //                 setWaitText(LanguageData["/cuz"].Before.Deleted)
-    //                 return;
-    //             }
-
-    //             if(data.baslik != null){
-    //                 data = [data];
-    //             }
-
-    //             let result = data;
-
-    //             if(initialRunDone && (allLanguage.length < objectToArray(result).length)){
-    //                 let newArr = [...hatimlerVisibilities];
-    //                 let arrLength = newArr.length + 1;
-    //                 for (let i = 0; i < arrLength; i++) {
-    //                     newArr[i] = false;
-    //                 }
-    //                 newArr[newArr.length-1] = true;
-    //                 setHatimlerVisibilities(newArr);
-    //             }
-
-    //             setAllLanguage(objectToArray(result));
-    //             setHideRespond(true);
-    //             setLoadingVisibility(false);
-    //         });
-
-    //     } catch (error) {
-    //         setWaitText(LanguageData["/cuz"].Before.Error)
-    //         return;
-    //     }
-    // }
-
     const updateKhatms = async () => {
         let altHatimResult = await database.altHatimGetir({altHatimKey: activeHatimSubKey})
             if(altHatimResult.error == undefined){
@@ -351,6 +314,24 @@ const Question = ({ toggle }) => {
             }else{
                 alert('Güncel veriler çekilemedi!')
             }
+    }
+
+    const refreshKhatms = async () => {
+        khatmsFetched.map(async (khatmSubKey) => {
+            let altHatimResult = await database.altHatimGetir({altHatimKey: khatmSubKey})
+            if(altHatimResult.error == undefined){
+                setAllLanguage(prevState => {
+                    let _newState = [...prevState];
+                    let index = allLanguage.findIndex(item => item.subKey == khatmSubKey);
+                    _newState[index] = altHatimResult.data;
+                    console.log(_newState)
+                    return _newState;
+                })
+            }else{
+                console.log('Güncel veriler çekilemedi!')
+            }
+        })
+        
     }
 
     const cuzlerFunctionTrigger = useCuzlerFunctionTrigger();
@@ -381,19 +362,21 @@ const Question = ({ toggle }) => {
         <QuestionContainer id="questionContainer" minHeight={(window.innerHeight-80).toString() + "px"} hatimlerVisibility={hatimlerVisibilities[0]} >
 
         {/** Hatim editleme*/}
-        <Modal
-        styles={{
-            root: {height: '100%'},
-            inner: {height: '100%'},
-            body: {height: '100%'},
+            <Modal
+            styles={{
+                root: {height: '100%'},
+                inner: {height: '100%'},
+                body: {height: '100%'},
 
-        }}
-        opened={editCuzlerModal.visible}
-        onClose={() => dispatch(editModalCuzlerActions.toggleVisibility())}
-        title={LanguageData["/cuz"].CuzlerHatimCard.Modal.Title}
-        >
-            <EditModalContent subKey={allLanguage[0].subKey}></EditModalContent>
-        </Modal>
+            }}
+            opened={editCuzlerModal.visible}
+            onClose={() => dispatch(editModalCuzlerActions.toggleVisibility())}
+            title={LanguageData["/cuz"].CuzlerHatimCard.Modal.Title}
+            >
+                <EditModalContent subKey={allLanguage[0].subKey}></EditModalContent>
+            </Modal>
+
+
 
         {/**Yeni Hatim ekleme */}
         <YesNoDialog yesHandler={yesHandlerState} noHandler={noHandlerState} hatimlerVisibilities={hatimlerVisibilities} toggleHatimlerVisibilities={(newState)=>{
@@ -533,7 +516,6 @@ const Question = ({ toggle }) => {
         <ShareBox hatimHeader={allLanguage[0].baslik} shareBoxVisibility={hideShareBox} changeShareBoxVisibility={changeShareBoxVisibility} />
 
 
-
         {/* Hatimler ikonu ve yazısı */}
         { !loadingVisibility && allLanguage.map( (Language, index) => {
 
@@ -552,7 +534,37 @@ const Question = ({ toggle }) => {
                             noHandler={noHandlerState} toggleNoHandler={toggleNoHandlerState}
 
             ></CuzlerHatimCard>
+            
             }
+        </div>}
+        {(index==0) && <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'right', marginRight: '30px'}}>
+            <RefreshKhatmsContainer onClick={async ()=>{
+                    if(isRefreshKhatmClickable == false){
+                        alert('20 saniyede bir yenileme yapabilirsiniz!')
+                        return;
+                    }
+
+                    dispatch(loadingOverlayActions.toggleVisibility());
+
+                    let totalReadParts = await database.getTotalReadParts();
+                    if (totalReadParts.error == undefined){
+                        setTotalPartsTaken(totalReadParts.data);
+                    }
+                    await refreshKhatms();
+                    
+                    dispatch(loadingOverlayActions.toggleVisibility());
+                    setIsRefreshKhatmClickable(false);
+                    setTimeout(()=>{
+                        setIsRefreshKhatmClickable(true)
+                    }, 20000);
+                    }}>
+                    <RefreshCircle
+                            color={'green'} 
+                            height="30px"
+                            width="30px"
+                            />
+                    <RefreshKhatmsItem>{"Yenile"}</RefreshKhatmsItem>
+                </RefreshKhatmsContainer>
         </div>}
 
 
@@ -802,6 +814,7 @@ const Question = ({ toggle }) => {
 
         </>
         })}
+
 
         {/**Yeni Hatim ekleme butonu */}
         { (! makeNewHatim) && (JSON.parse(localStorage.getItem("CuzKeyler")) ? JSON.parse(localStorage.getItem("CuzKeyler")) : [] ).includes(extractKey()) && !loadingVisibility && <YeniHatimWrapper>

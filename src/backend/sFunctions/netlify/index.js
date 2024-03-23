@@ -49,9 +49,9 @@ class Netlify{
             version = "V" + params.version.toString();
         }
         if(params.makeNewHatimArg === undefined){
-            url = `http://sfunction.hatimdagit.com/.netlify/functions/takeCuz${version}?key=${params.key}&subKey=${params.subKey}&cuzNo=${params.cuzNo}&name=${params.name}&alindi=${params.alindi}&ownerId=${params.ownerId}&dev=${params.dev}&writeTotalReadParts=${params.writeTotalReadParts}`;
+            url = `https://sfunction.hatimdagit.com/.netlify/functions/takeCuz${version}?key=${params.key}&subKey=${params.subKey}&cuzNo=${params.cuzNo}&name=${params.name}&alindi=${params.alindi}&ownerId=${params.ownerId}&dev=${params.dev}&writeTotalReadParts=${params.writeTotalReadParts}`;
         }else{
-            url = `http://sfunction.hatimdagit.com/.netlify/functions/takeCuz${version}?key=${params.key}&subKey=${params.subKey}&cuzNo=${params.cuzNo}&name=${params.name}&alindi=${params.alindi}&ownerId=${params.ownerId}&makeNewHatimArg=${params.makeNewHatimArg}&dev=${params.dev}&writeTotalReadParts=${params.writeTotalReadParts}`;   
+            url = `https://sfunction.hatimdagit.com/.netlify/functions/takeCuz${version}?key=${params.key}&subKey=${params.subKey}&cuzNo=${params.cuzNo}&name=${params.name}&alindi=${params.alindi}&ownerId=${params.ownerId}&makeNewHatimArg=${params.makeNewHatimArg}&dev=${params.dev}&writeTotalReadParts=${params.writeTotalReadParts}`;   
         }
     
         let response = undefined

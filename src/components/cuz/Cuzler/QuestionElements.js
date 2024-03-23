@@ -2,44 +2,31 @@
 //                                      ALLAHU  EKBER
 //                                      ELHAMDÜLİLLAH
 
-
-
 import styled from 'styled-components';
-import { Link as LinkR } from 'react-router-dom';
-import { Link as LinkS } from 'react-scroll';
-import { Add, ChevronDown, ChevronUp } from "@styled-icons/ionicons-outline";
-
+import {Link as LinkR} from 'react-router-dom';
+import {Link as LinkS} from 'react-scroll';
+import {Add, ChevronDown, ChevronUp} from '@styled-icons/ionicons-outline';
 
 export const QuestionContainer = styled.div`
     background-color: #91ffbb;
     position: relative;
     min-height: ${({minHeight}) => minHeight};
     padding-bottom: 40px;
-
     @media screen and (max-width: 480px){
     }
 `;
 
-const displayDestroyer = (attribute, milliseconds) => {
-    let promise = new Promise((resolve, reject) => {
-        setTimeout(()=>{
-            resolve(attribute);
-        }, milliseconds);
-    });
-    return promise;
-}
-
 export const HatimContainer = styled.div`
     transform-origin: top;
     margin-top: 0px;
-    transform: ${({visibility}) => !visibility ? "scaleY(0)" : "scaleY(1)"};
+    transform: ${({visibility}) => (!visibility ? 'scaleY(0)' : 'scaleY(1)')};
     height: ${({visibility}) => {
-        if(!visibility){            
-            return "0";
-        }else{
-            return "100%";
-        }
-    }};
+              if (!visibility) {
+                return '0';
+              } else {
+                return '100%';
+              }
+            }};
     transition: height 0ms 1s ease, transform 1s 0ms ease;
     overflow: hidden;
 `;
@@ -49,28 +36,28 @@ export const QuestionInnerContainer = styled.div`
 
     @media screen and (max-width: 480px){
     }
-`
+`;
 
 export const QuestionItem = styled.div`
     padding: 30px;
-    font-size: ${({fontSize})=>fontSize};
+    font-size: ${({fontSize}) => fontSize};
     text-align: center;
     position: relative;
     color: #000000;
     
 
     @media screen and (max-width: 480px){
-        font-size:${({fontSize})=>fontSize};
+        font-size:${({fontSize}) => fontSize};
         padding-bottom: 0px;
     }
-`
+`;
 
 export const CuzlerFinishDate = styled.div`
     margin-top: 20px;
     margin-right: 50px;
     margin-left: 50px;
 
-    font-size: ${({fontSize})=>fontSize};
+    font-size: ${({fontSize}) => fontSize};
     text-align: center;
     position: relative;
     color: #000000;
@@ -78,30 +65,30 @@ export const CuzlerFinishDate = styled.div`
     
 
     @media screen and (max-width: 480px){
-        font-size:${({fontSize})=>fontSize};
+        font-size:${({fontSize}) => fontSize};
         padding-bottom: 0px;
         margin-bottom: 30px;
     }
-`
+`;
 
-export const BackContainer=styled.div`
+export const BackContainer = styled.div`
     padding-left: 50px;
     padding-top: 5px;
 
-`
+`;
 
-export const BackButtonIcon=styled.img`
+export const BackButtonIcon = styled.img`
     cursor: pointer;
-    height: ${({hide})=>(hide ? '30px' : '0')};
-`
+    height: ${({hide}) => (hide ? '30px' : '0')};
+`;
 
 export const RespondContainer = styled.div`
-    visibility: ${({visibility}) => (visibility ? "visible" : "hidden")};
+    visibility: ${({visibility}) => (visibility ? 'visible' : 'hidden')};
     background-color: #91ffbb;
 
     @media screen and (max-width: 480px){
     }
-`
+`;
 
 export const RespondOuterContainer = styled.div`
     padding: 10px;
@@ -114,7 +101,7 @@ export const RespondOuterContainer = styled.div`
     @media screen and (max-width: 480px){
 
     }
-`
+`;
 
 export const RespondInnerContainer = styled.div`
     padding: 50px;
@@ -148,13 +135,13 @@ export const RespondInnerContainer = styled.div`
         grid-template-columns: auto auto auto auto auto auto ;
         grid-auto-flow: row;
     }
-`
+`;
 export const ResponseItem = styled.div`
     padding: 20px;
     margin: 10px;
     height: 90px;
     border-radius: 10px;
-    background-color: ${({bgColor}) => (bgColor ? "#04d654" : "#FFBF17")} ;
+    background-color: ${({bgColor}) => (bgColor ? '#04d654' : '#FFBF17')} ;
     /* #04d654; */
     display: flex;
     flex-direction: column;
@@ -178,27 +165,27 @@ transition: 0.5s all ease-in;
     transform: scale(1.1);
     transition: 0.5s all ease-in;
 }
-`
+`;
 
 export const ResponseLogo = styled.img`
     height: ${({exist}) => (exist ? '50px' : '0px')};
     src: ${({isSrc}) => isSrc};
 
-`
+`;
 
 export const ResponseText = styled.div`
 overflow-wrap: break-word;
 font-size: 1rem;
 padding: 3px;
-color:${({color})=>(color ? "#fff" : "#000")};
-`
+color:${({color}) => (color ? '#fff' : '#000')};
+`;
 
 export const Linker = styled.a`
     color: black;
-`
+`;
 
 export const LoadingContainer = styled.div`
-    visibility: ${({visibility})=>(visibility ? "visible" : "hidden")};
+    visibility: ${({visibility}) => (visibility ? 'visible' : 'hidden')};
     color: #00569c;
     position: fixed;
     flex:1;
@@ -223,7 +210,7 @@ export const LoadingItem = styled.p`
 `;
 
 export const DialogBox = styled.div`
-visibility: ${({visibility}) => (visibility ? "visible" : "hidden")};
+visibility: ${({visibility}) => (visibility ? 'visible' : 'hidden')};
 height: 300px;
 width: 300px;
 position: fixed;
@@ -246,7 +233,7 @@ justify-content: space-evenly;
 @media screen and (max-width: 480px){
         margin-left: 8%;
     }
-`
+`;
 
 export const DialogContainer = styled.div`
 display:flex;
@@ -257,25 +244,25 @@ align-items:center;
 export const DialogText = styled.div`
 color:#000;
 text-align:center;
-font-size: ${({fontSize}) => (fontSize)};
-`
+font-size: ${({fontSize}) => fontSize};
+`;
 
 export const DialogLink = styled.div`
 color:#000;
 text-align:center;
 background-color: #91ffbb;
-font-size: ${({fontSize}) => (fontSize)};
+font-size: ${({fontSize}) => fontSize};
 border-radius: 3px;
-`
+`;
 
 export const DialogIcon = styled.img`
-width: ${({iconSize}) => (iconSize)};
-align-self: ${({alignEnd}) => (alignEnd ? "flex-end" : "")};
-`
+width: ${({iconSize}) => iconSize};
+align-self: ${({alignEnd}) => (alignEnd ? 'flex-end' : '')};
+`;
 
 export const DialogInputBox = styled.input`
 
-`
+`;
 
 export const CopyContainer = styled.div`
     display:flex;
@@ -302,16 +289,16 @@ z-index: 10;
     }
 
 
-`
+`;
 
 export const CopyItem = styled.p`
     font-size: 0.7rem;
-`
+`;
 
 export const CopyIcon = styled.img`
-width: ${({iconSize}) => (iconSize)};
-align-self: ${({alignEnd}) => (alignEnd ? "flex-end" : "")};
-`
+width: ${({iconSize}) => iconSize};
+align-self: ${({alignEnd}) => (alignEnd ? 'flex-end' : '')};
+`;
 
 export const ShareContainer = styled.div`
     flex-direction: column;
@@ -339,19 +326,16 @@ padding: 8px;
     }
 
 
-`
+`;
 
 export const ShareItem = styled.p`
     font-size: 0.7rem;
-`
+`;
 
 export const ShareIcon = styled.img`
-width: ${({iconSize}) => (iconSize)};
-align-self: ${({alignEnd}) => (alignEnd ? "flex-end" : "")};
-`
-
-
-
+width: ${({iconSize}) => iconSize};
+align-self: ${({alignEnd}) => (alignEnd ? 'flex-end' : '')};
+`;
 
 export const Nav = styled.nav`
     /* background-color: rgba(0,0,0, 0.7); */
@@ -374,7 +358,7 @@ export const Nav = styled.nav`
     /* @media screen and (max-width: 768px){
         margin-top: 0;
     } */
-`
+`;
 
 export const NavbarContainer = styled.div`
     display:flex;
@@ -384,8 +368,8 @@ export const NavbarContainer = styled.div`
     width: 100%;
     padding: 0 24px;
     max-width: 1100px;
-`
-export const NavLogo = styled(LinkS)`
+`;
+export const NavLogo = styled (LinkS)`
     color: #fff;
     justify-self: flex-start;
     cursor: pointer;
@@ -400,7 +384,7 @@ export const NavLogo = styled(LinkS)`
         font-size:1.1rem;
 
     }
-`
+`;
 export const MobileIcon = styled.div`
     display: none;
 
@@ -416,7 +400,7 @@ export const MobileIcon = styled.div`
         cursor:pointer;
 
     }
-`
+`;
 
 export const NavMenu = styled.ul`
     display: flex;
@@ -428,13 +412,13 @@ export const NavMenu = styled.ul`
     @media screen and (max-width: 768px){
         display: none;
     }
-`
+`;
 
 export const NavItem = styled.li`
     height: 80px;
-`
+`;
 
-export const NavLinks = styled(LinkS)`
+export const NavLinks = styled (LinkS)`
     color: #fff;
     display: flex;
     align-items: center;
@@ -446,7 +430,7 @@ export const NavLinks = styled(LinkS)`
     &.active{
         border-bottom: 3px solid #01bf71;
     }
-`
+`;
 export const NavBtn = styled.nav`
     display:flex;
     align-items: center;
@@ -455,7 +439,7 @@ export const NavBtn = styled.nav`
     @media screen and (max-width: 768px){
         display: none;
     }
-`
+`;
 
 export const NavBtnLink = styled.div`
     border-radius: 50px;
@@ -476,7 +460,7 @@ export const NavBtnLink = styled.div`
         background: #fff;
         color: #010606;
     }
-`
+`;
 
 export const NavIcon = styled.a`
     color: #01bf71;
@@ -491,7 +475,7 @@ export const NavIcon = styled.a`
     &:hover{
         transform: scale(1.02);
     }
-`
+`;
 
 export const YeniHatimWrapper = styled.div`
     display: flex;
@@ -531,7 +515,7 @@ export const YeniHatimText = styled.span`
 
 `;
 
-export const YeniHatimIcon = styled(Add)`
+export const YeniHatimIcon = styled (Add)`
     width: 30px;
     color: #00ba47;
 
@@ -571,10 +555,34 @@ export const ShowHatimIcon = styled.div`
 
 `;
 
-
 export const CuzlerDescription = styled.div`
     font-size: 1.2rem;
     text-align: center;
     margin-right: 40px;
     margin-left: 40px;
+`;
+
+export const RefreshKhatmsContainer = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:center;
+    width: 80px;
+    background-color: rgb(192, 252, 208, 0.5);
+    border-radius: 20px;
+    transition: 0.5s all ease-in;
+    padding: 2px;
+    margin-top: 10px;
+
+
+`;
+
+export const RefreshKhatmsItem = styled.p`
+    font-size: 0.6rem;
+    color: green;
+`;
+
+export const RefreshKhatmsIcon = styled.img`
+width: ${({iconSize}) => iconSize};
+align-self: ${({alignEnd}) => (alignEnd ? 'flex-end' : '')};
 `;
