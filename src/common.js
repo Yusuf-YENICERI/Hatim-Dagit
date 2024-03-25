@@ -225,7 +225,7 @@ const hatimSiraBelirle = no => {
   };
 };
 
-const version = '1.4.0';
+const version = '1.4.6';
 
 export default detectLanguage;
 

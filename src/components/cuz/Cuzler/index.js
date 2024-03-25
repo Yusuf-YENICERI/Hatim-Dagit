@@ -349,12 +349,9 @@ const Question = ({ toggle }) => {
 
         if(!initialRunDone){
             await initialRun();
-            // await afterRun();
             setInitialRunDone(true);
         }
-        // databaseListener = await afterRun();
         if(cuzlerFunctionTrigger.visible){
-            // await afterRun();
             await updateKhatms();
             dispatch(cuzlerFunctionTriggerActions.toggleVisibility())
         }

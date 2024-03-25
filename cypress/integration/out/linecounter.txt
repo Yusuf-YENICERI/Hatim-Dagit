@@ -27,3 +27,31 @@ RAMAZAN_user_behaviour.js, code is 58, comment is 34, blank is 29.
 YEARLY_add_Khatm_to_default_page.js, code is 50, comment is 34, blank is 30.
 YEARLY_user_behaviour.js, code is 56, comment is 38, blank is 30.
 ===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2024-03-23 18:24:02
+count workspace : d:\yusuf\Projects\Again3\Hatim-Dagit\cypress\integration
+total files : 11
+total code lines : 665
+total comment lines : 289
+total blank lines : 311
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |            .js|            665|            289|            311| 1.0e+2|
+   -------------------------------------------------------------------------
+CUZ_add_Khatm_to_default_page.js, code is 55, comment is 30, blank is 33.
+CUZ_old_version_test.js, code is 0, comment is 19, blank is 10.
+CUZ_user_behaviour.js, code is 57, comment is 35, blank is 26.
+M3_EACHDAY1PART_add_Khatm_to_default_page.js, code is 53, comment is 32, blank is 30.
+M3_EACHDAY1PART_user_behaviour.js, code is 77, comment is 37, blank is 32.
+NETLIFY_take_cuz.js, code is 101, comment is 0, blank is 56.
+NETLIFY_take_cuz_helper.js, code is 18, comment is 2, blank is 13.
+RAMAZAN_add_Khatm_to_default_page.js, code is 57, comment is 28, blank is 32.
+RAMAZAN_user_behaviour.js, code is 58, comment is 34, blank is 29.
+YEARLY_add_Khatm_to_default_page.js, code is 54, comment is 34, blank is 30.
+YEARLY_user_behaviour.js, code is 135, comment is 38, blank is 20.
+===============================================================================
