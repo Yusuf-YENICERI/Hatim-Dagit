@@ -15,6 +15,7 @@ import 'firebase/analytics';
 import {sFunctions} from '../../sFunctions'
 import Logger from './logger'
 import VersionError from '../errors/VersionError'
+import {getTotalPartsInKhatm} from '../../../common'
 
 require('dotenv').config()
 
@@ -689,6 +690,56 @@ class FirebaseAPI{
         return {data: undefined, error: error};
       }
     }
+
+    deleteSubKhatm = async ({subKey}) => {
+      try {
+
+        let subKhatmResult = await this.db.ref(`hatim/${this.extractKey()}/${subKey}`).get();
+        let subKhatm = subKhatmResult.val();
+        let subKhatmPartCount = getTotalPartsInKhatm(subKhatm);
+        let totalReadPartsRef = await this.db.ref (`hatim/${this.extractKey()}/totalReadParts`);
+        let transactionResult = await totalReadPartsRef.transaction (
+          totalReadParts => {
+            if (totalReadParts != null) {
+              return totalReadParts - subKhatmPartCount;
+            }else{
+              return -1;
+            }
+          },
+          async (error, committed, snapshot) => {
+            if (error) {
+              console.log ('decreasing read part transaction failed abnormally');
+            } else if (!committed) {
+              console.log ('decreasing read part transaction not committed.');
+            } else {
+              console.log ('decreasing read part successfull');
+            }
+            //   console.log (
+            //     'totalReadPart data: ',
+            //     snapshot.val (),
+            //     ' alindi: ',
+            //     alindi
+            //   );
+          },
+          true
+        );
+
+
+        let khatmSubKeysResult = await this.db.ref(`hatim/${this.extractKey()}/khatmSubKeys`).get();
+        let khatmSubKeys = khatmSubKeysResult.val();
+        Object.values(khatmSubKeys).map(async (khatmSubKey, index) => {
+          if (khatmSubKey == subKey) {
+            let subKeyKey = Object.keys(khatmSubKeys)[index]
+            await this.db.ref(`hatim/${this.extractKey()}/khatmSubKeys/${subKeyKey}`).remove();
+          }
+        })
+        return {data: "Alhamdulillah", error: undefined}
+      } catch (error) {
+        return {data: undefined, error: error};
+      }
+    }
+
+    
 
 
     

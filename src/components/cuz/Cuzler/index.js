@@ -14,12 +14,14 @@ CopyContainer, CopyItem, CopyIcon,
 ShareContainer, ShareItem, ShareIcon,
 YeniHatimWrapper, YeniHatimContainer, YeniHatimButton, YeniHatimIcon, YeniHatimText,
 HideHatimIcon, ShowHatimIcon, HatimContainer, HatimIconContainer, HatimIconText, CuzlerDescription, CuzlerFinishDate,
-IsReadItem, IsReadText, ResponseItemContainer, RefreshKhatmsContainer, RefreshKhatmsIcon, RefreshKhatmsItem
+IsReadItem, IsReadText, ResponseItemContainer, RefreshKhatmsContainer, RefreshKhatmsIcon, RefreshKhatmsItem,
+DeleteHatimIcon, DeleteHatimIconContainer,
+HatimIconTemplate
 } from './QuestionElements';
 import AskDialog from "../AskDialog";
 import LanguageData from '../../../strings';
 import {dataFormat} from '../../../backend/datas/dataFormat';
-import { removeAll, objectToArray, removeAll_v1, isKhatmFull, hatimSiraBelirle } from "../../../common";
+import { removeAll, objectToArray, removeAll_v1, isKhatmFull, hatimSiraBelirle, setLanguage } from "../../../common";
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../../icons/button.svg';
 import copy from '../../../icons/copy.svg';
@@ -138,15 +140,36 @@ const Question = ({ toggle }) => {
 
     /** YesNoDialog */
     const yesHandler = async () => {
+        dispatch (loadingOverlayActions.toggleVisibility ());
         let _hatimKey = await database.yeniHatim(hatimKonu, hatimBitisTarihi, true);
         await addNewKhatm()
         dispatch(yesNoDialogAlertActions.toggleVisibility())
+        dispatch (loadingOverlayActions.toggleVisibility ());
+        let newArr = [...hatimlerVisibilities, false];
+        setHatimlerVisibilities (newArr);
+    }
+
+    /** Delete a sub Khatm yesHandler */
+    const yesHandlerForASubKhatm = async ({_subKey, _index}) => {
+        dispatch(loadingOverlayActions.toggleVisibility());
+
+        await database.deleteSubKhatm({subKey: _subKey});
+
+        let newSubKhatms = allLanguage.filter(_language => _language.subKey != _subKey);
+        setAllLanguage(newSubKhatms);
+
+        dispatch(loadingOverlayActions.toggleVisibility());
+        dispatch(yesNoDialogAlertActions.toggleVisibility());
+        let newArr = [...hatimlerVisibilities]
+        newArr.splice(_index, 1);
+        setHatimlerVisibilities(newArr);
     }
 
     const noHandler = () =>  dispatch(yesNoDialogAlertActions.toggleVisibility())
     ;
 
     const [yesHandlerState, setYesHandlerState] = useState(()=> yesHandler)
+    const [yesHandlerStateParameters, setYesHandlerStateParameters] = useState(null);
     const [noHandlerState, setNoHandlerState] = useState(()=>noHandler)
 
     const toggleYesHandlerState = (payload) => {
@@ -379,7 +402,7 @@ const Question = ({ toggle }) => {
 
 
         {/**Yeni Hatim ekleme */}
-        <YesNoDialog yesHandler={yesHandlerState} noHandler={noHandlerState} hatimlerVisibilities={hatimlerVisibilities} toggleHatimlerVisibilities={(newState)=>{
+        <YesNoDialog yesHandler={yesHandlerState} noHandler={noHandlerState} yesHandlerParameters={yesHandlerStateParameters} hatimlerVisibilities={hatimlerVisibilities} toggleHatimlerVisibilities={(newState)=>{
             setHatimlerVisibilities(newState)
         }} />
 
@@ -535,6 +558,7 @@ const Question = ({ toggle }) => {
                             duaLeftDays={cuzlerHatimCardDate.split("-").reverse().join("/")}
                             yesHandler={yesHandlerState} toggleYesHandler={toggleYesHandlerState}
                             noHandler={noHandlerState} toggleNoHandler={toggleNoHandlerState}
+                            setYesHandlerStateParameters={setYesHandlerStateParameters}
 
             ></CuzlerHatimCard>
             
@@ -571,7 +595,19 @@ const Question = ({ toggle }) => {
         </div>}
 
 
-        { (hatimlerVisibilities.length > 1) && <QuestionItem fontSize={"1.6rem"}>
+        {  (hatimlerVisibilities.length > 1) && <QuestionItem fontSize={"1.6rem"}>
+                
+                <HatimIconTemplate>
+                    <DeleteHatimIconContainer>
+                        <DeleteHatimIcon onClick={async ()=>{
+                            toggleYesHandlerState(yesHandlerForASubKhatm)
+                            setYesHandlerStateParameters({_subKey: Language.subKey, _index:index})
+                            dispatch(yesNoDialogAlertActions.changeText("Bu Hatmi silmek istediğinize emin misiniz?"))
+                            dispatch(yesNoDialogAlertActions.toggleVisibility())
+                            }}>Sil</DeleteHatimIcon>
+                    </DeleteHatimIconContainer>
+                
+
                     {index+1}. hatim
                 {
                     hatimlerVisibilities.length > 1 ?
@@ -624,6 +660,8 @@ const Question = ({ toggle }) => {
                     :
                         <></>
                 }
+
+                </HatimIconTemplate>
             </QuestionItem>}
 
             {/* Hatmin kendisi */}
@@ -887,6 +925,8 @@ const Question = ({ toggle }) => {
             <YeniHatimContainer>
                 <YeniHatimButton id="NewSubKhatm" onClick={()=>{
                     window.alert("Eğer yeni Hatim eklemenize rağmen sayfaya eklenmemişse, lütfen önce sayfayı yenilemeyi deneyin.")
+                    toggleYesHandlerState(yesHandler);
+                    setYesHandlerStateParameters(null);
                     dispatch(yesNoDialogAlertActions.changeText(LanguageData["/cuz"].AddKhatmAlert.Question))
                     dispatch(yesNoDialogAlertActions.toggleVisibility())
                 }}>

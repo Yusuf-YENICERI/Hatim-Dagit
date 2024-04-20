@@ -562,9 +562,7 @@ export const HatimHeaderContainer = styled.div`
 
 export const HatimIconContainer = styled.div`
     color: black;
-    position: absolute;
-    right: 30px;
-    top: 20px;
+
     border: 2px solid black;
     border-radius: 20px;
     padding: 5px;
@@ -572,6 +570,39 @@ export const HatimIconContainer = styled.div`
     box-shadow: 0px 6px 11px 0px rgba(0,0,0,0.51);
 -webkit-box-shadow: 0px 6px 11px 0px rgba(0,0,0,0.51);
 -moz-box-shadow: 0px 6px 11px 0px rgba(0,0,0,0.51);
+
+`;
+
+export const HatimIconTemplate = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15px;
+    margin-right: 15px;
+
+    @media screen and (min-width: 1400px){
+        margin-left: 120px;
+        margin-right: 100px;
+    }
+`;
+
+export const DeleteHatimIconContainer = styled.div`
+    color: red;
+
+    border: 2px solid red;
+    border-radius: 20px;
+    padding: 5px 10px;
+    z-index: 9;
+    box-shadow: 0px 6px 11px 0px rgba(0,0,0,0.51);
+-webkit-box-shadow: 0px 6px 11px 0px rgba(0,0,0,0.51);
+-moz-box-shadow: 0px 6px 11px 0px rgba(0,0,0,0.51);
+
+@media screen and (max-width: 480px){
+
+}
+
+@media screen and (min-width: 768px){
+
+}
 
 `;
 
@@ -587,6 +618,8 @@ export const HideHatimIcon = styled.div`
 export const ShowHatimIcon = styled.div`
 
 `;
+
+export const DeleteHatimIcon = styled.div``;
 
 export const CuzlerDescription = styled.div`
     font-size: 1.2rem;

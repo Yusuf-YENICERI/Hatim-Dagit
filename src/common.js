@@ -198,6 +198,14 @@ const isKhatmFull = khatm => {
   return totalCevap > 29;
 };
 
+const getTotalPartsInKhatm = khatm => {
+  let totalCevap =
+    khatm[1].cevaplar.filter (cevap => cevap.alindi).length +
+    khatm[2].cevaplar.filter (cevap => cevap.alindi).length +
+    khatm[3].cevaplar.filter (cevap => cevap.alindi).length;
+  return totalCevap;
+};
+
 const typeCheck = (data, type) => {
   if (typeof data == type) {
     return true;
@@ -247,4 +255,5 @@ export {
   getCurrentIndexV3,
   isKhatmFull,
   hatimSiraBelirle,
+  getTotalPartsInKhatm,
 };

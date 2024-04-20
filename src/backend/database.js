@@ -204,6 +204,10 @@ export class Database {
   partNotRead = async ({subKey, partNo}) => {
     return await this.api.partNotRead ({subKey, partNo});
   };
+
+  deleteSubKhatm = async ({subKey}) => {
+    return await this.api.deleteSubKhatm ({subKey});
+  };
 }
 
 export default Database;
