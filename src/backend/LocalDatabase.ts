@@ -12,7 +12,7 @@ import { BaseResponse } from "./types/responses/BaseResponse";
 import { YeniYillikHatimResponse } from "./types/responses/YeniYillikHatimResponse";
 import db from '@yusuf-yeniceri/easy-storage';
 import { HatimType } from "./types/HatimType";
-import {extractKey, objectToArrayV3} from 'common'
+import {extractKey,  isEmptyObjectLocDb, objectToArrayV3} from 'common'
 
 export class LocalDatabase implements ILocalDatabase{
     hatimSiraBelirle(no: number): Promise<BaseResponse<any>> {
@@ -172,6 +172,13 @@ export class LocalDatabase implements ILocalDatabase{
         } catch (error) {
             return {data: undefined, error: error}
         }
+    }
+
+    isCurrentUserAdmin(): BaseResponse<boolean> {
+        const hatimKey = extractKey();
+        let adminToken = db.ref(`Hatim/${hatimKey}/adminToken`).get();
+        if(isEmptyObjectLocDb(adminToken) == false) return {data: true, error: undefined};
+        else return {data: false, error: undefined};
     }
     
 }

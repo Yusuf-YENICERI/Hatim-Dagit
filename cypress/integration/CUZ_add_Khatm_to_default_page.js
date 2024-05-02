@@ -40,8 +40,7 @@ describe ('add Khatm to default page', () => {
       .click ();
 
     cy.findByText (/are you sure/i).should ('not.be.visible');
-    //click on some Part
-    // cy.visit('http://localhost:3000/cuz/-Mr3hOiBGujMegW033tQ')
+
     cy
       .get (
         `#questionContainer > div:nth-child(12) > div > div > div > div:nth-child(${Part})`
@@ -111,10 +110,6 @@ describe ('add Khatm to default page', () => {
 
     cy.findByText (/are you sure/i).should ('not.be.visible');
 
-    cy.get ('#questionContainer > div:nth-child(12) > div').click ();
-
-    //click on some Part
-    // cy.visit('http://localhost:3000/cuz/-Mr3hOiBGujMegW033tQ')
     cy
       .get (
         `#questionContainer > div:nth-child(12) > div > div > div div:nth-child(${Part})`

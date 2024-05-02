@@ -26,7 +26,7 @@ const dataService = useContext( DataServiceContext );
 
   return (
     <>
-    {makeNewKhatm ?
+    { dataService.isCurrentUserAdmin().data && (makeNewKhatm ?
     <Center>
           <Button color="red" size="md" mb="xl" onClick={async ()=>{
               let response = await dataService.stopMakingNewKhatm();
@@ -47,7 +47,7 @@ const dataService = useContext( DataServiceContext );
                     <YeniHatimIcon />
                     <YeniHatimText>{Language["/cuz"].NewSubKhatm}</YeniHatimText>
                 </YeniHatimButton>
-    </YeniHatimContainer>}
+    </YeniHatimContainer>)}
     </>
   )
 }

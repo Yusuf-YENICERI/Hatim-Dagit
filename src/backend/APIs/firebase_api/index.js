@@ -413,7 +413,12 @@ class FirebaseAPI{
         if(result.code == 200){
           return {code: 0};
         }else{
-          return {code: -1, errorKey: _errorKey};
+           // code exists if there is a normal error
+           if (result.error.code == undefined){
+            return {code: -1, errorKey: _errorKey};
+          }else{
+            return {code: -1, errorKey: undefined};
+          }
         }
 
       } catch (error) {

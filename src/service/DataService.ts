@@ -116,6 +116,10 @@ export class DataService {
     async fetchChart(params: {subKey: string, partNo: number}): Promise<BaseResponse<string>> {
         return (await this.remoteDatabase.fetchChart(params));
     }
+
+    isCurrentUserAdmin(): BaseResponse<boolean> {
+        return this.localDatabase.isCurrentUserAdmin();
+    }
     
     
     
