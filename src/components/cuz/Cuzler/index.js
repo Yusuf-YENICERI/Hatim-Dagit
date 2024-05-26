@@ -475,6 +475,7 @@ const Question = ({ toggle }) => {
                 </DialogInputBox>
 
                 <NavBtnLink id={"takeButton"} onClick={async ()=>{
+                    dispatch (loadingOverlayActions.toggleVisibility ());
                     setHideDialogBox(!hideDialogBox);
                     if(partIptal)
                     {
@@ -490,10 +491,12 @@ const Question = ({ toggle }) => {
                         // setTotalPartsTaken(database.countNumberOfCuzs(tempAllLanguages))
                         setTakePart(LanguageData["/cuz"].Button.Take)
                         setPartIptal(false);
+                        dispatch (loadingOverlayActions.toggleVisibility ());
                     }else{
-
                         let result = await database.cuzAl(username, hatimNo, activeHatimSubKey, true, makeNewHatimState, true);
                         if(result.code == -1){
+                            dispatch (loadingOverlayActions.toggleVisibility ());
+
                             toggleAlertVisibility();
                             dispatch(loggerActions.changeErrorKey(result.errorKey))
                         }else{
@@ -504,10 +507,11 @@ const Question = ({ toggle }) => {
                                 localStorageCuzObj[activeHatimSubKey] = [];
                             localStorageCuzObj[activeHatimSubKey].push(hatimNo);
                             localStorage.setItem("cuz",JSON.stringify(localStorageCuzObj));
-
+                            dispatch (loadingOverlayActions.toggleVisibility ());
                             // setTotalPartsTaken(database.countNumberOfCuzs(tempAllLanguages))
                         }
                     }
+
 
 
 
