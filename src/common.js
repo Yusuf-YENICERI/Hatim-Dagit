@@ -233,6 +233,12 @@ const hatimSiraBelirle = no => {
   };
 };
 
+const isAdmin = () => {
+  return (JSON.parse (localStorage.getItem ('CuzKeyler'))
+    ? JSON.parse (localStorage.getItem ('CuzKeyler'))
+    : []).includes (extractKey ());
+};
+
 const version = '1.4.6';
 
 export default detectLanguage;
@@ -256,4 +262,5 @@ export {
   isKhatmFull,
   hatimSiraBelirle,
   getTotalPartsInKhatm,
+  isAdmin,
 };

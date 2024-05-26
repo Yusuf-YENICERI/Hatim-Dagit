@@ -21,7 +21,7 @@ HatimIconTemplate
 import AskDialog from "../AskDialog";
 import LanguageData from '../../../strings';
 import {dataFormat} from '../../../backend/datas/dataFormat';
-import { removeAll, objectToArray, removeAll_v1, isKhatmFull, hatimSiraBelirle, setLanguage } from "../../../common";
+import { removeAll, objectToArray, removeAll_v1, isKhatmFull, hatimSiraBelirle, setLanguage, isAdmin } from "../../../common";
 import { FaGithub } from "react-icons/fa";
 import backButton from '../../../icons/button.svg';
 import copy from '../../../icons/copy.svg';
@@ -598,14 +598,14 @@ const Question = ({ toggle }) => {
         {  (hatimlerVisibilities.length > 1) && <QuestionItem fontSize={"1.6rem"}>
                 
                 <HatimIconTemplate>
-                    <DeleteHatimIconContainer>
+                    { isAdmin() ? <DeleteHatimIconContainer>
                         <DeleteHatimIcon onClick={async ()=>{
                             toggleYesHandlerState(yesHandlerForASubKhatm)
                             setYesHandlerStateParameters({_subKey: Language.subKey, _index:index})
                             dispatch(yesNoDialogAlertActions.changeText("Bu Hatmi silmek istediğinize emin misiniz?"))
                             dispatch(yesNoDialogAlertActions.toggleVisibility())
                             }}>Sil</DeleteHatimIcon>
-                    </DeleteHatimIconContainer>
+                    </DeleteHatimIconContainer> : <div></div>}
                 
 
                     {index+1}. hatim
