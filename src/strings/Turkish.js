@@ -35,7 +35,7 @@ let Turkish = {
     ],
     UnderMaintenance: [
       `Değerli Hatim Dağıt kullanıcısı`,
-      `Sitemiz kısa bir süreliğine(2-3 saat) bakıma alınmıştır.`,
+      `Sitemiz kısa bir süreliğine bakıma alınmıştır.`,
       `Anlayışınız için Allah razı olsun.`,
       ``,
       `Hatim Dağıt`,
