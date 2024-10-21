@@ -508,6 +508,7 @@ const Question = ({ toggle }) => {
                             localStorageCuzObj[activeHatimSubKey].push(hatimNo);
                             localStorage.setItem("cuz",JSON.stringify(localStorageCuzObj));
                             dispatch (loadingOverlayActions.toggleVisibility ());
+                            alert('Cüz okumayı bitirdikten sonra, "Okunuyor" yazısına tıklayarak "Okundu" yapabilirsiniz')
                             // setTotalPartsTaken(database.countNumberOfCuzs(tempAllLanguages))
                         }
                     }

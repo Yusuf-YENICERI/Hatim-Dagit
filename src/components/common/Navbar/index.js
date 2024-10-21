@@ -71,7 +71,7 @@ let isMobile = (width <= 768);
                     <FaBars />
                 </MobileIcon>
                 <MediaQuery largerThan={"sm"} styles={{display: 'none'}}>
-                    <span style={{position: 'absolute', bottom: '-6px', color: 'white'}}>{Language.Navbar.Menu}</span>
+                    <span style={{position: 'absolute', bottom: '-6px', color: 'white', userSelect: 'none'}}>{Language.Navbar.Menu}</span>
                 </MediaQuery>
                 </div>
                 <NavMenu>
