@@ -6,37 +6,50 @@
 import React from 'react'
 import { PwaAppleShareIcon, PwaContainer, PwaIcon, PwaIconContainer, PwaTextContainer, PwaTextDefault, PwaTextStrong } from './PwaElements'
 import close from '../../../icons/close.svg';
+import localDb from '@yusuf-yeniceri/easy-storage';
 import Language from '../../../strings/index';
+import { isEmptyObjectLocDb } from 'common';
 
 
 const SorryMessage = () => {
+
+    const warningMessage = localDb.ref ('warningMessage').get ();
+    if (
+    isEmptyObjectLocDb (warningMessage) == false &&
+    warningMessage.counter > 3
+    ) {
+    return <></>;
+    }
+    
+
     return (
         <>
-            <PwaContainer id={"sorry_message"}>
+            <PwaContainer id={"warning_message"}>
                 {/* <PwaIconContainer>
                     <PwaIcon src={close} onClick={()=>{
                         let sorry_message_extra = document.getElementById('sorry_message');
                     }}/>
                 </PwaIconContainer> */}
                 <PwaTextContainer>
-                    <PwaTextDefault>{Language.Pwa.SorryMessage[0]}
+                    <PwaTextDefault style={{fontSize: '2em'}}>{Language.Pwa.SorryMessage[0]}
                     </PwaTextDefault>
+                    <br/>
+                    <br/>
                     <br/>
                     <PwaTextDefault>{Language.Pwa.SorryMessage[1]}
                     </PwaTextDefault>
-                    <br/>
-                    <PwaTextDefault>{Language.Pwa.SorryMessage[2]}
-                    </PwaTextDefault>
-                    <br/>
-                    <PwaTextDefault>{Language.Pwa.SorryMessage[3]}
-                    </PwaTextDefault>
-                    <br/>
-                    <PwaTextDefault>{Language.Pwa.SorryMessage[4]}
-                    </PwaTextDefault>
-                    <br/>
-                    <PwaTextDefault>{Language.Pwa.SorryMessage[5]}
-                    </PwaTextDefault>
-                    <br/>
+
+                    <button onClick={()=>{
+                        localDb.ref('warningMessage').modify(data => {
+                            if(isEmptyObjectLocDb(data)){
+                                return {counter: 1};
+                            }
+
+                            return {counter: data.counter + 1};
+                        })
+                        document.getElementById ('warning_message').style.display = 'none';
+
+                    }} style={{marginTop: '40px', fontSize: '1.2em', padding: '10px', backgroundColor: 'yellow', borderColor: 'yellow', color: 'black', borderRadius: '10px'}}>Tamam</button>
                 </PwaTextContainer>
             </PwaContainer>
         </>

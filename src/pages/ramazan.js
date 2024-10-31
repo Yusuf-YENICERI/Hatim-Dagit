@@ -10,6 +10,8 @@ import Pwa from '../components/common/Pwa';
 import RamazanTable from '../components/common/Table';
 import {getMonths3Date} from 'common'
 import button from "../icons/button.svg";
+import SorryMessage from 'components/common/SorryMessage';
+import { CookiesBanner } from 'components/common/CookieConsent';
 
 export const Ramazan = () => {
 
@@ -108,6 +110,8 @@ export const Ramazan = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
+            <SorryMessage />
+            <CookiesBanner />
             <Pwa />
             <RamazanTable data={data} cizelgeRef={cizelgeRef} toggleCizelge={toggleCizelge} cizelgeId={cizelgeId} toggleCizelgeId={toggleCizelgeId}
                             />

@@ -4,7 +4,10 @@
 import React, {useEffect, useContext, useState} from 'react'
 import Language from '../../../strings/index';
 import { FooterContainer, FooterWrapper, FooterLinksContainer, FooterLinkWrapper, FooterLinkItems, FooterLinkTitle, FooterLink,
-Business, BusinessWrap, BusinessLogo, WebsiteRights, BusinessIcons, BusinessIconLink, BusinessVisit, BusinessMainPage, BusinessFeedback } from "./FooterElements";
+Business, BusinessWrap, BusinessLogo, WebsiteRights, BusinessIcons, BusinessIconLink, BusinessVisit, BusinessMainPage, BusinessFeedback, 
+BusinessPrivacyPolicy,
+BusinessTermsConditions,
+BusinessCookies} from "./FooterElements";
 import {Linker} from '../../main/Question/QuestionElements';
 import { FaGithub } from "react-icons/fa";
 import {DatabaseContext} from '../../../backend';
@@ -55,12 +58,13 @@ const Footer = () => {
                  <Business>
                  
                      <BusinessWrap>
-                     <BusinessMainPage to="/">
+                        <BusinessMainPage to="/">
                             {Language.Footer.GoToMainPage}
                         </BusinessMainPage>
                         <BusinessFeedback onClick={()=>window.location.href = "mailto:hep.beraber.okuyalim@gmail.com"}>
-                        {Language.Footer.Feedback}
+                            {Language.Footer.Feedback}
                         </BusinessFeedback>
+
 
                          <BusinessLogo to="starting">
                              {Language.Navbar.Logo}
@@ -68,7 +72,6 @@ const Footer = () => {
                          {/* <WebsiteRights>
                              {Language.Footer.websiteRights} <Linker href="http://carlcheo.com/startcoding" target="_blank">http://carlcheo.com/startcoding</Linker>
                          </WebsiteRights> */}
-                         {Language.Footer.aciz_kul}
                          <BusinessIcons>
                              <BusinessIconLink href="https://github.com/Yusuf-YENICERI/" target="_blank" aria-label="Github">
                                  <FaGithub></FaGithub>
@@ -80,6 +83,20 @@ const Footer = () => {
                          {Language.rtl ? <BusinessVisit>{version} {Language.Footer.version}  </BusinessVisit>
                                        : <BusinessVisit>{Language.Footer.version} {version} </BusinessVisit> 
                         }
+
+                        <div style={{textAlign: 'center', marginTop: '20px', fontSize: '0.8em'}}>
+                         {Language.Footer.aciz_kul.split("\n").map((item, index) => <p style={{marginTop: '5px'}} key={index}>{item}</p>)} 
+                         </div>
+
+<BusinessPrivacyPolicy to="/privacypolicy">
+                            {Language.Footer.PrivacyPolicy}
+                        </BusinessPrivacyPolicy>
+                        <BusinessTermsConditions to="/termsconditions">
+                            {Language.Footer.TermsConditions}
+                        </BusinessTermsConditions>
+                        <BusinessCookies to="/cookies">
+                            {Language.Footer.Cookies}
+                        </BusinessCookies>
                      </BusinessWrap>
                  </Business>
              </FooterWrapper>

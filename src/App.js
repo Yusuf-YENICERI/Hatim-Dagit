@@ -9,6 +9,10 @@ import Message from './components/common/Message';
 import { UcAylarHerGun1Cuz } from 'pages/ucaylarhergun1cuz';
 import { CizelgelerimPage } from 'pages/cizelgelerim';
 import { Yillik } from 'pages/yillik';
+import { Cookie } from 'tabler-icons-react';
+import { PrivacyPolicy } from 'pages/privacypolicy';
+import { TermsConditions } from 'pages/termsconditions';
+import {Cookies} from 'pages/cookies'
 
 
 function App() {
@@ -24,6 +28,9 @@ function App() {
         <Route path="/ucaylarhergun1cuz" component={UcAylarHerGun1Cuz} />
         <Route path="/cizelgelerim" component={CizelgelerimPage} exact />
         <Route path="/yillik" component={Yillik} />
+        <Route path="/cookies" component={Cookies} />
+        <Route path="/privacypolicy" component={PrivacyPolicy} />
+        <Route path="/termsconditions" component={TermsConditions} />
       </Switch>
     </BrowserRouter>
     </>

@@ -23,8 +23,12 @@ let Turkish = {
       'Uygulama telefonunuza inecektir inşaAllah.',
     ],
     SorryMessage: [
-      `Değerli Hatim Dağıt kullanıcısı`,
-
+      `
+      DUYURU
+      `,
+      `
+Bu uygulama üzerinden siyasi veya dini motifli terör örgütleri adına Hatim dağıtılamaz.
+`,
       `Öncelikle, siteyi kullanan tüm üyelerimize teşekkür etmek istiyoruz. Filistin şehitleri için büyük miktarlarda Hatim dağıtıldı. Allah razı olsun.`,
 
       `Sitemiz, bugün beklenilenden fazla karşılaştığı yoğunluk sebebiyle yeniden yapılanmaya girmiştir. Bu nedenle, mevcut yoğunluk azalana kadar siteyi geçiçi olarak kullanıma kapatmak zorunda kaldığımızı üzülerek bildirmek istiyoruz. Oluşturulmuş Hatimlerdeki bilgilere ulaşılabilmesi için saat 22:00-23:00 arasında site açılacak inşaAllah.`,
@@ -36,11 +40,14 @@ let Turkish = {
   },
 
   Footer: {
-    aciz_kul: 'Yusuf Yeniçeri tarafından yapılmıştır.',
+    aciz_kul: 'Bu uygulamanın herhangi bir kurum ya da kuruluşla ilişkisi yoktur.\n Bu uygulama üzerinden siyasi veya dini motifli terör örgütleri adına Hatim oluşturulamaz.',
     ziyaret: ['Bu site ', ' defa ziyaret edildi'],
     version: 'Mevcut versiyon ',
     GoToMainPage: 'Anasayfaya Git',
     Feedback: 'Geribildirim Yap',
+    Cookies: 'Çerez Politikası',
+    TermsConditions: 'Kullanıcı Sözleşmesi',
+    PrivacyPolicy: 'Gizlilik Politikası',
   },
 
   AlertDialog: {

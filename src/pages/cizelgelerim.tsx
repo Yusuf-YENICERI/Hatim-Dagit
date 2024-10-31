@@ -13,8 +13,11 @@ import Footer from '../components/common/Footer';
 import Pwa from '../components/common/Pwa';
 import Cizelgelerim from '../components/cizelgelerim';
 import { MantineProvider } from '@mantine/core';
+import SorryMessage from 'components/common/SorryMessage';
+import { CookiesBanner } from 'components/common/CookieConsent';
 
 export const CizelgelerimPage = () => {
+    
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -26,6 +29,8 @@ export const CizelgelerimPage = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
+            <SorryMessage />
+            <CookiesBanner />
             <Pwa />
             <MantineProvider
                 theme={{

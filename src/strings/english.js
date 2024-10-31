@@ -41,6 +41,9 @@ let english = {
     version: 'Current version is ',
     GoToMainPage: 'Go to Home',
     Feedback: 'Give Feedback',
+    Cookies: 'Cookie Policy',
+    TermsConditions: 'User Agreement',
+    PrivacyPolicy: 'Privacy Policy',
   },
 
   AlertDialog: {

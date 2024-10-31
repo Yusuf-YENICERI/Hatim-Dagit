@@ -43,6 +43,9 @@ let Arabic = {
     version: ' الإصدار الحالي هو',
     GoToMainPage: 'انتقل إلى الصفحة الرئيسية',
     Feedback: 'أرسل رسالة',
+    Cookies: 'سياسة ملفات تعريف الارتباط',
+    TermsConditions: 'اتفاقية المستخدم',
+    PrivacyPolicy: 'سياسة الخصوصية',
   },
 
   AlertDialog: {

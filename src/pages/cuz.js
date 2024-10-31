@@ -11,6 +11,7 @@ import SorryMessage from 'components/common/SorryMessage';
 import {LoadingOverlay} from '@mantine/core'
 import { useLoadingOverlay } from 'features/loadingOverlay';
 import LoadingFullPage from 'components/common/LoadingFullPage';
+import { CookiesBanner } from 'components/common/CookieConsent';
 
 export const Cuz = () => {
 
@@ -27,7 +28,8 @@ export const Cuz = () => {
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
             <LoadingFullPage visible={visible}/>
-            {/* <SorryMessage /> */}
+            <SorryMessage />
+            <CookiesBanner />
             <Pwa />
             <Cuzler />
             <Footer/>

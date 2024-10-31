@@ -9,6 +9,7 @@ import Pwa from '../components/common/Pwa';
 import BottomNavigation from 'components/main/BottomNavigation';
 import MyInfos from '../components/main/MyInfos'
 import SorryMessage from 'components/common/SorryMessage';
+import { CookiesBanner } from 'components/common/CookieConsent';
 
 
 export const Home = () => {
@@ -63,7 +64,8 @@ export const Home = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            {/* <SorryMessage /> */}
+            <SorryMessage />
+            <CookiesBanner />
             <Pwa  />
             { page == "hatims" && <Question />}
             { page == "myInfos" && <MyInfos />}
