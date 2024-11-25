@@ -110,7 +110,7 @@ export const Ramazan = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            <SorryMessage />
+            {/* <SorryMessage /> */}
             <CookiesBanner />
             <Pwa />
             <RamazanTable data={data} cizelgeRef={cizelgeRef} toggleCizelge={toggleCizelge} cizelgeId={cizelgeId} toggleCizelgeId={toggleCizelgeId}

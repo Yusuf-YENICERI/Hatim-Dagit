@@ -42,7 +42,7 @@ export const UcAylarHerGun1Cuz = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            <SorryMessage />
+            {/* <SorryMessage /> */}
             <CookiesBanner />
             <Pwa />
             <UcAylarHerGun1CuzTable keyHolder={keyHolder}  cizelgeRef={cizelgeRef} toggleCizelge={toggleCizelge} cizelgeId={cizelgeId} toggleCizelgeId={toggleCizelgeId}

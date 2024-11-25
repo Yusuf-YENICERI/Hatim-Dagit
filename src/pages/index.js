@@ -64,7 +64,7 @@ export const Home = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            <SorryMessage />
+            {/* <SorryMessage /> */}
             <CookiesBanner />
             <Pwa  />
             { page == "hatims" && <Question />}

@@ -29,7 +29,7 @@ export const CizelgelerimPage = () => {
         <>
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
-            <SorryMessage />
+            {/* <SorryMessage /> */}
             <CookiesBanner />
             <Pwa />
             <MantineProvider

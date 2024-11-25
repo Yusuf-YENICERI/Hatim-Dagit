@@ -28,7 +28,7 @@ export const Cuz = () => {
             <Sidebar isOpen={isOpen} toggle={toggle}/>
             <Navbar toggle={toggle}/>
             <LoadingFullPage visible={visible}/>
-            <SorryMessage />
+            {/* <SorryMessage /> */}
             <CookiesBanner />
             <Pwa />
             <Cuzler />
