@@ -168,7 +168,24 @@ const getCurrentIndexV3 = hatims => {
 };
 
 const getMonths3Date = () => {
-  const data = dataMonths3[new Date ().getFullYear ()];
+  let data = dataMonths3[new Date ().getFullYear ()];
+
+  if (data.double) {
+    let endOfYear = new Date (data.startingDate2);
+    endOfYear.setDate (endOfYear.getDate () + 90);
+
+    if (new Date () > endOfYear) {
+      data = dataMonths3[new Date ().getFullYear () + 1];
+    }
+  } else {
+    let endOfYear = new Date (data.startingDate);
+    endOfYear.setDate (endOfYear.getDate () + 90);
+
+    if (new Date () > endOfYear) {
+      data = dataMonths3[new Date ().getFullYear () + 1];
+    }
+  }
+
   if (data.double) {
     if (new Date () < new Date (data.startingDate2)) {
       data.chosen = 1;
