@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.hatimdagit.twa",
+        "sha256_cert_fingerprints": ["97:C5:2E:48:A9:C7:7E:7E:15:44:B1:86:74:09:6D:06:58:2B:57:95:68:A0:57:E2:8A:1B:BB:77:CF:C7:0F:88"]
+      }
+    }]
