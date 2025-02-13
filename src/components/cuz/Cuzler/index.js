@@ -733,15 +733,18 @@ const Question = ({ toggle }) => {
                             </ResponseItem>
 
                             {alindi && <IsReadItem bgColor={isRead} onClick={()=>{
-                                    setActiveHatimSubKey(Language.subKey);
-                                    dispatch(isReadDialogAlertActions.changeIsRead(isRead))
-                                    if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
-                                    let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
-                                    if(localStorageCuzObj[Language.subKey] == null)
-                                        localStorageCuzObj[Language.subKey] = [];
-                                    if(!localStorageCuzObj[Language.subKey].includes(cevap)){
+                                    if(isRead){
                                         return;
                                     }
+                                    setActiveHatimSubKey(Language.subKey);
+                                    dispatch(isReadDialogAlertActions.changeIsRead(isRead))
+                                    // if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
+                                    // let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                                    // if(localStorageCuzObj[Language.subKey] == null)
+                                    //     localStorageCuzObj[Language.subKey] = [];
+                                    // if(!localStorageCuzObj[Language.subKey].includes(cevap)){
+                                    //     return;
+                                    // }
                                     
                                     dispatch(isReadDialogAlertActions.changePartNo(cevap))
                                     dispatch(isReadDialogAlertActions.changeSubKey(Language.subKey))
@@ -810,15 +813,18 @@ const Question = ({ toggle }) => {
 
                         
                         {alindi && <IsReadItem bgColor={isRead} onClick={()=>{
-                            setActiveHatimSubKey(Language.subKey);
-                            dispatch(isReadDialogAlertActions.changeIsRead(isRead))
-                            if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
-                            let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
-                            if(localStorageCuzObj[Language.subKey] == null)
-                                localStorageCuzObj[Language.subKey] = [];
-                            if(!localStorageCuzObj[Language.subKey].includes(cevap)){
+                            if(isRead){
                                 return;
                             }
+                            setActiveHatimSubKey(Language.subKey);
+                            dispatch(isReadDialogAlertActions.changeIsRead(isRead))
+                            // if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
+                            // let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                            // if(localStorageCuzObj[Language.subKey] == null)
+                            //     localStorageCuzObj[Language.subKey] = [];
+                            // if(!localStorageCuzObj[Language.subKey].includes(cevap)){
+                            //     return;
+                            // }
                             
                             dispatch(isReadDialogAlertActions.changePartNo(cevap))
                             dispatch(isReadDialogAlertActions.changeSubKey(Language.subKey))
@@ -889,15 +895,18 @@ const Question = ({ toggle }) => {
 
 
                             {alindi && <IsReadItem bgColor={isRead} onClick={()=>{
-                                    setActiveHatimSubKey(Language.subKey);
-                                    dispatch(isReadDialogAlertActions.changeIsRead(isRead))
-                                    if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
-                                    let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
-                                    if(localStorageCuzObj[Language.subKey] == null)
-                                        localStorageCuzObj[Language.subKey] = [];
-                                    if(!localStorageCuzObj[Language.subKey].includes(cevap)){
+                                    if(isRead){
                                         return;
                                     }
+                                    setActiveHatimSubKey(Language.subKey);
+                                    dispatch(isReadDialogAlertActions.changeIsRead(isRead))
+                                    // if(localStorage.getItem("cuz") == null) initializeLocalStorage("cuz");
+                                    // let localStorageCuzObj = JSON.parse(localStorage.getItem("cuz"));
+                                    // if(localStorageCuzObj[Language.subKey] == null)
+                                    //     localStorageCuzObj[Language.subKey] = [];
+                                    // if(!localStorageCuzObj[Language.subKey].includes(cevap)){
+                                    //     return;
+                                    // }
                                     
                                     dispatch(isReadDialogAlertActions.changePartNo(cevap))
                                     dispatch(isReadDialogAlertActions.changeSubKey(Language.subKey))
