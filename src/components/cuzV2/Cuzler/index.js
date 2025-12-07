@@ -177,6 +177,12 @@ const Question = ({ toggle }) => {
                 result = await database.hatimGetir();
             }
 
+            if(result.delete != undefined){
+                setLoadingVisibility(true)
+                setWaitText(LanguageData["/cuz"].Before.Deleted)
+                return;
+            }
+
             let makeNewHatimStateTemp = result.makeNewHatim;
 
             if(makeNewHatimStateTemp != undefined){
