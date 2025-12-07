@@ -187,10 +187,10 @@ const getMonths3Date = () => {
   }
 
   if (data.double) {
-    if (new Date () < new Date (data.startingDate2)) {
-      data.chosen = 1;
-    } else {
+    if (new Date () > new Date (data.startingDate1)) {
       data.chosen = 2;
+    } else {
+      data.chosen = 1;
     }
     return data;
   } else {
