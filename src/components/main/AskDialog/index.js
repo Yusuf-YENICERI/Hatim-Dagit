@@ -128,30 +128,56 @@ const AskDialog = ({
 
       </DialogContainer>
 
-      <NavBtnLink
-        onClick={async () => {
-          setAskDialogBox (false);
-          propHideDialogBox.setHideDialogBox (true);
-          let _hatimKey = await firebase.yeniHatim (
-            hatimKonu,
-            hatimBitisTarihi,
-            false,
-            isRamazan,
-            hatimDescription,
-            makeNewHatim,
-            hatimCount
-          );
-          setHatimKey (_hatimKey);
-          const route = isRamazan ? 'ramazan' : 'cuz';
-          setYazilar ({
-            baslik: Language['/'].Button.Final.After.Header,
-            link: `https://hatimdagit.com/${route}/` + _hatimKey,
-            cevap: Language['/'].Button.Final.After.Button,
-          });
-        }}
-      >
-        {Language['/'].Button.Header.Button}
-      </NavBtnLink>
+<div
+  onClick={async () => {
+    setAskDialogBox (false);
+    propHideDialogBox.setHideDialogBox (true);
+    let _hatimKey = await firebase.yeniHatim (
+      hatimKonu,
+      hatimBitisTarihi,
+      false,
+      isRamazan,
+      hatimDescription,
+      makeNewHatim,
+      hatimCount
+    );
+    setHatimKey (_hatimKey);
+    const route = isRamazan ? 'ramazan' : 'cuz';
+    setYazilar ({
+      baslik: Language['/'].Button.Final.After.Header,
+      link: `https://hatimdagit.com/${route}/` + _hatimKey,
+      cevap: Language['/'].Button.Final.After.Button,
+    });
+  }}
+  style={{
+    borderRadius: '50px',
+    background: '#FFBF17',
+    whiteSpace: 'nowrap',
+    padding: '10px 22px',
+    color: '#000',
+    fontSize: '13px',
+    outline: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'all 0.2s ease-in-out',
+    textDecoration: 'none',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '20px',
+    userSelect: 'none'
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = '#fff';
+    e.currentTarget.style.color = '#010606';
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = '#FFBF17';
+    e.currentTarget.style.color = '#000';
+  }}
+>
+  {Language['/'].Button.Header.Button}
+</div>
 
     </DialogBox>
   );

@@ -18,7 +18,7 @@
         startingDate1:"2025-01-01",
         startingDate2:"2025-12-21",
         monthDays1 : [30, 29, 29],
-        monthDays2 : [30, 30, 29],
+        monthDays2 : [30, 30, 30],
     },
     2026: {
         startingDate:"2026-12-10",

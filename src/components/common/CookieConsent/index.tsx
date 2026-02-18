@@ -27,6 +27,7 @@ export function CookiesBanner() {
         <Text  >
           Çerez Bildirimi
         </Text>
+        { /*@ts-ignore*/ }
         <CloseButton mr={-9} mt={-9} onClick={() => setCookieVisibility(false)} />
       </Group>
       <Text  >

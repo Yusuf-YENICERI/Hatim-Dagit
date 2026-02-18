@@ -15,7 +15,7 @@ import backButton from '../../../icons/button.svg';
 import Database, {DatabaseContext} from '../../../backend';
 import copy from '../../../icons/copy.svg';
 import close from '../../../icons/close.svg';
-import { NavBtnLink } from '../../common/Navbar/NavbarElements';
+// import { NavBtnLink } from '../../common/Navbar/NavbarElements';
 import AskDialog from '../AskDialog';
 import YearlyKhatmDialog from  './YearlyKhatmDialog';
 import Months3Dialog from '../Months3Dialog';
@@ -87,11 +87,11 @@ const Question = ({ firebase, toggle }) => {
         if(localStorageCuzKeylerBaslikArr == null || localStorageCuzKeylerBaslikArr.length == 0) return;
         setMevcutHatimlerBaslik(localStorageCuzKeylerBaslikArr)
 
-
+        console.log("YAZILAR DEĞİŞTİ:", yazilar);
         return () => {
             // window.removeEventListener('resize', handleWindowSizeChange);
         }
-    }, []);
+    }, [yazilar]);
 
 // let isMobile = (width <= 768);
 
@@ -130,20 +130,46 @@ const Question = ({ firebase, toggle }) => {
 
 
                 <DialogIcon src={copy} iconSize={"30px"} onClick={()=>{
-                   const route = ramazan ? "ramazan" : "cuz"
-                   var text = `https://hatimdagit.com/${route}/` + hatimKey;
-                   navigator.clipboard.writeText(text).then(function() {
-                        setLinkKopyala(Language["/"].Button.Final.After.Copy)
-                   }, function(err) {
-                   
-                });
+                    const route = ramazan ? "ramazan" : "cuz";
+                    // window.location.origin kullanarak dinamik URL alıyoruz
+                    const text = `${window.location.origin}/${route}/${hatimKey}`;
+                    
+                    const textArea = document.createElement("textarea");
+                    textArea.value = text;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        setLinkKopyala(Language["/"].Button.Final.After.Copy);
+                    } catch (err) {
+                        console.error("Kopyalama başarısız", err);
+                    }
+                    textArea.remove();
                 }}>
 
                 </DialogIcon>
                 </DialogContainer>
 
-            <NavBtnLink to={yazilar.link.replace("https://hatimdagit.com", "")}>{yazilar.cevap}</NavBtnLink>
-
+            {/* <NavBtnLink to={yazilar.link.replace("https://hatimdagit.com", "")}>{yazilar.cevap}</NavBtnLink> */}
+            <div 
+                onClick={() => {
+                    const targetPath = yazilar.link.replace("https://hatimdagit.com", "");
+                    window.location.href = targetPath; // Router yerine direkt tarayıcı yönlendirmesi
+                }}
+                style={{
+                    borderRadius: '50px',
+                    background: '#FFBF17',
+                    padding: '10px 22px',
+                    color: '#000',
+                    cursor: 'pointer',
+                    textAlign: 'center',
+                    fontWeight: 'bold',
+                    marginTop: '10px',
+                    textDecoration: 'none'
+                }}
+            >
+                {yazilar.cevap}
+            </div>
             </DialogBox>
             
             <AskDialog firebase={firebase} setHatimKey={setHatimKey} setYazilar={setYazilar}

@@ -98,7 +98,7 @@ export const Ramazan = () => {
 
     startingDate = new Date(dateData[`startingDate${fillString}`]);
     startingDate.setDate(startingDate.getDate() + recepDays + sabanDays);
-    ramazanDate = new Date(startingDate.getTime());
+    ramazanDate = new Date('2026-02-18');
 
     data = data.map(ramazanDay => {
         ramazanDay.job = ramazanDate.toLocaleDateString();

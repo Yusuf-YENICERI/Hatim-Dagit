@@ -20,7 +20,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": true,
-    "useUnknownInCatchVariables": true,
+    // "useUnknownInCatchVariables": true,
+    "typeRoots": ["node_modules/@types"]
   },
   "include": [
     "src"

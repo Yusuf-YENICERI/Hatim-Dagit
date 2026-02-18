@@ -47,6 +47,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Righteous&Dela+Gothic+One&display=swap" rel="stylesheet"> 
     <title>Hatim Dağıt</title>
+    <script>
+      if (typeof process === 'undefined') {
+        window.process = { env: { NODE_ENV: 'development' } };
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
