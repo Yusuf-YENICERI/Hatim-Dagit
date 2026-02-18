@@ -170,7 +170,7 @@ export default function UcAylarHerGun1CuzTable({ cizelgeRef, toggleCizelge, cize
   
     startingDate = new Date(dateData[`startingDate${fillString}`]);
     startingDate.setDate(startingDate.getDate() + recepDays + sabanDays);
-    ramazanDate = new Date(startingDate.getTime());
+    ramazanDate = new Date(startingDate.getTime()- 24 * 60 * 60 * 1000);
   
     
   
