@@ -168,7 +168,7 @@ const getCurrentIndexV3 = hatims => {
 };
 
 const getMonths3Date = () => {
-  let data = dataMonths3[new Date ().getFullYear ()];
+  let data = dataMonths3[2025];
 
   if (data.double) {
     let endOfYear = new Date (data.startingDate2);
